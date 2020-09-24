@@ -1,0 +1,19 @@
+#!/bin/bash
+#******************************************#
+#     File Name: startPCAS_FreqMonitor.sh
+#        Author: Masayuki Nakano
+# Last Modified: 2019/08/01 17:18:01
+#******************************************#
+
+
+ARM=$1
+DEMON=$2
+echo ${DEMON}
+export SSH_ASKPASS=/usr/lib/seahorse/seahorse-ssh-askpass
+if "${DEMON}" = "PCAS"; then
+    setsid ssh -o NumberOfPasswordPrompts=1 -XY k1script python /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/keysight/freqmonitor_${ARM^}PLL.py || zenity --error --text "login error"
+
+else
+    setsid ssh -o NumberOfPasswordPrompts=1 -XY k1script python /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/keysight/pcas_${ARM,}pll.py || zenity --error --text "login error"
+fi
+

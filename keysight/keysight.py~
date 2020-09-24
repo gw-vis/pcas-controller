@@ -1,0 +1,30 @@
+#
+#
+
+
+
+class e8663d(object):
+    def __init__(self,ipaddr,port):
+        self.ipaddr = ipaddr
+        self.port = port
+        print(ipaddr,port)        
+
+    def frequency(self):
+        return frequency(self)
+
+    
+class frequency(object):
+    def __init__(self,cls):
+        print(cls.port)
+        pass
+
+    @classmethod
+    def fixd(cls,val,unit,up=True):
+        print(val,unit,up)
+
+
+if __name__ == '__main__':
+    siggen_x = e8663d('10.68.150.65',5025)
+    freq_x = siggen_x.frequency()
+    freq_x.fixd(10,'Hz',up=True)
+    
