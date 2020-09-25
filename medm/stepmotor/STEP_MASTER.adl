@@ -1,0 +1,979 @@
+
+file {
+	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/STEP_MASTER.adl"
+	version=030107
+}
+display {
+	object {
+		x=248
+		y=618
+		width=664
+		height=348
+	}
+	clr=14
+	bclr=13
+	cmap=""
+	gridSpacing=5
+	gridOn=0
+	snapToGrid=0
+}
+"color map" {
+	ncolors=65
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		effbfb,
+		e0f8f7,
+		cef6f5,
+		a9f5f2,
+		81f7f3,
+		58faf4,
+		2ef2f7,
+		00ffff,
+		01dfd7,
+		04b4ae,
+		088a85,
+		0b615e,
+		0b3b39,
+		0a2a29,
+		071918,
+		fbf8ef,
+		f7f2e0,
+		f5ecce,
+		f3e2a9,
+		f5da81,
+		f7d358,
+		facc2e,
+		ffbf00,
+		dba901,
+		b18904,
+		886a08,
+		5f4c0b,
+		3a2f0b,
+		29220a,
+		181407,
+		fbefef,
+		f8e0e0,
+		f6cece,
+		f5a9a9,
+		f78181,
+		fa5858,
+		fe2e2e,
+		ff0000,
+		df0101,
+		b40404,
+		8a0808,
+		610b0b,
+		3b0b0b,
+		2a0a0a,
+		190707,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
+	}
+}
+"related display" {
+	object {
+		x=1049
+		y=780
+		width=462
+		height=66
+	}
+	display[0] {
+		label="BF Moving Mass A"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX,DOF=1"
+	}
+	display[1] {
+		label="BF Moving Mass B"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX,DOF=2"
+	}
+	display[2] {
+		label="Payload Yaw"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX,DOF=3"
+	}
+	display[3] {
+		label="4"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX,DOF=4"
+	}
+	clr=14
+	bclr=55
+	label="ETMX"
+}
+"related display" {
+	object {
+		x=22
+		y=44
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0:PR3 BF"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR0_GAS,DOF=0"
+	}
+	display[1] {
+		label="1:PR3 SF"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR0_GAS,DOF=1"
+	}
+	display[2] {
+		label="2:PRM BF"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR0_GAS,DOF=2"
+	}
+	display[3] {
+		label="3:PRM SF"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR0_GAS,DOF=3"
+	}
+	display[4] {
+		label="4:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR0_GAS,DOF=4"
+	}
+	display[5] {
+		label="5:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR0_GAS,DOF=5"
+	}
+	clr=60
+	bclr=14
+	label="PR0_GAS"
+}
+"related display" {
+	object {
+		x=22
+		y=78
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0:PR2 BF"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=0"
+	}
+	display[1] {
+		label="1:<blank>"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=1"
+	}
+	display[2] {
+		label="2:PR2 SF"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=2"
+	}
+	display[3] {
+		label="3:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=3"
+	}
+	display[4] {
+		label="4:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=4"
+	}
+	display[5] {
+		label="5:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=5"
+	}
+	clr=61
+	bclr=14
+	label="PR2_GAS"
+}
+"related display" {
+	object {
+		x=142
+		y=45
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0:BF"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_GAS,DOF=0"
+	}
+	display[1] {
+		label="1:F1"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_GAS,DOF=1"
+	}
+	display[2] {
+		label="2:(NOT USED)"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_GAS,DOF=2"
+	}
+	display[3] {
+		label="3:F0"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_GAS,DOF=3"
+	}
+	display[4] {
+		label="4:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_GAS,DOF=4"
+	}
+	display[5] {
+		label="5:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_GAS,DOF=5"
+	}
+	clr=60
+	bclr=14
+	label="BS_GAS"
+}
+"related display" {
+	object {
+		x=142
+		y=79
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0:"
+		name="CUST_IP_BS.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=0"
+	}
+	display[1] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=1"
+	}
+	display[2] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=2"
+	}
+	display[3] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=3"
+	}
+	display[4] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=4"
+	}
+	display[5] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=5"
+	}
+	clr=61
+	bclr=14
+	label="BS_IP"
+}
+"related display" {
+	object {
+		x=142
+		y=114
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0:BF"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_GAS,DOF=0"
+	}
+	display[1] {
+		label="1:F1"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_GAS,DOF=1"
+	}
+	display[2] {
+		label="2:F0"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_GAS,DOF=2"
+	}
+	display[3] {
+		label="3:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_GAS,DOF=3"
+	}
+	display[4] {
+		label="4:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_GAS,DOF=4"
+	}
+	display[5] {
+		label="5:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_GAS,DOF=5"
+	}
+	clr=60
+	bclr=14
+	label="SR2_GAS"
+}
+"related display" {
+	object {
+		x=142
+		y=148
+		width=100
+		height=30
+	}
+	display[0] {
+		name="CUST_IP_SR.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=0"
+	}
+	display[1] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=1"
+	}
+	display[2] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=2"
+	}
+	display[3] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=3"
+	}
+	display[4] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=4"
+	}
+	display[5] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=5"
+	}
+	clr=61
+	bclr=14
+	label="SR2_IP"
+}
+"related display" {
+	object {
+		x=414
+		y=44
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0:F0 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_GAS,DOF=0"
+	}
+	display[1] {
+		label="1:F1 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_GAS,DOF=1"
+	}
+	display[2] {
+		label="2:--"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_GAS,DOF=2"
+	}
+	display[3] {
+		label="3:F3 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_GAS,DOF=3"
+	}
+	display[4] {
+		label="4:BF GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_GAS,DOF=4"
+	}
+	display[5] {
+		label="5:F2 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_GAS,DOF=5"
+	}
+	clr=60
+	bclr=14
+	label="ETMX_GAS"
+}
+"related display" {
+	object {
+		x=414
+		y=78
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0:"
+		name="CUST_IP_TM.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=0"
+	}
+	display[1] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=1"
+	}
+	display[2] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=2"
+	}
+	display[3] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=3"
+	}
+	display[4] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=4"
+	}
+	display[5] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=5"
+	}
+	clr=61
+	bclr=14
+	label="ETMX_IP"
+}
+"related display" {
+	object {
+		x=414
+		y=113
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0:F0 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_GAS,DOF=0"
+	}
+	display[1] {
+		label="1:F1 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_GAS,DOF=1"
+	}
+	display[2] {
+		label="2:F2 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_GAS,DOF=2"
+	}
+	display[3] {
+		label="3:--"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_GAS,DOF=3"
+	}
+	display[4] {
+		label="4:BF GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_GAS,DOF=4"
+	}
+	display[5] {
+		label="5:F3 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_GAS,DOF=5"
+	}
+	clr=60
+	bclr=14
+	label="ETMY_GAS"
+}
+"related display" {
+	object {
+		x=414
+		y=147
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0"
+		name="CUST_IP_TM.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=0"
+	}
+	display[1] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=1"
+	}
+	display[2] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=2"
+	}
+	display[3] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=3"
+	}
+	display[4] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=4"
+	}
+	display[5] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=5"
+	}
+	clr=61
+	bclr=14
+	label="ETMY_IP"
+}
+"related display" {
+	object {
+		x=269
+		y=45
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0:BF"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_GAS,DOF=0"
+	}
+	display[1] {
+		label="1:F1"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_GAS,DOF=1"
+	}
+	display[2] {
+		label="2:F0"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_GAS,DOF=2"
+	}
+	display[3] {
+		label="3:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_GAS,DOF=3"
+	}
+	display[4] {
+		label="4:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_GAS,DOF=4"
+	}
+	display[5] {
+		label="5:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_GAS,DOF=5"
+	}
+	clr=60
+	bclr=14
+	label="SR3_GAS"
+}
+"related display" {
+	object {
+		x=269
+		y=79
+		width=100
+		height=30
+	}
+	display[0] {
+		name="CUST_IP_SR.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_IP,DOF=0"
+	}
+	display[1] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=1"
+	}
+	display[2] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=2"
+	}
+	display[3] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=3"
+	}
+	display[4] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=4"
+	}
+	display[5] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=5"
+	}
+	clr=61
+	bclr=14
+	label="SR3_IP"
+}
+"related display" {
+	object {
+		x=269
+		y=116
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0:BF"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=0"
+	}
+	display[1] {
+		label="1:F1"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=1"
+	}
+	display[2] {
+		label="2:(NOT USED)"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=2"
+	}
+	display[3] {
+		label="3:F0"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=3"
+	}
+	display[4] {
+		label="4:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=4"
+	}
+	display[5] {
+		label="5:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=5"
+	}
+	clr=60
+	bclr=14
+	label="SRM_GAS"
+}
+"related display" {
+	object {
+		x=269
+		y=150
+		width=100
+		height=30
+	}
+	display[0] {
+		name="CUST_IP_SR.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_IP,DOF=0"
+	}
+	display[1] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=1"
+	}
+	display[2] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=2"
+	}
+	display[3] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=3"
+	}
+	display[4] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=4"
+	}
+	display[5] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=5"
+	}
+	clr=61
+	bclr=14
+	label="SRM_IP"
+}
+"related display" {
+	object {
+		x=526
+		y=45
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0: F0 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_GAS,DOF=0"
+	}
+	display[1] {
+		label="1: F1 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_GAS,DOF=1"
+	}
+	display[2] {
+		label="2: F2 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_GAS,DOF=2"
+	}
+	display[3] {
+		label="3: --"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_GAS,DOF=3"
+	}
+	display[4] {
+		label="4: BF GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_GAS,DOF=4"
+	}
+	display[5] {
+		label="5: F3 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_GAS,DOF=5"
+	}
+	clr=60
+	bclr=14
+	label="ITMX_GAS"
+}
+"related display" {
+	object {
+		x=526
+		y=79
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0:"
+		name="CUST_IP_TM.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_IP,DOF=0"
+	}
+	display[1] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=1"
+	}
+	display[2] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=2"
+	}
+	display[3] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=3"
+	}
+	display[4] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=4"
+	}
+	display[5] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=5"
+	}
+	clr=61
+	bclr=14
+	label="ITMX_IP"
+}
+"related display" {
+	object {
+		x=526
+		y=114
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0: F0 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_GAS,DOF=0"
+	}
+	display[1] {
+		label="1: F1 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_GAS,DOF=1"
+	}
+	display[2] {
+		label="2: F2 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_GAS,DOF=2"
+	}
+	display[3] {
+		label="3: F3 GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_GAS,DOF=3"
+	}
+	display[4] {
+		label="4: BF GAS"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_GAS,DOF=4"
+	}
+	display[5] {
+		label="5:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_GAS,DOF=5"
+	}
+	clr=60
+	bclr=14
+	label="ITMY_GAS"
+}
+"related display" {
+	object {
+		x=526
+		y=148
+		width=100
+		height=30
+	}
+	display[0] {
+		label="0"
+		name="CUST_IP_TM.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=0"
+	}
+	display[1] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=1"
+	}
+	display[2] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=2"
+	}
+	display[3] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=3"
+	}
+	display[4] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=4"
+	}
+	display[5] {
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=5"
+	}
+	clr=61
+	bclr=14
+	label="ITMY_IP"
+}
+text {
+	object {
+		x=25
+		y=205
+		width=103
+		height=18
+	}
+	"basic attribute" {
+		clr=60
+	}
+	textix="Auto Offload"
+}
+"shell command" {
+	object {
+		x=106
+		y=205
+		width=86
+		height=17
+	}
+	command[0] {
+		label="README"
+		name="gedit"
+		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/readme.txt"
+	}
+	clr=50
+	bclr=13
+	label="README"
+}
+"shell command" {
+	object {
+		x=48
+		y=227
+		width=71
+		height=22
+	}
+	command[0] {
+		label="Auto Offload"
+		name="python"
+		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py PRM"
+	}
+	clr=20
+	bclr=13
+	label="PRM GAS"
+}
+"shell command" {
+	object {
+		x=48
+		y=252
+		width=71
+		height=22
+	}
+	command[0] {
+		label="Auto Offload"
+		name="python"
+		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py PR2"
+	}
+	clr=20
+	bclr=13
+	label="PR2 GAS"
+}
+"shell command" {
+	object {
+		x=48
+		y=277
+		width=71
+		height=22
+	}
+	command[0] {
+		label="Auto Offload"
+		name="python"
+		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py PR3"
+	}
+	clr=20
+	bclr=13
+	label="PR3 GAS"
+}
+"shell command" {
+	object {
+		x=147
+		y=227
+		width=71
+		height=22
+	}
+	command[0] {
+		label="Auto Offload"
+		name="python"
+		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py SRM"
+	}
+	clr=20
+	bclr=13
+	label="SRM GAS"
+}
+"shell command" {
+	object {
+		x=147
+		y=252
+		width=71
+		height=22
+	}
+	command[0] {
+		label="Auto Offload"
+		name="python"
+		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py SR2"
+	}
+	clr=20
+	bclr=13
+	label="SR2 GAS"
+}
+"shell command" {
+	object {
+		x=147
+		y=276
+		width=71
+		height=23
+	}
+	command[0] {
+		label="Auto Offload"
+		name="python"
+		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py SR3"
+	}
+	clr=20
+	bclr=13
+	label="SR3 GAS"
+}
+"shell command" {
+	object {
+		x=250
+		y=227
+		width=71
+		height=22
+	}
+	command[0] {
+		label="Auto Offload"
+		name="python"
+		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py ETMX"
+	}
+	clr=20
+	bclr=13
+	label="ETMX GAS"
+}
+"shell command" {
+	object {
+		x=250
+		y=252
+		width=71
+		height=22
+	}
+	command[0] {
+		label="Auto Offload"
+		name="python"
+		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py ETMY"
+	}
+	clr=20
+	bclr=13
+	label="ETMY GAS"
+}
+"shell command" {
+	object {
+		x=350
+		y=227
+		width=71
+		height=22
+	}
+	command[0] {
+		label="Auto Offload"
+		name="python"
+		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py ITMX"
+	}
+	clr=20
+	bclr=13
+	label="ITMX GAS"
+}
+"shell command" {
+	object {
+		x=350
+		y=252
+		width=71
+		height=22
+	}
+	command[0] {
+		label="Auto Offload"
+		name="python"
+		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py ITMY"
+	}
+	clr=20
+	bclr=13
+	label="ITMY GAS"
+}
+"shell command" {
+	object {
+		x=147
+		y=300
+		width=71
+		height=22
+	}
+	command[0] {
+		label="Auto Offload"
+		name="python"
+		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py BS"
+	}
+	clr=20
+	bclr=13
+	label="BS GAS"
+}
