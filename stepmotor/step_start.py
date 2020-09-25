@@ -26,7 +26,7 @@ driverDict = {
     "SR3_IP"    :"10.68.150.56",
     "SRM_GAS"   :"10.68.150.57",
     "SRM_IP"    :"10.68.150.58",
-# Test ikeda.
+    # for Testing.
     "TEST_TEST" :"10.68.150.63"
 }
 
@@ -49,9 +49,10 @@ def main():
 
     #print "Exterminate !!!!!"
     #exit()
-# Test ikeda. 
+
 #    os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor')
-    os.chdir('/users/ikeda/userapps/common/scripts/epics-motor-control/stepmotor')
+    print(os.path.dirname(os.path.abspath(__file__)))
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     print 'python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]])
     os.system('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]) )
 

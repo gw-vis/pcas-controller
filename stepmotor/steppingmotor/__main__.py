@@ -22,9 +22,6 @@ if part == 'GAS':
 elif part == 'IP':
     stepserver = pcasip.PcasServer(prefix,driver)
     print 'IP server started'
-elif part == 'TEST':
-    stepserver = pcasstep.PcasServer(prefix,driver)
-    print 'TEST server started'
 
 try:
     stepserver.run()
