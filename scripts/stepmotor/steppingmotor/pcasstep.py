@@ -394,6 +394,11 @@ class PcasDriver(pcaspy.Driver):
             with open(self.logfile,'a') as f:
                  f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' position updated as '+str(pos)+'\n')
 
+            value = self.driver.getRightLimitSwitch(motorAddr)
+            self.setParam(direction+"_RSWITCH",value)
+            value = self.driver.getLeftLimitSwitch(motorAddr)
+            self.setParam(direction+"_LSWITCH",value)
+            
         if name == "ACC":
             acc = self.getParam(direction+"_ACC")
             self.driver.setAcceleration(acc, motorAddr)

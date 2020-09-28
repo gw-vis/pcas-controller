@@ -86,8 +86,41 @@ channel = {
                 "signB"    : 1,
                 "signC"    : 1,
                 "signY"    : 1
+                },
+        # for TEST.
+        "TESTBS_IP":{
+                "config"  : 'BS',
+                "motorA"  : 0,
+                "motorB"  : 1,
+                "motorC"  : 2,
+                "motorY"  : 3,
+                "signA"    : 1,
+                "signB"    : 1,
+                "signC"    : 1,
+                "signY"    : 1
+                },
+        "TESTSR_IP":{
+                "config"  : 'SR',
+                "motorA"  : 0,
+                "motorB"  : 1,
+                "motorC"  : 2,
+                "motorY"  : 3,
+                "signA"    : 1,
+                "signB"    : 1,
+                "signC"    : 1,
+                "signY"    : 1
+                },
+        "TESTTM_IP":{
+                "config"  : 'TM',
+                "motorA"  : 1,
+                "motorB"  : 2,
+                "motorC"  : 3,
+                "motorY"  : 0,
+                "signA"    : 1,
+                "signB"    : 1,
+                "signC"    : 1,
+                "signY"    : 1
                 }
-                
 }
       
 

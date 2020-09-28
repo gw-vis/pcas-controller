@@ -454,3 +454,256 @@ text {
 	limits {
 	}
 }
+composite {
+	object {
+		x=195
+		y=22
+		width=21
+		height=108
+	}
+	"composite name"=""
+	children {
+		rectangle {
+			object {
+				x=198
+				y=38
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=60
+			}
+		}
+		rectangle {
+			object {
+				x=208
+				y=38
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=60
+			}
+		}
+		rectangle {
+			object {
+				x=208
+				y=38
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=54
+			}
+			"dynamic attribute" {
+				vis="if not zero"
+				calc="A"
+				chan="$(IFO):STEPPER-$(STEPID)_A_RSWITCH"
+			}
+		}
+		rectangle {
+			object {
+				x=198
+				y=38
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=54
+			}
+			"dynamic attribute" {
+				vis="if not zero"
+				calc="A"
+				chan="$(IFO):STEPPER-$(STEPID)_A_LSWITCH"
+			}
+		}
+		text {
+			object {
+				x=195
+				y=22
+				width=16
+				height=18
+			}
+			"basic attribute" {
+				clr=19
+			}
+			textix="L"
+			align="horiz. centered"
+		}
+		text {
+			object {
+				x=208
+				y=22
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=19
+			}
+			textix="R"
+			align="horiz. centered"
+		}
+		rectangle {
+			object {
+				x=198
+				y=63
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=60
+			}
+		}
+		rectangle {
+			object {
+				x=208
+				y=63
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=60
+			}
+		}
+		rectangle {
+			object {
+				x=208
+				y=63
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=54
+			}
+			"dynamic attribute" {
+				vis="if not zero"
+				calc="A"
+				chan="$(IFO):STEPPER-$(STEPID)_B_RSWITCH"
+			}
+		}
+		rectangle {
+			object {
+				x=198
+				y=63
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=54
+			}
+			"dynamic attribute" {
+				vis="if not zero"
+				calc="A"
+				chan="$(IFO):STEPPER-$(STEPID)_B_LSWITCH"
+			}
+		}
+		rectangle {
+			object {
+				x=198
+				y=88
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=60
+			}
+		}
+		rectangle {
+			object {
+				x=208
+				y=88
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=60
+			}
+		}
+		rectangle {
+			object {
+				x=208
+				y=88
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=54
+			}
+			"dynamic attribute" {
+				vis="if not zero"
+				calc="A"
+				chan="$(IFO):STEPPER-$(STEPID)_C_RSWITCH"
+			}
+		}
+		rectangle {
+			object {
+				x=198
+				y=88
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=54
+			}
+			"dynamic attribute" {
+				vis="if not zero"
+				calc="A"
+				chan="$(IFO):STEPPER-$(STEPID)_C_LSWITCH"
+			}
+		}
+		rectangle {
+			object {
+				x=198
+				y=114
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=60
+			}
+		}
+		rectangle {
+			object {
+				x=208
+				y=114
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=60
+			}
+		}
+		rectangle {
+			object {
+				x=208
+				y=114
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=54
+			}
+			"dynamic attribute" {
+				vis="if not zero"
+				calc="A"
+				chan="$(IFO):STEPPER-$(STEPID)_F0Y_RSWITCH"
+			}
+		}
+		rectangle {
+			object {
+				x=198
+				y=114
+				width=8
+				height=16
+			}
+			"basic attribute" {
+				clr=54
+			}
+			"dynamic attribute" {
+				vis="if not zero"
+				calc="A"
+				chan="$(IFO):STEPPER-$(STEPID)_F0Y_LSWITCH"
+			}
+		}
+	}
+}
