@@ -1,4 +1,4 @@
-# epics-equipments-control
+# PCAS controller
 
 ## Information
 
