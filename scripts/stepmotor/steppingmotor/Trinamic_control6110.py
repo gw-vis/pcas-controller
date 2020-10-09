@@ -30,7 +30,7 @@ class Trinamic_control6110():
 
         self.position = 0
         self.speed = 0.0
-        # Changing the timeout due to slow network traffic.
+        # Changing the timeout due to slow process.
         # self.timeout = 2.
         self.timeout = 30.
         self.writeTimeout = 0.0
