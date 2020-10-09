@@ -1,14 +1,14 @@
 
 file {
-	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/CUST_IP_BS.adl"
-	version=030107
+	name="/users/ikeda/Git/pcas-controller/medm/stepmotor/CUST_IP_BS.adl"
+	version=030109
 }
 display {
 	object {
-		x=633
-		y=227
+		x=4488
+		y=445
 		width=410
-		height=323
+		height=400
 	}
 	clr=13
 	bclr=14
@@ -457,19 +457,173 @@ text {
 image {
 	object {
 		x=220
-		y=47
+		y=145
 		width=185
 		height=240
 	}
 	type="gif"
 	"image name"="IP_Type-BSmedm.gif"
 }
+text {
+	object {
+		x=222
+		y=20
+		width=60
+		height=16
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="MIN"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=286
+		y=20
+		width=60
+		height=16
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="MAX"
+	align="horiz. centered"
+}
+"text update" {
+	object {
+		x=221
+		y=36
+		width=60
+		height=20
+	}
+	monitor {
+		chan="$(IFO):STEPPER-BS_IP_A_LIMITPOSMIN"
+		clr=19
+		bclr=13
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=287
+		y=36
+		width=60
+		height=20
+	}
+	monitor {
+		chan="$(IFO):STEPPER-BS_IP_A_LIMITPOSMAX"
+		clr=19
+		bclr=13
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=221
+		y=62
+		width=60
+		height=20
+	}
+	monitor {
+		chan="$(IFO):STEPPER-BS_IP_B_LIMITPOSMIN"
+		clr=19
+		bclr=13
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=287
+		y=62
+		width=60
+		height=20
+	}
+	monitor {
+		chan="$(IFO):STEPPER-BS_IP_B_LIMITPOSMAX"
+		clr=19
+		bclr=13
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=221
+		y=87
+		width=60
+		height=20
+	}
+	monitor {
+		chan="$(IFO):STEPPER-BS_IP_C_LIMITPOSMIN"
+		clr=19
+		bclr=13
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=287
+		y=87
+		width=60
+		height=20
+	}
+	monitor {
+		chan="$(IFO):STEPPER-BS_IP_C_LIMITPOSMAX"
+		clr=19
+		bclr=13
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=221
+		y=112
+		width=60
+		height=20
+	}
+	monitor {
+		chan="$(IFO):STEPPER-BS_IP_F0Y_LIMITPOSMIN"
+		clr=19
+		bclr=13
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=287
+		y=112
+		width=60
+		height=20
+	}
+	monitor {
+		chan="$(IFO):STEPPER-BS_IP_F0Y_LIMITPOSMAX"
+		clr=19
+		bclr=13
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
 composite {
 	object {
 		x=198
-		y=22
+		y=20
 		width=21
-		height=108
+		height=110
 	}
 	"composite name"=""
 	children {
@@ -530,7 +684,7 @@ composite {
 		text {
 			object {
 				x=198
-				y=22
+				y=20
 				width=16
 				height=18
 			}
@@ -543,7 +697,7 @@ composite {
 		text {
 			object {
 				x=211
-				y=22
+				y=20
 				width=8
 				height=16
 			}
@@ -716,4 +870,44 @@ composite {
 			}
 		}
 	}
+}
+text {
+	object {
+		x=197
+		y=4
+		width=160
+		height=19
+	}
+	"basic attribute" {
+		clr=34
+	}
+	"dynamic attribute" {
+		vis="calc"
+		calc="(A=0)||(B=0)||(C=0)||(D=0)"
+		chan="$(IFO):STEPPER-$(STEPID)_A_LIMITPOSMAX"
+		chanB="$(IFO):STEPPER-$(STEPID)_A_LIMITPOSMIN"
+		chanC="$(IFO):STEPPER-$(STEPID)_B_LIMITPOSMAX"
+		chanD="$(IFO):STEPPER-$(STEPID)_B_LIMITPOSMIN"
+	}
+	textix="Limit Switch NOT installed."
+}
+text {
+	object {
+		x=197
+		y=4
+		width=160
+		height=19
+	}
+	"basic attribute" {
+		clr=34
+	}
+	"dynamic attribute" {
+		vis="calc"
+		calc="(A=0)||(B=0)||(C=0)||(D=0)"
+		chan="$(IFO):STEPPER-$(STEPID)_C_LIMITPOSMAX"
+		chanB="$(IFO):STEPPER-$(STEPID)_C_LIMITPOSMIN"
+		chanC="$(IFO):STEPPER-$(STEPID)_F0Y_LIMITPOSMAX"
+		chanD="$(IFO):STEPPER-$(STEPID)_F0Y_LIMITPOSMIN"
+	}
+	textix="Limit Switch NOT installed."
 }

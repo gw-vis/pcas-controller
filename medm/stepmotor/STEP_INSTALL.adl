@@ -1,14 +1,14 @@
 
 file {
-	name="/users/ikeda/Git/pcas-controller/medm/stepmotor/STEP_MASTER.adl"
+	name="/users/ikeda/Git/pcas-controller/medm/stepmotor/STEP_INSTALL.adl"
 	version=030109
 }
 display {
 	object {
-		x=4151
-		y=467
+		x=4857
+		y=464
 		width=664
-		height=348
+		height=593
 	}
 	clr=14
 	bclr=13
@@ -89,37 +89,6 @@ display {
 }
 "related display" {
 	object {
-		x=1049
-		y=780
-		width=462
-		height=66
-	}
-	display[0] {
-		label="BF Moving Mass A"
-		name="CUST_STEP.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX,DOF=1"
-	}
-	display[1] {
-		label="BF Moving Mass B"
-		name="CUST_STEP.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX,DOF=2"
-	}
-	display[2] {
-		label="Payload Yaw"
-		name="CUST_STEP.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX,DOF=3"
-	}
-	display[3] {
-		label="4"
-		name="CUST_STEP.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX,DOF=4"
-	}
-	clr=14
-	bclr=55
-	label="ETMX"
-}
-"related display" {
-	object {
 		x=22
 		y=44
 		width=100
@@ -127,32 +96,32 @@ display {
 	}
 	display[0] {
 		label="0:PR3 BF"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR0_GAS,DOF=0"
 	}
 	display[1] {
 		label="1:PR3 SF"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR0_GAS,DOF=1"
 	}
 	display[2] {
 		label="2:PRM BF"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR0_GAS,DOF=2"
 	}
 	display[3] {
 		label="3:PRM SF"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR0_GAS,DOF=3"
 	}
 	display[4] {
 		label="4:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR0_GAS,DOF=4"
 	}
 	display[5] {
 		label="5:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR0_GAS,DOF=5"
 	}
 	clr=60
@@ -168,32 +137,32 @@ display {
 	}
 	display[0] {
 		label="0:PR2 BF"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=0"
 	}
 	display[1] {
 		label="1:<blank>"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=1"
 	}
 	display[2] {
 		label="2:PR2 SF"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=2"
 	}
 	display[3] {
 		label="3:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=3"
 	}
 	display[4] {
 		label="4:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=4"
 	}
 	display[5] {
 		label="5:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=5"
 	}
 	clr=61
@@ -209,32 +178,32 @@ display {
 	}
 	display[0] {
 		label="0:BF"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_GAS,DOF=0"
 	}
 	display[1] {
 		label="1:F1"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_GAS,DOF=1"
 	}
 	display[2] {
 		label="2:(NOT USED)"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_GAS,DOF=2"
 	}
 	display[3] {
 		label="3:F0"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_GAS,DOF=3"
 	}
 	display[4] {
 		label="4:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_GAS,DOF=4"
 	}
 	display[5] {
 		label="5:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_GAS,DOF=5"
 	}
 	clr=60
@@ -249,18 +218,24 @@ display {
 		height=30
 	}
 	display[0] {
-		label="0:"
-		name="CUST_IP_BS.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=0"
+		label="0:motor A"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=A"
 	}
 	display[1] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=1"
+		label="1:motor B"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=B"
 	}
 	display[2] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=2"
+		label="2:motor C"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=C"
 	}
 	display[3] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=3"
+		label="3:motor F0Y"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=F0Y"
 	}
 	display[4] {
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=BS_IP,DOF=4"
@@ -281,32 +256,32 @@ display {
 	}
 	display[0] {
 		label="0:BF"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_GAS,DOF=0"
 	}
 	display[1] {
 		label="1:F1"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_GAS,DOF=1"
 	}
 	display[2] {
 		label="2:F0"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_GAS,DOF=2"
 	}
 	display[3] {
 		label="3:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_GAS,DOF=3"
 	}
 	display[4] {
 		label="4:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_GAS,DOF=4"
 	}
 	display[5] {
 		label="5:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_GAS,DOF=5"
 	}
 	clr=60
@@ -321,17 +296,24 @@ display {
 		height=30
 	}
 	display[0] {
-		name="CUST_IP_SR.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=0"
+		label="0:motor A"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=A"
 	}
 	display[1] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=1"
+		label="1:motor B"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=B"
 	}
 	display[2] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=2"
+		label="2:motor C"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=C"
 	}
 	display[3] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=3"
+		label="3:motor F0Y"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=F0Y"
 	}
 	display[4] {
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=4"
@@ -352,32 +334,32 @@ display {
 	}
 	display[0] {
 		label="0:F0 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_GAS,DOF=0"
 	}
 	display[1] {
 		label="1:F1 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_GAS,DOF=1"
 	}
 	display[2] {
 		label="2:--"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_GAS,DOF=2"
 	}
 	display[3] {
 		label="3:F3 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_GAS,DOF=3"
 	}
 	display[4] {
 		label="4:BF GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_GAS,DOF=4"
 	}
 	display[5] {
 		label="5:F2 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_GAS,DOF=5"
 	}
 	clr=60
@@ -392,18 +374,24 @@ display {
 		height=30
 	}
 	display[0] {
-		label="0:"
-		name="CUST_IP_TM.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=0"
+		label="0:motor A"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=A"
 	}
 	display[1] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=1"
+		label="1:motor B"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=B"
 	}
 	display[2] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=2"
+		label="2:motor C"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=C"
 	}
 	display[3] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=3"
+		label="3:motor F0Y"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=F0Y"
 	}
 	display[4] {
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=4"
@@ -424,32 +412,32 @@ display {
 	}
 	display[0] {
 		label="0:F0 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_GAS,DOF=0"
 	}
 	display[1] {
 		label="1:F1 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_GAS,DOF=1"
 	}
 	display[2] {
 		label="2:F2 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_GAS,DOF=2"
 	}
 	display[3] {
 		label="3:--"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_GAS,DOF=3"
 	}
 	display[4] {
 		label="4:BF GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_GAS,DOF=4"
 	}
 	display[5] {
 		label="5:F3 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_GAS,DOF=5"
 	}
 	clr=60
@@ -464,18 +452,24 @@ display {
 		height=30
 	}
 	display[0] {
-		label="0"
-		name="CUST_IP_TM.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=0"
+		label="0:motor A"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=A"
 	}
 	display[1] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=1"
+		label="1:motor B"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=B"
 	}
 	display[2] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=2"
+		label="2:motor C"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=C"
 	}
 	display[3] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=3"
+		label="3:motor F0Y"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=F0Y"
 	}
 	display[4] {
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMY_IP,DOF=4"
@@ -496,32 +490,32 @@ display {
 	}
 	display[0] {
 		label="0:BF"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_GAS,DOF=0"
 	}
 	display[1] {
 		label="1:F1"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_GAS,DOF=1"
 	}
 	display[2] {
 		label="2:F0"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_GAS,DOF=2"
 	}
 	display[3] {
 		label="3:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_GAS,DOF=3"
 	}
 	display[4] {
 		label="4:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_GAS,DOF=4"
 	}
 	display[5] {
 		label="5:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_GAS,DOF=5"
 	}
 	clr=60
@@ -536,17 +530,24 @@ display {
 		height=30
 	}
 	display[0] {
-		name="CUST_IP_SR.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_IP,DOF=0"
+		label="0:motor A"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR3_IP,DOF=A"
 	}
 	display[1] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=1"
+		label="1:motor B"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=B"
 	}
 	display[2] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=2"
+		label="2:motor C"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=C"
 	}
 	display[3] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=3"
+		label="30:motor F0Y"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=F0Y"
 	}
 	display[4] {
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=4"
@@ -567,32 +568,32 @@ display {
 	}
 	display[0] {
 		label="0:BF"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=0"
 	}
 	display[1] {
 		label="1:F1"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=1"
 	}
 	display[2] {
 		label="2:(NOT USED)"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=2"
 	}
 	display[3] {
 		label="3:F0"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=3"
 	}
 	display[4] {
 		label="4:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=4"
 	}
 	display[5] {
 		label="5:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=5"
 	}
 	clr=60
@@ -607,17 +608,24 @@ display {
 		height=30
 	}
 	display[0] {
-		name="CUST_IP_SR.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_IP,DOF=0"
+		label="0:motor A"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_IP,DOF=A"
 	}
 	display[1] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=1"
+		label="1:motor B"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=B"
 	}
 	display[2] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=2"
+		label="2:motor C"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=C"
 	}
 	display[3] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=3"
+		label="3:motor F0Y"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=F0Y"
 	}
 	display[4] {
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SR2_IP,DOF=4"
@@ -638,32 +646,32 @@ display {
 	}
 	display[0] {
 		label="0: F0 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_GAS,DOF=0"
 	}
 	display[1] {
 		label="1: F1 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_GAS,DOF=1"
 	}
 	display[2] {
 		label="2: F2 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_GAS,DOF=2"
 	}
 	display[3] {
 		label="3: --"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_GAS,DOF=3"
 	}
 	display[4] {
 		label="4: BF GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_GAS,DOF=4"
 	}
 	display[5] {
 		label="5: F3 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_GAS,DOF=5"
 	}
 	clr=60
@@ -678,18 +686,24 @@ display {
 		height=30
 	}
 	display[0] {
-		label="0:"
-		name="CUST_IP_TM.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_IP,DOF=0"
+		label="0:motor A"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMX_IP,DOF=A"
 	}
 	display[1] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=1"
+		label="1:motor B"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=B"
 	}
 	display[2] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=2"
+		label="2:motor C"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=C"
 	}
 	display[3] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=3"
+		label="3:motor F0Y"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=F0Y"
 	}
 	display[4] {
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ETMX_IP,DOF=4"
@@ -710,32 +724,32 @@ display {
 	}
 	display[0] {
 		label="0: F0 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_GAS,DOF=0"
 	}
 	display[1] {
 		label="1: F1 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_GAS,DOF=1"
 	}
 	display[2] {
 		label="2: F2 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_GAS,DOF=2"
 	}
 	display[3] {
 		label="3: F3 GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_GAS,DOF=3"
 	}
 	display[4] {
 		label="4: BF GAS"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_GAS,DOF=4"
 	}
 	display[5] {
 		label="5:"
-		name="CUST_STEP.adl"
+		name="CUST_INSTALL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_GAS,DOF=5"
 	}
 	clr=60
@@ -750,18 +764,24 @@ display {
 		height=30
 	}
 	display[0] {
-		label="0"
-		name="CUST_IP_TM.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=0"
+		label="0:motor A"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=A"
 	}
 	display[1] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=1"
+		label="1:motor B"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=B"
 	}
 	display[2] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=2"
+		label="2:motor C"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=C"
 	}
 	display[3] {
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=3"
+		label="3:motor F0Y"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=F0Y"
 	}
 	display[4] {
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=ITMY_IP,DOF=4"
@@ -775,221 +795,144 @@ display {
 }
 text {
 	object {
-		x=25
-		y=205
-		width=103
-		height=18
+		x=56
+		y=222
+		width=0
+		height=40
 	}
 	"basic attribute" {
-		clr=60
+		clr=14
 	}
-	textix="Auto Offload"
 }
-"shell command" {
+rectangle {
 	object {
-		x=106
-		y=205
-		width=86
-		height=17
+		x=40
+		y=187
+		width=564
+		height=80
 	}
-	command[0] {
-		label="README"
-		name="gedit"
-		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/readme.txt"
+	"basic attribute" {
+		clr=14
 	}
-	clr=50
-	bclr=13
-	label="README"
 }
-"shell command" {
+text {
 	object {
-		x=48
-		y=227
-		width=71
-		height=22
-	}
-	command[0] {
-		label="Auto Offload"
-		name="python"
-		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py PRM"
-	}
-	clr=20
-	bclr=13
-	label="PRM GAS"
-}
-"shell command" {
-	object {
-		x=48
-		y=252
-		width=71
-		height=22
-	}
-	command[0] {
-		label="Auto Offload"
-		name="python"
-		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py PR2"
-	}
-	clr=20
-	bclr=13
-	label="PR2 GAS"
-}
-"shell command" {
-	object {
-		x=48
-		y=277
-		width=71
-		height=22
-	}
-	command[0] {
-		label="Auto Offload"
-		name="python"
-		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py PR3"
-	}
-	clr=20
-	bclr=13
-	label="PR3 GAS"
-}
-"shell command" {
-	object {
-		x=147
-		y=227
-		width=71
-		height=22
-	}
-	command[0] {
-		label="Auto Offload"
-		name="python"
-		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py SRM"
-	}
-	clr=20
-	bclr=13
-	label="SRM GAS"
-}
-"shell command" {
-	object {
-		x=147
-		y=252
-		width=71
-		height=22
-	}
-	command[0] {
-		label="Auto Offload"
-		name="python"
-		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py SR2"
-	}
-	clr=20
-	bclr=13
-	label="SR2 GAS"
-}
-"shell command" {
-	object {
-		x=147
-		y=276
-		width=71
-		height=23
-	}
-	command[0] {
-		label="Auto Offload"
-		name="python"
-		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py SR3"
-	}
-	clr=20
-	bclr=13
-	label="SR3 GAS"
-}
-"shell command" {
-	object {
-		x=250
-		y=227
-		width=71
-		height=22
-	}
-	command[0] {
-		label="Auto Offload"
-		name="python"
-		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py ETMX"
-	}
-	clr=20
-	bclr=13
-	label="ETMX GAS"
-}
-"shell command" {
-	object {
-		x=250
-		y=252
-		width=71
-		height=22
-	}
-	command[0] {
-		label="Auto Offload"
-		name="python"
-		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py ETMY"
-	}
-	clr=20
-	bclr=13
-	label="ETMY GAS"
-}
-"shell command" {
-	object {
-		x=350
-		y=227
-		width=71
-		height=22
-	}
-	command[0] {
-		label="Auto Offload"
-		name="python"
-		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py ITMX"
-	}
-	clr=20
-	bclr=13
-	label="ITMX GAS"
-}
-"shell command" {
-	object {
-		x=350
-		y=252
-		width=71
-		height=22
-	}
-	command[0] {
-		label="Auto Offload"
-		name="python"
-		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py ITMY"
-	}
-	clr=20
-	bclr=13
-	label="ITMY GAS"
-}
-"shell command" {
-	object {
-		x=147
-		y=300
-		width=71
-		height=22
-	}
-	command[0] {
-		label="Auto Offload"
-		name="python"
-		args="$(userapps)/cds/common/scripts/epics-motor-control/stepmotor/AutoOffLoad/AutoOffload.py BS"
-	}
-	clr=20
-	bclr=13
-	label="BS GAS"
-}
-"related display" {
-	object {
-		x=467
-		y=293
-		width=150
+		x=200
+		y=193
+		width=200
 		height=20
 	}
-	display[0] {
-		label="0:"
-		name="STEP_INSTALL.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo)"
+	"basic attribute" {
+		clr=52
 	}
-	clr=37
-	bclr=14
-	label="Stepper Maintenance"
+	textix="CAUTION!!!"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=196
+		y=209
+		width=200
+		height=20
+	}
+	"basic attribute" {
+		clr=52
+	}
+	textix="This menu is use to stepper motor install."
+	align="horiz. centered"
+}
+text {
+	object {
+		x=209
+		y=227
+		width=200
+		height=20
+	}
+	"basic attribute" {
+		clr=52
+	}
+	textix="NOT to use normal."
+	align="horiz. centered"
+}
+text {
+	object {
+		x=204
+		y=246
+		width=200
+		height=20
+	}
+	"basic attribute" {
+		clr=52
+	}
+	textix="Please contact the VIS team if you want to use it."
+	align="horiz. centered"
+}
+image {
+	object {
+		x=35
+		y=315
+		width=194
+		height=258
+	}
+	type="gif"
+	"image name"="IP_Type-BSmedm.gif"
+}
+text {
+	object {
+		x=73
+		y=290
+		width=125
+		height=17
+	}
+	"basic attribute" {
+		clr=50
+	}
+	textix="BS_IP"
+	align="horiz. centered"
+}
+image {
+	object {
+		x=243
+		y=313
+		width=194
+		height=258
+	}
+	type="gif"
+	"image name"="IP_Type-SRmedm.gif"
+}
+image {
+	object {
+		x=444
+		y=316
+		width=194
+		height=258
+	}
+	type="gif"
+	"image name"="IP_Type-TMmedm.gif"
+}
+text {
+	object {
+		x=277
+		y=290
+		width=125
+		height=17
+	}
+	"basic attribute" {
+		clr=50
+	}
+	textix="SR_IP"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=481
+		y=290
+		width=125
+		height=17
+	}
+	"basic attribute" {
+		clr=50
+	}
+	textix="TM_IP"
+	align="horiz. centered"
 }

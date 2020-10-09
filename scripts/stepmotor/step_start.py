@@ -28,7 +28,7 @@ driverDict = {
     "SRM_IP"    :"10.68.150.58",
     # for Testing.
     "TEST_GAS"  :"10.68.150.63",
-    "TESTTM_IP" :"10.68.150.63"
+    "TESTSR_IP" :"10.68.150.63"
 }
 
 def print_driverList():

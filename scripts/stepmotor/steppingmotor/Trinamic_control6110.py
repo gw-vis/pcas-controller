@@ -25,12 +25,14 @@ class Trinamic_control6110():
             
     def __init__(self):
         self.commandDict = {'ROR':1, 'ROL':2, 'MST':3, 'MVP':4, 'SAP':5, 'GAP':6,
-             'STAP':7, 'RSAP':8, 'SGP':9, 'GGP':10, 'RFS':13, 'SIO':14, 'GIO':15, 'WAIT':27, 'STOP':28,
+             'STAP':7, 'RSAP':8, 'SGP':9, 'GGP':10, 'STGP':11, 'RSGP':12, 'RFS':13, 'SIO':14, 'GIO':15, 'WAIT':27, 'STOP':28,
              'SCO':30, 'GCO':31, 'CCO':32, 'VER':136, 'RST':255}
 
         self.position = 0
         self.speed = 0.0
-        self.timeout = 2.
+        # Changing the timeout due to slow network traffic.
+        # self.timeout = 2.
+        self.timeout = 30.
         self.writeTimeout = 0.0
         self.connected = None
         self.port = None
@@ -356,7 +358,21 @@ class Trinamic_control6110():
             else:
                 raise MotorError(''.join(('Unknown error, ', str(data.status))))
         return data.value
-    
+
+    def setActualPosition(self, pos, motor=0):
+        cmd = 'SAP'       # Get axis parameter
+        type = 1          # Actual position
+        value = pos       # position
+        self.sendCommand(cmd, type, motor, value)
+        data = self.receiveData()
+        if data.status != 100:
+            if self.errorDict.has_key(data.status):
+                raise MotorError(self.errorDict[dafta.status])
+            elif data.status == None:
+                raise MotorError('Incorrect controller response, trying to reconnect')
+            else:
+                raise MotorError(''.join(('Unknown error, ', str(data.status))))
+        
     def stop(self, motor=0):
         cmd = 'MST'       # Motor stop
         type = 0          # don't care
@@ -899,10 +915,82 @@ class Trinamic_control6110():
             else:
                 raise MotorError(''.join(('Unknown error, ', str(data.status))))
         return data.value
-        
-        
-        
-        
+
+    def setUserVariables(self, type, value):
+        cmd = 'SGP'         # Set Global Parameter
+        motor = 2           # Bank 2
+        self.sendCommand(cmd, type, motor, value)
+        data = self.receiveData()
+        if data.status != 100:
+            if self.errorDict.has_key(data.status):
+                raise MotorError(self.errorDict[data.status])
+            elif data.status == None:
+                raise MotorError('Incorrect controller response, trying to reconnect')
+            else:
+                raise MotorError(''.join(('Unknown error, ', str(data.status))))
+
+    def getUserVariables(self, type):
+        cmd = 'GGP'         # Get Global Parameter
+        motor = 2           # Bank 2
+        value = 0           # don't care
+        self.sendCommand(cmd, type, motor, value)
+        data = self.receiveData()
+        if data.status != 100:
+            if self.errorDict.has_key(data.status):
+                raise MotorError(self.errorDict[data.status])
+            elif data.status == None:
+                raise MotorError('Incorrect controller response, trying to reconnect')
+            else:
+                raise MotorError(''.join(('Unknown error, ', str(data.status))))
+        return data.value
+
+    def storeUserVariables(self, type):
+        cmd = 'STGP'        # Store Global Parameter
+        motor = 2           # Bank 2
+        value = 0           # don't care
+        self.sendCommand(cmd, type, motor, value)
+        data = self.receiveData()
+        if data.status != 100:
+            if self.errorDict.has_key(data.status):
+                raise MotorError(self.errorDict[data.status])
+            elif data.status == None:
+                raise MotorError('Incorrect controller response, trying to reconnect')
+            else:
+                raise MotorError(''.join(('Unknown error, ', str(data.status))))
+
+    def restoreUserVariables(self, type):
+        cmd = 'RSGP'        # Restore Global Parameter
+        motor = 2           # Bank 2
+        value = 0           # don't care
+        self.sendCommand(cmd, type, motor, value)
+        data = self.receiveData()
+        if data.status != 100:
+            if self.errorDict.has_key(data.status):
+                raise MotorError(self.errorDict[data.status])
+            elif data.status == None:
+                raise MotorError('Incorrect controller response, trying to reconnect')
+            else:
+                raise MotorError(''.join(('Unknown error, ', str(data.status)))) 
+
+    def getMaxRange(self):
+        return 1000000000
+#        return 2147483647
+
+    def getMinRange(self):
+        return -1000000000
+#        return -2147483648
+
 if __name__ == '__main__':
     tc = Trinamic_control6110()
 #    tc.connectTCP('130.235.95.232', 4001)
+    tc.connectTCP('10.68.150.63', 4001)
+
+    for i in range(64):
+        print "[",i,"]:",tc.getUserVariables(i)
+
+    tc.setUserVariables(0,10)
+    tc.setUserVariables(1,10)
+
+    tc.storeUserVariables(1)
+    for i in range(64):
+        print "[",i,"]:",tc.getUserVariables(i)

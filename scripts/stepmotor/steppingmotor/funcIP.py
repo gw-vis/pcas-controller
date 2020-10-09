@@ -13,76 +13,189 @@ For more details, please refer KAGRA wiki (DGS/MotorControl/StepperMotor).
 import numpy as np
 import conf
 
+class IPMove:
+    minA = 0
+    maxA = 0
+    minB = 0
+    maxB = 0
+    minC = 0
+    maxC = 0
 
-########## Actuation Functions ###########
-def Move_L(prefix,driver,value):
-    Type = conf.channel[prefix]["config"]
-    motorA = conf.channel[prefix]["motorA"]
-    motorB = conf.channel[prefix]["motorB"]
-    motorC = conf.channel[prefix]["motorC"]
-    signA = conf.channel[prefix]["signA"]
-    signB = conf.channel[prefix]["signB"]
-    signC = conf.channel[prefix]["signC"]
-    
-    posA = driver.getActualPosition(motorA)
-    posB = driver.getActualPosition(motorB)
-    posC = driver.getActualPosition(motorC)
-    
-    if Type == 'SR':
-        driver.setTargetPosition(posA+int(np.sqrt(3)/2*signA*value),motorA)
-        driver.setTargetPosition(posB-int(np.sqrt(3)/2*signB*value),motorB)
+    def __init__(self, driver, part):
+        #self.prefix = prefix
+        self.part = part
+        self.driver = driver
+
+    def setLimitPosition(self, minA, maxA, minB, maxB, minC, maxC):
+        self.minA = minA
+        self.maxA = maxA
+        self.minB = minB
+        self.maxB = maxB
+        self.minC = minC
+        self.maxC = maxC
+
+    ########## Actuation Functions ###########
+    def Move_L(self,value):
+        Type = conf.channel[self.part]["config"]
+        motorA = conf.channel[self.part]["motorA"]
+        motorB = conf.channel[self.part]["motorB"]
+        motorC = conf.channel[self.part]["motorC"]
+        signA = conf.channel[self.part]["signA"]
+        signB = conf.channel[self.part]["signB"]
+        signC = conf.channel[self.part]["signC"]
         
-    if Type == 'BS':
-        driver.setTargetPosition(posA+int(np.sqrt(3)/2*signA*value),motorA)
-        driver.setTargetPosition(posB-int(np.sqrt(3)/2*signB*value),motorB)
+        posA = self.driver.getActualPosition(motorA)
+        posB = self.driver.getActualPosition(motorB)
+        posC = self.driver.getActualPosition(motorC)
         
-    elif Type == 'TM':
-        driver.setTargetPosition(posA+int(signA*value),motorA)
-        driver.setTargetPosition(posB-int(1/2*signB*value),motorB)
-        driver.setTargetPosition(posC-int(1/2*signC*value),motorC)
+        if Type == 'SR':
+            #driver.setTargetPosition(posA+int(np.sqrt(3)/2*signA*value),motorA)
+            #driver.setTargetPosition(posB-int(np.sqrt(3)/2*signB*value),motorB)
+            countA =  int(np.sqrt(3)/2*signA*value)
+            countB = -int(np.sqrt(3)/2*signB*value)
+            countC = 0
+
+        elif Type == 'BS':
+            #driver.setTargetPosition(posA+int(np.sqrt(3)/2*signA*value),motorA)
+            #driver.setTargetPosition(posB-int(np.sqrt(3)/2*signB*value),motorB)
+            countA =  int(np.sqrt(3)/2*signA*value)
+            countB = -int(np.sqrt(3)/2*signB*value)
+            countC = 0
+
+        elif Type == 'TM':
+            #driver.setTargetPosition(posA+int(signA*value),motorA)
+            #driver.setTargetPosition(posB-int(1/2*signB*value),motorB)
+            #driver.setTargetPosition(posC-int(1/2*signC*value),motorC)
+            countA =  int(signA*value)
+            countB = -int(1/2*signB*value)
+            countC = -int(1/2*signC*value)
+
+        if countA != 0:
+            countA = self.calcMoveRange(self.maxA,self.minA,posA,countA)
+            self.driver.setTargetPosition(posA+countA,motorA)
+            self.driver.setUserVariables(self.calcUserValiable(motorA,2),posA+countA)
+            self.driver.storeUserVariables(self.calcUserValiable(motorA,2))
+
+        if countB != 0:
+            countB = self.calcMoveRange(self.maxB,self.minB,posB,countB)
+            self.driver.setTargetPosition(posB+countB,motorB)
+            self.driver.setUserVariables(self.calcUserValiable(motorB,2),posB+countB)
+            self.driver.storeUserVariables(self.calcUserValiable(motorB,2))
+
+        if countC != 0:
+            countC = self.calcMoveRange(self.maxC,self.minC,posC,countC)
+            self.driver.setTargetPosition(posC+countC,motorC)
+            self.driver.setUserVariables(self.calcUserValiable(motorC,2),posC+countC)
+            self.driver.storeUserVariables(self.calcUserValiable(motorC,2))
+
+    def Move_T(self,value):
+        Type = conf.channel[self.part]["config"]
+        motorA = conf.channel[self.part]["motorA"]
+        motorB = conf.channel[self.part]["motorB"]
+        motorC = conf.channel[self.part]["motorC"]
+        signA = conf.channel[self.part]["signA"]
+        signB = conf.channel[self.part]["signB"]
+        signC = conf.channel[self.part]["signC"]
+        
+        posA = self.driver.getActualPosition(motorA)
+        posB = self.driver.getActualPosition(motorB)
+        posC = self.driver.getActualPosition(motorC)
+        
+        if Type == 'SR':
+            #driver.setTargetPosition(posC-int(signC*value),motorC)
+            #driver.setTargetPosition(posB+int(1/2*signB*value),motorB)
+            #driver.setTargetPosition(posA+int(1/2*signA*value),motorA)
+            countC = -int(signC*value)
+            countB =  int(1/2*signB*value)
+            countA =  int(1/2*signA*value)
+
+        elif Type == 'BS':
+            #driver.setTargetPosition(posB+int(signB*value),motorB)
+            #driver.setTargetPosition(posC-int(1/2*signC*value),motorC)
+            #driver.setTargetPosition(posA-int(1/2*signA*value),motorA)
+            countB =  int(signB*value)
+            countC = -int(1/2*signC*value)
+            countA = -int(1/2*signA*value)
+            
+        elif Type == 'TM':
+            #driver.setTargetPosition(posB-int(np.sqrt(3)/2*signB*value),motorB)
+            #driver.setTargetPosition(posC+int(np.sqrt(3)/2*signC*value),motorC)
+            countB = -int(np.sqrt(3)/2*signB*value)
+            countC =  int(np.sqrt(3)/2*signC*value)
+            countA = 0
+
+        if countA != 0:
+            countA = self.calcMoveRange(self.maxA,self.minA,posA,countA)
+            self.driver.setTargetPosition(posA+countA,motorA)
+            self.driver.setUserVariables(self.calcUserValiable(motorA,2),posA+countA)
+            self.driver.storeUserVariables(self.calcUserValiable(motorA,2))
+
+        if countB != 0:
+            countB = self.calcMoveRange(self.maxB,self.minB,posB,countB)
+            self.driver.setTargetPosition(posB+countB,motorB)
+            self.driver.setUserVariables(self.calcUserValiable(motorB,2),posB+countB)
+            self.driver.storeUserVariables(self.calcUserValiable(motorB,2))
+
+        if countC != 0:
+            countC = self.calcMoveRange(self.maxC,self.minC,posC,countC)
+            self.driver.setTargetPosition(posC+countC,motorC)
+            self.driver.setUserVariables(self.calcUserValiable(motorC,2),posC+countC)
+            self.driver.storeUserVariables(self.calcUserValiable(motorC,2))
+
+    def Move_Y(self,value):
+        motorA = conf.channel[self.part]["motorA"]
+        motorB = conf.channel[self.part]["motorB"]
+        motorC = conf.channel[self.part]["motorC"]
+        signA = conf.channel[self.part]["signA"]
+        signB = conf.channel[self.part]["signB"]
+        signC = conf.channel[self.part]["signC"]
+        
+        posA = self.driver.getActualPosition(motorA)
+        posB = self.driver.getActualPosition(motorB)
+        posC = self.driver.getActualPosition(motorC)
+        
+        #driver.setTargetPosition(posA+int(signA*value),motorA)
+        #driver.setTargetPosition(posB+int(signB*value),motorB)
+        #driver.setTargetPosition(posC+int(signC*value),motorC)
+        countA = int(signA*value)
+        countB = int(signB*value)
+        countC = int(signC*value)
+
+        if countA != 0:
+            countA = self.calcMoveRange(self.maxA,self.minA,posA,countA)
+            self.driver.setTargetPosition(posA+countA,motorA)
+            self.driver.setUserVariables(self.calcUserValiable(motorA,2),posA+countA)
+            self.driver.storeUserVariables(self.calcUserValiable(motorA,2))
+
+        if countB != 0:
+            countB = self.calcMoveRange(self.maxB,self.minB,posB,countB)
+            self.driver.setTargetPosition(posB+countB,motorB)
+            self.driver.setUserVariables(self.calcUserValiable(motorB,2),posB+countB)
+            self.driver.storeUserVariables(self.calcUserValiable(motorB,2))
+
+        if countC != 0:
+            countC = self.calcMoveRange(self.maxC,self.minC,posC,countC)
+            self.driver.setTargetPosition(posC+countC,motorC)
+            self.driver.setUserVariables(self.calcUserValiable(motorC,2),posC+countC)
+            self.driver.storeUserVariables(self.calcUserValiable(motorC,2))
 
 
-def Move_T(prefix,driver,value):
-    Type = conf.channel[prefix]["config"]
-    motorA = conf.channel[prefix]["motorA"]
-    motorB = conf.channel[prefix]["motorB"]
-    motorC = conf.channel[prefix]["motorC"]
-    signA = conf.channel[prefix]["signA"]
-    signB = conf.channel[prefix]["signB"]
-    signC = conf.channel[prefix]["signC"]
-    
-    posA = driver.getActualPosition(motorA)
-    posB = driver.getActualPosition(motorB)
-    posC = driver.getActualPosition(motorC)
-    
-    if Type == 'SR':
-        driver.setTargetPosition(posC-int(signC*value),motorC)
-        driver.setTargetPosition(posB+int(1/2*signB*value),motorB)
-        driver.setTargetPosition(posA+int(1/2*signA*value),motorA)
-        
-    if Type == 'BS':
-        driver.setTargetPosition(posB+int(signB*value),motorB)
-        driver.setTargetPosition(posC-int(1/2*signC*value),motorC)
-        driver.setTargetPosition(posA-int(1/2*signA*value),motorA)
-        
-    elif Type == 'TM':
-        driver.setTargetPosition(posB-int(np.sqrt(3)/2*signB*value),motorB)
-        driver.setTargetPosition(posC+int(np.sqrt(3)/2*signC*value),motorC)
-        
-def Move_Y(prefix,driver,value):
-    motorA = conf.channel[prefix]["motorA"]
-    motorB = conf.channel[prefix]["motorB"]
-    motorC = conf.channel[prefix]["motorC"]
-    signA = conf.channel[prefix]["signA"]
-    signB = conf.channel[prefix]["signB"]
-    signC = conf.channel[prefix]["signC"]
-    
-    posA = driver.getActualPosition(motorA)
-    posB = driver.getActualPosition(motorB)
-    posC = driver.getActualPosition(motorC)
-    
-    driver.setTargetPosition(posA+int(signA*value),motorA)
-    driver.setTargetPosition(posB+int(signB*value),motorB)
-    driver.setTargetPosition(posC+int(signC*value),motorC)
-    
-    
+    def calcUserValiable(self,motorAddr,offset):
+        # CH.0 to 5
+        number = motorAddr + offset * 6
+        # EEPROM to #56.
+        if number > 55:
+            print "[Error] Over maximum number in EEPROM.", number
+        return motorAddr + offset * 6
+
+    def calcMoveRange(self,max,min,pos,count):
+        if min == 0 and max == 0:
+            #count = 0
+            pass
+        else:
+            if count > 0 and max < pos + count:
+                count = max - pos
+            if count < 0 and min > pos + count:
+                count = min - pos
+        return count
+ 

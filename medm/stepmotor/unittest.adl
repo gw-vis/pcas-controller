@@ -1,14 +1,14 @@
 
 file {
 	name="/users/ikeda/Git/pcas-controller/medm/stepmotor/unittest.adl"
-	version=030107
+	version=030109
 }
 display {
 	object {
-		x=399
-		y=74
+		x=4148
+		y=363
 		width=400
-		height=400
+		height=346
 	}
 	clr=14
 	bclr=4
@@ -114,7 +114,38 @@ display {
 		name="CUST_IP_BS.adl"
 		args="IFO=K1,ifo=K1,STEPID=TESTBS_IP,DOF=0"
 	}
+	display[4] {
+		label="STEP_INSTALL"
+		name="STEP_INSTALL.adl"
+		args="USERAPPS=/,IFO=K1,ifo=k1,SITE=KAMIOKA,site=kamioka"
+	}
+	display[5] {
+		label="CUST_INSTALL"
+		name="CUST_INSTALL.adl"
+		args="USERAPPS=/,IFO=K1,ifo,SITE=KAMIOKA,site=kamioka"
+	}
 	clr=14
 	bclr=4
 	label="TEST"
+}
+"shell command" {
+	object {
+		x=84
+		y=171
+		width=71
+		height=22
+	}
+	command[0] {
+		label="TEST_GAS"
+		name="python"
+		args="/users/ikeda/Git/pcas-controller/scripts/stepmotor/steppingmotor/stepper_install.py K1:STEPPER-TESTSR_IP_A"
+	}
+	command[1] {
+		label="TEST_IP"
+		name="python"
+		args="/users/ikeda/Git/pcas-controller/scripts/stepmotor/steppingmotor/stepper_install.py K1:STEPPER-TESTSR_IP_C"
+	}
+	clr=20
+	bclr=13
+	label="TEST GAS"
 }
