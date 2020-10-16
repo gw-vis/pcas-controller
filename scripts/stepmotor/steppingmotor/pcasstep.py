@@ -2,7 +2,7 @@
 
 import os
 import pcaspy
-#import conf
+import conf
 import logging
 from datetime import datetime
 import time
@@ -56,6 +56,21 @@ pvdb ={
         'value': 0,
     },
     '0_LIMITPOSMAX': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '0_FLUCTUATION': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '0_FWD': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '0_REV': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
@@ -125,6 +140,21 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
+    '1_FLUCTUATION': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '1_FWD': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '1_REV': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
     '1_INIT': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -186,6 +216,21 @@ pvdb ={
         'value': 0,
     },
     '2_LIMITPOSMAX': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '2_FLUCTUATION': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '2_FWD': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '2_REV': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
@@ -255,6 +300,21 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
+    '3_FLUCTUATION': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '3_FWD': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '3_REV': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
     '3_INIT': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -316,6 +376,21 @@ pvdb ={
         'value': 0,
     },
     '4_LIMITPOSMAX': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '4_FLUCTUATION': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '4_FWD': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '4_REV': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
@@ -385,6 +460,21 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
+    '5_FLUCTUATION': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '5_FWD': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '5_REV': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
     '5_INIT': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -413,8 +503,10 @@ class PcasDriver(pcaspy.Driver):
     def __init__(self, driver, prefix):
         super(PcasDriver, self).__init__()
         self.driver = driver
-        #self.conf = conf
+        self.conf = conf
         self.prefix = prefix
+        a, sus = prefix.split("-")
+        self.part = sus[:-1]
 
         self.driver.setTargetSpeed(500, 0)
         self.driver.setAcceleration(500,0)
@@ -515,24 +607,35 @@ class PcasDriver(pcaspy.Driver):
 
         if name == "STEP":
             count = self.getParam(direction+"_STEP")
-            pos =  self.driver.getActualPosition(motorAddr)
+            self.moveStepCount(motorAddr,direction,count)
 
-            min = self.getParam(direction+"_LIMITPOSMIN")
-            max = self.getParam(direction+"_LIMITPOSMAX")
-            count = self.calcMoveRange(max,min,pos,count)
+        if name == "FWD":
+            count = self.getParam(direction+"_FLUCTUATION")
+            self.moveStepCount(motorAddr,direction,count)
 
-            self.driver.setTargetPosition(pos+count, motorAddr)
-            d = datetime.now()
-            with open(self.logfile,'a') as f:
-                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' moved to '+str(pos+count)+'\n')            
-
-            # Actual position.
-            self.driver.setUserVariables(self.calcUserValiable(motorAddr,2),pos+count)
-            self.driver.storeUserVariables(self.calcUserValiable(motorAddr,2))
+        if name == "REV":
+            count = -self.getParam(direction+"_FLUCTUATION")
+            self.moveStepCount(motorAddr,direction,count)
 
         self.updatePVs()
             
         return True
+
+    def moveStepCount(self,motorAddr,direction,count):
+        pos =  self.driver.getActualPosition(motorAddr)
+        axisDirection = self.conf.channel[self.part]["axisDirection"][motorAddr]
+        min = self.getParam(direction+"_LIMITPOSMIN")
+        max = self.getParam(direction+"_LIMITPOSMAX")
+        count = self.calcMoveRange(max,min,pos,axisDirection*count)
+
+        self.driver.setTargetPosition(pos+count, motorAddr)
+        d = datetime.now()
+        with open(self.logfile,'a') as f:
+            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' moved to '+str(pos+count)+'\n')            
+
+        # Actual position.
+        self.driver.setUserVariables(self.calcUserValiable(motorAddr,2),pos+count)
+        self.driver.storeUserVariables(self.calcUserValiable(motorAddr,2))
 
     def calcUserValiable(self,motorAddr,offset):
         # CH.0 to 5

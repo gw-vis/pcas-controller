@@ -1,12 +1,12 @@
 
 file {
-	name="/users/ikeda/Git/pcas-controller/medm/stepmotor/unittest.adl"
+	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/unittest.adl"
 	version=030109
 }
 display {
 	object {
-		x=4148
-		y=363
+		x=4672
+		y=496
 		width=400
 		height=346
 	}
@@ -148,4 +148,20 @@ display {
 	clr=20
 	bclr=13
 	label="TEST GAS"
+}
+"related display" {
+	object {
+		x=230
+		y=102
+		width=78
+		height=31
+	}
+	display[0] {
+		label="OFFLOAD_OVERVIEW"
+		name="./OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW.adl"
+		args="IFO=K1,ifo=k1"
+	}
+	clr=14
+	bclr=4
+	label="OVERVIEW"
 }

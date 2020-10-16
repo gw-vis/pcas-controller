@@ -1,4 +1,44 @@
 channel = {
+        "PR2_GAS":{
+                "config"  : 'PR2',
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                },
+        "PR0_GAS":{
+                "config"  : 'PR0',
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                },
+        "ITMX_GAS":{
+                "config"  : 'ITMX',
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                },
+        "ETMX_GAS":{
+                "config"  : 'ETMX',
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                },
+        "ITMY_GAS":{
+                "config"  : 'ITMY',
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                },
+        "ETMY_GAS":{
+                "config"  : 'ETMY',
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                },
+        "BS_GAS":{
+                "config"  : 'BS',
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                },
+        "SR2_GAS":{
+                "config"  : 'SR2',
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                },
+        "SR3_GAS":{
+                "config"  : 'SR3',
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                },
+        "SRM_GAS":{
+                "config"  : 'SRM',
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                },
         "BS_IP":{
                 "config"  : 'BS',
                 "motorA"  : 0,
@@ -8,7 +48,11 @@ channel = {
                 "signA"    : 1,
                 "signB"    : 1,
                 "signC"    : 1,
-                "signY"    : 1
+                "signY"    : 1,
+                "axisDirectionLEN"  : 1, 
+                "axisDirectionTRA"  : 1,
+                "axisDirectionYAW"  : 1,
+                "axisDirectionF0Y"  : 1
                 },
         "SR2_IP":{
                 "config"  : 'SR',
@@ -19,7 +63,11 @@ channel = {
                 "signA"    : 1,
                 "signB"    : 1,
                 "signC"    : 1,
-                "signY"    : 1
+                "signY"    : 1,
+                "axisDirectionLEN"  : 1, 
+                "axisDirectionTRA"  : 1,
+                "axisDirectionYAW"  : 1,
+                "axisDirectionF0Y"  : 1
                 },
         "SR3_IP":{
                 "config"  : 'SR',
@@ -30,7 +78,11 @@ channel = {
                 "signA"    : 1,
                 "signB"    : 1,
                 "signC"    : 1,
-                "signY"    : 1
+                "signY"    : 1,
+                "axisDirectionLEN"  : 1, 
+                "axisDirectionTRA"  : 1,
+                "axisDirectionYAW"  : 1,
+                "axisDirectionF0Y"  : 1
                 },
         "SRM_IP":{
                 "config"  : 'SR',
@@ -41,7 +93,11 @@ channel = {
                 "signA"    : 1,
                 "signB"    : 1,
                 "signC"    : 1,
-                "signY"    : 1
+                "signY"    : 1,
+                "axisDirectionLEN"  : 1, 
+                "axisDirectionTRA"  : 1,
+                "axisDirectionYAW"  : 1,
+                "axisDirectionF0Y"  : 1
                 },
         "ETMY_IP":{
                 "config"  : 'TM',
@@ -52,7 +108,11 @@ channel = {
                 "signA"    : 1,
                 "signB"    : 1,
                 "signC"    : 1,
-                "signY"    : 1
+                "signY"    : 1,
+                "axisDirectionLEN"  : 1, 
+                "axisDirectionTRA"  : 1,
+                "axisDirectionYAW"  : 1,
+                "axisDirectionF0Y"  : 1
                 },
         "ETMX_IP":{
                 "config"  : 'TM',
@@ -63,7 +123,11 @@ channel = {
                 "signA"    : 1,
                 "signB"    : 1,
                 "signC"    : 1,
-                "signY"    : 1
+                "signY"    : 1,
+                "axisDirectionLEN"  : 1, 
+                "axisDirectionTRA"  : 1,
+                "axisDirectionYAW"  : 1,
+                "axisDirectionF0Y"  : 1
                 },
         "ITMY_IP":{
                 "config"  : 'TM',
@@ -74,7 +138,11 @@ channel = {
                 "signA"    : 1,
                 "signB"    : 1,
                 "signC"    : 1,
-                "signY"    : 1
+                "signY"    : 1,
+                "axisDirectionLEN"  : 1, 
+                "axisDirectionTRA"  : 1,
+                "axisDirectionYAW"  : 1,
+                "axisDirectionF0Y"  : 1
                 },
         "ITMX_IP":{
                 "config"  : 'TM',
@@ -85,9 +153,18 @@ channel = {
                 "signA"    : 1,
                 "signB"    : 1,
                 "signC"    : 1,
-                "signY"    : 1
+                "signY"    : 1,
+                "axisDirectionLEN"  : 1, 
+                "axisDirectionTRA"  : 1,
+                "axisDirectionYAW"  : 1,
+                "axisDirectionF0Y"  : 1
                 },
         # for TEST.
+        # for Testing.
+        "TEST_GAS":{
+                "config"  : 'TEST',
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                },
         "TESTBS_IP":{
                 "config"  : 'BS',
                 "motorA"  : 0,
@@ -97,7 +174,11 @@ channel = {
                 "signA"    : 1,
                 "signB"    : 1,
                 "signC"    : 1,
-                "signY"    : 1
+                "signY"    : 1,
+                "axisDirectionLEN"  : 1, 
+                "axisDirectionTRA"  : 1,
+                "axisDirectionYAW"  : 1,
+                "axisDirectionF0Y"  : 1
                 },
         "TESTSR_IP":{
                 "config"  : 'SR',
@@ -108,7 +189,11 @@ channel = {
                 "signA"    : 1,
                 "signB"    : 1,
                 "signC"    : 1,
-                "signY"    : 1
+                "signY"    : 1,
+                "axisDirectionLEN"  : 1, 
+                "axisDirectionTRA"  : 1,
+                "axisDirectionYAW"  : 1,
+                "axisDirectionF0Y"  : 1
                 },
         "TESTTM_IP":{
                 "config"  : 'TM',
@@ -119,7 +204,11 @@ channel = {
                 "signA"    : 1,
                 "signB"    : 1,
                 "signC"    : 1,
-                "signY"    : 1
+                "signY"    : 1,
+                "axisDirectionLEN"  : 1, 
+                "axisDirectionTRA"  : 1,
+                "axisDirectionYAW"  : 1,
+                "axisDirectionF0Y"  : 1
                 }
 }
       

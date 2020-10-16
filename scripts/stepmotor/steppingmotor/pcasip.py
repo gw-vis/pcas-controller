@@ -145,6 +145,66 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
+    'L_FLUCTUATION': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'T_FLUCTUATION': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'Y_FLUCTUATION': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'F0Y_FLUCTUATION': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'L_FWD': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'T_FWD': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'Y_FWD': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'F0Y_FWD': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'L_REV': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'T_REV': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'Y_REV': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'F0Y_REV': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
     'A_INIT': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -387,66 +447,87 @@ class PcasDriver(pcaspy.Driver):
             self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrY,2))
 
         if channel == "L_STEP":
-            self.ipmove.setLimitPosition(
-                self.getParam("A_LIMITPOSMIN"),
-                self.getParam("A_LIMITPOSMAX"),
-                self.getParam("B_LIMITPOSMIN"),
-                self.getParam("B_LIMITPOSMAX"),
-                self.getParam("C_LIMITPOSMIN"),
-                self.getParam("C_LIMITPOSMAX"))
-
-            self.ipmove.Move_L(value)
-            d = datetime.now()
-            with open(self.logfile,'a') as f:
-                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' IP moved in L by '+str(value)+'\n')
+            self.moveStepCount(value,'L')
 
         if channel == "T_STEP":
-            self.ipmove.setLimitPosition(
-                self.getParam("A_LIMITPOSMIN"),
-                self.getParam("A_LIMITPOSMAX"),
-                self.getParam("B_LIMITPOSMIN"),
-                self.getParam("B_LIMITPOSMAX"),
-                self.getParam("C_LIMITPOSMIN"),
-                self.getParam("C_LIMITPOSMAX"))
-
-            self.ipmove.Move_T(value)
-            
-            d = datetime.now()
-            with open(self.logfile,'a') as f:
-                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' IP moved in T by '+str(value)+'\n')
+            self.moveStepCount(value,'T')
 
         if channel == "Y_STEP":
-            self.ipmove.setLimitPosition(
-                self.getParam("A_LIMITPOSMIN"),
-                self.getParam("A_LIMITPOSMAX"),
-                self.getParam("B_LIMITPOSMIN"),
-                self.getParam("B_LIMITPOSMAX"),
-                self.getParam("C_LIMITPOSMIN"),
-                self.getParam("C_LIMITPOSMAX"))
-
-            self.ipmove.Move_Y(value)
-            
-            d = datetime.now()
-            with open(self.logfile,'a') as f:
-                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' IP moved in Y by '+str(value)+'\n')
+            self.moveStepCount(value,'Y')
 
         if channel == "F0Y_STEP":
-            signY = self.conf.channel[self.part]["signY"]
-            pos = self.driver.getActualPosition(motorAddrY)
+           self.moveStepCount(value,'F0Y')
 
-            min = self.getParam("F0Y_LIMITPOSMIN")
-            max = self.getParam("F0Y_LIMITPOSMAX")
-            count = self.ipmove.calcMoveRange(max,min,pos,signY*value)
+        if channel == "L_FWD":
+            count = self.getParam("L_FLUCTUATION")
+            self.moveStepCount(count,'L')
 
-            self.driver.setTargetPosition(pos+count, motorAddrY)
-            
-            d = datetime.now()
-            with open(self.logfile,'a') as f:
-                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' F0Y moved by '+str(value)+'\n')
+        if channel == "L_REV":
+            count = -self.getParam("L_FLUCTUATION")
+            self.moveStepCount(count,'L')
+
+        if channel == "T_FWD":
+            count = self.getParam("T_FLUCTUATION")
+            self.moveStepCount(count,'T')
+
+        if channel == "T_REV":
+            count = -self.getParam("T_FLUCTUATION")
+            self.moveStepCount(count,'T')
+
+        if channel == "Y_FWD":
+            count = self.getParam("Y_FLUCTUATION")
+            self.moveStepCount(count,'Y')
+
+        if channel == "Y_REV":
+            count = -self.getParam("Y_FLUCTUATION")
+            self.moveStepCount(count,'Y')
+
+        if channel == "F0Y_FWD":
+            count = self.getParam("F0Y_FLUCTUATION")
+            self.moveStepCount(count,'F0Y')
+
+        if channel == "F0Y_REV":
+            count = -self.getParam("F0Y_FLUCTUATION")
+            self.moveStepCount(count,'F0Y')
 
         self.updatePVs()
         
         return True
+
+    def moveStepCount(self,count,dirStr):
+        self.ipmove.setLimitPosition(
+            self.getParam("A_LIMITPOSMIN"),
+            self.getParam("A_LIMITPOSMAX"),
+            self.getParam("B_LIMITPOSMIN"),
+            self.getParam("B_LIMITPOSMAX"),
+            self.getParam("C_LIMITPOSMIN"),
+            self.getParam("C_LIMITPOSMAX"))
+
+        if dirStr == 'L':
+            axisDirection = self.conf.channel[self.part]["axisDirectionLEN"]
+            self.ipmove.Move_L(axisDirection*count)
+        elif dirStr == 'T':
+            axisDirection = self.conf.channel[self.part]["axisDirectionTRA"]
+            self.ipmove.Move_T(axisDirection*count)
+        elif dirStr == 'Y':
+            axisDirection = self.conf.channel[self.part]["axisDirectionYAW"]
+            self.ipmove.Move_Y(axisDirection*count)
+        elif dirStr == 'F0Y':
+            motorAddrY  = self.conf.channel[self.part]["motorY"]
+       
+            signY = self.conf.channel[self.part]["signY"]
+            axisDirection = self.conf.channel[self.part]["axisDirectionF0Y"]
+            pos = self.driver.getActualPosition(motorAddrY)
+
+            min = self.getParam("F0Y_LIMITPOSMIN")
+            max = self.getParam("F0Y_LIMITPOSMAX")
+            count = self.ipmove.calcMoveRange(max,min,pos,signY*axisDirection*count)
+
+            self.driver.setTargetPosition(pos+count, motorAddrY)
+
+        d = datetime.now()
+        with open(self.logfile,'a') as f:
+            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' IP moved in '+dirStr+' by '+str(count)+'\n')
 
     def limitSwitchMax(self,lrDistance):
         return int(lrDistance * 0.95)
