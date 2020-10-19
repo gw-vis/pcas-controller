@@ -1,12 +1,12 @@
 
 file {
-	name="/users/Miyo/pcas-controller/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl"
-	version=030107
+	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl"
+	version=030109
 }
 display {
 	object {
-		x=957
-		y=119
+		x=4329
+		y=520
 		width=782
 		height=400
 	}
@@ -130,9 +130,24 @@ text {
 		height=20
 	}
 	command[0] {
-		label="IP"
+		label="IP SUMOUT"
 		name="ndscope"
 		args="-k $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_L_OUTPUT $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_T_OUTPUT $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_Y_OUTPUT $(IFO):VIS-$(SYSTEM)_BF_SUMOUT_Y_OUTPUT &"
+	}
+	command[1] {
+		label="IP SUMOUT(16)"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_L_OUT16 $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_T_OUT16 $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_Y_OUT16 $(IFO):VIS-$(SYSTEM)_BF_SUMOUT_Y_OUT16 &"
+	}
+	command[2] {
+		label="IP LVDTL OUT16"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTL_OUT16 $(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTT_OUT16 $(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTY_OUT16 &"
+	}
+	command[3] {
+		label="IP COILOUT OUT16"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H1_OUT16 $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H2_OUT16 $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H3_OUT16 &"
 	}
 	clr=14
 	bclr=5
@@ -326,45 +341,6 @@ indicator {
 		hoprDefault=30000
 	}
 }
-text {
-	object {
-		x=20
-		y=84
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="LEN"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=20
-		y=106
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="TRA"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=20
-		y=128
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="YAW"
-	align="horiz. centered"
-}
 "message button" {
 	object {
 		x=70
@@ -537,9 +513,24 @@ rectangle {
 		height=20
 	}
 	command[0] {
-		label="GAS"
+		label="GAS SUMOUT"
 		name="ndscope"
 		args="-k $(IFO):VIS-$(SYSTEM)_F0_SUMOUT_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_F1_SUMOUT_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_F2_SUMOUT_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_F3_SUMOUT_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_BF_SUMOUT_GAS_OUTPUT &"
+	}
+	command[1] {
+		label="GAS SUMOUT(16)"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_F0_SUMOUT_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_F1_SUMOUT_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_F2_SUMOUT_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_F3_SUMOUT_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_BF_SUMOUT_GAS_OUT16 &"
+	}
+	command[2] {
+		label="GAS COILOUTF"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_F0_COILOUTF_GAS_INMON $(IFO):VIS-$(SYSTEM)_F1_COILOUTF_GAS_INMON $(IFO):VIS-$(SYSTEM)_F2_COILOUTF_GAS_INMON $(IFO):VIS-$(SYSTEM)_F3_COILOUTF_GAS_INMON $(IFO):VIS-$(SYSTEM)_BF_COILOUTF_GAS_INMON &"
+	}
+	command[3] {
+		label="GAS LVFTINF"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_F0_LVDTINF_GAS_INMON $(IFO):VIS-$(SYSTEM)_F1_LVDTINF_GAS_INMON $(IFO):VIS-$(SYSTEM)_F2_LVDTINF_GAS_INMON $(IFO):VIS-$(SYSTEM)_F3_LVDTINF_GAS_INMON $(IFO):VIS-$(SYSTEM)_BF_LVDTINF_GAS_INMON &"
 	}
 	clr=14
 	bclr=5
@@ -617,7 +608,7 @@ indicator {
 		clr=15
 		bclr=10
 	}
-	direction="left"	
+	direction="left"
 	limits {
 		loprSrc="default"
 		loprDefault=-30000
@@ -644,71 +635,6 @@ indicator {
 		hoprSrc="default"
 		hoprDefault=30000
 	}
-}
-text {
-	object {
-		x=20
-		y=204
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="F0"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=20
-		y=226
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="F1"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=20
-		y=248
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="F2"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=20
-		y=270
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="F3"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=20
-		y=292
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="BF"
-	align="horiz. centered"
 }
 "message button" {
 	object {
@@ -1045,19 +971,6 @@ indicator {
 		hoprDefault=30000
 	}
 }
-text {
-	object {
-		x=20
-		y=150
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="F0Y"
-	align="horiz. centered"
-}
 "message button" {
 	object {
 		x=70
@@ -1119,4 +1032,71 @@ text {
 	}
 	limits {
 	}
+}
+"related display" {
+	object {
+		x=36
+		y=82
+		width=30
+		height=86
+	}
+	display[0] {
+		label="LEN"
+		name="../steppingmotor/CUST_$(IPSTEPADL).adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(IPSTEPID)"
+	}
+	display[1] {
+		label="TRA"
+		name="../steppingmotor/CUST_$(IPSTEPADL).adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(IPSTEPID)"
+	}
+	display[2] {
+		label="YAW"
+		name="../steppingmotor/CUST_$(IPSTEPADL).adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(IPSTEPID)"
+	}
+	display[3] {
+		label="F0Y"
+		name="../steppingmotor/CUST_$(IPSTEPADL).adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(IPSTEPID)"
+	}
+	clr=14
+	bclr=4
+	visual="a column of buttons"
+}
+"related display" {
+	object {
+		x=36
+		y=202
+		width=30
+		height=108
+	}
+	display[0] {
+		label="F0"
+		name="../steppingmotor/CUST_STEP.adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(F0)"
+	}
+	display[1] {
+		label="F1"
+		name="../steppingmotor/CUST_STEP.adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(F1)"
+	}
+	display[2] {
+		label="F2"
+		name="../steppingmotor/CUST_STEP.adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(F2)"
+	}
+	display[3] {
+		label="F3"
+		name="../steppingmotor/CUST_STEP.adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(F3)"
+	}
+	display[4] {
+		label="BF"
+		name="../steppingmotor/CUST_STEP.adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(BF)"
+	}
+	clr=14
+	bclr=4
+	visual="a column of buttons"
 }

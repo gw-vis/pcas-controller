@@ -1,12 +1,12 @@
 
 file {
-	name="/users/Miyo/pcas-controller/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEBP.adl"
-	version=030107
+	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEBP.adl"
+	version=030109
 }
 display {
 	object {
-		x=1137
-		y=732
+		x=4308
+		y=540
 		width=782
 		height=400
 	}
@@ -148,32 +148,6 @@ rectangle {
 	"basic attribute" {
 		clr=10
 	}
-}
-text {
-	object {
-		x=20
-		y=44
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="SF"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=20
-		y=65
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="BF"
-	align="horiz. centered"
 }
 indicator {
 	object {
@@ -403,4 +377,25 @@ polyline {
 	}
 	limits {
 	}
+}
+"related display" {
+	object {
+		x=35
+		y=42
+		width=30
+		height=42
+	}
+	display[0] {
+		label="SF"
+		name="../steppingmotor/CUST_STEP.adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(SF)"
+	}
+	display[1] {
+		label="BF"
+		name="../steppingmotor/CUST_STEP.adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(BF)"
+	}
+	clr=14
+	bclr=4
+	visual="a column of buttons"
 }

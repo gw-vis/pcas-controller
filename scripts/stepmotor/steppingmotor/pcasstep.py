@@ -60,6 +60,11 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
+    '0_LIMITCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
     '0_FLUCTUATION': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -136,6 +141,11 @@ pvdb ={
         'value': 0,
     },
     '1_LIMITPOSMAX': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '1_LIMITCHANGE': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
@@ -220,6 +230,11 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
+    '2_LIMITCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
     '2_FLUCTUATION': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -296,6 +311,11 @@ pvdb ={
         'value': 0,
     },
     '3_LIMITPOSMAX': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '3_LIMITCHANGE': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
@@ -380,6 +400,11 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
+    '4_LIMITCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
     '4_FLUCTUATION': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -460,6 +485,11 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
+    '5_LIMITCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
     '5_FLUCTUATION': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -492,6 +522,17 @@ pvdb ={
     }
 }
 
+"""
+The first 56 variables can also be stored permanentaly in the EEPROM.
+6ch x userVariable <= 56
+python 3.4 enum!!!
+"""
+userVariable_homePos    = 0
+userVariable_lrDistance = 1
+userVariable_actualPos  = 2
+userVariable_limitMin   = 3
+userVariable_limitMax   = 4
+
 ##################################################
 
 #os.environ['EPICS_CAS_INTF_ADDR_LIST'] = 'localhost'
@@ -523,13 +564,15 @@ class PcasDriver(pcaspy.Driver):
 
         # setup limit and position from TMCM6100 mempry.
         for motorAddr in range(6):
-            lrDistance = self.driver.getUserVariables(self.calcUserValiable(motorAddr,1))
-            self.setParam(str(motorAddr)+"_LIMITPOSMAX",self.limitSwitchMax(lrDistance))
-            self.setParam(str(motorAddr)+"_LIMITPOSMIN",self.limitSwitchMin(lrDistance))
-            pos = self.driver.getUserVariables(self.calcUserValiable(motorAddr,2))
+            limitMax = self.driver.getUserVariables(self.calcUserValiable(motorAddr,userVariable_limitMax))
+            self.setParam(str(motorAddr)+"_LIMITPOSMAX",limitMax)
+            limitMin = self.driver.getUserVariables(self.calcUserValiable(motorAddr,userVariable_limitMin))
+            self.setParam(str(motorAddr)+"_LIMITPOSMIN",limitMin)
+            pos = self.driver.getUserVariables(self.calcUserValiable(motorAddr,userVariable_actualPos))
             self.setParam(str(motorAddr)+"_POSITION",pos)
             self.driver.stop(motorAddr)
             self.driver.setActualPosition(pos, motorAddr)
+            lrDistance = self.driver.getUserVariables(self.calcUserValiable(motorAddr,userVariable_lrDistance))
             if lrDistance == 0:
                 self.driver.setRightLimitSwitchEnable(False, motorAddr)
                 self.driver.setLeftLimitSwitchEnable(False,  motorAddr)
@@ -576,7 +619,7 @@ class PcasDriver(pcaspy.Driver):
             pos = self.driver.getActualPosition(motorAddr)
             if pos == 0:
                 # Maybe after the power off. Read to EEPROM.
-                pos = self.driver.getUserVariables(self.calcUserValiable(motorAddr,2))
+                pos = self.driver.getUserVariables(self.calcUserValiable(motorAddr,userVariable_actualPos))
             self.setParam(direction+"_POSITION",pos)
 
             d = datetime.now()
@@ -602,20 +645,34 @@ class PcasDriver(pcaspy.Driver):
             pos =  self.driver.getActualPosition(motorAddr)
             self.setParam(direction+"_POSITION",pos)
 ####
-            self.driver.setUserVariables(self.calcUserValiable(motorAddr,2),pos)
-            self.driver.storeUserVariables(self.calcUserValiable(motorAddr,2))
+            self.driver.setUserVariables(self.calcUserValiable(motorAddr,userVariable_actualPos),pos)
+            self.driver.storeUserVariables(self.calcUserValiable(motorAddr,userVariable_actualPos))
 
         if name == "STEP":
             count = self.getParam(direction+"_STEP")
             self.moveStepCount(motorAddr,direction,count)
 
-        if name == "FWD":
+        if (name == "FWD") and (value == 1.0):
             count = self.getParam(direction+"_FLUCTUATION")
             self.moveStepCount(motorAddr,direction,count)
 
-        if name == "REV":
+        if (name == "REV") and (value == 1.0):
             count = -self.getParam(direction+"_FLUCTUATION")
             self.moveStepCount(motorAddr,direction,count)
+
+        if (name == "LIMITCHANGE") and (value == 1.0):
+            limitMin = self.getParam(direction+"_LIMITPOSMIN")
+            limitMax = self.getParam(direction+"_LIMITPOSMAX")
+            print "Set to limit"
+            # limitMin position.
+            self.driver.setUserVariables(calcUserValiable(motorAddr,userVariable_limitMin),limitMin)
+            # limitMax position.
+            self.driver.setUserVariables(calcUserValiable(motorAddr,userVariable_limitMax),limitMax)
+            # Store all paranator to EEPROM.
+            print "[Start]Store TMCM6110 EEPROM"
+            driver.storeUserVariables(calcUserValiable(motorAddr,userVariable_limitMin))
+            driver.storeUserVariables(calcUserValiable(motorAddr,userVariable_limitMax))
+            print "[End]Store TMCM6110 EEPROM"
 
         self.updatePVs()
             
@@ -634,8 +691,8 @@ class PcasDriver(pcaspy.Driver):
             f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' moved to '+str(pos+count)+'\n')            
 
         # Actual position.
-        self.driver.setUserVariables(self.calcUserValiable(motorAddr,2),pos+count)
-        self.driver.storeUserVariables(self.calcUserValiable(motorAddr,2))
+        self.driver.setUserVariables(self.calcUserValiable(motorAddr,userVariable_actualPos),pos+count)
+        self.driver.storeUserVariables(self.calcUserValiable(motorAddr,userVariable_actualPos))
 
     def calcUserValiable(self,motorAddr,offset):
         # CH.0 to 5
@@ -655,12 +712,6 @@ class PcasDriver(pcaspy.Driver):
             if count < 0 and min > pos + count:
                 count = min - pos
         return count
-
-    def limitSwitchMax(self,lrDistance):
-        return int(lrDistance * 0.95)
-
-    def limitSwitchMin(self,lrDistance):
-        return int(lrDistance * 0.05)
 
 class PcasServer(pcaspy.SimpleServer):
     def __init__(self, prefix, driver):

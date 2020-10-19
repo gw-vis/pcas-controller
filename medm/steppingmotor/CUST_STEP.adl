@@ -1,12 +1,12 @@
 
 file {
-	name="/users/ikeda/Git/pcas-controller/medm/stepmotor/CUST_STEP.adl"
+	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/CUST_STEP.adl"
 	version=030109
 }
 display {
 	object {
-		x=4357
-		y=521
+		x=4402
+		y=272
 		width=334
 		height=186
 	}

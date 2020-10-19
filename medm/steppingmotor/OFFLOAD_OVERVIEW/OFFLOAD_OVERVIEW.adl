@@ -168,7 +168,7 @@ text {
     height=320
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,F0=ETMX_GAS_0,F1=ETMX_GAS_1,F2=ETMX_GAS_5,F3=ETMX_GAS_3,BF=ETMX_GAS_4"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,IPSTEPID=ETMX_IP,IPSTEPADL=IP_TM,STEPID=ETMX_GAS,F0=0,F1=1,F2=5,F3=3,BF=4"
     }
     
     composite {
@@ -179,7 +179,7 @@ text {
     height=320
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,F0=ETMX_GAS_0,F1=ETMX_GAS_1,F2=ETMX_GAS_2,F3=ETMX_GAS_5,BF=ETMX_GAS_4"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,IPSTEPID=ITMX_IP,IPSTEPADL=IP_TM,STEPID=ITMX_GAS,F0=0,F1=1,F2=2,F3=5,BF=4"
     }
     
     composite {
@@ -190,7 +190,7 @@ text {
     height=320
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,F0=ETMX_GAS_0,F1=ETMX_GAS_1,F2=ETMX_GAS_2,F3=ETMX_GAS_5,BF=ETMX_GAS_4"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,IPSTEPID=ETMY_IP,IPSTEPADL=IP_TM,STEPID=ETMY_GAS,F0=0,F1=1,F2=2,F3=5,BF=4"
     }
     
     composite {
@@ -201,7 +201,7 @@ text {
     height=320
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,F0=ETMX_GAS_0,F1=ETMX_GAS_1,F2=ETMX_GAS_2,F3=ETMX_GAS_3,BF=ETMX_GAS_4"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,IPSTEPID=IIMY_IP,IPSTEPADL=IP_TM,STEPID=ITMY_GAS,F0=0,F1=1,F2=2,F3=3,BF=4"
     }
     
     composite {
@@ -212,7 +212,7 @@ text {
     height=235
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,F0=BS_GAS_3,F1=BS_GAS_1,BF=BS_GAS_0"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,IPSTEPID=BS_IP,IPSTEPADL=IP_BS,STEPID=BS_GAS,F0=3,F1=1,BF=0"
     }
     
     composite {
@@ -223,7 +223,7 @@ text {
     height=235
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,F0=SRM_GAS_3,F1=SRM_GAS_1,BF=SRM_GAS_0"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,IPSTEPID=SRM_IP,IPSTEPADL=IP_SR,STEPID=SRM_GAS,F0=3,F1=1,BF=0"
     }
     
     composite {
@@ -234,7 +234,7 @@ text {
     height=235
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,F0=SR2_GAS_2,F1=SR2_GAS_1,BF=SR2_GAS_0"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,IPSTEPID=SR2_IP,IPSTEPADL=IP_SR,STEPID=SR2_GAS,F0=2,F1=1,BF=0"
     }
     
     composite {
@@ -245,7 +245,7 @@ text {
     height=235
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,F0=SR3_GAS_2,F1=SR3_GAS_1,BF=SR3_GAS_0"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,IPSTEPID=SR3_IP,IPSTEPADL=IP_SR,STEPID=SR3_GAS,F0=2,F1=1,BF=0"
     }
     
     composite {
@@ -256,7 +256,7 @@ text {
     height=90
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEBP.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PRM,SF=PR0_GAS_3,F=PR0_GAS_2"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEBP.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PRM,STEPID=PR0_GAS,SF=3,BF=2"
     }
     
     composite {
@@ -267,7 +267,7 @@ text {
     height=90
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEBP.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR2,SF=PR2_GAS_2,F=PR2_GAS_1"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEBP.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR2,STEPID=PR2_GAS,SF=2,BF=1"
     }
     
     composite {
@@ -278,6 +278,6 @@ text {
     height=90
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEBP.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR3,SF=PRO_GAS_1,F=PRO_GAS_0"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEBP.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR3,STEPID=PR0_GAS,SF=1,BF=0"
     }
     

@@ -232,6 +232,17 @@ pvdb ={
     }
 }
 
+"""
+The first 56 variables can also be stored permanentaly in the EEPROM.
+6ch x userVariable <= 56
+python 3.4 enum!!!
+"""
+userVariable_homePos    = 0
+userVariable_lrDistance = 1
+userVariable_actualPos  = 2
+userVariable_limitMin   = 3
+userVariable_limitMax   = 4
+
 ##################################################
 
 #os.environ['EPICS_CAS_INTF_ADDR_LIST'] = 'localhost'
@@ -278,13 +289,15 @@ class PcasDriver(pcaspy.Driver):
         self.motorInitilize(motorAddrY,"F0Y")
 
     def motorInitilize(self,motorAddr,dof):
-        lrDistance = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,1))
-        self.setParam(dof+"_LIMITPOSMAX",self.limitSwitchMax(lrDistance))
-        self.setParam(dof+"_LIMITPOSMIN",self.limitSwitchMin(lrDistance))
-        pos = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,2))
+        limitMax = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariable_limitMax))
+        self.setParam(dof+"_LIMITPOSMAX",limitMax)
+        limitMin = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariable_limitMin))
+        self.setParam(dof+"_LIMITPOSMIN",limitMin)
+        pos = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariable_actualPos))
         self.setParam(dof+"_POSITION",pos)
         self.driver.stop(motorAddr)
         self.driver.setActualPosition(pos, motorAddr)
+        lrDistance = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariable_lrDistance))
         if lrDistance == 0:
             self.driver.setRightLimitSwitchEnable(False, motorAddr)
             self.driver.setLeftLimitSwitchEnable(False,  motorAddr)
@@ -367,22 +380,22 @@ class PcasDriver(pcaspy.Driver):
             posA = self.driver.getActualPosition(motorAddrA)
             if posA == 0:
                 # Maybe after the power off. Read to EEPROM.
-                posA = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddrA,2))
+                posA = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddrA,userVariable_actualPos))
             self.setParam("A_POSITION",posA)
             posB = self.driver.getActualPosition(motorAddrB)
             if posB == 0:
                 # Maybe after the power off. Read to EEPROM.
-                posB = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddrB,2))
+                posB = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddrB,userVariable_actualPos))
             self.setParam("B_POSITION",posB)
             posC = self.driver.getActualPosition(motorAddrC)
             if posC == 0:
                 # Maybe after the power off. Read to EEPROM.
-                posC = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddrC,2))
+                posC = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddrC,userVariable_actualPos))
             self.setParam("C_POSITION",posC)
             posY = self.driver.getActualPosition(motorAddrY)
             if posY == 0:
                 # Maybe after the power off. Read to EEPROM.
-                posY = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddrY,2))
+                posY = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddrY,userVariable_actualPos))
             self.setParam("F0Y_POSITION",posY)
         
             d = datetime.now()
@@ -428,23 +441,23 @@ class PcasDriver(pcaspy.Driver):
 
             pos =  self.driver.getActualPosition(motorAddrA)
             self.setParam("A_POSITION",pos)
-            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrA,2),pos)
-            self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrA,2))
+            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrA,userVariable_actualPos),pos)
+            self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrA,userVariable_actualPos))
 
             pos =  self.driver.getActualPosition(motorAddrB)
             self.setParam("B_POSITION",pos)
-            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrB,2),pos)
-            self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrB,2))
+            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrB,userVariable_actualPos),pos)
+            self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrB,userVariable_actualPos))
 
             pos =  self.driver.getActualPosition(motorAddrC)
             self.setParam("C_POSITION",pos)
-            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrC,2),pos)
-            self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrC,2))
+            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrC,userVariable_actualPos),pos)
+            self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrC,userVariable_actualPos))
 
             pos =  self.driver.getActualPosition(motorAddrY)
             self.setParam("F0Y_POSITION",pos)
-            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrY,2),pos)
-            self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrY,2))
+            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrY,userVariable_actualPos),pos)
+            self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrY,userVariable_actualPos))
 
         if channel == "L_STEP":
             self.moveStepCount(value,'L')
@@ -458,37 +471,51 @@ class PcasDriver(pcaspy.Driver):
         if channel == "F0Y_STEP":
            self.moveStepCount(value,'F0Y')
 
-        if channel == "L_FWD":
+        if (channel == "L_FWD") and (value == 1.0):
             count = self.getParam("L_FLUCTUATION")
             self.moveStepCount(count,'L')
 
-        if channel == "L_REV":
+        if (channel == "L_REV") and (value == 1.0):
             count = -self.getParam("L_FLUCTUATION")
             self.moveStepCount(count,'L')
 
-        if channel == "T_FWD":
+        if (channel == "T_FWD") and (value == 1.0):
             count = self.getParam("T_FLUCTUATION")
             self.moveStepCount(count,'T')
 
-        if channel == "T_REV":
+        if (channel == "T_REV") and (value == 1.0):
             count = -self.getParam("T_FLUCTUATION")
             self.moveStepCount(count,'T')
 
-        if channel == "Y_FWD":
+        if (channel == "Y_FWD") and (value == 1.0):
             count = self.getParam("Y_FLUCTUATION")
             self.moveStepCount(count,'Y')
 
-        if channel == "Y_REV":
+        if (channel == "Y_REV") and (value == 1.0):
             count = -self.getParam("Y_FLUCTUATION")
             self.moveStepCount(count,'Y')
 
-        if channel == "F0Y_FWD":
+        if (channel == "F0Y_FWD") and (value == 1.0):
             count = self.getParam("F0Y_FLUCTUATION")
             self.moveStepCount(count,'F0Y')
 
-        if channel == "F0Y_REV":
+        if (channel == "F0Y_REV") and (value == 1.0):
             count = -self.getParam("F0Y_FLUCTUATION")
             self.moveStepCount(count,'F0Y')
+
+#        if (name == "LIMITCHANGE") and (value == 1.0):
+#            limitMin = self.getParam(direction+"_LIMITPOSMIN")
+#            limitMax = self.getParam(direction+"_LIMITPOSMAX")
+#            print "Set to limit"
+#            # limitMin position.
+#            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariable_limitMin),limitMin)
+#            # limitMax position.
+#            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariable_limitMax),limitMax)
+#            # Store all paranator to EEPROM.
+#            print "[Start]Store TMCM6110 EEPROM"
+#            driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariable_limitMin))
+#            driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariable_limitMax))
+#            print "[End]Store TMCM6110 EEPROM"
 
         self.updatePVs()
         
@@ -528,12 +555,6 @@ class PcasDriver(pcaspy.Driver):
         d = datetime.now()
         with open(self.logfile,'a') as f:
             f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' IP moved in '+dirStr+' by '+str(count)+'\n')
-
-    def limitSwitchMax(self,lrDistance):
-        return int(lrDistance * 0.95)
-
-    def limitSwitchMin(self,lrDistance):
-        return int(lrDistance * 0.05)
 
 class PcasServer(pcaspy.SimpleServer):
     def __init__(self, prefix, driver):

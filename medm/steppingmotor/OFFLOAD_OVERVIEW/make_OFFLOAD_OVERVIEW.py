@@ -216,7 +216,7 @@ TYPEBP,PR3,GAS,
 #common = '/opt/rtcds/userapps/release/vis/common'
 common = './'
 
-def usr_typea(x,y,system,F0,F1,F2,F3,BF):
+def usr_typea(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,F2,F3,BF):
     width = 300
     height = 320
     txt = '''
@@ -228,13 +228,13 @@ def usr_typea(x,y,system,F0,F1,F2,F3,BF):
     height=320
     }}
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},IPSTEPID={ipstepid},IPSTEPADL={ipstepadl},STEPID={stepid},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
     }}
-    '''.format(common=common,x=x,y=y,system=system,f0=F0,f1=F1,f2=F2,f3=F3,bf=BF)
+    '''.format(common=common,x=x,y=y,system=system,ipstepid=IPSTEPID,ipstepadl=IPSTEPADL,stepid=STEPID,f0=F0,f1=F1,f2=F2,f3=F3,bf=BF)
     return txt,width,height
 #    "composite file"="{common}/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
 
-def usr_typeb(x,y,system,F0,F1,BF):
+def usr_typeb(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,BF):
     width = 300
     height = 235
     txt = '''
@@ -246,13 +246,13 @@ def usr_typeb(x,y,system,F0,F1,BF):
     height=235
     }}
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},BF={bf}"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},IPSTEPID={ipstepid},IPSTEPADL={ipstepadl},STEPID={stepid},F0={f0},F1={f1},BF={bf}"
     }}
-    '''.format(common=common,x=x,y=y,system=system,f0=F0,f1=F1,bf=BF)
+    '''.format(common=common,x=x,y=y,system=system,ipstepid=IPSTEPID,ipstepadl=IPSTEPADL,stepid=STEPID,f0=F0,f1=F1,bf=BF)
     return txt,width,height
 #    "composite file"="{common}/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
 
-def usr_typebp(x,y,system,SF,BF):
+def usr_typebp(x,y,system,STEPID,SF,BF):
     width = 300
     height = 90
     txt = '''
@@ -264,9 +264,9 @@ def usr_typebp(x,y,system,SF,BF):
     height=90
     }}
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEBP.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},SF={sf},F={bf}"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEBP.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},STEPID={stepid},SF={sf},BF={bf}"
     }}
-    '''.format(common=common,x=x,y=y,system=system,sf=SF,bf=BF)
+    '''.format(common=common,x=x,y=y,system=system,stepid=STEPID,sf=SF,bf=BF)
     return txt,width,height
 #    "composite file"="{common}/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
 
@@ -278,22 +278,22 @@ if __name__=='__main__':
     #systems = ['TEST', 'TESTSR'] # TEST
     #systems = ['ETMX', 'ITMX', 'ETMY', 'ITMY']
     model = {
-        'ETMX': {'Type': 'TypeA', 'CELL':{ 'colum':0, 'line':0 }, 'BS':{ 'F0':'ETMX_GAS_0', 'F1':'ETMX_GAS_1', 'F2':'ETMX_GAS_5', 'F3':'ETMX_GAS_3', 'BF':'ETMX_GAS_4'}},
-        'ITMX': {'Type': 'TypeA', 'CELL':{ 'colum':1, 'line':0 }, 'BS':{ 'F0':'ETMX_GAS_0', 'F1':'ETMX_GAS_1', 'F2':'ETMX_GAS_2', 'F3':'ETMX_GAS_5', 'BF':'ETMX_GAS_4'}},
-        'ETMY': {'Type': 'TypeA', 'CELL':{ 'colum':2, 'line':0 }, 'BS':{ 'F0':'ETMX_GAS_0', 'F1':'ETMX_GAS_1', 'F2':'ETMX_GAS_2', 'F3':'ETMX_GAS_5', 'BF':'ETMX_GAS_4'}},
-        'ITMY': {'Type': 'TypeA', 'CELL':{ 'colum':3, 'line':0 }, 'BS':{ 'F0':'ETMX_GAS_0', 'F1':'ETMX_GAS_1', 'F2':'ETMX_GAS_2', 'F3':'ETMX_GAS_3', 'BF':'ETMX_GAS_4'}},
+        'ETMX': {'Type': 'TypeA', 'CELL':{ 'colum':0, 'line':0 }, 'IP':{'STEPID':'ETMX_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ETMX_GAS', 'F0':'0', 'F1':'1', 'F2':'5', 'F3':'3', 'BF':'4'}},
+        'ITMX': {'Type': 'TypeA', 'CELL':{ 'colum':1, 'line':0 }, 'IP':{'STEPID':'ITMX_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ITMX_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'5', 'BF':'4'}},
+        'ETMY': {'Type': 'TypeA', 'CELL':{ 'colum':2, 'line':0 }, 'IP':{'STEPID':'ETMY_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ETMY_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'5', 'BF':'4'}},
+        'ITMY': {'Type': 'TypeA', 'CELL':{ 'colum':3, 'line':0 }, 'IP':{'STEPID':'IIMY_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ITMY_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'3', 'BF':'4'}},
 
-        'BS':  {'Type': 'TypeB', 'CELL':{ 'colum':0, 'line':1 }, 'BS':{ 'F0':'BS_GAS_3', 'F1':'BS_GAS_1', 'BF':'BS_GAS_0'}},
-        'SR2': {'Type': 'TypeB', 'CELL':{ 'colum':2, 'line':1 }, 'BS':{ 'F0':'SR2_GAS_2', 'F1':'SR2_GAS_1', 'BF':'SR2_GAS_0'}},
-        'SR3': {'Type': 'TypeB', 'CELL':{ 'colum':3, 'line':1 }, 'BS':{ 'F0':'SR3_GAS_2', 'F1':'SR3_GAS_1', 'BF':'SR3_GAS_0'}},
-        'SRM': {'Type': 'TypeB', 'CELL':{ 'colum':1, 'line':1 }, 'BS':{ 'F0':'SRM_GAS_3', 'F1':'SRM_GAS_1', 'BF':'SRM_GAS_0'}},
+        'BS':  {'Type': 'TypeB', 'CELL':{ 'colum':0, 'line':1 }, 'IP':{'STEPID':'BS_IP', 'STEPADL':'IP_BS'}, 'GAS':{ 'STEPID':'BS_GAS',  'F0':'3', 'F1':'1', 'BF':'0'}},
+        'SR2': {'Type': 'TypeB', 'CELL':{ 'colum':2, 'line':1 }, 'IP':{'STEPID':'SR2_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SR2_GAS', 'F0':'2', 'F1':'1', 'BF':'0'}},
+        'SR3': {'Type': 'TypeB', 'CELL':{ 'colum':3, 'line':1 }, 'IP':{'STEPID':'SR3_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SR3_GAS', 'F0':'2', 'F1':'1', 'BF':'0'}},
+        'SRM': {'Type': 'TypeB', 'CELL':{ 'colum':1, 'line':1 }, 'IP':{'STEPID':'SRM_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SRM_GAS', 'F0':'3', 'F1':'1', 'BF':'0'}},
 
-        'PR2': {'Type': 'TypeBp', 'CELL':{ 'colum':1, 'line':2 }, 'BS':{ 'BF':'PR2_GAS_1', 'SF':'PR2_GAS_2'}},
-        'PR3': {'Type': 'TypeBp', 'CELL':{ 'colum':2, 'line':2 }, 'BS':{ 'BF':'PRO_GAS_0', 'SF':'PRO_GAS_1'}},   # Motor !
-        'PRM': {'Type': 'TypeBp', 'CELL':{ 'colum':0, 'line':2 }, 'BS':{ 'BF':'PR0_GAS_2', 'SF':'PR0_GAS_3'}},
+        'PR2': {'Type': 'TypeBp', 'CELL':{ 'colum':1, 'line':2 }, 'GAS':{ 'STEPID':'PR2_GAS', 'BF':'1', 'SF':'2'}},
+        'PR3': {'Type': 'TypeBp', 'CELL':{ 'colum':2, 'line':2 }, 'GAS':{ 'STEPID':'PR0_GAS', 'BF':'0', 'SF':'1'}},   # Motor !
+        'PRM': {'Type': 'TypeBp', 'CELL':{ 'colum':0, 'line':2 }, 'GAS':{ 'STEPID':'PR0_GAS', 'BF':'2', 'SF':'3'}},
 
-        'TESTSR':  {'Type': 'TypeB', 'CELL':{ 'colum':0, 'line':0 }, 'BS':{ 'F0':'TEST_GAS_0', 'F1':'TEST_GAS_1', 'BF':'TEST_GAS_0'}},
-        'TEST': {'Type': 'TypeBp', 'CELL':{ 'colum':1, 'line':1 }, 'BS':{ 'BF':'TEST_GAS_0', 'SF':'TEST_GAS_1'}}
+        'TESTSR':  {'Type': 'TypeB', 'CELL':{ 'colum':0, 'line':0 }, 'GAS':{ 'STEPID':'TEST_GAS', 'F0':'0', 'F1':'1', 'BF':'0'}},
+        'TEST': {'Type': 'TypeBp', 'CELL':{ 'colum':1, 'line':1 }, 'GAS':{ 'STEPID':'TESTSR_IP', 'BF':'0', 'SF':'1'}}
     }
 
     height = 0
@@ -305,10 +305,10 @@ if __name__=='__main__':
     with open('./OFFLOAD_OVERVIEW.adl','w') as f:
         for system in systems:
             type = model[system]['Type']
-            bs = model[system]['BS']
+            gas = model[system]['GAS']
             cell = model[system]['CELL']
             print type
-            print bs
+            print gas
 
             if before_cell_colum > cell['colum']:
                 height += h1+2
@@ -321,11 +321,13 @@ if __name__=='__main__':
             print cell['colum'],cell['line']
 
             if type == 'TypeA':
-                txt,w1,h1 = usr_typea(x=width,y=height,system=system, **bs)
+                ip = model[system]['IP']
+                txt,w1,h1 = usr_typea(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
             elif type == 'TypeB':
-                txt,w1,h1 = usr_typeb(x=width,y=height,system=system, **bs)
+                ip = model[system]['IP']
+                txt,w1,h1 = usr_typeb(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
             elif type == 'TypeBp':
-                txt,w1,h1 = usr_typebp(x=width,y=height,system=system, **bs)
+                txt,w1,h1 = usr_typebp(x=width,y=height,system=system, **gas)
             contents += txt            
 
             if direct == 0:

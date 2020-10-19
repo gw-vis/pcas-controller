@@ -1,12 +1,12 @@
 
 file {
-	name="/users/Miyo/pcas-controller/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEB.adl"
-	version=030107
+	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEB.adl"
+	version=030109
 }
 display {
 	object {
-		x=936
-		y=593
+		x=4333
+		y=341
 		width=782
 		height=400
 	}
@@ -197,45 +197,6 @@ indicator {
 		hoprSrc="default"
 		hoprDefault=30000
 	}
-}
-text {
-	object {
-		x=20
-		y=44
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="LEN"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=20
-		y=66
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="TRA"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=20
-		y=88
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="YAW"
-	align="horiz. centered"
 }
 "message button" {
 	object {
@@ -557,45 +518,6 @@ indicator {
 		hoprDefault=30000
 	}
 }
-text {
-	object {
-		x=20
-		y=164
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="F0"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=20
-		y=186
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="F1"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=20
-		y=208
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="BF"
-	align="horiz. centered"
-}
 "message button" {
 	object {
 		x=70
@@ -837,19 +759,6 @@ indicator {
 		hoprDefault=30000
 	}
 }
-text {
-	object {
-		x=20
-		y=110
-		width=50
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="F0Y"
-	align="horiz. centered"
-}
 "message button" {
 	object {
 		x=70
@@ -911,4 +820,61 @@ text {
 	}
 	limits {
 	}
+}
+"related display" {
+	object {
+		x=36
+		y=42
+		width=30
+		height=86
+	}
+	display[0] {
+		label="LEN"
+		name="../steppingmotor/CUST_$(IPSTEPADL).adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(IPSTEPID)"
+	}
+	display[1] {
+		label="TRA"
+		name="../steppingmotor/CUST_$(IPSTEPADL).adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(IPSTEPID)"
+	}
+	display[2] {
+		label="YAW"
+		name="../steppingmotor/CUST_$(IPSTEPADL).adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(IPSTEPID)"
+	}
+	display[3] {
+		label="F0Y"
+		name="../steppingmotor/CUST_$(IPSTEPADL).adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(IPSTEPID)"
+	}
+	clr=14
+	bclr=4
+	visual="a column of buttons"
+}
+"related display" {
+	object {
+		x=35
+		y=162
+		width=30
+		height=64
+	}
+	display[0] {
+		label="F0"
+		name="../steppingmotor/CUST_STEP.adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(F0)"
+	}
+	display[1] {
+		label="F1"
+		name="../steppingmotor/CUST_STEP.adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(F1)"
+	}
+	display[2] {
+		label="BF"
+		name="../steppingmotor/CUST_STEP.adl"
+		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(BF)"
+	}
+	clr=14
+	bclr=4
+	visual="a column of buttons"
 }
