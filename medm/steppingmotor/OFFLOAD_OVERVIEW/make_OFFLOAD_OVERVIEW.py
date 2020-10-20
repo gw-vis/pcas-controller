@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 header = '''
 file {
@@ -325,8 +325,8 @@ if __name__=='__main__':
             type = model[system]['Type']
             gas = model[system]['GAS']
             cell = model[system]['CELL']
-            print type
-            print gas
+            print(type)
+            print(gas)
 
             if before_cell_colum > cell['colum']:
                 height += h1+2
@@ -335,8 +335,8 @@ if __name__=='__main__':
                 height = 0
                 width += w1+2
             
-            print width,height
-            print cell['colum'],cell['line']
+            print(width,height)
+            print(cell['colum'],cell['line'])
 
             if type == 'TypeA':
                 ip = model[system]['IP']
