@@ -2,9 +2,11 @@
 import os
 import sys
 from Trinamic_control6110 import *
+from datetime import datetime
 import time
 import conf
 #from epics import caget, caput, cainfo
+import userVariableMap
 
 driverDict = {
     "PR2_GAS"   :"10.68.150.40",
@@ -29,6 +31,9 @@ driverDict = {
     "TEST_GAS"  :"10.68.150.63",
     "TESTSR_IP" :"10.68.150.63"
 }
+
+def getlogfileName(prefix):
+    return '/kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/'+prefix+'.log'
 
 def wait_moving_motor(driver,sleeptime,motorAddr):
     isError = False
@@ -70,6 +75,12 @@ def limitSwitchMin(lrDistance):
     return int(lrDistance * 0.05)
 
 def initialize(driver,motorAddr,prefix):
+    rswitch = driver.getRightLimitSwitch(motorAddr)
+    lswitch = driver.getLeftLimitSwitch(motorAddr)
+    if rswitch == 1 and lswitch == 1:
+        print('Both Limit switch ON')
+        return
+
     driver.setRightLimitSwitchEnable(True, motorAddr)
     driver.setLeftLimitSwitchEnable(True,  motorAddr)
     # First step is search distance to Home Position from Left(Zero) position.
@@ -87,6 +98,9 @@ def initialize(driver,motorAddr,prefix):
         homePos = -driver.getActualPosition(motorAddr)
     else:
         homePos = 0
+        print('Not found Left Limit switch')
+        return
+
     # Second step is search distance to Right Position from Left(Zero) position.
     # to Right
     count = driver.getMaxRange() # set maximum value
@@ -102,28 +116,45 @@ def initialize(driver,motorAddr,prefix):
         lrDistance = driver.getActualPosition(motorAddr)
     else:
         lrDistance = 0
+        print('Not found Right Limit switch')
+        return
+
 #    caput(prefix+"_LIMITPOSMAX",limitSwitchMax(lrDistance))
 #    caput(prefix+"_LIMITPOSMIN",limitSwitchMin(lrDistance))
 
     # Move to Homep osition.
     driver.setTargetPosition(homePos, motorAddr)
 #    caput(prefix+"_POSITION",homePos)
-    print prefix, lrDistance, homePos
+    print(prefix, lrDistance, homePos)
+
+    limitMin = limitSwitchMin(lrDistance)
+    limitMax = limitSwitchMax(lrDistance)
+    print(limitMin,limitMax)
 
     ## Write to EEPROM(TMCM6110).
     # Write all RAM memory.
     # Home Position.
-    driver.setUserVariables(calcUserValiable(motorAddr,0),homePos)
+    driver.setUserVariables(calcUserValiable(motorAddr,userVariableMap.homePos),homePos)
     # L-R Distance.
-    driver.setUserVariables(calcUserValiable(motorAddr,1),lrDistance)
+    driver.setUserVariables(calcUserValiable(motorAddr,userVariableMap.lrDistance),lrDistance)
     # Actual position.
-    driver.setUserVariables(calcUserValiable(motorAddr,2),homePos)
+    driver.setUserVariables(calcUserValiable(motorAddr,userVariableMap.actualPos),homePos)
+    # limitMin position.
+    driver.setUserVariables(calcUserValiable(motorAddr,userVariableMap.limitMin),limitMin)
+    # limitMax position.
+    driver.setUserVariables(calcUserValiable(motorAddr,userVariableMap.limitMax),limitMax)
     # Store all paranator to EEPROM.
-    print "[Start]Store TMCM6110 EEPROM"
-    driver.storeUserVariables(calcUserValiable(motorAddr,0))
-    driver.storeUserVariables(calcUserValiable(motorAddr,1))
-    driver.storeUserVariables(calcUserValiable(motorAddr,2))
-    print "[End]Store TMCM6110 EEPROM"
+    print("[Start]Store TMCM6110 EEPROM")
+    driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.homePos))
+    driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.lrDistance))
+    driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.actualPos))
+    driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.limitMin))
+    driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.limitMax))
+    print("[End]Store TMCM6110 EEPROM")
+
+    d = datetime.now()
+    with open(getlogfileName(prefix),'a') as f:
+        f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' install limit switch home:'+str(homePos)+' Dist:'+str(lrDistance)+' limit:'+str(limitMin)+' , '+str(limitMax)+'\n')            
 
 def print_driverList():
     print "| --- Driver List ---"

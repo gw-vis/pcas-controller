@@ -2,9 +2,11 @@
 import os
 import sys
 from Trinamic_control6110 import *
+from datetime import datetime
 import time
 import conf
 #from epics import caget, caput, cainfo
+import userVariableMap
 
 driverDict = {
     "PR2_GAS"   :"10.68.150.40",
@@ -30,6 +32,9 @@ driverDict = {
     "TESTSR_IP" :"10.68.150.63"
 }
 
+def getlogfileName(prefix):
+    return '/kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/'+prefix+'.log'
+
 def calcUserValiable(motorAddr,offset):
     # CH.0 to 5
     number = motorAddr + offset * 6
@@ -44,19 +49,28 @@ def clearZero(driver,motorAddr,prefix):
     # Write all RAM memory.
     # Home Position.
     print "Set to Zero"
-    driver.setUserVariables(calcUserValiable(motorAddr,0),0)
+    driver.setUserVariables(calcUserValiable(motorAddr,userVariableMap.homePos),0)
     # L-R Distance.
-    driver.setUserVariables(calcUserValiable(motorAddr,1),0)
+    driver.setUserVariables(calcUserValiable(motorAddr,userVariableMap.lrDistance),0)
     # Actual position.
-    driver.setUserVariables(calcUserValiable(motorAddr,2),0)
+    driver.setUserVariables(calcUserValiable(motorAddr,userVariableMap.actualPos),0)
+    driver.setUserVariables(calcUserValiable(motorAddr,userVariableMap.limitMin),0)
+    driver.setUserVariables(calcUserValiable(motorAddr,userVariableMap.limitMax),0)
     driver.stop(motorAddr)
     driver.setActualPosition(0, motorAddr)
     # Store all paranator to EEPROM.
     print "[Start]Store TMCM6110 EEPROM"
-    driver.storeUserVariables(calcUserValiable(motorAddr,0))
-    driver.storeUserVariables(calcUserValiable(motorAddr,1))
-    driver.storeUserVariables(calcUserValiable(motorAddr,2))
+    driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.homePos))
+    driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.lrDistance))
+    driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.actualPos))
+    driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.limitMin))
+    driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.limitMax))
     print "[End]Store TMCM6110 EEPROM"
+
+    d = datetime.now()
+    with open(getlogfileName(prefix),'a') as f:
+        f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' clear zero'+'\n')            
+
 
 def print_driverList():
     print "| --- Driver List ---"

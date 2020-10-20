@@ -162,7 +162,7 @@ text {
 	}
 	control {
 		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_LIMITPOSMIN"
-		clr=19
+		clr=50
 		bclr=14
 	}
 	limits {
@@ -177,7 +177,7 @@ text {
 	}
 	control {
 		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_LIMITPOSMAX"
-		clr=19
+		clr=50
 		bclr=14
 	}
 	limits {

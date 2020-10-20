@@ -12,17 +12,7 @@ For more details, please refer KAGRA wiki (DGS/MotorControl/StepperMotor).
 
 import numpy as np
 import conf
-
-"""
-The first 56 variables can also be stored permanentaly in the EEPROM.
-6ch x userVariable <= 56
-python 3.4 enum!!!
-"""
-userVariable_homePos    = 0
-userVariable_lrDistance = 1
-userVariable_actualPos  = 2
-userVariable_limitMin   = 3
-userVariable_limitMax   = 4
+import userVariableMap
 
 class IPMove:
     minA = 0

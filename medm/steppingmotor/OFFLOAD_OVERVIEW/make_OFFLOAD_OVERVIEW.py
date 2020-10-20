@@ -252,6 +252,24 @@ def usr_typeb(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,BF):
     return txt,width,height
 #    "composite file"="{common}/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
 
+def usr_typeb_lty(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,BF):
+    width = 300
+    height = 235
+    txt = '''
+    composite {{
+    object {{
+    x={x}
+    y={y}
+    width=300
+    height=235
+    }}
+    "composite name"=""
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEB_LTY.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},IPSTEPID={ipstepid},IPSTEPADL={ipstepadl},STEPID={stepid},F0={f0},F1={f1},BF={bf}"
+    }}
+    '''.format(common=common,x=x,y=y,system=system,ipstepid=IPSTEPID,ipstepadl=IPSTEPADL,stepid=STEPID,f0=F0,f1=F1,bf=BF)
+    return txt,width,height
+#    "composite file"="{common}/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
+
 def usr_typebp(x,y,system,STEPID,SF,BF):
     width = 300
     height = 90
@@ -283,7 +301,7 @@ if __name__=='__main__':
         'ETMY': {'Type': 'TypeA', 'CELL':{ 'colum':2, 'line':0 }, 'IP':{'STEPID':'ETMY_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ETMY_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'5', 'BF':'4'}},
         'ITMY': {'Type': 'TypeA', 'CELL':{ 'colum':3, 'line':0 }, 'IP':{'STEPID':'IIMY_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ITMY_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'3', 'BF':'4'}},
 
-        'BS':  {'Type': 'TypeB', 'CELL':{ 'colum':0, 'line':1 }, 'IP':{'STEPID':'BS_IP', 'STEPADL':'IP_BS'}, 'GAS':{ 'STEPID':'BS_GAS',  'F0':'3', 'F1':'1', 'BF':'0'}},
+        'BS':  {'Type': 'TypeBLTY', 'CELL':{ 'colum':0, 'line':1 }, 'IP':{'STEPID':'BS_IP', 'STEPADL':'IP_BS'}, 'GAS':{ 'STEPID':'BS_GAS',  'F0':'3', 'F1':'1', 'BF':'0'}},
         'SR2': {'Type': 'TypeB', 'CELL':{ 'colum':2, 'line':1 }, 'IP':{'STEPID':'SR2_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SR2_GAS', 'F0':'2', 'F1':'1', 'BF':'0'}},
         'SR3': {'Type': 'TypeB', 'CELL':{ 'colum':3, 'line':1 }, 'IP':{'STEPID':'SR3_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SR3_GAS', 'F0':'2', 'F1':'1', 'BF':'0'}},
         'SRM': {'Type': 'TypeB', 'CELL':{ 'colum':1, 'line':1 }, 'IP':{'STEPID':'SRM_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SRM_GAS', 'F0':'3', 'F1':'1', 'BF':'0'}},
@@ -326,6 +344,9 @@ if __name__=='__main__':
             elif type == 'TypeB':
                 ip = model[system]['IP']
                 txt,w1,h1 = usr_typeb(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
+            elif type == 'TypeBLTY':
+                ip = model[system]['IP']
+                txt,w1,h1 = usr_typeb_lty(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
             elif type == 'TypeBp':
                 txt,w1,h1 = usr_typebp(x=width,y=height,system=system, **gas)
             contents += txt            

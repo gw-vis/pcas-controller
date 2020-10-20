@@ -212,7 +212,7 @@ text {
     height=235
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,IPSTEPID=BS_IP,IPSTEPADL=IP_BS,STEPID=BS_GAS,F0=3,F1=1,BF=0"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEB_LTY.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,IPSTEPID=BS_IP,IPSTEPADL=IP_BS,STEPID=BS_GAS,F0=3,F1=1,BF=0"
     }
     
     composite {

@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=4672
-		y=496
+		x=3432
+		y=436
 		width=400
 		height=346
 	}
@@ -122,7 +122,7 @@ display {
 	display[5] {
 		label="CUST_INSTALL"
 		name="CUST_INSTALL.adl"
-		args="USERAPPS=/,IFO=K1,ifo,SITE=KAMIOKA,site=kamioka"
+		args="USERAPPS=/,IFO=K1,ifo,SITE=KAMIOKA,site=kamioka,STEPID=TEST_GAS,DOF=0"
 	}
 	clr=14
 	bclr=4
@@ -138,7 +138,7 @@ display {
 	command[0] {
 		label="TEST_GAS"
 		name="python"
-		args="/users/ikeda/Git/pcas-controller/scripts/stepmotor/steppingmotor/stepper_install.py K1:STEPPER-TESTSR_IP_A"
+		args="/users/ikeda/Git/pcas-controller/scripts/stepmotor/steppingmotor/stepper_install.py K1:STEPPER-TEST_GAS_0"
 	}
 	command[1] {
 		label="TEST_IP"

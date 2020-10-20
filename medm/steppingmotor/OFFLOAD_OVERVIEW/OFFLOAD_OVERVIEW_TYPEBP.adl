@@ -130,9 +130,24 @@ text {
 		height=20
 	}
 	command[0] {
-		label="GAS"
+		label="GAS LVDTINF INMON"
 		name="ndscope"
-		args="-k $(IFO):VIS-$(SYSTEM)_SF_DAMP_GAS_OUTMON $(IFO):VIS-$(SYSTEM)_BF_DAMP_GAS_OUTMON &"
+		args="-k $(IFO):VIS-$(SYSTEM)_SF_LVDTINF_GAS_INMON $(IFO):VIS-$(SYSTEM)_BF_LVDTINF_GAS_INMON &"
+	}
+	command[1] {
+		label="GAS COILOUTF OUTPUT"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_SF_COILOUTF_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_BF_COILOUTF_GAS_OUTPUT &"
+	}
+	command[2] {
+		label="GAS COILOUTF OUT16"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_SF_COILOUTF_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_BF_COILOUTF_GAS_OUT16 &"
+	}
+	command[3] {
+		label="GAS DAMP OUTMON"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_SF_DAMP_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_BF_DAMP_GAS_OUTPUT &"
 	}
 	clr=14
 	bclr=5
@@ -157,7 +172,7 @@ indicator {
 		height=20
 	}
 	monitor {
-		chan="$(IFO):VIS-$(SYSTEM)_SF_DAMP_GAS_OUTMON"
+		chan="$(IFO):VIS-$(SYSTEM)_SF_COILOUTF_GAS_OUTPUT"
 		clr=15
 		bclr=10
 	}
@@ -177,7 +192,7 @@ indicator {
 		height=20
 	}
 	monitor {
-		chan="$(IFO):VIS-$(SYSTEM)_BF_DAMP_GAS_OUTMON"
+		chan="$(IFO):VIS-$(SYSTEM)_BF_COILOUTF_GAS_OUTPUT"
 		clr=15
 		bclr=10
 	}

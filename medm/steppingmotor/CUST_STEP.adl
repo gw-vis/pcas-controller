@@ -443,3 +443,19 @@ text {
 	}
 	textix="Limit Switch NOT installed."
 }
+"related display" {
+	object {
+		x=187
+		y=59
+		width=140
+		height=20
+	}
+	display[0] {
+		label="Change Limit Position"
+		name="./CUST_LIMITCHANGE.adl"
+		args="IFO=$(IFO),STEPID=$(STEPID),DOF=$(DOF)"
+	}
+	clr=50
+	bclr=14
+	label="Change Limit Pos."
+}

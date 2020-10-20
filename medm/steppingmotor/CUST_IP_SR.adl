@@ -1,13 +1,13 @@
 
 file {
-	name="/users/ikeda/Git/pcas-controller/medm/stepmotor/CUST_IP_SR.adl"
+	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/CUST_IP_SR.adl"
 	version=030109
 }
 display {
 	object {
-		x=3290
-		y=870
-		width=410
+		x=4438
+		y=896
+		width=500
 		height=400
 	}
 	clr=13
@@ -492,7 +492,7 @@ text {
 }
 "text update" {
 	object {
-		x=225
+		x=221
 		y=36
 		width=60
 		height=20
@@ -508,7 +508,7 @@ text {
 }
 "text update" {
 	object {
-		x=291
+		x=287
 		y=36
 		width=60
 		height=20
@@ -524,7 +524,7 @@ text {
 }
 "text update" {
 	object {
-		x=225
+		x=221
 		y=62
 		width=60
 		height=20
@@ -540,7 +540,7 @@ text {
 }
 "text update" {
 	object {
-		x=291
+		x=287
 		y=62
 		width=60
 		height=20
@@ -556,7 +556,7 @@ text {
 }
 "text update" {
 	object {
-		x=225
+		x=221
 		y=87
 		width=60
 		height=20
@@ -572,7 +572,7 @@ text {
 }
 "text update" {
 	object {
-		x=291
+		x=287
 		y=87
 		width=60
 		height=20
@@ -588,7 +588,7 @@ text {
 }
 "text update" {
 	object {
-		x=225
+		x=221
 		y=112
 		width=60
 		height=20
@@ -604,7 +604,7 @@ text {
 }
 "text update" {
 	object {
-		x=291
+		x=287
 		y=112
 		width=60
 		height=20
@@ -910,4 +910,68 @@ text {
 		chanD="$(IFO):STEPPER-$(STEPID)_F0Y_LIMITPOSMIN"
 	}
 	textix="Limit Switch NOT installed."
+}
+"related display" {
+	object {
+		x=350
+		y=36
+		width=130
+		height=20
+	}
+	display[0] {
+		label="Change Limit Position"
+		name="./CUST_LIMITCHANGE.adl"
+		args="IFO=$(IFO),STEPID=$(STEPID),DOF=A"
+	}
+	clr=50
+	bclr=14
+	label="Change Limit Pos."
+}
+"related display" {
+	object {
+		x=350
+		y=62
+		width=130
+		height=20
+	}
+	display[0] {
+		label="Change Limit Position"
+		name="./CUST_LIMITCHANGE.adl"
+		args="IFO=$(IFO),STEPID=$(STEPID),DOF=B"
+	}
+	clr=50
+	bclr=14
+	label="Change Limit Pos."
+}
+"related display" {
+	object {
+		x=350
+		y=87
+		width=130
+		height=20
+	}
+	display[0] {
+		label="Change Limit Position"
+		name="./CUST_LIMITCHANGE.adl"
+		args="IFO=$(IFO),STEPID=$(STEPID),DOF=C"
+	}
+	clr=50
+	bclr=14
+	label="Change Limit Pos."
+}
+"related display" {
+	object {
+		x=350
+		y=112
+		width=130
+		height=20
+	}
+	display[0] {
+		label="Change Limit Position"
+		name="./CUST_LIMITCHANGE.adl"
+		args="IFO=$(IFO),STEPID=$(STEPID),DOF=F0Y"
+	}
+	clr=50
+	bclr=14
+	label="Change Limit Pos."
 }

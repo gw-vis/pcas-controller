@@ -110,6 +110,11 @@ rectangle {
 		name="python"
 		args="$(USERAPPS)/cds/scripts/stepmotor/steppingmotor/stepper_install.py $(IFO):STEPPER-$(STEPID)_$(DOF)"
 	}
+	command[1] {
+		label="Start"
+		name="python"
+		args="/users/ikeda/Git/pcas-controller/scripts/stepmotor/steppingmotor/stepper_install.py $(IFO):STEPPER-$(STEPID)_$(DOF)"
+	}
 	clr=0
 	bclr=20
 	label="Start Initialize"
@@ -137,6 +142,11 @@ text {
 		label="Start"
 		name="python"
 		args="$(USERAPPS)/cds/scripts/stepmotor/steppingmotor/stepper_clear_zero.py $(IFO):STEPPER-$(STEPID)_$(DOF)"
+	}
+	command[1] {
+		label="Start"
+		name="python"
+		args="/users/ikeda/Git/pcas-controller/scripts/stepmotor/steppingmotor/stepper_clear_zero.py $(IFO):STEPPER-$(STEPID)_$(DOF)"
 	}
 	clr=0
 	bclr=20

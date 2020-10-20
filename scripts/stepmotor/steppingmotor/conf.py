@@ -29,15 +29,15 @@ channel = {
                 },
         "SR2_GAS":{
                 "config"  : 'SR2',
-                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                "axisDirection" : [ -1, -1, 1, 1, 1, 1 ]  # 0:BF:Negative, 1:F1:Negative, 2:F0:Positive. by KLog#15272
                 },
         "SR3_GAS":{
                 "config"  : 'SR3',
-                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                "axisDirection" : [ -1, 1, 1, 1, 1, 1 ]   # 0:BF:Negative, 1:F1:Fishing rod not functional, 2:F0:Positive. by KLog#15272
                 },
         "SRM_GAS":{
                 "config"  : 'SRM',
-                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
+                "axisDirection" : [ -1, -1, 1, -1, 1, 1 ] # 0:BF:Negative, 1:F1:Negative, 3:F0:Negative. by KLog#15272
                 },
         "BS_IP":{
                 "config"  : 'BS',
@@ -49,10 +49,13 @@ channel = {
                 "signB"    : 1,
                 "signC"    : 1,
                 "signY"    : 1,
-                "axisDirectionLEN"  : 1, 
+                "axisDirectionLEN"  : 1, # L:Positive(Foward), T:Positive(Left), Y:Positive(CCW). by KLog#15272 
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
-                "axisDirectionF0Y"  : 1
+                "axisDirectionF0Y"  : 1,
+                "axisDirectionA"  : 1, 
+                "axisDirectionB"  : 1,
+                "axisDirectionC"  : 1
                 },
         "SR2_IP":{
                 "config"  : 'SR',
@@ -67,7 +70,10 @@ channel = {
                 "axisDirectionLEN"  : 1, 
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
-                "axisDirectionF0Y"  : 1
+                "axisDirectionF0Y"  : 1,
+                "axisDirectionA"  : 1, 
+                "axisDirectionB"  : 1,
+                "axisDirectionC"  : 1
                 },
         "SR3_IP":{
                 "config"  : 'SR',
@@ -79,10 +85,13 @@ channel = {
                 "signB"    : 1,
                 "signC"    : 1,
                 "signY"    : 1,
-                "axisDirectionLEN"  : 1, 
+                "axisDirectionLEN"  : 1, # L:Positive(Foward), T:Positive(Left), Y:Positive(CCW). by KLog#15272 
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
-                "axisDirectionF0Y"  : 1
+                "axisDirectionF0Y"  : 1,
+                "axisDirectionA"  : 1, 
+                "axisDirectionB"  : 1,
+                "axisDirectionC"  : 1
                 },
         "SRM_IP":{
                 "config"  : 'SR',
@@ -94,10 +103,13 @@ channel = {
                 "signB"    : 1,
                 "signC"    : 1,
                 "signY"    : 1,
-                "axisDirectionLEN"  : 1, 
+                "axisDirectionLEN"  : 1, # L:Positive(Foward), T:Positive(Left), Y:Positive(CCW). by KLog#15272 
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
-                "axisDirectionF0Y"  : 1
+                "axisDirectionF0Y"  : 1,
+                "axisDirectionA"  : 1, 
+                "axisDirectionB"  : 1,
+                "axisDirectionC"  : 1
                 },
         "ETMY_IP":{
                 "config"  : 'TM',
@@ -112,7 +124,10 @@ channel = {
                 "axisDirectionLEN"  : 1, 
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
-                "axisDirectionF0Y"  : 1
+                "axisDirectionF0Y"  : 1,
+                "axisDirectionA"  : 1, 
+                "axisDirectionB"  : 1,
+                "axisDirectionC"  : 1
                 },
         "ETMX_IP":{
                 "config"  : 'TM',
@@ -127,7 +142,10 @@ channel = {
                 "axisDirectionLEN"  : 1, 
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
-                "axisDirectionF0Y"  : 1
+                "axisDirectionF0Y"  : 1,
+                "axisDirectionA"  : 1, 
+                "axisDirectionB"  : 1,
+                "axisDirectionC"  : 1
                 },
         "ITMY_IP":{
                 "config"  : 'TM',
@@ -142,7 +160,10 @@ channel = {
                 "axisDirectionLEN"  : 1, 
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
-                "axisDirectionF0Y"  : 1
+                "axisDirectionF0Y"  : 1,
+                "axisDirectionA"  : 1, 
+                "axisDirectionB"  : 1,
+                "axisDirectionC"  : 1
                 },
         "ITMX_IP":{
                 "config"  : 'TM',
@@ -157,7 +178,10 @@ channel = {
                 "axisDirectionLEN"  : 1, 
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
-                "axisDirectionF0Y"  : 1
+                "axisDirectionF0Y"  : 1,
+                "axisDirectionA"  : 1, 
+                "axisDirectionB"  : 1,
+                "axisDirectionC"  : 1
                 },
         # for TEST.
         # for Testing.
@@ -178,7 +202,10 @@ channel = {
                 "axisDirectionLEN"  : 1, 
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
-                "axisDirectionF0Y"  : 1
+                "axisDirectionF0Y"  : 1,
+                "axisDirectionA"  : 1, 
+                "axisDirectionB"  : 1,
+                "axisDirectionC"  : 1
                 },
         "TESTSR_IP":{
                 "config"  : 'SR',
@@ -193,7 +220,10 @@ channel = {
                 "axisDirectionLEN"  : 1, 
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
-                "axisDirectionF0Y"  : 1
+                "axisDirectionF0Y"  : 1,
+                "axisDirectionA"  : 1, 
+                "axisDirectionB"  : 1,
+                "axisDirectionC"  : 1
                 },
         "TESTTM_IP":{
                 "config"  : 'TM',
@@ -208,7 +238,10 @@ channel = {
                 "axisDirectionLEN"  : 1, 
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
-                "axisDirectionF0Y"  : 1
+                "axisDirectionF0Y"  : 1,
+                "axisDirectionA"  : 1, 
+                "axisDirectionB"  : 1,
+                "axisDirectionC"  : 1
                 }
 }
       
