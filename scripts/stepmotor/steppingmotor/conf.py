@@ -49,7 +49,7 @@ channel = {
                 "signB"    : 1,
                 "signC"    : 1,
                 "signY"    : 1,
-                "axisDirectionLEN"  : 1, # L:Positive(Foward), T:Positive(Left), Y:Positive(CCW). by KLog#15272 
+                "axisDirectionLEN"  : 1,
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
                 "axisDirectionF0Y"  : 1,
@@ -67,7 +67,7 @@ channel = {
                 "signB"    : 1,
                 "signC"    : 1,
                 "signY"    : 1,
-                "axisDirectionLEN"  : 1, 
+                "axisDirectionLEN"  : 1,  # L:Positive(Foward), T:Positive(Left), Y:Positive(CCW). by KLog#15272 
                 "axisDirectionTRA"  : 1,
                 "axisDirectionYAW"  : 1,
                 "axisDirectionF0Y"  : 1,
