@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import sys
 from Trinamic_control6110 import *
@@ -55,7 +55,7 @@ def calcUserValiable(motorAddr,offset):
     number = motorAddr + offset * 6
     # EEPROM to #56.
     if number > 55:
-        print "[Error] Over maximum number in EEPROM.", number
+        print("[Error] Over maximum number in EEPROM.", number)
     return motorAddr + offset * 6
 
 def calcMoveRange(max,min,pos,count):
@@ -157,12 +157,12 @@ def initialize(driver,motorAddr,prefix):
         f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' install limit switch home:'+str(homePos)+' Dist:'+str(lrDistance)+' limit:'+str(limitMin)+' , '+str(limitMax)+'\n')            
 
 def print_driverList():
-    print "| --- Driver List ---"
+    print("| --- Driver List ---")
     for item in driverDict.items():
-        print "| {0:10s} : {1:14s} |".format(item[0],item[1])
+        print("| {0:10s} : {1:14s} |".format(item[0],item[1]))
 
 def main():
-    print "[Stepper Install]Start"
+    print("[Stepper Install]Start")
     agvs = sys.argv
     argc = len(agvs)
 
@@ -175,25 +175,25 @@ def main():
     #print sus,part,motor,motortype,model, drivername
 
     if (argc != 2):
-        print '! stepper_install (DRIVER_NAME)_(MOTOR)'
-        print ' ex. stepper_install K1:STEPPER-BS_GAS_0 [0 to 5]'
-        print ' ex. stepper_install K1:STEPPER-BS_IP_A [0:A,1:B,2:C,3:F0Y]'
+        print('! stepper_install (DRIVER_NAME)_(MOTOR)')
+        print(' ex. stepper_install K1:STEPPER-BS_GAS_0 [0 to 5]')
+        print(' ex. stepper_install K1:STEPPER-BS_IP_A [0:A,1:B,2:C,3:F0Y]')
         print_driverList()        
         quit()
     if drivername not in driverDict:
-        print '! please check DRIVER_NAME %s' % drivername
+        print('! please check DRIVER_NAME %s' % drivername)
         print_driverList()
         quit()
 
     driverIP = driverDict[drivername]
-    print driverIP
+    print(driverIP)
 
     if part == 'GAS':
         motorAddr = int(motor)
-        print 'GAS initilize started'
+        print('GAS initilize started')
     elif part == 'IP':
         motorAddr  = conf.channel[drivername]['motor'+motor[0]]
-        print 'IP initilize started motor'+motor, motorAddr
+        print('IP initilize started motor'+motor, motorAddr)
 
 #    os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor')
     driver = Trinamic_control6110()
@@ -203,7 +203,7 @@ def main():
     initialize(driver,motorAddr,prefix)
     driver.close()
     #exit()
-    print "[Stepper Install]Complete!"
+    print("[Stepper Install]Complete!")
 
 if __name__ == '__main__':
     main()    

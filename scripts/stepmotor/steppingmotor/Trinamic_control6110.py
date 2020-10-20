@@ -62,7 +62,7 @@ class Trinamic_control6110():
             self.connected = 'TCP'
             self.portName = [ipadr, port]
         except Exception, e:
-            print 'Could not connect to TCP', e
+            print('Could not connect to TCP', e)
             
     def close(self):
         if self.port != None:
@@ -105,14 +105,14 @@ class Trinamic_control6110():
         return rData
 
     def reconnect(self):
-        print 'Reconnecting...'
+        print('Reconnecting...')
         if self.connected == 'RS485':
             self.close()
             self.connectRS485(self.portName, self.baudrate)
         elif self.connected == 'TCP':
             self.close()
             self.connectTCP(self.portName[0], self.portName[1])
-        print 'Testing connection:'
+        print('Testing connection:')
         self.sendCommand('GAP', 1, 0, 0)
         if self.connected == 'RS485':
             RxBuffer = self.port.read(9)
@@ -126,7 +126,7 @@ class Trinamic_control6110():
             raise MotorError('Reconnection failed.')
         else:
             status = 1
-            print '...ok'
+            print('...ok')
         return status
     
 
@@ -177,7 +177,7 @@ class Trinamic_control6110():
                 actualBaudrate = value * 9600
             else:
                 actualBaudrate = (1 + 0.5 * value) * 9600
-            print 'New baudrate:', actualBaudrate
+            print('New baudrate:', actualBaudrate)
             self.connectRS485(port, actualBaudrate)
         else:
             if baudrate < 0:
@@ -666,7 +666,7 @@ class Trinamic_control6110():
         value = 0         
         self.sendCommand(cmd, type, motor, value)
         data = self.receiveData()
-        print 'setZeroPosition, motor ', motor, ' return ', data.status
+        print('setZeroPosition, motor ', motor, ' return ', data.status)
         status = data.status
         if data.status != 100:
             if self.errorDict.has_key(data.status):
@@ -986,11 +986,11 @@ if __name__ == '__main__':
     tc.connectTCP('10.68.150.63', 4001)
 
     for i in range(64):
-        print "[",i,"]:",tc.getUserVariables(i)
+        print("[",i,"]:",tc.getUserVariables(i))
 
     tc.setUserVariables(0,10)
     tc.setUserVariables(1,10)
 
     tc.storeUserVariables(1)
     for i in range(64):
-        print "[",i,"]:",tc.getUserVariables(i)
+        print("[",i,"]:",tc.getUserVariables(i))

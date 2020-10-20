@@ -18,10 +18,10 @@ driver.reconnect()
 sus,part,a=prefix.split('_')
 if part == 'GAS':
     stepserver = pcasstep.PcasServer(prefix,driver)
-    print 'GAS server started'
+    print('GAS server started')
 elif part == 'IP':
     stepserver = pcasip.PcasServer(prefix,driver)
-    print 'IP server started'
+    print('IP server started')
 
 try:
     stepserver.run()

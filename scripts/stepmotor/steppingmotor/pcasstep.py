@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import pcaspy
@@ -665,10 +665,10 @@ class PcasDriver(pcaspy.Driver):
             self.driver.setUserVariables(self.calcUserValiable(motorAddr,userVariableMap.limitMin),limitMin)
             self.driver.setUserVariables(self.calcUserValiable(motorAddr,userVariableMap.limitMax),limitMax)
             # Store all paranator to EEPROM.
-            print "[Start]Store TMCM6110 EEPROM"
+            print("[Start]Store TMCM6110 EEPROM")
             self.driver.storeUserVariables(self.calcUserValiable(motorAddr,userVariableMap.limitMin))
             self.driver.storeUserVariables(self.calcUserValiable(motorAddr,userVariableMap.limitMax))
-            print "[End]Store TMCM6110 EEPROM"
+            print("[End]Store TMCM6110 EEPROM")
 
         self.updatePVs()
             
@@ -695,7 +695,7 @@ class PcasDriver(pcaspy.Driver):
         number = motorAddr + offset * 6
         # EEPROM to #56.
         if number > 55:
-            print "[Error] Over maximum number in EEPROM.", number
+            print("[Error] Over maximum number in EEPROM.", number)
         return motorAddr + offset * 6
 
     def calcMoveRange(self,max,min,pos,count):

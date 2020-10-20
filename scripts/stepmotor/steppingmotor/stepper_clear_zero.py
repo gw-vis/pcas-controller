@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import sys
 from Trinamic_control6110 import *
@@ -48,7 +48,7 @@ def clearZero(driver,motorAddr,prefix):
     ## Write to EEPROM(TMCM6110).
     # Write all RAM memory.
     # Home Position.
-    print "Set to Zero"
+    print("Set to Zero")
     driver.setUserVariables(calcUserValiable(motorAddr,userVariableMap.homePos),0)
     # L-R Distance.
     driver.setUserVariables(calcUserValiable(motorAddr,userVariableMap.lrDistance),0)
@@ -59,13 +59,13 @@ def clearZero(driver,motorAddr,prefix):
     driver.stop(motorAddr)
     driver.setActualPosition(0, motorAddr)
     # Store all paranator to EEPROM.
-    print "[Start]Store TMCM6110 EEPROM"
+    print("[Start]Store TMCM6110 EEPROM")
     driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.homePos))
     driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.lrDistance))
     driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.actualPos))
     driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.limitMin))
     driver.storeUserVariables(calcUserValiable(motorAddr,userVariableMap.limitMax))
-    print "[End]Store TMCM6110 EEPROM"
+    print("[End]Store TMCM6110 EEPROM")
 
     d = datetime.now()
     with open(getlogfileName(prefix),'a') as f:
@@ -73,12 +73,12 @@ def clearZero(driver,motorAddr,prefix):
 
 
 def print_driverList():
-    print "| --- Driver List ---"
+    print("| --- Driver List ---")
     for item in driverDict.items():
-        print "| {0:10s} : {1:14s} |".format(item[0],item[1])
+        print("| {0:10s} : {1:14s} |".format(item[0],item[1]))
 
 def main():
-    print "[Stepper Clear Zero]Start"
+    print("[Stepper Clear Zero]Start")
     agvs = sys.argv
     argc = len(agvs)
 
@@ -91,25 +91,25 @@ def main():
     #print sus,part,motor,motortype,model, drivername
 
     if (argc != 2):
-        print '! stepper_clear_zero (DRIVER_NAME)_(MOTOR)'
-        print ' ex. stepper_clear_zero K1:STEPPER-BS_GAS_0 [0 to 5]'
-        print ' ex. stepper_clear_zero K1:STEPPER-BS_IP_A [A,B,C,F0Y]'
+        print('! stepper_clear_zero (DRIVER_NAME)_(MOTOR)')
+        print(' ex. stepper_clear_zero K1:STEPPER-BS_GAS_0 [0 to 5]')
+        print(' ex. stepper_clear_zero K1:STEPPER-BS_IP_A [A,B,C,F0Y]')
         print_driverList()        
         quit()
     if drivername not in driverDict:
-        print '! please check DRIVER_NAME %s' % drivername
+        print('! please check DRIVER_NAME %s' % drivername)
         print_driverList()
         quit()
 
     driverIP = driverDict[drivername]
-    print driverIP
+    print( driverIP)
 
     if part == 'GAS':
         motorAddr = int(motor)
-        print 'GAS initilize started'
+        print('GAS initilize started')
     elif part == 'IP':
         motorAddr  = conf.channel[drivername]['motor'+motor[0]]
-        print 'IP initilize started motor'+motor, motorAddr
+        print('IP initilize started motor'+motor, motorAddr)
 
 #    os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor')
     driver = Trinamic_control6110()
@@ -119,7 +119,7 @@ def main():
     clearZero(driver,motorAddr,prefix)
     driver.close()
     #exit()
-    print "[Stepper Clear Zero]Complete!"
+    print("[Stepper Clear Zero]Complete!")
 
 if __name__ == '__main__':
     main()    

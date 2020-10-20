@@ -1,11 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #! coding:utf-8
 """
  modified in Feb 3 2018.
  A. Shoda
 """
 
-import sys,commands,os
+#import sys,commands,os
+import sys,os
 
 driverDict = {
     "PR2_GAS"   :"10.68.150.40",
@@ -32,19 +33,19 @@ driverDict = {
 }
 
 def print_driverList():
-    print "| --- Driver List ---"
+    print("| --- Driver List ---")
     for item in driverDict.items():
-        print "| {0:10s} : {1:14s} |".format(item[0],item[1])
+        print("| {0:10s} : {1:14s} |".format(item[0],item[1]))
         
 def main():
     agvs = sys.argv
     argc = len(agvs)
     if (argc != 2):
-        print '! step_start (DRIVER_NAME)'
+        print('! step_start (DRIVER_NAME)')
         print_driverList()        
         quit()
     if agvs[1] not in driverDict:
-        print '! please check DRIVER_NAME %s' % agvs[1]
+        print('! please check DRIVER_NAME %s' % agvs[1])
         print_driverList()
         quit()
 
@@ -54,7 +55,7 @@ def main():
 #    os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor')
     print(os.path.dirname(os.path.abspath(__file__)))
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    print 'python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]])
+    print('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]))
     os.system('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]) )
 
 if __name__ == "__main__":

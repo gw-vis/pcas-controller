@@ -83,20 +83,20 @@ class IPMove:
         if countA != 0:
             countA = self.calcMoveRange(self.maxA,self.minA,posA,countA)
             self.driver.setTargetPosition(posA+countA,motorA)
-            self.driver.setUserVariables(self.calcUserValiable(motorA,userVariable_actualPos),posA+countA)
-            self.driver.storeUserVariables(self.calcUserValiable(motorA,userVariable_actualPos))
+            self.driver.setUserVariables(self.calcUserValiable(motorA,userVariableMap.actualPos),posA+countA)
+            self.driver.storeUserVariables(self.calcUserValiable(motorA,userVariableMap.actualPos))
 
         if countB != 0:
             countB = self.calcMoveRange(self.maxB,self.minB,posB,countB)
             self.driver.setTargetPosition(posB+countB,motorB)
-            self.driver.setUserVariables(self.calcUserValiable(motorB,userVariable_actualPos),posB+countB)
-            self.driver.storeUserVariables(self.calcUserValiable(motorB,userVariable_actualPos))
+            self.driver.setUserVariables(self.calcUserValiable(motorB,userVariableMap.actualPos),posB+countB)
+            self.driver.storeUserVariables(self.calcUserValiable(motorB,userVariableMap.actualPos))
 
         if countC != 0:
             countC = self.calcMoveRange(self.maxC,self.minC,posC,countC)
             self.driver.setTargetPosition(posC+countC,motorC)
-            self.driver.setUserVariables(self.calcUserValiable(motorC,userVariable_actualPos),posC+countC)
-            self.driver.storeUserVariables(self.calcUserValiable(motorC,userVariable_actualPos))
+            self.driver.setUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos),posC+countC)
+            self.driver.storeUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos))
 
     def Move_T(self,value):
         Type = conf.channel[self.part]["config"]
@@ -146,20 +146,20 @@ class IPMove:
         if countA != 0:
             countA = self.calcMoveRange(self.maxA,self.minA,posA,countA)
             self.driver.setTargetPosition(posA+countA,motorA)
-            self.driver.setUserVariables(self.calcUserValiable(motorA,userVariable_actualPos),posA+countA)
-            self.driver.storeUserVariables(self.calcUserValiable(motorA,userVariable_actualPos))
+            self.driver.setUserVariables(self.calcUserValiable(motorA,userVariableMap.actualPos),posA+countA)
+            self.driver.storeUserVariables(self.calcUserValiable(motorA,userVariableMap.actualPos))
 
         if countB != 0:
             countB = self.calcMoveRange(self.maxB,self.minB,posB,countB)
             self.driver.setTargetPosition(posB+countB,motorB)
-            self.driver.setUserVariables(self.calcUserValiable(motorB,userVariable_actualPos),posB+countB)
-            self.driver.storeUserVariables(self.calcUserValiable(motorB,userVariable_actualPos))
+            self.driver.setUserVariables(self.calcUserValiable(motorB,userVariableMap.actualPos),posB+countB)
+            self.driver.storeUserVariables(self.calcUserValiable(motorB,userVariableMap.actualPos))
 
         if countC != 0:
             countC = self.calcMoveRange(self.maxC,self.minC,posC,countC)
             self.driver.setTargetPosition(posC+countC,motorC)
-            self.driver.setUserVariables(self.calcUserValiable(motorC,userVariable_actualPos),posC+countC)
-            self.driver.storeUserVariables(self.calcUserValiable(motorC,userVariable_actualPos))
+            self.driver.setUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos),posC+countC)
+            self.driver.storeUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos))
 
     def Move_Y(self,value):
         motorA = conf.channel[self.part]["motorA"]
@@ -183,20 +183,20 @@ class IPMove:
         if countA != 0:
             countA = self.calcMoveRange(self.maxA,self.minA,posA,countA)
             self.driver.setTargetPosition(posA+countA,motorA)
-            self.driver.setUserVariables(self.calcUserValiable(motorA,userVariable_actualPos),posA+countA)
-            self.driver.storeUserVariables(self.calcUserValiable(motorA,userVariable_actualPos))
+            self.driver.setUserVariables(self.calcUserValiable(motorA,userVariableMap.actualPos),posA+countA)
+            self.driver.storeUserVariables(self.calcUserValiable(motorA,userVariableMap.actualPos))
 
         if countB != 0:
             countB = self.calcMoveRange(self.maxB,self.minB,posB,countB)
             self.driver.setTargetPosition(posB+countB,motorB)
-            self.driver.setUserVariables(self.calcUserValiable(motorB,userVariable_actualPos),posB+countB)
-            self.driver.storeUserVariables(self.calcUserValiable(motorB,userVariable_actualPos))
+            self.driver.setUserVariables(self.calcUserValiable(motorB,userVariableMap.actualPos),posB+countB)
+            self.driver.storeUserVariables(self.calcUserValiable(motorB,userVariableMap.actualPos))
 
         if countC != 0:
             countC = self.calcMoveRange(self.maxC,self.minC,posC,countC)
             self.driver.setTargetPosition(posC+countC,motorC)
-            self.driver.setUserVariables(self.calcUserValiable(motorC,userVariable_actualPos),posC+countC)
-            self.driver.storeUserVariables(self.calcUserValiable(motorC,userVariable_actualPos))
+            self.driver.setUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos),posC+countC)
+            self.driver.storeUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos))
 
 
     def calcUserValiable(self,motorAddr,offset):
