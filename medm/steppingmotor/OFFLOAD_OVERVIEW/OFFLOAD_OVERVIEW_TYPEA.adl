@@ -149,6 +149,11 @@ text {
 		name="ndscope"
 		args="-k $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H1_OUT16 $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H2_OUT16 $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H3_OUT16 &"
 	}
+	command[4] {
+		label="IP DAMP IMMON"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_IP_DAMP_L_INMON $(IFO):VIS-$(SYSTEM)_IP_DAMP_T_INMON  $(IFO):VIS-$(SYSTEM)_IP_DAMP_Y_INMON  &"
+	}
 	clr=14
 	bclr=5
 	label="IP(ndscope)"
