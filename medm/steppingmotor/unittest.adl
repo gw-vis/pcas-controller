@@ -158,7 +158,7 @@ display {
 	}
 	display[0] {
 		label="OFFLOAD_OVERVIEW"
-		name="./OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW.adl"
+		name="./OFFLOAD/OFFLOAD_OVERVIEW.adl"
 		args="IFO=K1,ifo=k1"
 	}
 	clr=14

@@ -645,7 +645,7 @@ class PcasDriver(pcaspy.Driver):
             motorAddrB  = self.conf.channel[self.part]["motorB"]
        
             axisDirection = self.conf.channel[self.part]["axisDirectionB"]  # Direction to sensor.
-            pos = self.driver.getActualPosition(motorAddrA)
+            pos = self.driver.getActualPosition(motorAddrB)
 
             min = self.getParam("B_LIMITPOSMIN")
             max = self.getParam("B_LIMITPOSMAX")
