@@ -124,6 +124,16 @@ display {
 		name="CUST_INSTALL.adl"
 		args="USERAPPS=/,IFO=K1,ifo,SITE=KAMIOKA,site=kamioka,STEPID=TEST_GAS,DOF=0"
 	}
+	display[6] {
+		label="OFFLOAD_TYPEA"
+		name="../OFFLOAD/OFFLOAD_OVERVIEW_TYPEA_LTY.adl"
+		args="USERAPPS=/,IFO=K1,ifo,SITE=KAMIOKA,site=kamioka,SYSTEM=TESTSR"
+	}
+	display[7] {
+		label="OFFLOAD_TYPEA"
+		name="../OFFLOAD/OFFLOAD_OVERVIEW_TYPEA_LTY.adl"
+		args="USERAPPS=/,IFO=K1,ifo,SITE=KAMIOKA,site=kamioka,SYSTEM=TEST,F0=0"
+	}
 	clr=14
 	bclr=4
 	label="TEST"
@@ -158,7 +168,7 @@ display {
 	}
 	display[0] {
 		label="OFFLOAD_OVERVIEW"
-		name="./OFFLOAD/OFFLOAD_OVERVIEW.adl"
+		name="../OFFLOAD/OFFLOAD_OVERVIEW.adl"
 		args="IFO=K1,ifo=k1"
 	}
 	clr=14

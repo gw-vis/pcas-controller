@@ -55,9 +55,6 @@ class IPMove:
             countA =  int(np.sqrt(3)/2*signA*value)
             countB = -int(np.sqrt(3)/2*signB*value)
             countC = 0
-#            countA =  int(2.0/np.sqrt(3)*signA*value)
-#            countB = -int(2.0/np.sqrt(3)*signB*value)
-#            countC = 0
 
         elif Type == 'BS':
             #driver.setTargetPosition(posA+int(np.sqrt(3)/2*signA*value),motorA)
@@ -65,9 +62,6 @@ class IPMove:
             countA =  int(np.sqrt(3)/2*signA*value)
             countB = -int(np.sqrt(3)/2*signB*value)
             countC = 0
-#            countA =  int(2.0/np.sqrt(3)*signA*value)
-#            countB = 0
-#            countC = -int(2.0/np.sqrt(3)*signB*value)
 
         elif Type == 'TM':
             #driver.setTargetPosition(posA+int(signA*value),motorA)
@@ -76,9 +70,6 @@ class IPMove:
             countA =  int(signA*value)
             countB = -int(1.0/2.0*signB*value)
             countC = -int(1.0/2.0*signC*value)
-#            countA =  int(signA*value)
-#            countB = -int(2.0/1.0*signB*value)
-#            countC = -int(2.0/1.0*signC*value)
 
         if countA != 0:
             countA = self.calcMoveRange(self.maxA,self.minA,posA,countA)
@@ -118,9 +109,6 @@ class IPMove:
             countC = -int(signC*value)
             countB =  int(1.0/2.0*signB*value)
             countA =  int(1.0/2.0*signA*value)
-#            countC = -int(signC*value)
-#            countB =  int(2.0/1.0*signB*value)
-#            countA =  int(2.0/1.0*signA*value)
 
         elif Type == 'BS':
             #driver.setTargetPosition(posB+int(signB*value),motorB)
@@ -129,19 +117,13 @@ class IPMove:
             countB =  int(signB*value)
             countC = -int(1.0/2.0*signC*value)
             countA = -int(1.0/2.0*signA*value)
-#            countB =  int(signB*value)
-#            countC = -int(2.0/1.0*signC*value)
-#            countA = -int(2.0/1.0*signA*value)
-            
+         
         elif Type == 'TM':
             #driver.setTargetPosition(posB-int(np.sqrt(3)/2*signB*value),motorB)
             #driver.setTargetPosition(posC+int(np.sqrt(3)/2*signC*value),motorC)
             countB = -int(np.sqrt(3)/2.0*signB*value)
             countC =  int(np.sqrt(3)/2.0*signC*value)
             countA = 0
-#            countB = -int(2.0/np.sqrt(3)*signB*value)
-#            countC =  int(2.0/np.sqrt(3)*signC*value)
-#            countA = 0
 
         if countA != 0:
             countA = self.calcMoveRange(self.maxA,self.minA,posA,countA)

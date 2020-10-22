@@ -7,6 +7,7 @@
 
 #import sys,commands,os
 import sys,os
+import subprocess
 
 driverDict = {
     "PR2_GAS"   :"10.68.150.40",
@@ -40,8 +41,14 @@ def print_driverList():
 def main():
     agvs = sys.argv
     argc = len(agvs)
-    if (argc != 2):
+
+    killProcess = False
+    if(argc == 3 and agvs[2]=='-kill'):
+        killProcess = True
+
+    if (argc != 2) and (killProcess == False):
         print('! step_start (DRIVER_NAME)')
+        print('! step_start (DRIVER_NAME) -kill')
         print_driverList()        
         quit()
     if agvs[1] not in driverDict:
@@ -55,8 +62,34 @@ def main():
 #    os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor')
     print(os.path.dirname(os.path.abspath(__file__)))
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    print('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]))
-    os.system('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]) )
+#    print('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]))
+#    os.system('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]) )
+    command = 'python -m steppingmotor K1:STEPPER-%s_ %s' % (agvs[1],driverDict[agvs[1]])
+
+    pid = process_check(command)
+    if pid != 0 and killProcess == True:
+        process_kill(pid)
+
+    if pid == 0:
+        subprocess.Popen(command.split())
+
+def process_check(cmdline):
+    cmd = ['ps o pid,args']
+    proc = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
+
+    for line in proc.stdout:
+        strline=str(line.decode(encoding='utf-8'))
+        pid = strline[:5]
+        args= strline[6:-1]
+        if args == cmdline:
+            return int(pid)
+    return 0
+
+def process_kill(pid):
+    cmd = ['kill '+str(pid)]
+    print(cmd)
+    proc = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
+
 
 if __name__ == "__main__":
     main()    

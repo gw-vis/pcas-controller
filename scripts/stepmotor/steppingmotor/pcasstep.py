@@ -19,12 +19,12 @@ pvdb ={
     '0_ACC': {
         'desc': "move pico motor forward",
         'prec': 0,
-        'value': 500,
+        'value': 10,
     },
     '0_VEL': {
         'desc': "move pico motor forward",
         'prec': 0,
-        'value': 500,
+        'value': 10,
     },
     '0_STOP': {
         'desc': "move pico motor forward",
@@ -104,12 +104,12 @@ pvdb ={
     '1_ACC': {
         'desc': "move pico motor forward",
         'prec': 0,
-        'value': 500,
+        'value': 10,
     },
     '1_VEL': {
         'desc': "move pico motor forward",
         'prec': 0,
-        'value': 500,
+        'value': 10,
     },
     '1_STOP': {
         'desc': "move pico motor forward",
@@ -189,12 +189,12 @@ pvdb ={
     '2_ACC': {
         'desc': "move pico motor forward",
         'prec': 0,
-        'value': 500,
+        'value': 10,
     },
     '2_VEL': {
         'desc': "move pico motor forward",
         'prec': 0,
-        'value': 500,
+        'value': 10,
     },
     '2_STOP': {
         'desc': "move pico motor forward",
@@ -274,12 +274,12 @@ pvdb ={
     '3_ACC': {
         'desc': "move pico motor forward",
         'prec': 0,
-        'value': 500,
+        'value': 10,
     },
     '3_VEL': {
         'desc': "move pico motor forward",
         'prec': 0,
-        'value': 500,
+        'value': 10,
     },
     '3_STOP': {
         'desc': "move pico motor forward",
@@ -359,12 +359,12 @@ pvdb ={
     '4_ACC': {
         'desc': "move pico motor forward",
         'prec': 0,
-        'value': 500,
+        'value': 10,
     },
     '4_VEL': {
         'desc': "move pico motor forward",
         'prec': 0,
-        'value': 500,
+        'value': 10,
     },
     '4_STOP': {
         'desc': "move pico motor forward",
@@ -444,12 +444,12 @@ pvdb ={
     '5_ACC': {
         'desc': "move pico motor forward",
         'prec': 0,
-        'value': 500,
+        'value': 10,
     },
     '5_VEL': {
         'desc': "move pico motor forward",
         'prec': 0,
-        'value': 500,
+        'value': 10,
     },
     '5_STOP': {
         'desc': "move pico motor forward",
@@ -539,18 +539,18 @@ class PcasDriver(pcaspy.Driver):
         a, sus = prefix.split("-")
         self.part = sus[:-1]
 
-        self.driver.setTargetSpeed(500, 0)
-        self.driver.setAcceleration(500,0)
-        self.driver.setTargetSpeed(500, 1)
-        self.driver.setAcceleration(500,1)
-        self.driver.setTargetSpeed(500, 2)
-        self.driver.setAcceleration(500,2)
-        self.driver.setTargetSpeed(500, 3)
-        self.driver.setAcceleration(500,3)
-        self.driver.setTargetSpeed(500, 4)
-        self.driver.setAcceleration(500,4)
-        self.driver.setTargetSpeed(500, 5)
-        self.driver.setAcceleration(500,5)
+        self.driver.setTargetSpeed(10, 0)
+        self.driver.setAcceleration(10,0)
+        self.driver.setTargetSpeed(10, 1)
+        self.driver.setAcceleration(10,1)
+        self.driver.setTargetSpeed(10, 2)
+        self.driver.setAcceleration(10,2)
+        self.driver.setTargetSpeed(10, 3)
+        self.driver.setAcceleration(10,3)
+        self.driver.setTargetSpeed(10, 4)
+        self.driver.setAcceleration(10,4)
+        self.driver.setTargetSpeed(10, 5)
+        self.driver.setAcceleration(10,5)
 
         # setup limit and position from TMCM6100 mempry.
         for motorAddr in range(6):

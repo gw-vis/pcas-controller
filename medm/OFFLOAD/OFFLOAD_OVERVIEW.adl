@@ -168,7 +168,7 @@ text {
     height=320
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,IPSTEPID=ETMX_IP,IPSTEPADL=IP_TM,STEPID=ETMX_GAS,F0=0,F1=1,F2=5,F3=3,BF=4"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEA_LTY.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,IPSTEPID=ETMX_IP,IPSTEPADL=IP_TM,STEPID=ETMX_GAS,F0=0,F1=1,F2=5,F3=3,BF=4"
     }
     
     composite {
@@ -179,7 +179,7 @@ text {
     height=320
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,IPSTEPID=ITMX_IP,IPSTEPADL=IP_TM,STEPID=ITMX_GAS,F0=0,F1=1,F2=2,F3=5,BF=4"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEA_LTY.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,IPSTEPID=ITMX_IP,IPSTEPADL=IP_TM,STEPID=ITMX_GAS,F0=0,F1=1,F2=2,F3=5,BF=4"
     }
     
     composite {
@@ -190,7 +190,7 @@ text {
     height=320
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,IPSTEPID=ETMY_IP,IPSTEPADL=IP_TM,STEPID=ETMY_GAS,F0=0,F1=1,F2=2,F3=5,BF=4"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEA_LTY.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,IPSTEPID=ETMY_IP,IPSTEPADL=IP_TM,STEPID=ETMY_GAS,F0=0,F1=1,F2=2,F3=5,BF=4"
     }
     
     composite {
@@ -201,7 +201,7 @@ text {
     height=320
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,IPSTEPID=IIMY_IP,IPSTEPADL=IP_TM,STEPID=ITMY_GAS,F0=0,F1=1,F2=2,F3=3,BF=4"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEA_LTY.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,IPSTEPID=IIMY_IP,IPSTEPADL=IP_TM,STEPID=ITMY_GAS,F0=0,F1=1,F2=2,F3=3,BF=4"
     }
     
     composite {
@@ -223,7 +223,7 @@ text {
     height=235
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,IPSTEPID=SRM_IP,IPSTEPADL=IP_SR,STEPID=SRM_GAS,F0=3,F1=1,BF=0"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEB_LTY.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,IPSTEPID=SRM_IP,IPSTEPADL=IP_SR,STEPID=SRM_GAS,F0=3,F1=1,BF=0"
     }
     
     composite {
@@ -234,7 +234,7 @@ text {
     height=235
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,IPSTEPID=SR2_IP,IPSTEPADL=IP_SR,STEPID=SR2_GAS,F0=2,F1=1,BF=0"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEB_LTY.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,IPSTEPID=SR2_IP,IPSTEPADL=IP_SR,STEPID=SR2_GAS,F0=2,F1=1,BF=0"
     }
     
     composite {
@@ -245,7 +245,7 @@ text {
     height=235
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,IPSTEPID=SR3_IP,IPSTEPADL=IP_SR,STEPID=SR3_GAS,F0=2,F1=1,BF=0"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEB_LTY.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,IPSTEPID=SR3_IP,IPSTEPADL=IP_SR,STEPID=SR3_GAS,F0=2,F1=1,BF=0"
     }
     
     composite {

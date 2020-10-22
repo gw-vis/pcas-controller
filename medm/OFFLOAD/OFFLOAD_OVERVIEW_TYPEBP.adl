@@ -1,6 +1,6 @@
 
 file {
-	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEBP.adl"
+	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/OFFLOAD/OFFLOAD_OVERVIEW_TYPEBP.adl"
 	version=030109
 }
 display {
@@ -130,14 +130,14 @@ text {
 		height=20
 	}
 	command[0] {
+		label="GAS Current Monitor"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_SF_COILOUTF_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_BF_COILOUTF_GAS_OUTPUT &"
+	}
+	command[1] {
 		label="GAS LVDTINF INMON"
 		name="ndscope"
 		args="-k $(IFO):VIS-$(SYSTEM)_SF_LVDTINF_GAS_INMON $(IFO):VIS-$(SYSTEM)_BF_LVDTINF_GAS_INMON &"
-	}
-	command[1] {
-		label="GAS COILOUTF OUTPUT"
-		name="ndscope"
-		args="-k $(IFO):VIS-$(SYSTEM)_SF_COILOUTF_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_BF_COILOUTF_GAS_OUTPUT &"
 	}
 	command[2] {
 		label="GAS COILOUTF OUT16"
@@ -413,4 +413,20 @@ polyline {
 	clr=14
 	bclr=4
 	visual="a column of buttons"
+}
+"shell command" {
+	object {
+		x=253
+		y=20
+		width=45
+		height=20
+	}
+	command[0] {
+		label="log"
+		name="emacs"
+		args="kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/$(SYSTEM)_GAS_log"
+	}
+	clr=14
+	bclr=4
+	label="Log"
 }

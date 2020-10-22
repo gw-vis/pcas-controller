@@ -216,7 +216,7 @@ TYPEBP,PR3,GAS,
 #common = '/opt/rtcds/userapps/release/vis/common'
 common = './'
 
-def usr_typea(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,F2,F3,BF):
+def usr_typea_h(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,F2,F3,BF):
     width = 300
     height = 320
     txt = '''
@@ -228,13 +228,31 @@ def usr_typea(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,F2,F3,BF):
     height=320
     }}
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},IPSTEPID={ipstepid},IPSTEPADL={ipstepadl},STEPID={stepid},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEA_H.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},IPSTEPID={ipstepid},IPSTEPADL={ipstepadl},STEPID={stepid},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
     }}
     '''.format(common=common,x=x,y=y,system=system,ipstepid=IPSTEPID,ipstepadl=IPSTEPADL,stepid=STEPID,f0=F0,f1=F1,f2=F2,f3=F3,bf=BF)
     return txt,width,height
 #    "composite file"="{common}/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
 
-def usr_typeb(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,BF):
+def usr_typea_lty(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,F2,F3,BF):
+    width = 300
+    height = 320
+    txt = '''
+    composite {{
+    object {{
+    x={x}
+    y={y}
+    width=300
+    height=320
+    }}
+    "composite name"=""
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEA_LTY.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},IPSTEPID={ipstepid},IPSTEPADL={ipstepadl},STEPID={stepid},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
+    }}
+    '''.format(common=common,x=x,y=y,system=system,ipstepid=IPSTEPID,ipstepadl=IPSTEPADL,stepid=STEPID,f0=F0,f1=F1,f2=F2,f3=F3,bf=BF)
+    return txt,width,height
+#    "composite file"="{common}/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
+
+def usr_typeb_h(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,BF):
     width = 300
     height = 235
     txt = '''
@@ -246,7 +264,7 @@ def usr_typeb(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,BF):
     height=235
     }}
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEB.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},IPSTEPID={ipstepid},IPSTEPADL={ipstepadl},STEPID={stepid},F0={f0},F1={f1},BF={bf}"
+    "composite file"="./OFFLOAD_OVERVIEW_TYPEB_H.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},IPSTEPID={ipstepid},IPSTEPADL={ipstepadl},STEPID={stepid},F0={f0},F1={f1},BF={bf}"
     }}
     '''.format(common=common,x=x,y=y,system=system,ipstepid=IPSTEPID,ipstepadl=IPSTEPADL,stepid=STEPID,f0=F0,f1=F1,bf=BF)
     return txt,width,height
@@ -296,15 +314,15 @@ if __name__=='__main__':
     #systems = ['TEST', 'TESTSR'] # TEST
     #systems = ['ETMX', 'ITMX', 'ETMY', 'ITMY']
     model = {
-        'ETMX': {'Type': 'TypeA', 'CELL':{ 'colum':0, 'line':0 }, 'IP':{'STEPID':'ETMX_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ETMX_GAS', 'F0':'0', 'F1':'1', 'F2':'5', 'F3':'3', 'BF':'4'}},
-        'ITMX': {'Type': 'TypeA', 'CELL':{ 'colum':1, 'line':0 }, 'IP':{'STEPID':'ITMX_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ITMX_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'5', 'BF':'4'}},
-        'ETMY': {'Type': 'TypeA', 'CELL':{ 'colum':2, 'line':0 }, 'IP':{'STEPID':'ETMY_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ETMY_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'5', 'BF':'4'}},
-        'ITMY': {'Type': 'TypeA', 'CELL':{ 'colum':3, 'line':0 }, 'IP':{'STEPID':'IIMY_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ITMY_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'3', 'BF':'4'}},
+        'ETMX': {'Type': 'TypeA_LTY', 'CELL':{ 'colum':0, 'line':0 }, 'IP':{'STEPID':'ETMX_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ETMX_GAS', 'F0':'0', 'F1':'1', 'F2':'5', 'F3':'3', 'BF':'4'}},
+        'ITMX': {'Type': 'TypeA_LTY', 'CELL':{ 'colum':1, 'line':0 }, 'IP':{'STEPID':'ITMX_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ITMX_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'5', 'BF':'4'}},
+        'ETMY': {'Type': 'TypeA_LTY', 'CELL':{ 'colum':2, 'line':0 }, 'IP':{'STEPID':'ETMY_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ETMY_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'5', 'BF':'4'}},
+        'ITMY': {'Type': 'TypeA_LTY', 'CELL':{ 'colum':3, 'line':0 }, 'IP':{'STEPID':'IIMY_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ITMY_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'3', 'BF':'4'}},
 
-        'BS':  {'Type': 'TypeBLTY', 'CELL':{ 'colum':0, 'line':1 }, 'IP':{'STEPID':'BS_IP', 'STEPADL':'IP_BS'}, 'GAS':{ 'STEPID':'BS_GAS',  'F0':'3', 'F1':'1', 'BF':'0'}},
-        'SR2': {'Type': 'TypeB', 'CELL':{ 'colum':2, 'line':1 }, 'IP':{'STEPID':'SR2_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SR2_GAS', 'F0':'2', 'F1':'1', 'BF':'0'}},
-        'SR3': {'Type': 'TypeB', 'CELL':{ 'colum':3, 'line':1 }, 'IP':{'STEPID':'SR3_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SR3_GAS', 'F0':'2', 'F1':'1', 'BF':'0'}},
-        'SRM': {'Type': 'TypeB', 'CELL':{ 'colum':1, 'line':1 }, 'IP':{'STEPID':'SRM_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SRM_GAS', 'F0':'3', 'F1':'1', 'BF':'0'}},
+        'BS':  {'Type': 'TypeB_LTY', 'CELL':{ 'colum':0, 'line':1 }, 'IP':{'STEPID':'BS_IP', 'STEPADL':'IP_BS'}, 'GAS':{ 'STEPID':'BS_GAS',  'F0':'3', 'F1':'1', 'BF':'0'}},
+        'SR2': {'Type': 'TypeB_LTY', 'CELL':{ 'colum':2, 'line':1 }, 'IP':{'STEPID':'SR2_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SR2_GAS', 'F0':'2', 'F1':'1', 'BF':'0'}},
+        'SR3': {'Type': 'TypeB_LTY', 'CELL':{ 'colum':3, 'line':1 }, 'IP':{'STEPID':'SR3_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SR3_GAS', 'F0':'2', 'F1':'1', 'BF':'0'}},
+        'SRM': {'Type': 'TypeB_LTY', 'CELL':{ 'colum':1, 'line':1 }, 'IP':{'STEPID':'SRM_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SRM_GAS', 'F0':'3', 'F1':'1', 'BF':'0'}},
 
         'PR2': {'Type': 'TypeBp', 'CELL':{ 'colum':1, 'line':2 }, 'GAS':{ 'STEPID':'PR2_GAS', 'BF':'1', 'SF':'2'}},
         'PR3': {'Type': 'TypeBp', 'CELL':{ 'colum':2, 'line':2 }, 'GAS':{ 'STEPID':'PR0_GAS', 'BF':'0', 'SF':'1'}},   # Motor !
@@ -338,13 +356,16 @@ if __name__=='__main__':
             print(width,height)
             print(cell['colum'],cell['line'])
 
-            if type == 'TypeA':
+            if type == 'TypeA_H':
                 ip = model[system]['IP']
-                txt,w1,h1 = usr_typea(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
-            elif type == 'TypeB':
+                txt,w1,h1 = usr_typea_h(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
+            elif type == 'TypeA_LTY':
                 ip = model[system]['IP']
-                txt,w1,h1 = usr_typeb(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
-            elif type == 'TypeBLTY':
+                txt,w1,h1 = usr_typea_lty(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
+            elif type == 'TypeB_H':
+                ip = model[system]['IP']
+                txt,w1,h1 = usr_typeb_h(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
+            elif type == 'TypeB_LTY':
                 ip = model[system]['IP']
                 txt,w1,h1 = usr_typeb_lty(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
             elif type == 'TypeBp':
