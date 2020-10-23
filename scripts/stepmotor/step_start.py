@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 #! coding:utf-8
 """
  modified in Feb 3 2018.

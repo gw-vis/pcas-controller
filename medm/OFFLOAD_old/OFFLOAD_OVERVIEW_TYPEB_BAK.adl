@@ -1,12 +1,12 @@
 
 file {
-	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/OFFLOAD/OFFLOAD_OVERVIEW_TYPEA.adl"
+	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/OFFLOAD/OFFLOAD_OVERVIEW_TYPEB.adl"
 	version=030109
 }
 display {
 	object {
-		x=3955
-		y=536
+		x=4127
+		y=954
 		width=782
 		height=400
 	}
@@ -89,21 +89,10 @@ display {
 }
 rectangle {
 	object {
-		x=20
-		y=20
-		width=280
-		height=135
-	}
-	"basic attribute" {
-		clr=9
-	}
-}
-rectangle {
-	object {
 		x=0
 		y=0
 		width=300
-		height=320
+		height=235
 	}
 	"basic attribute" {
 		clr=14
@@ -122,254 +111,132 @@ text {
 	}
 	textix="$(SYSTEM)"
 }
+rectangle {
+	object {
+		x=20
+		y=20
+		width=280
+		height=95
+	}
+	"basic attribute" {
+		clr=9
+	}
+}
 "shell command" {
 	object {
 		x=20
-		y=21
+		y=20
 		width=90
 		height=20
 	}
 	command[0] {
-		label="IP Current Monitor"
-		name="ndscope"
-		args="$(IFO):VIS-$(SYSTEM)_IP_SUMOUT_L_OUTPUT $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_T_OUTPUT $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_Y_OUTPUT &"
-	}
-	command[1] {
 		label="IP LVDTINF INMON"
 		name="ndscope"
-		args="$(IFO):VIS-$(SYSTEM)_IP_LVDTINF_H1_INMON $(IFO):VIS-$(SYSTEM)_IP_LVDTINF_H2_INMON $(IFO):VIS-$(SYSTEM)_IP_LVDTINF_H3_INMON &"
+		args="-k $(IFO):VIS-$(SYSTEM)_IP_LVDTINF_H1_INMON $(IFO):VIS-$(SYSTEM)_IP_LVDTINF_H2_INMON $(IFO):VIS-$(SYSTEM)_IP_LVDTINF_H3_INMON &"
 	}
-	command[2] {
-		label="IP BLEND LVDT"
-		name="ndscope"
-		args="$(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTL_INMON $(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTT_INMON $(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTY_INMON &"
-	}
-	command[3] {
-		label="IP LVDT OUT16"
-		name="ndscope"
-		args="$(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTL_OUT16 $(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTT_OUT16 $(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTY_OUT16 &"
-	}
-	command[4] {
-		label="IP DAMP IMMON"
-		name="ndscope"
-		args="$(IFO):VIS-$(SYSTEM)_IP_DAMP_L_INMON $(IFO):VIS-$(SYSTEM)_IP_DAMP_T_INMON  $(IFO):VIS-$(SYSTEM)_IP_DAMP_Y_INMON  &"
-	}
-	command[5] {
-		label="IP SUMOUT(16)"
-		name="ndscope"
-		args="$(IFO):VIS-$(SYSTEM)_IP_SUMOUT_L_OUT16 $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_T_OUT16 $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_Y_OUT16 &"
-	}
-	command[6] {
+	command[1] {
 		label="IP COILOUTF INMON"
 		name="ndscope"
-		args="$(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H1_INMON $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H2_INMON $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H3_INMON &"
+		args="-k $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H1_INMON $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H2_INMON $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H3_INMON &"
 	}
-	command[7] {
+	command[2] {
 		label="IP COILOUTF OUT16"
 		name="ndscope"
-		args="$(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H1_OUT16 $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H2_OUT16 $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H3_OUT16 &"
+		args="-k $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H1_OUT16 $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H2_OUT16 $(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H3_OUT16 &"
+	}
+	command[3] {
+		label="IP SUMOUT"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_L_OUTPUT $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_T_OUTPUT $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_Y_OUTPUT &"
+	}
+	command[4] {
+		label="IP SUMOUT(16)"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_L_OUT16 $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_T_OUT16 $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_Y_OUT16 &"
+	}
+	command[5] {
+		label="IP LVDT OUT16"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTL_OUT16 $(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTT_OUT16 $(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTY_OUT16 &"
+	}
+	command[6] {
+		label="IP DAMP IMMON"
+		name="ndscope"
+		args="-k $(IFO):VIS-$(SYSTEM)_IP_DAMP_L_INMON $(IFO):VIS-$(SYSTEM)_IP_DAMP_T_INMON  $(IFO):VIS-$(SYSTEM)_IP_DAMP_Y_INMON  &"
 	}
 	clr=14
 	bclr=5
 	label="IP(ndscope)"
 }
-text {
+indicator {
 	object {
-		x=119
-		y=49
-		width=50
-		height=15
+		x=90
+		y=42
+		width=110
+		height=20
 	}
-	"basic attribute" {
-		clr=0
+	monitor {
+		chan="$(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H1_OUTPUT"
+		clr=15
+		bclr=10
 	}
-	textix="FB signal"
+	direction="left"
+	limits {
+		loprSrc="default"
+		loprDefault=-30000
+		hoprSrc="default"
+		hoprDefault=30000
+	}
 }
-text {
+indicator {
 	object {
-		x=236
-		y=48
-		width=50
-		height=15
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="FR steps"
-}
-text {
-	object {
-		x=109
+		x=90
 		y=64
-		width=70
-		height=15
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="[um or urad]"
-}
-text {
-	object {
-		x=241
-		y=64
-		width=40
-		height=15
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="[count]"
-}
-polyline {
-	object {
-		x=135
-		y=78
-		width=2
-		height=72
-	}
-	"basic attribute" {
-		clr=30
-		width=2
-	}
-	points {
-		(136,79)
-		(136,149)
-	}
-}
-polyline {
-	object {
-		x=142
-		y=78
-		width=3
-		height=72
-	}
-	"basic attribute" {
-		clr=15
-		width=2
-	}
-	points {
-		(143,79)
-		(143,149)
-	}
-}
-polyline {
-	object {
-		x=149
-		y=78
-		width=2
-		height=72
-	}
-	"basic attribute" {
-		clr=30
-		width=2
-	}
-	points {
-		(150,79)
-		(150,149)
-	}
-}
-polyline {
-	object {
-		x=190
-		y=78
-		width=2
-		height=73
-	}
-	"basic attribute" {
-		clr=20
-		width=2
-	}
-	points {
-		(191,79)
-		(191,149)
-	}
-}
-polyline {
-	object {
-		x=100
-		y=78
-		width=3
-		height=42
-	}
-	"basic attribute" {
-		clr=20
-		width=2
-	}
-	points {
-		(101,79)
-		(101,149)
-	}
-}
-indicator {
-	object {
-		x=90
-		y=82
 		width=110
 		height=20
 	}
 	monitor {
-		chan="$(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTL_INMON"
+		chan="$(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H2_OUTPUT"
 		clr=15
 		bclr=10
 	}
 	direction="left"
 	limits {
 		loprSrc="default"
-		loprDefault=400
+		loprDefault=-30000
 		hoprSrc="default"
-		hoprDefault=1400
+		hoprDefault=30000
 	}
 }
 indicator {
 	object {
 		x=90
-		y=104
+		y=86
 		width=110
 		height=20
 	}
 	monitor {
-		chan="$(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTT_INMON"
+		chan="$(IFO):VIS-$(SYSTEM)_IP_COILOUTF_H3_OUTPUT"
 		clr=15
 		bclr=10
 	}
 	direction="left"
 	limits {
 		loprSrc="default"
-		loprDefault=-1000
+		loprDefault=-30000
 		hoprSrc="default"
-		hoprDefault=0
-	}
-}
-indicator {
-	object {
-		x=90
-		y=126
-		width=110
-		height=20
-	}
-	monitor {
-		chan="$(IFO):VIS-$(SYSTEM)_IP_BLEND_LVDTY_INMON"
-		clr=15
-		bclr=10
-	}
-	direction="left"
-	limits {
-		loprSrc="default"
-		loprDefault=-900
-		hoprSrc="default"
-		hoprDefault=100
+		hoprDefault=30000
 	}
 }
 "message button" {
 	object {
 		x=70
-		y=82
+		y=42
 		width=20
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_IP_L_REV"
+		chan="$(IFO):STEPPER-$(SYSTEM)_IP_H1_REV"
 		clr=14
 		bclr=4
 	}
@@ -380,12 +247,12 @@ indicator {
 "message button" {
 	object {
 		x=70
-		y=104
+		y=64
 		width=20
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_IP_T_REV"
+		chan="$(IFO):STEPPER-$(SYSTEM)_IP_H2_REV"
 		clr=14
 		bclr=4
 	}
@@ -396,12 +263,12 @@ indicator {
 "message button" {
 	object {
 		x=70
-		y=126
+		y=86
 		width=20
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_IP_Y_REV"
+		chan="$(IFO):STEPPER-$(SYSTEM)_IP_H3_REV"
 		clr=14
 		bclr=4
 	}
@@ -412,12 +279,12 @@ indicator {
 "message button" {
 	object {
 		x=200
-		y=82
+		y=42
 		width=20
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_IP_L_FWD"
+		chan="$(IFO):STEPPER-$(SYSTEM)_IP_H1_FWD"
 		clr=14
 		bclr=4
 	}
@@ -428,12 +295,12 @@ indicator {
 "message button" {
 	object {
 		x=200
-		y=104
+		y=64
 		width=20
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_IP_T_FWD"
+		chan="$(IFO):STEPPER-$(SYSTEM)_IP_H2_FWD"
 		clr=14
 		bclr=4
 	}
@@ -445,12 +312,12 @@ indicator {
 "message button" {
 	object {
 		x=200
-		y=126
+		y=86
 		width=20
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_IP_Y_FWD"
+		chan="$(IFO):STEPPER-$(SYSTEM)_IP_H3_FWD"
 		clr=14
 		bclr=4
 	}
@@ -458,15 +325,95 @@ indicator {
 	press_msg="1"
 	release_msg="0"
 }
+polyline {
+	object {
+		x=135
+		y=38
+		width=2
+		height=72
+	}
+	"basic attribute" {
+		clr=30
+		width=2
+	}
+	points {
+		(136,39)
+		(136,109)
+	}
+}
+polyline {
+	object {
+		x=142
+		y=38
+		width=2
+		height=72
+	}
+	"basic attribute" {
+		clr=15
+		width=2
+	}
+	points {
+		(143,39)
+		(143,109)
+	}
+}
+polyline {
+	object {
+		x=149
+		y=38
+		width=2
+		height=72
+	}
+	"basic attribute" {
+		clr=30
+		width=2
+	}
+	points {
+		(150,39)
+		(150,109)
+	}
+}
+polyline {
+	object {
+		x=190
+		y=38
+		width=2
+		height=72
+	}
+	"basic attribute" {
+		clr=20
+		width=2
+	}
+	points {
+		(191,39)
+		(191,109)
+	}
+}
+polyline {
+	object {
+		x=100
+		y=38
+		width=2
+		height=72
+	}
+	"basic attribute" {
+		clr=20
+		width=2
+	}
+	points {
+		(101,39)
+		(101,109)
+	}
+}
 "text entry" {
 	object {
 		x=225
-		y=82
+		y=42
 		width=70
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_IP_L_FLUCTUATION"
+		chan="$(IFO):STEPPER-$(SYSTEM)_IP_H1_FLUCTUATION"
 		clr=0
 		bclr=11
 	}
@@ -476,12 +423,12 @@ indicator {
 "text entry" {
 	object {
 		x=225
-		y=104
+		y=64
 		width=70
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_IP_T_FLUCTUATION"
+		chan="$(IFO):STEPPER-$(SYSTEM)_IP_H2_FLUCTUATION"
 		clr=0
 		bclr=11
 	}
@@ -491,12 +438,12 @@ indicator {
 "text entry" {
 	object {
 		x=225
-		y=126
+		y=86
 		width=70
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_IP_Y_FLUCTUATION"
+		chan="$(IFO):STEPPER-$(SYSTEM)_IP_H3_FLUCTUATION"
 		clr=0
 		bclr=11
 	}
@@ -506,75 +453,50 @@ indicator {
 rectangle {
 	object {
 		x=20
-		y=160
+		y=120
 		width=280
-		height=160
+		height=115
 	}
 	"basic attribute" {
 		clr=9
 	}
 }
-rectangle {
-	object {
-		x=25
-		y=221
-		width=275
-		height=96
-	}
-	"basic attribute" {
-		clr=10
-	}
-}
 "shell command" {
 	object {
 		x=20
-		y=160
+		y=120
 		width=90
 		height=20
 	}
 	command[0] {
-		label="GAS Current Monitor"
+		label="GAS"
 		name="ndscope"
-		args="-k $(IFO):VIS-$(SYSTEM)_BF_SUMOUT_Y_OUTPUT $(IFO):VIS-$(SYSTEM)_F0_SUMOUT_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_F1_SUMOUT_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_F2_SUMOUT_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_F3_SUMOUT_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_BF_SUMOUT_GAS_OUTPUT &"
-	}
-	command[1] {
-		label="GAS LVFTINF"
-		name="ndscope"
-		args="-k $(IFO):VIS-$(SYSTEM)_F0_LVDTINF_GAS_INMON $(IFO):VIS-$(SYSTEM)_F1_LVDTINF_GAS_INMON $(IFO):VIS-$(SYSTEM)_F2_LVDTINF_GAS_INMON $(IFO):VIS-$(SYSTEM)_F3_LVDTINF_GAS_INMON $(IFO):VIS-$(SYSTEM)_BF_LVDTINF_GAS_INMON &"
-	}
-	command[2] {
-		label="GAS COILOUTF INMON"
-		name="ndscope"
-		args="-k $(IFO):VIS-$(SYSTEM)_F0_COILOUTF_GAS_INMON $(IFO):VIS-$(SYSTEM)_F1_COILOUTF_GAS_INMON $(IFO):VIS-$(SYSTEM)_F2_COILOUTF_GAS_INMON $(IFO):VIS-$(SYSTEM)_F3_COILOUTF_GAS_INMON $(IFO):VIS-$(SYSTEM)_BF_COILOUTF_GAS_INMON &"
-	}
-	command[3] {
-		label="GAS COILOUTF OUT16"
-		name="ndscope"
-		args="-k $(IFO):VIS-$(SYSTEM)_F0_COILOUTF_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_F0_COILOUTF_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_F1_COILOUTF_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_F2_COILOUTF_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_F3_COILOUTF_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_BF_COILOUTF_GAS_OUT16 &"
-	}
-	command[4] {
-		label="GAS SUMOUT"
-		name="ndscope"
-		args="-k $(IFO):VIS-$(SYSTEM)_BF_SUMOUT_Y_OUTPUT $(IFO):VIS-$(SYSTEM)_F0_SUMOUT_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_F1_SUMOUT_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_F2_SUMOUT_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_F3_SUMOUT_GAS_OUTPUT $(IFO):VIS-$(SYSTEM)_BF_SUMOUT_GAS_OUTPUT &"
-	}
-	command[5] {
-		label="GAS SUMOUT(16)"
-		name="ndscope"
-		args="-k $(IFO):VIS-$(SYSTEM)_BF_SUMOUT_Y_OUT16 $(IFO):VIS-$(SYSTEM)_F0_SUMOUT_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_F1_SUMOUT_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_F2_SUMOUT_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_F3_SUMOUT_GAS_OUT16 $(IFO):VIS-$(SYSTEM)_BF_SUMOUT_GAS_OUT16 &"
+		args="-k $(IFO):VIS-$(SYSTEM)_F0_COILOUTF_GAS_OUTMON $(IFO):VIS-$(SYSTEM)_F1_COILOUTF_GAS_OUTMON $(IFO):VIS-$(SYSTEM)_BF_COILOUTF_GAS_OUTMON &"
 	}
 	clr=14
 	bclr=5
 	label="GAS(ndscope)"
 }
+rectangle {
+	object {
+		x=25
+		y=182
+		width=275
+		height=50
+	}
+	"basic attribute" {
+		clr=10
+	}
+}
 indicator {
 	object {
 		x=90
-		y=204
+		y=164
 		width=110
 		height=20
 	}
 	monitor {
-		chan="$(IFO):VIS-$(SYSTEM)_F0_SUMOUT_GAS_OUTMON"
+		chan="$(IFO):VIS-$(SYSTEM)_F0_COILOUTF_GAS_OUTMON"
 		clr=15
 		bclr=10
 	}
@@ -589,12 +511,12 @@ indicator {
 indicator {
 	object {
 		x=90
-		y=226
+		y=186
 		width=110
 		height=20
 	}
 	monitor {
-		chan="$(IFO):VIS-$(SYSTEM)_F1_SUMOUT_GAS_OUTMON"
+		chan="$(IFO):VIS-$(SYSTEM)_F1_COILOUTF_GAS_OUTMON"
 		clr=15
 		bclr=10
 	}
@@ -609,52 +531,12 @@ indicator {
 indicator {
 	object {
 		x=90
-		y=248
+		y=208
 		width=110
 		height=20
 	}
 	monitor {
-		chan="$(IFO):VIS-$(SYSTEM)_F2_SUMOUT_GAS_OUTMON"
-		clr=15
-		bclr=10
-	}
-	direction="left"
-	limits {
-		loprSrc="default"
-		loprDefault=-30000
-		hoprSrc="default"
-		hoprDefault=30000
-	}
-}
-indicator {
-	object {
-		x=90
-		y=270
-		width=110
-		height=20
-	}
-	monitor {
-		chan="$(IFO):VIS-$(SYSTEM)_F3_SUMOUT_GAS_OUTMON"
-		clr=15
-		bclr=10
-	}
-	direction="left"
-	limits {
-		loprSrc="default"
-		loprDefault=-30000
-		hoprSrc="default"
-		hoprDefault=30000
-	}
-}
-indicator {
-	object {
-		x=90
-		y=292
-		width=110
-		height=20
-	}
-	monitor {
-		chan="$(IFO):VIS-$(SYSTEM)_BF_SUMOUT_GAS_OUTMON"
+		chan="$(IFO):VIS-$(SYSTEM)_BF_COILOUTF_GAS_OUTMON"
 		clr=15
 		bclr=10
 	}
@@ -669,7 +551,7 @@ indicator {
 "message button" {
 	object {
 		x=70
-		y=204
+		y=164
 		width=20
 		height=20
 	}
@@ -685,7 +567,7 @@ indicator {
 "message button" {
 	object {
 		x=70
-		y=226
+		y=186
 		width=20
 		height=20
 	}
@@ -701,39 +583,7 @@ indicator {
 "message button" {
 	object {
 		x=70
-		y=248
-		width=20
-		height=20
-	}
-	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_GAS_$(F2)_REV"
-		clr=14
-		bclr=4
-	}
-	label="<<"
-	press_msg="1"
-	release_msg="0"
-}
-"message button" {
-	object {
-		x=70
-		y=270
-		width=20
-		height=20
-	}
-	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_GAS_$(F3)_REV"
-		clr=14
-		bclr=4
-	}
-	label="<<"
-	press_msg="1"
-	release_msg="0"
-}
-"message button" {
-	object {
-		x=70
-		y=292
+		y=208
 		width=20
 		height=20
 	}
@@ -749,7 +599,7 @@ indicator {
 "message button" {
 	object {
 		x=200
-		y=204
+		y=164
 		width=20
 		height=20
 	}
@@ -765,7 +615,7 @@ indicator {
 "message button" {
 	object {
 		x=200
-		y=226
+		y=186
 		width=20
 		height=20
 	}
@@ -781,39 +631,7 @@ indicator {
 "message button" {
 	object {
 		x=200
-		y=248
-		width=20
-		height=20
-	}
-	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_GAS_$(F2)_FWD"
-		clr=14
-		bclr=4
-	}
-	label=">>"
-	press_msg="1"
-	release_msg="0"
-}
-"message button" {
-	object {
-		x=200
-		y=270
-		width=20
-		height=20
-	}
-	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_GAS_$(F3)_FWD"
-		clr=14
-		bclr=4
-	}
-	label=">>"
-	press_msg="1"
-	release_msg="0"
-}
-"message button" {
-	object {
-		x=200
-		y=292
+		y=208
 		width=20
 		height=20
 	}
@@ -829,87 +647,87 @@ indicator {
 polyline {
 	object {
 		x=135
-		y=179
+		y=140
 		width=2
-		height=136
+		height=91
 	}
 	"basic attribute" {
 		clr=30
 		width=2
 	}
 	points {
-		(136,180)
-		(136,314)
+		(136,141)
+		(136,230)
 	}
 }
 polyline {
 	object {
 		x=142
-		y=179
+		y=140
 		width=2
-		height=136
+		height=91
 	}
 	"basic attribute" {
 		clr=15
 		width=2
 	}
 	points {
-		(143,180)
-		(143,314)
+		(143,141)
+		(143,230)
 	}
 }
 polyline {
 	object {
 		x=149
-		y=179
+		y=140
 		width=2
-		height=136
+		height=91
 	}
 	"basic attribute" {
 		clr=30
 		width=2
 	}
 	points {
-		(150,180)
-		(150,314)
+		(150,141)
+		(150,230)
 	}
 }
 polyline {
 	object {
 		x=190
-		y=179
+		y=140
 		width=2
-		height=136
+		height=91
 	}
 	"basic attribute" {
 		clr=20
 		width=2
 	}
 	points {
-		(191,180)
-		(191,314)
+		(191,141)
+		(191,230)
 	}
 }
 polyline {
 	object {
 		x=100
-		y=179
+		y=140
 		width=2
-		height=136
+		height=91
 	}
 	"basic attribute" {
 		clr=20
 		width=2
 	}
 	points {
-		(101,180)
-		(101,314)
+		(101,141)
+		(101,230)
 	}
 }
 "text entry" {
 	object {
 		x=225
-		y=204
+		y=164
 		width=70
 		height=20
 	}
@@ -924,7 +742,7 @@ polyline {
 "text entry" {
 	object {
 		x=225
-		y=226
+		y=186
 		width=70
 		height=20
 	}
@@ -939,37 +757,7 @@ polyline {
 "text entry" {
 	object {
 		x=225
-		y=248
-		width=70
-		height=20
-	}
-	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_GAS_$(F2)_FLUCTUATION"
-		clr=0
-		bclr=11
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=225
-		y=270
-		width=70
-		height=20
-	}
-	control {
-		chan="$(IFO):STEPPER-$(SYSTEM)_GAS_$(F3)_FLUCTUATION"
-		clr=0
-		bclr=11
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=225
-		y=292
+		y=208
 		width=70
 		height=20
 	}
@@ -983,7 +771,7 @@ polyline {
 }
 "text entry" {
 	object {
-		x=224
+		x=223
 		y=2
 		width=74
 		height=17
@@ -999,22 +787,22 @@ polyline {
 "related display" {
 	object {
 		x=36
-		y=82
+		y=42
 		width=30
-		height=64
+		height=66
 	}
 	display[0] {
-		label="LEN"
+		label="H1"
 		name="../steppingmotor/CUST_$(IPSTEPADL).adl"
 		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(IPSTEPID)"
 	}
 	display[1] {
-		label="TRA"
+		label="H2"
 		name="../steppingmotor/CUST_$(IPSTEPADL).adl"
 		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(IPSTEPID)"
 	}
 	display[2] {
-		label="YAW"
+		label="H3"
 		name="../steppingmotor/CUST_$(IPSTEPADL).adl"
 		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(IPSTEPID)"
 	}
@@ -1024,10 +812,10 @@ polyline {
 }
 "related display" {
 	object {
-		x=36
-		y=184
+		x=35
+		y=142
 		width=30
-		height=128
+		height=86
 	}
 	display[0] {
 		label="F0Y"
@@ -1045,16 +833,6 @@ polyline {
 		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(F1)"
 	}
 	display[3] {
-		label="F2"
-		name="../steppingmotor/CUST_STEP.adl"
-		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(F2)"
-	}
-	display[4] {
-		label="F3"
-		name="../steppingmotor/CUST_STEP.adl"
-		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(F3)"
-	}
-	display[5] {
 		label="BF"
 		name="../steppingmotor/CUST_STEP.adl"
 		args="IFO=$(IFO),ifo=$(ifo),STEPID=$(STEPID),DOF=$(BF)"
@@ -1066,7 +844,7 @@ polyline {
 composite {
 	object {
 		x=70
-		y=182
+		y=142
 		width=225
 		height=20
 	}
@@ -1075,12 +853,12 @@ composite {
 		indicator {
 			object {
 				x=90
-				y=182
+				y=142
 				width=110
 				height=20
 			}
 			monitor {
-				chan="$(IFO):VIS-$(SYSTEM)_BF_SUMOUT_Y_OUTPUT"
+				chan="$(IFO):VIS-$(SYSTEM)_TM_DAMP_Y_OUTMON"
 				clr=15
 				bclr=10
 			}
@@ -1095,7 +873,7 @@ composite {
 		"message button" {
 			object {
 				x=70
-				y=182
+				y=142
 				width=20
 				height=20
 			}
@@ -1111,7 +889,7 @@ composite {
 		"message button" {
 			object {
 				x=200
-				y=182
+				y=142
 				width=20
 				height=20
 			}
@@ -1127,7 +905,7 @@ composite {
 		"text entry" {
 			object {
 				x=225
-				y=182
+				y=142
 				width=70
 				height=20
 			}
@@ -1144,14 +922,13 @@ composite {
 "shell command" {
 	object {
 		x=252
-		y=21
+		y=20
 		width=45
 		height=20
 	}
 	command[0] {
-		label="log"
 		name="emacs"
-		args="/kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/$(IFO):STEPPER-$(SYSTEM)_IP_.log"
+		args="/kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/K1:STEPPER-$(SYSTEM)_IP_.log"
 	}
 	clr=14
 	bclr=4
@@ -1160,14 +937,13 @@ composite {
 "shell command" {
 	object {
 		x=252
-		y=160
+		y=120
 		width=45
 		height=20
 	}
 	command[0] {
-		label="log"
 		name="emacs"
-		args="/kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/$(IFO):STEPPER-$(SYSTEM)_GAS_.log"
+		args="/kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/K1:STEPPER-$(SYSTEM)_GAS_.log"
 	}
 	clr=14
 	bclr=4

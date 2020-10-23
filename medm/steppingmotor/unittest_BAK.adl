@@ -185,7 +185,7 @@ display {
 	command[0] {
 		label="k1script"
 		name="xterm "
-		args="-e "ssh controls@k1script /users/ikeda/Git/pcas-controller/scripts/stepmotor/step_start.py TEST_GAS""
+		args="-e "ssh controls@k1script /users/ikeda/pcas-controller/scripts/stepmotor/step_start.py TEST_GAS""
 	}
 	clr=14
 	bclr=4

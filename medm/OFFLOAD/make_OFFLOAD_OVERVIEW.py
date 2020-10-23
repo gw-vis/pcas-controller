@@ -9,8 +9,8 @@ display {
 	object {
 		x=1996
 		y=56
-		width=1208
-		height=651
+		width=1300
+		height=900
 	}
 	clr=14
 	bclr=11
@@ -89,295 +89,195 @@ display {
 		1a7309,
 	}
 }
-rectangle {
-	object {
-		x=913
-		y=564
-		width=288
-		height=85
-	}
-	"basic attribute" {
-		clr=13
-	}
-}
-text {
-	object {
-		x=942
-		y=582
-		width=200
-		height=15
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="1. Go to OFFLOAD state"
-}
-text {
-	object {
-		x=942
-		y=598
-		width=200
-		height=15
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="2. Move the FB signal to the green"
-}
-text {
-	object {
-		x=931
-		y=566
-		width=200
-		height=15
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="If FB signal is large, please offload it."
-}
-text {
-	object {
-		x=942
-		y=615
-		width=200
-		height=15
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="3. Go to ALIGNED state and check FB signal"
-}
-text {
-	object {
-		x=931
-		y=632
-		width=200
-		height=15
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="If FB signal is small, work is done."
-}
-
 '''
 
-'''
-
-
-TYPEA,ETMX,IP,GAS,
-TYPEA,ITMX,IP,GAS,
-TYPEA,ETMY,IP,GAS,
-TYPEA,ITMY,IP,GAS,
-
-    $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_L_OUTPUT, T_OUTPUT, Y_OUTPUT, 
-    $(IFO):VIS-$(SYSTEM)_F0_SUMOUT_GAS_OUTPUT, F1, F2, F3, BF
-    IFO : K1
-    SYSTEM : ETMX, ITMX, ETMY, ITMY
-
-    MOTOR:
-        $(IFO):STEPPER-(SYSTEM)_IP_L
-        $(IFO):STEPPER-(SYSTEM)_GAS_(DOF)
-        xx_IP: L:xx_IP_L T:xx_IP_T Y:xx_IP_Y
-        ETMX_GAS: F0: ETMX_GAS_0 F1: ETMX_GAS_1 F2: ETMX_GAS_5 F3: ETMX_GAS_3 BF: ETMX-GAS_4
-        ITMX_GAS: F0: ITMX_GAS_0 F1: ITMX_GAS_1 F2: ITMX_GAS_2 F3: ITMX_GAS_5 BF: ITMX-GAS_4
-        ETMY_GAS: F0: ETMY_GAS_0 F1: ETMY_GAS_1 F2: ETMY_GAS_2 F3: ETMY_GAS_5 BF: ETMY-GAS_4
-        ITMY_GAS: F0: ITMY_GAS_0 F1: ITMY_GAS_1 F2: ITMY_GAS_2 F3: ITMY_GAS_3 BF: ITMY-GAS_4
-
-TYPEB,BS,IP,GAS,
-TYPEB,SRM,IP,GAS,
-TYPEB,SR2,IP,GAS,
-TYPEB,SR3,IP,GAS,
-
-    $(IFO):VIS-$(SYSTEM)_IP_SUMOUT_L_OUTPUT, T_OUTPUT, Y_OUTPUT, 
-    $(IFO):VIS-$(SYSTEM)_F0_SUMOUT_GAS_OUTPUT, F1, F2, BF
-    IFO : K1
-    SYSTEM: BS, SRM, SR2, SR3
-    MOTOR:
-        xx_IP: L:xx_IP_L T:xx_IP_T Y:xx_IP_Y
-        BS_GAS: F0: BS_GAS_3 F1: BS_GAS_1 BF: BS-GAS_0
-        SR2_GAS: F0: SR2_GAS_2 F1: SR2_GAS_1 BF: SR2-GAS_0
-        SR3_GAS: F0: SR3_GAS_2 F1: SR3_GAS_1 BF: SR3-GAS_0
-        SRM_GAS: F0: SRM_GAS_3 F1: SRM_GAS_1 BF: SRM-GAS_0
-
-TYPEBP,PRM,GAS,
-TYPEBP,PR2,GAS,
-TYPEBP,PR3,GAS,
-    $(IFO):VIS-$(SYSTEM)_SF_SUMOUT_GAS_OUTPUT, BF
-    IFO : K1
-    SYSTEM: PRM, PR2, PR3
-    MOTOR:
-        PR2_GAS: BF: PR2_GAS_1, SF: PR2_GAS_2
-        PR3_GAS: BF: PR0_GAS_0, SF: PR0_GAS_1
-        PRM_GAS: BF: PR0_GAS_2, SF: PR0_GAS_3
-
-'''
 #common = '/opt/rtcds/userapps/release/vis/common'
 common = './'
 
-def usr_typea_h(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,F2,F3,BF):
+def top(x,y):
     width = 300
-    height = 320
+    height = 100
     txt = '''
     composite {{
     object {{
     x={x}
     y={y}
     width=300
-    height=320
+    height=30
     }}
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEA_H.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},IPSTEPID={ipstepid},IPSTEPADL={ipstepadl},STEPID={stepid},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
+    "composite file"="./OFFLOAD_TOP.adl"
     }}
-    '''.format(common=common,x=x,y=y,system=system,ipstepid=IPSTEPID,ipstepadl=IPSTEPADL,stepid=STEPID,f0=F0,f1=F1,f2=F2,f3=F3,bf=BF)
+    '''.format(common=common,x=x,y=y)
     return txt,width,height
-#    "composite file"="{common}/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
 
-def usr_typea_lty(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,F2,F3,BF):
+
+def mini(x,y,system,stage,dof,damp,bio,stepname):
     width = 300
-    height = 320
+    height = 25
     txt = '''
     composite {{
     object {{
     x={x}
     y={y}
     width=300
-    height=320
+    height=30
     }}
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEA_LTY.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},IPSTEPID={ipstepid},IPSTEPADL={ipstepadl},STEPID={stepid},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},STAGE={stage},DOF={dof},DAMP={damp},BIO={bio},STEPNAME={stepname}"
     }}
-    '''.format(common=common,x=x,y=y,system=system,ipstepid=IPSTEPID,ipstepadl=IPSTEPADL,stepid=STEPID,f0=F0,f1=F1,f2=F2,f3=F3,bf=BF)
+    '''.format(common=common,x=x,y=y,system=system,stage=stage,dof=dof,damp=damp,bio=bio,stepname=stepname)
     return txt,width,height
-#    "composite file"="{common}/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
 
-def usr_typeb_h(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,BF):
+def head(x,y,system,mtype):
     width = 300
-    height = 235
+    height = 50
     txt = '''
     composite {{
     object {{
     x={x}
     y={y}
     width=300
-    height=235
+    height=30
     }}
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEB_H.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},IPSTEPID={ipstepid},IPSTEPADL={ipstepadl},STEPID={stepid},F0={f0},F1={f1},BF={bf}"
+    "composite file"="./HEAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},TYPE={mtype}"
     }}
-    '''.format(common=common,x=x,y=y,system=system,ipstepid=IPSTEPID,ipstepadl=IPSTEPADL,stepid=STEPID,f0=F0,f1=F1,bf=BF)
+    '''.format(common=common,x=x,y=y,system=system,mtype=mtype)
     return txt,width,height
-#    "composite file"="{common}/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
 
-def usr_typeb_lty(x,y,system,IPSTEPID,IPSTEPADL,STEPID,F0,F1,BF):
+def foot(x,y,system):
     width = 300
-    height = 235
+    height = 50
     txt = '''
     composite {{
     object {{
     x={x}
     y={y}
     width=300
-    height=235
+    height=30
     }}
     "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEB_LTY.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},IPSTEPID={ipstepid},IPSTEPADL={ipstepadl},STEPID={stepid},F0={f0},F1={f1},BF={bf}"
+    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},DAMP={damp}"
     }}
-    '''.format(common=common,x=x,y=y,system=system,ipstepid=IPSTEPID,ipstepadl=IPSTEPADL,stepid=STEPID,f0=F0,f1=F1,bf=BF)
+    '''.format(common=common,x=x,y=y,system=system,damp=damp)
     return txt,width,height
-#    "composite file"="{common}/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
-
-def usr_typebp(x,y,system,STEPID,SF,BF):
-    width = 300
-    height = 90
-    txt = '''
-    composite {{
-    object {{
-    x={x}
-    y={y}
-    width=300
-    height=90
-    }}
-    "composite name"=""
-    "composite file"="./OFFLOAD_OVERVIEW_TYPEBP.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},STEPID={stepid},SF={sf},BF={bf}"
-    }}
-    '''.format(common=common,x=x,y=y,system=system,stepid=STEPID,sf=SF,bf=BF)
-    return txt,width,height
-#    "composite file"="{common}/medm/steppingmotor/OFFLOAD_OVERVIEW/OFFLOAD_OVERVIEW_TYPEA.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},F0={f0},F1={f1},F2={f2},F3={f3},BF={bf}"
 
 
+def mtype_is(system):
+    if 'TM' in system:
+        mtype = 'TM'
+    elif 'BS' == system:
+        mtype = 'BS'
+    elif 'SR' in system:
+        mtype = 'SR'
+    else:            
+        mtype = None
+    return mtype
+    
+def damp_is(system):
+    if system in ['BS','SR2','SR3','SRM']:
+        damp = 'DCCTRL'
+    else:
+        damp = 'DAMP'                        
+    return damp
+    
+def bio_is(system):
+    if system in ['BS','SR2','SR3','SRM']:
+        bio = 'BIO'
+    else:
+        bio = 'BO'
+    return bio
+    
+def stepname_is(dof):
+    if dof == 'GAS':
+        return 'STEP_GAS'
+    else:
+        return 'STEP_IP'
 
 
 if __name__=='__main__':
     systems = ['ETMX', 'ITMX', 'ETMY', 'ITMY', 'BS', 'SRM', 'SR2', 'SR3', 'PRM', 'PR2', 'PR3']
     #systems = ['TEST', 'TESTSR'] # TEST
     #systems = ['ETMX', 'ITMX', 'ETMY', 'ITMY']
-    model = {
-        'ETMX': {'Type': 'TypeA_LTY', 'CELL':{ 'colum':0, 'line':0 }, 'IP':{'STEPID':'ETMX_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ETMX_GAS', 'F0':'0', 'F1':'1', 'F2':'5', 'F3':'3', 'BF':'4'}},
-        'ITMX': {'Type': 'TypeA_LTY', 'CELL':{ 'colum':1, 'line':0 }, 'IP':{'STEPID':'ITMX_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ITMX_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'5', 'BF':'4'}},
-        'ETMY': {'Type': 'TypeA_LTY', 'CELL':{ 'colum':2, 'line':0 }, 'IP':{'STEPID':'ETMY_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ETMY_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'5', 'BF':'4'}},
-        'ITMY': {'Type': 'TypeA_LTY', 'CELL':{ 'colum':3, 'line':0 }, 'IP':{'STEPID':'IIMY_IP', 'STEPADL':'IP_TM'}, 'GAS':{ 'STEPID':'ITMY_GAS', 'F0':'0', 'F1':'1', 'F2':'2', 'F3':'3', 'BF':'4'}},
 
-        'BS':  {'Type': 'TypeB_LTY', 'CELL':{ 'colum':0, 'line':1 }, 'IP':{'STEPID':'BS_IP', 'STEPADL':'IP_BS'}, 'GAS':{ 'STEPID':'BS_GAS',  'F0':'3', 'F1':'1', 'BF':'0'}},
-        'SR2': {'Type': 'TypeB_LTY', 'CELL':{ 'colum':2, 'line':1 }, 'IP':{'STEPID':'SR2_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SR2_GAS', 'F0':'2', 'F1':'1', 'BF':'0'}},
-        'SR3': {'Type': 'TypeB_LTY', 'CELL':{ 'colum':3, 'line':1 }, 'IP':{'STEPID':'SR3_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SR3_GAS', 'F0':'2', 'F1':'1', 'BF':'0'}},
-        'SRM': {'Type': 'TypeB_LTY', 'CELL':{ 'colum':1, 'line':1 }, 'IP':{'STEPID':'SRM_IP', 'STEPADL':'IP_SR'}, 'GAS':{ 'STEPID':'SRM_GAS', 'F0':'3', 'F1':'1', 'BF':'0'}},
 
-        'PR2': {'Type': 'TypeBp', 'CELL':{ 'colum':1, 'line':2 }, 'GAS':{ 'STEPID':'PR2_GAS', 'BF':'1', 'SF':'2'}},
-        'PR3': {'Type': 'TypeBp', 'CELL':{ 'colum':2, 'line':2 }, 'GAS':{ 'STEPID':'PR0_GAS', 'BF':'0', 'SF':'1'}},   # Motor !
-        'PRM': {'Type': 'TypeBp', 'CELL':{ 'colum':0, 'line':2 }, 'GAS':{ 'STEPID':'PR0_GAS', 'BF':'2', 'SF':'3'}},
+    # ERROR mode
+    # TypeA
+    #   K1:VIS-ITMY_IP_DAMP_L_INMON
+    #   K1:VIS-ITMY_F0_DAMP_GAS_INMON
+    # TypeB    
+    #   K1:VIS-BS_IP_DCCTRL_L_INMON
+    #   K1:VIS-BS_F0_DCCTRL_GAS_INMON
+    # TypeBp
+    #   K1:VIS-PR2_BF_DAMP_GAS_INMON
+    #
+    # FB mode
+    # TypeA
+    #   K1:VIS-ETMY_IP_SUMOUT_L_OUTMON
+    #   K1:VIS-ETMY_F0_SUMOUT_GAS_OUTMON
+    # TypeB
+    #   K1:VIS-BS_IP_DCCTRL_L_OUTMON
+    #   K1:VIS-BS_F0_COILOUTF_GAS_OUTMON
+    # TypeBp
+    #   K1:VIS-PR2_SF_DAMP_GAS_OUTMON
 
-        'TESTSR':  {'Type': 'TypeB', 'CELL':{ 'colum':0, 'line':0 }, 'GAS':{ 'STEPID':'TEST_GAS', 'F0':'0', 'F1':'1', 'BF':'0'}},
-        'TEST': {'Type': 'TypeBp', 'CELL':{ 'colum':1, 'line':1 }, 'GAS':{ 'STEPID':'TESTSR_IP', 'BF':'0', 'SF':'1'}}
-    }
+    stages = {'ETMX':['IP','F0','F1','F2','F3','BF'],
+              'ITMX':['IP','F0','F1','F2','F3','BF'],
+              'ETMY':['IP','F0','F1','F2','F3','BF'],
+              'ITMY':['IP','F0','F1','F2','F3','BF'],
+              'BS':['IP','F0','F1','BF'],
+              'SR2':['IP','F0','F1','BF'],
+              'SR3':['IP','F0','F1','BF'],
+              'SRM':['IP','F0','F1','BF'],
+              'PR2':['SF','BF'],
+              'PR3':['SF','BF'],
+              'PRM':['SF','BF']}    
+    dofs = {'IP':['L','T','Y'],
+            'F0':['GAS'],
+            'F1':['GAS'],
+            'F2':['GAS'],
+            'F3':['GAS'],
+            'BF':['GAS'],
+            'SF':['GAS'],}
 
-    height = 0
-    width = 0
+    mode = 'ERR'        
+        
+    height = 10
+    width = 10
+    _h0 = height
+    _w0 = width
     contents = header
-    before_cell_colum = 0
-    before_cell_line = 0
-    direct = 1 # 0: colum, 1:line
+    _h = 0
+    _w = 0
     with open('./OFFLOAD_OVERVIEW.adl','w') as f:
-        for system in systems:
-            type = model[system]['Type']
-            gas = model[system]['GAS']
-            cell = model[system]['CELL']
-            print(type)
-            print(gas)
-
-            if before_cell_colum > cell['colum']:
-                height += h1+2
-                width = 0
-            elif before_cell_line > cell['line']:
-                height = 0
-                width += w1+2
+        txt,w0,h0 = top(width,height)
+        contents += txt         
+        height += h0
+        _h0 = height
+        for num,system in enumerate(systems):
+            print('{0}'.format(system))
+            mtype = mtype_is(system)                
+            txt,w0,h0 = head(width,height,system,mtype)
+            contents += txt         
+            _h = h0
+            for stage in stages[system]:
+                print(' - ',stage,dofs[stage])
+                for dof in dofs[stage]:
+                    damp = damp_is(system)
+                    print(damp)
+                    bio = bio_is(system)
+                    stepname = stepname_is(dof)
+                    txt,w1,h1 = mini(width,height+_h,system,stage,dof,damp,bio,stepname,mode=mode)
+                    _h += h1
+                    contents += txt
+            txt,w2,h2 = foot(width,height+_h,system)
+            contents += txt
+            _h += h2
+            _w = max(w0,w1,w2) +10
             
-            print(width,height)
-            print(cell['colum'],cell['line'])
-
-            if type == 'TypeA_H':
-                ip = model[system]['IP']
-                txt,w1,h1 = usr_typea_h(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
-            elif type == 'TypeA_LTY':
-                ip = model[system]['IP']
-                txt,w1,h1 = usr_typea_lty(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
-            elif type == 'TypeB_H':
-                ip = model[system]['IP']
-                txt,w1,h1 = usr_typeb_h(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
-            elif type == 'TypeB_LTY':
-                ip = model[system]['IP']
-                txt,w1,h1 = usr_typeb_lty(x=width,y=height,system=system, IPSTEPID=ip['STEPID'], IPSTEPADL=ip['STEPADL'], **gas)
-            elif type == 'TypeBp':
-                txt,w1,h1 = usr_typebp(x=width,y=height,system=system, **gas)
-            contents += txt            
-
-            if direct == 0:
-                height += h1+2
-            else:
-                width += w1+2
-
-            before_cell_colum = cell['colum']
-            before_cell_line = cell['line']
-
+            q,mod = divmod(num+1,4)
+            height = q*300 + _h0
+            width = mod*_w + _w0
+                
         f.write(contents)    
