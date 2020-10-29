@@ -13,6 +13,7 @@ For more details, please refer KAGRA wiki (DGS/MotorControl/StepperMotor).
 import numpy as np
 import conf
 import userVariableMap
+from datetime import datetime
 
 class IPMove:
     minA = 0
@@ -22,10 +23,11 @@ class IPMove:
     minC = 0
     maxC = 0
 
-    def __init__(self, driver, part):
+    def __init__(self, driver, part, logfile):
         #self.prefix = prefix
         self.part = part
         self.driver = driver
+        self.logfile = logfile
 
     def setLimitPosition(self, minA, maxA, minB, maxB, minC, maxC):
         self.minA = minA
@@ -89,6 +91,10 @@ class IPMove:
             self.driver.setUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos),posC+countC)
             self.driver.storeUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos))
 
+        d = datetime.now()
+        with open(self.logfile,'a') as f:
+            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' IP '+Type+' moved L to A:'+str(posA+countA)+', B:'+str(posB+countB)+', C:'+str(posC+countC)+' from A:'+str(posA)+', B:'+str(posB)+', C:'+str(posC)+'\n')
+
     def Move_T(self,value):
         Type = conf.channel[self.part]["config"]
         motorA = conf.channel[self.part]["motorA"]
@@ -143,6 +149,10 @@ class IPMove:
             self.driver.setUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos),posC+countC)
             self.driver.storeUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos))
 
+        d = datetime.now()
+        with open(self.logfile,'a') as f:
+            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' IP '+Type+' moved T to A:'+str(posA+countA)+', B:'+str(posB+countB)+', C:'+str(posC+countC)+' from A:'+str(posA)+', B:'+str(posB)+', C:'+str(posC)+'\n')
+
     def Move_Y(self,value):
         motorA = conf.channel[self.part]["motorA"]
         motorB = conf.channel[self.part]["motorB"]
@@ -180,6 +190,9 @@ class IPMove:
             self.driver.setUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos),posC+countC)
             self.driver.storeUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos))
 
+        d = datetime.now()
+        with open(self.logfile,'a') as f:
+            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' IP moved Y to A:'+str(posA+countA)+', B:'+str(posB+countB)+', C:'+str(posC+countC)+' from A:'+str(posA)+', B:'+str(posB)+', C:'+str(posC)+'\n')
 
     def calcUserValiable(self,motorAddr,offset):
         # CH.0 to 5

@@ -46,6 +46,26 @@ pvdb ={
         'prec': 4,
         'value': 0,
     },
+    'A_STOP': {
+        'desc': "move pico motor forward",
+        'prec': 4,
+        'value': 0,
+    },
+    'B_STOP': {
+        'desc': "move pico motor forward",
+        'prec': 4,
+        'value': 0,
+    },
+    'C_STOP': {
+        'desc': "move pico motor forward",
+        'prec': 4,
+        'value': 0,
+    },
+    'F0Y_STOP': {
+        'desc': "move pico motor forward",
+        'prec': 4,
+        'value': 0,
+    },
     'A_POSITION': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -186,17 +206,17 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
-    'H1_FLUCTUATION': {
+    'A_FLUCTUATION': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
     },
-    'H2_FLUCTUATION': {
+    'B_FLUCTUATION': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
     },
-    'H3_FLUCTUATION': {
+    'C_FLUCTUATION': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
@@ -221,17 +241,17 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
-    'H1_FWD': {
+    'A_FWD': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
     },
-    'H2_FWD': {
+    'B_FWD': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
     },
-    'H3_FWD': {
+    'C_FWD': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
@@ -256,17 +276,77 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
-    'H1_REV': {
+    'A_REV': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
     },
-    'H2_REV': {
+    'B_REV': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
     },
-    'H3_REV': {
+    'C_REV': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'A_LRDISTANCE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'B_LRDISTANCE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'C_LRDISTANCE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'F0Y_LRDISTANCE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'A_LRDISTANCECHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'B_LRDISTANCECHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'C_LRDISTANCECHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'F0Y_LRDISTANCECHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'A_POSITIONCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'B_POSITIONCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'C_POSITIONCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    'F0Y_POSITIONCHANGE': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
@@ -295,7 +375,34 @@ pvdb ={
         'desc': "move pico motor forward",
         'prec': 4,
         'value': 0,
+    },
+    'A_UPDATE': {
+        'desc': "move pico motor forward",
+        'prec': 4,
+        'value': 0,
+    },
+    'B_UPDATE': {
+        'desc': "move pico motor forward",
+        'prec': 4,
+        'value': 0,
+    },
+    'C_UPDATE': {
+        'desc': "move pico motor forward",
+        'prec': 4,
+        'value': 0,
+    },
+    'F0Y_UPDATE': {
+        'desc': "move pico motor forward",
+        'prec': 4,
+        'value': 0,
     }
+}
+
+motor_dict = {
+    'A':   'motorA',
+    'B':   'motorB',
+    'C':   'motorC',
+    'F0Y': 'motorY'
 }
 
 ##################################################
@@ -330,7 +437,7 @@ class PcasDriver(pcaspy.Driver):
         self.logfile = '/kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/'+self.prefix+'.log'
 
         self.updatePVs()
-        self.ipmove = funcIP.IPMove(driver,self.part)
+        self.ipmove = funcIP.IPMove(driver,self.part,self.logfile)
 
         # setup limit and position from TMCM6100 mempry.
         motorAddrA  = self.conf.channel[self.part]["motorA"]
@@ -353,6 +460,7 @@ class PcasDriver(pcaspy.Driver):
         self.driver.stop(motorAddr)
         self.driver.setActualPosition(pos, motorAddr)
         lrDistance = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.lrDistance))
+        self.setParam(dof+"_LRDISTANCE",lrDistance)
         if lrDistance == 0:
             self.driver.setRightLimitSwitchEnable(False, motorAddr)
             self.driver.setLeftLimitSwitchEnable(False,  motorAddr)
@@ -360,60 +468,31 @@ class PcasDriver(pcaspy.Driver):
             self.driver.setRightLimitSwitchEnable(True, motorAddr)
             self.driver.setLeftLimitSwitchEnable(True,  motorAddr)
 
+        d = datetime.now()
+        with open(self.logfile,'a') as f:
+            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' initialize actual position '+str(pos)+' limit '+str(limitMax)+' , '+str(limitMin)+' Distance '+str(lrDistance)+'\n')
+
     def read(self, channel):
         value = self.getParam(channel)
         logging.info('%s == %s' % (channel, value))
 
-        motorAddrA  = self.conf.channel[self.part]["motorA"]
-        motorAddrB  = self.conf.channel[self.part]["motorB"]
-        motorAddrC  = self.conf.channel[self.part]["motorC"]
-        motorAddrY  = self.conf.channel[self.part]["motorY"]
-        
-        if channel == "A_RSWITCH":
-            value = self.driver.getRightLimitSwitch(motorAddrA)
-            self.setParam("A_RSWITCH",value)
+        if '_' in channel:
+            direction,name = channel.split("_")
+        else:
+            direction = ""
+            name = channel
+
+        if name == "RSWITCH":
+            motorAddr  = self.conf.channel[self.part][motor_dict[direction]]
+            value = self.driver.getRightLimitSwitch(motorAddr)
+            self.setParam(channel,value)
             self.updatePVs()
             print('%s => %d' % (channel, value))
 
-        elif channel == "B_RSWITCH":
-            value = self.driver.getRightLimitSwitch(motorAddrB)
-            self.setParam("B_RSWITCH",value)
-            self.updatePVs()
-            print('%s => %d' % (channel, value))
-
-        elif channel == "C_RSWITCH":
-            value = self.driver.getRightLimitSwitch(motorAddrC)
-            self.setParam("C_RSWITCH",value)
-            self.updatePVs()
-            print('%s => %d' % (channel, value))
-
-        elif channel == "F0Y_RSWITCH":
-            value = self.driver.getRightLimitSwitch(motorAddrY)
-            self.setParam("F0Y_RSWITCH",value)
-            self.updatePVs()
-            print('%s => %d' % (channel, value))
-
-        elif channel == "A_LSWITCH":
-            value = self.driver.getLeftLimitSwitch(motorAddrA)
-            self.setParam("A_LSWITCH",value)
-            self.updatePVs()
-            print('%s => %d' % (channel, value))
-
-        elif channel == "B_LSWITCH":
-            value = self.driver.getLeftLimitSwitch(motorAddrB)
-            self.setParam("B_LSWITCH",value)
-            self.updatePVs()
-            print('%s => %d' % (channel, value))
-
-        elif channel == "C_LSWITCH":
-            value = self.driver.getLeftLimitSwitch(motorAddrC)
-            self.setParam("C_LSWITCH",value)
-            self.updatePVs()
-            print('%s => %d' % (channel, value))
-
-        elif channel == "F0Y_LSWITCH":
-            value = self.driver.getLeftLimitSwitch(motorAddrY)
-            self.setParam("F0Y_LSWITCH",value)
+        elif name == "LSWITCH":
+            motorAddr  = self.conf.channel[self.part][motor_dict[direction]]
+            value = self.driver.getLeftLimitSwitch(motorAddr)
+            self.setParam(channel,value)
             self.updatePVs()
             print('%s => %d' % (channel, value))
 
@@ -428,8 +507,14 @@ class PcasDriver(pcaspy.Driver):
         motorAddrC  = self.conf.channel[self.part]["motorC"]
         motorAddrY  = self.conf.channel[self.part]["motorY"]
         
+        if '_' in channel:
+            direction,name = channel.split("_")
+        else:
+            direction = ""
+            name = channel
+
         #        with self.driver:
-        if (channel == "UPDATE") and (value == 1.0):
+        if (name == "UPDATE") and (value == 1.0):
     #        self.driver.reconnect()
             
             posA = self.driver.getActualPosition(motorAddrA)
@@ -474,131 +559,83 @@ class PcasDriver(pcaspy.Driver):
             value = self.driver.getLeftLimitSwitch(motorAddrY)
             self.setParam("F0Y_LSWITCH",value)
 
-        if channel == "ACC":
+        if name == "ACC":
             acc = self.getParam("ACC")
             self.driver.setAcceleration(acc, motorAddrA)
             self.driver.setAcceleration(acc, motorAddrB)
             self.driver.setAcceleration(acc, motorAddrC)
             self.driver.setAcceleration(acc, motorAddrY)
-            
-        if channel == "VEL":
+
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' acc as motor:'+str(acc)+'\n')
+
+        if name == "VEL":
             vel = self.getParam("VEL")
             self.driver.setTargetSpeed(vel, motorAddrA)
             self.driver.setTargetSpeed(vel, motorAddrB)
             self.driver.setTargetSpeed(vel, motorAddrC)
             self.driver.setTargetSpeed(vel, motorAddrY)
-            
-        if channel == "STOP":
+
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' vel as motor:'+str(vel)+'\n')
+
+        if (name == "STOP") and (value == 1.0):
             self.driver.stop(motorAddrA)
             self.driver.stop(motorAddrB)
             self.driver.stop(motorAddrC)
             self.driver.stop(motorAddrY)
 
-            pos =  self.driver.getActualPosition(motorAddrA)
-            self.setParam("A_POSITION",pos)
-            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrA,userVariableMap.actualPos),pos)
+            posA =  self.driver.getActualPosition(motorAddrA)
+            self.setParam("A_POSITION",posA)
+            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrA,userVariableMap.actualPos),posA)
             self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrA,userVariableMap.actualPos))
 
-            pos =  self.driver.getActualPosition(motorAddrB)
-            self.setParam("B_POSITION",pos)
-            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrB,userVariableMap.actualPos),pos)
+            posB =  self.driver.getActualPosition(motorAddrB)
+            self.setParam("B_POSITION",posB)
+            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrB,userVariableMap.actualPos),posB)
             self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrB,userVariableMap.actualPos))
 
-            pos =  self.driver.getActualPosition(motorAddrC)
-            self.setParam("C_POSITION",pos)
-            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrC,userVariableMap.actualPos),pos)
+            posC =  self.driver.getActualPosition(motorAddrC)
+            self.setParam("C_POSITION",posC)
+            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrC,userVariableMap.actualPos),posC)
             self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrC,userVariableMap.actualPos))
 
-            pos =  self.driver.getActualPosition(motorAddrY)
-            self.setParam("F0Y_POSITION",pos)
-            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrY,userVariableMap.actualPos),pos)
+            posY =  self.driver.getActualPosition(motorAddrY)
+            self.setParam("F0Y_POSITION",posY)
+            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrY,userVariableMap.actualPos),posY)
             self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrY,userVariableMap.actualPos))
 
-        if channel == "L_STEP":
-            self.moveStepCount(value,'L')
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' position stoped as motorA:'+str(posA)+' motorB:'+str(posB)+' motorC:'+str(posC)+' F0Y:'+str(posY)+'\n')
 
-        if channel == "T_STEP":
-            self.moveStepCount(value,'T')
+        if name == "STEP":
+            self.moveStepCount(value,direction)
 
-        if channel == "Y_STEP":
-            self.moveStepCount(value,'Y')
+        if (name == "FWD") and (value == 1.0):
+            count = self.getParam(direction+"_FLUCTUATION")
+            self.moveStepCount(count,direction)
 
-        if channel == "F0Y_STEP":
-           self.moveStepCount(value,'F0Y')
+        if (name == "REV") and (value == 1.0):
+            count = -self.getParam(direction+"_FLUCTUATION")
+            self.moveStepCount(count,direction)
 
-        if (channel == "L_FWD") and (value == 1.0):
-            count = self.getParam("L_FLUCTUATION")
-            self.moveStepCount(count,'L')
+        if (name == "LIMITCHANGE") and (value == 1.0):
+            self.LimitChange(direction)
 
-        if (channel == "L_REV") and (value == 1.0):
-            count = -self.getParam("L_FLUCTUATION")
-            self.moveStepCount(count,'L')
+        if (name == "LRDISTANCECHANGE") and (value == 1.0):
+            self.lrDistanceChange(direction)
 
-        if (channel == "T_FWD") and (value == 1.0):
-            count = self.getParam("T_FLUCTUATION")
-            self.moveStepCount(count,'T')
-
-        if (channel == "T_REV") and (value == 1.0):
-            count = -self.getParam("T_FLUCTUATION")
-            self.moveStepCount(count,'T')
-
-        if (channel == "Y_FWD") and (value == 1.0):
-            count = self.getParam("Y_FLUCTUATION")
-            self.moveStepCount(count,'Y')
-
-        if (channel == "Y_REV") and (value == 1.0):
-            count = -self.getParam("Y_FLUCTUATION")
-            self.moveStepCount(count,'Y')
-
-        if (channel == "F0Y_FWD") and (value == 1.0):
-            count = self.getParam("F0Y_FLUCTUATION")
-            self.moveStepCount(count,'F0Y')
-
-        if (channel == "F0Y_REV") and (value == 1.0):
-            count = -self.getParam("F0Y_FLUCTUATION")
-            self.moveStepCount(count,'F0Y')
-
-        if (channel == "H1_FWD") and (value == 1.0):
-            count = self.getParam("H1_FLUCTUATION")
-            self.moveStepCount(count,'H1')
-
-        if (channel == "H1_REV") and (value == 1.0):
-            count = -self.getParam("H1_FLUCTUATION")
-            self.moveStepCount(count,'H1')
-
-        if (channel == "H2_FWD") and (value == 1.0):
-            count = self.getParam("H2_FLUCTUATION")
-            self.moveStepCount(count,'H2')
-
-        if (channel == "H2_REV") and (value == 1.0):
-            count = -self.getParam("H2_FLUCTUATION")
-            self.moveStepCount(count,'H2')
-
-        if (channel == "H3_FWD") and (value == 1.0):
-            count = self.getParam("H3_FLUCTUATION")
-            self.moveStepCount(count,'H3')
-
-        if (channel == "H3_REV") and (value == 1.0):
-            count = -self.getParam("H3_FLUCTUATION")
-            self.moveStepCount(count,'H3')
-
-        if (channel == "A_LIMITCHANGE") and (value == 1.0):
-            self.LimitChange(motorAddrA,'A')
-
-        if (channel == "B_LIMITCHANGE") and (value == 1.0):
-            self.LimitChange(motorAddrB,'B')
-
-        if (channel == "C_LIMITCHANGE") and (value == 1.0):
-            self.LimitChange(motorAddrC,'C')
-
-        if (channel == "F0Y_LIMITCHANGE") and (value == 1.0):
-            self.LimitChange(motorAddrY,'F0Y')
+        if (name == "POSITIONCHANGE") and (value == 1.0):
+            self.PositionChange(direction)
 
         self.updatePVs()
         
         return True
 
-    def moveStepCount(self,count,dirStr):
+    def moveStepCount(self,count,direction):
         self.ipmove.setLimitPosition(
             self.getParam("A_LIMITPOSMIN"),
             self.getParam("A_LIMITPOSMAX"),
@@ -607,85 +644,93 @@ class PcasDriver(pcaspy.Driver):
             self.getParam("C_LIMITPOSMIN"),
             self.getParam("C_LIMITPOSMAX"))
 
-        if dirStr == 'L':
+        if direction == 'L':
             axisDirection = self.conf.channel[self.part]["axisDirectionLEN"]
             self.ipmove.Move_L(axisDirection*count)
-        elif dirStr == 'T':
+        elif direction == 'T':
             axisDirection = self.conf.channel[self.part]["axisDirectionTRA"]
             self.ipmove.Move_T(axisDirection*count)
-        elif dirStr == 'Y':
+        elif direction == 'Y':
             axisDirection = self.conf.channel[self.part]["axisDirectionYAW"]
             self.ipmove.Move_Y(axisDirection*count)
-        elif dirStr == 'F0Y':
-            motorAddrY  = self.conf.channel[self.part]["motorY"]
-       
-            signY = self.conf.channel[self.part]["signY"]
-            axisDirection = self.conf.channel[self.part]["axisDirectionF0Y"]
-            pos = self.driver.getActualPosition(motorAddrY)
 
-            min = self.getParam("F0Y_LIMITPOSMIN")
-            max = self.getParam("F0Y_LIMITPOSMAX")
-            count = self.ipmove.calcMoveRange(max,min,pos,signY*axisDirection*count)
+        elif direction in ['A','B','C','F0Y']:
+            motorAddr  = self.conf.channel[self.part][motor_dict[direction]]
 
-            self.driver.setTargetPosition(pos+count, motorAddrY)
+            axisDirection = self.conf.channel[self.part]["axisDirection"+direction]  # Direction to sensor.
+            pos = self.driver.getActualPosition(motorAddr)
 
-        elif dirStr == 'H1':
-            motorAddrA  = self.conf.channel[self.part]["motorA"]
-       
-            axisDirection = self.conf.channel[self.part]["axisDirectionA"]  # Direction to sensor.
-            pos = self.driver.getActualPosition(motorAddrA)
-
-            min = self.getParam("A_LIMITPOSMIN")
-            max = self.getParam("A_LIMITPOSMAX")
+            min = self.getParam(direction+"_LIMITPOSMIN")
+            max = self.getParam(direction+"_LIMITPOSMAX")
             count = self.ipmove.calcMoveRange(max,min,pos,axisDirection*count)
 
-            self.driver.setTargetPosition(pos+count, motorAddrA)
+            self.driver.setTargetPosition(pos+count, motorAddr)
 
-        elif dirStr == 'H2':
-            motorAddrB  = self.conf.channel[self.part]["motorB"]
-       
-            axisDirection = self.conf.channel[self.part]["axisDirectionB"]  # Direction to sensor.
-            pos = self.driver.getActualPosition(motorAddrB)
+            self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.actualPos),pos+count)
+            self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.actualPos))
 
-            min = self.getParam("B_LIMITPOSMIN")
-            max = self.getParam("B_LIMITPOSMAX")
-            count = self.ipmove.calcMoveRange(max,min,pos,axisDirection*count)
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' IP moved in '+direction+' to '+str(pos+count)+' from '+str(pos)+'\n')
 
-            self.driver.setTargetPosition(pos+count, motorAddrB)
-
-        elif dirStr == 'H3':
-            motorAddrC  = self.conf.channel[self.part]["motorC"]
-       
-            axisDirection = self.conf.channel[self.part]["axisDirectionC"]  # Direction to sensor.
-            pos = self.driver.getActualPosition(motorAddrC)
-
-            min = self.getParam("C_LIMITPOSMIN")
-            max = self.getParam("C_LIMITPOSMAX")
-            count = self.ipmove.calcMoveRange(max,min,pos,axisDirection*count)
-
-            self.driver.setTargetPosition(pos+count, motorAddrC)
-
-        d = datetime.now()
-        with open(self.logfile,'a') as f:
-            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' IP moved in '+dirStr+' by '+str(count)+'\n')
-
-    def LimitChange(self,motorAddr,dirStr):
-        limitMin = self.getParam(dirStr+"_LIMITPOSMIN")
-        limitMax = self.getParam(dirStr+"_LIMITPOSMAX")
+    def LimitChange(self,direction):
+        motorAddr  = self.conf.channel[self.part][motor_dict[direction]]
+        limitMin = self.getParam(direction+"_LIMITPOSMIN")
+        limitMax = self.getParam(direction+"_LIMITPOSMAX")
         oldlimitMax = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.limitMax))
         oldlimitMin = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.limitMin))
 
         d = datetime.now()
         with open(self.logfile,'a') as f:
-            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+':'+dirStr+' limit change to '+str(limitMin)+' , '+str(limitMax)+' from '+str(oldlimitMin)+' , '+str(oldlimitMax)+'\n')            
+            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+direction+' limit change to '+str(limitMin)+' , '+str(limitMax)+' from '+str(oldlimitMin)+' , '+str(oldlimitMax)+'\n')            
 
         # limitMin and limitMax position.
         self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.limitMin),limitMin)
         self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.limitMax),limitMax)
         # Store all paranator to EEPROM.
-        print("[Start]Store TMCM6110 EEPROM ",dirStr)
+        print("[Start]Store TMCM6110 EEPROM ",direction)
         self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.limitMin))
         self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.limitMax))
+        print("[End]Store TMCM6110 EEPROM")
+
+    def lrDistanceChange(self,direction):
+        motorAddr  = self.conf.channel[self.part][motor_dict[direction]]
+        lrDistance = self.getParam(direction+"_LRDISTANCE")
+        if lrDistance == 0:
+            self.driver.setRightLimitSwitchEnable(False, motorAddr)
+            self.driver.setLeftLimitSwitchEnable(False,  motorAddr)
+        else:
+            self.driver.setRightLimitSwitchEnable(True, motorAddr)
+            self.driver.setLeftLimitSwitchEnable(True,  motorAddr)
+        oldlrDistance = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.lrDistance))
+
+        d = datetime.now()
+        with open(self.logfile,'a') as f:
+            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+direction+' lrdistance change to '+str(lrDistance)+' from '+str(oldlrDistance)+'\n')            
+
+        # limitMin and limitMax position.
+        self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.lrDistance),lrDistance)
+        # Store all paranator to EEPROM.
+        print("[Start]Store TMCM6110 EEPROM")
+        self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.lrDistance))
+        print("[End]Store TMCM6110 EEPROM")
+
+    def PositionChange(self,direction):
+        motorAddr  = self.conf.channel[self.part][motor_dict[direction]]
+        pos = self.getParam(direction+"_POSITION")
+        self.driver.stop(motorAddr)
+        self.driver.setActualPosition(pos, motorAddr)
+        oldpos = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.actualPos))
+
+        d = datetime.now()
+        with open(self.logfile,'a') as f:
+            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+direction+' Position change to '+str(pos)+' from '+str(oldpos)+'\n')            
+
+        # limitMin and limitMax position.
+        self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.actualPos),pos)
+        # Store all paranator to EEPROM.
+        print("[Start]Store TMCM6110 EEPROM")
+        self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.actualPos))
         print("[End]Store TMCM6110 EEPROM")
 
 class PcasServer(pcaspy.SimpleServer):

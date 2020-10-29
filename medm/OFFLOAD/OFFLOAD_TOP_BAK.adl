@@ -242,7 +242,7 @@ text {
 		height=16
 	}
 	"basic attribute" {
-		clr=0
+		clr=14
 	}
 	textix="PRM & PR3 (provisional)"
 }

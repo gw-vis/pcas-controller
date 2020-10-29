@@ -62,7 +62,7 @@ def main():
 #    os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor')
     print(os.path.dirname(os.path.abspath(__file__)))
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
-#    print('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]))
+    print('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]))
 #    os.system('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]) )
     command = 'python -m steppingmotor K1:STEPPER-%s_ %s' % (agvs[1],driverDict[agvs[1]])
 
@@ -70,11 +70,11 @@ def main():
     if pid != 0 and killProcess == True:
         process_kill(pid)
 
-    if pid == 0:
+    if pid == 0 and killProcess == False:
         subprocess.Popen(command.split())
 
 def process_check(cmdline):
-    cmd = ['ps o pid,args']
+    cmd = ['ps xo pid,args']
     proc = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
 
     for line in proc.stdout:

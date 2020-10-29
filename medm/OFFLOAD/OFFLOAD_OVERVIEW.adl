@@ -7,7 +7,7 @@ display {
 	object {
 		x=1996
 		y=56
-		width=1300
+		width=1500
 		height=900
 	}
 	clr=14
@@ -118,7 +118,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=IP,DOF=L,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=IP,SENSOR_STAGE=IP,DOF=L,SENSOR_DOF=L,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ETMX_IP,MOTOR=L"
     }
     
     composite {
@@ -129,7 +129,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=IP,DOF=T,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=IP,SENSOR_STAGE=IP,DOF=T,SENSOR_DOF=T,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ETMX_IP,MOTOR=T"
     }
     
     composite {
@@ -140,7 +140,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=IP,DOF=Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=IP,SENSOR_STAGE=IP,DOF=Y,SENSOR_DOF=Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ETMX_IP,MOTOR=Y"
     }
     
     composite {
@@ -151,7 +151,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=F0,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=IP,SENSOR_STAGE=BF,DOF=F0Y,SENSOR_DOF=Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ETMX_IP,MOTOR=F0Y"
     }
     
     composite {
@@ -162,7 +162,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=F1,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=F0,SENSOR_STAGE=F0,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ETMX_GAS,MOTOR=0"
     }
     
     composite {
@@ -173,7 +173,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=F2,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=F1,SENSOR_STAGE=F1,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ETMX_GAS,MOTOR=1"
     }
     
     composite {
@@ -184,7 +184,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=F3,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=F2,SENSOR_STAGE=F2,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ETMX_GAS,MOTOR=5"
     }
     
     composite {
@@ -195,7 +195,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=BF,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=F3,SENSOR_STAGE=F3,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ETMX_GAS,MOTOR=3"
     }
     
     composite {
@@ -206,12 +206,23 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,DAMP=DAMP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=BF,SENSOR_STAGE=BF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ETMX_GAS,MOTOR=4"
     }
     
     composite {
     object {
-    x=320
+    x=10
+    y=385
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),STEPPERID=ETMX"
+    }
+    
+    composite {
+    object {
+    x=370
     y=110
     width=300
     height=30
@@ -222,106 +233,117 @@ display {
     
     composite {
     object {
-    x=320
+    x=370
     y=160
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=IP,DOF=L,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=IP,SENSOR_STAGE=IP,DOF=L,SENSOR_DOF=L,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ITMX_IP,MOTOR=L"
     }
     
     composite {
     object {
-    x=320
+    x=370
     y=185
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=IP,DOF=T,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=IP,SENSOR_STAGE=IP,DOF=T,SENSOR_DOF=T,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ITMX_IP,MOTOR=T"
     }
     
     composite {
     object {
-    x=320
+    x=370
     y=210
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=IP,DOF=Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=IP,SENSOR_STAGE=IP,DOF=Y,SENSOR_DOF=Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ITMX_IP,MOTOR=Y"
     }
     
     composite {
     object {
-    x=320
+    x=370
     y=235
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=F0,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=IP,SENSOR_STAGE=BF,DOF=F0Y,SENSOR_DOF=Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ITMX_IP,MOTOR=F0Y"
     }
     
     composite {
     object {
-    x=320
+    x=370
     y=260
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=F1,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=F0,SENSOR_STAGE=F0,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ITMX_GAS,MOTOR=0"
     }
     
     composite {
     object {
-    x=320
+    x=370
     y=285
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=F2,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=F1,SENSOR_STAGE=F1,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ITMX_GAS,MOTOR=1"
     }
     
     composite {
     object {
-    x=320
+    x=370
     y=310
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=F3,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=F2,SENSOR_STAGE=F2,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ITMX_GAS,MOTOR=2"
     }
     
     composite {
     object {
-    x=320
+    x=370
     y=335
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=BF,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=F3,SENSOR_STAGE=F3,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ITMX_GAS,MOTOR=5"
     }
     
     composite {
     object {
-    x=320
+    x=370
     y=360
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,DAMP=DAMP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=BF,SENSOR_STAGE=BF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ITMX_GAS,MOTOR=4"
     }
     
     composite {
     object {
-    x=630
+    x=370
+    y=385
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),STEPPERID=ITMX"
+    }
+    
+    composite {
+    object {
+    x=730
     y=110
     width=300
     height=30
@@ -332,106 +354,117 @@ display {
     
     composite {
     object {
-    x=630
+    x=730
     y=160
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=IP,DOF=L,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=IP,SENSOR_STAGE=IP,DOF=L,SENSOR_DOF=L,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ETMY_IP,MOTOR=L"
     }
     
     composite {
     object {
-    x=630
+    x=730
     y=185
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=IP,DOF=T,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=IP,SENSOR_STAGE=IP,DOF=T,SENSOR_DOF=T,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ETMY_IP,MOTOR=T"
     }
     
     composite {
     object {
-    x=630
+    x=730
     y=210
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=IP,DOF=Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=IP,SENSOR_STAGE=IP,DOF=Y,SENSOR_DOF=Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ETMY_IP,MOTOR=Y"
     }
     
     composite {
     object {
-    x=630
+    x=730
     y=235
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=F0,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=IP,SENSOR_STAGE=BF,DOF=F0Y,SENSOR_DOF=Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ETMY_IP,MOTOR=F0Y"
     }
     
     composite {
     object {
-    x=630
+    x=730
     y=260
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=F1,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=F0,SENSOR_STAGE=F0,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ETMY_GAS,MOTOR=0"
     }
     
     composite {
     object {
-    x=630
+    x=730
     y=285
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=F2,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=F1,SENSOR_STAGE=F1,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ETMY_GAS,MOTOR=1"
     }
     
     composite {
     object {
-    x=630
+    x=730
     y=310
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=F3,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=F2,SENSOR_STAGE=F2,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ETMY_GAS,MOTOR=2"
     }
     
     composite {
     object {
-    x=630
+    x=730
     y=335
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=BF,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=F3,SENSOR_STAGE=F3,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ETMY_GAS,MOTOR=5"
     }
     
     composite {
     object {
-    x=630
+    x=730
     y=360
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,DAMP=DAMP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=BF,SENSOR_STAGE=BF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ETMY_GAS,MOTOR=4"
     }
     
     composite {
     object {
-    x=940
+    x=730
+    y=385
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),STEPPERID=ETMY"
+    }
+    
+    composite {
+    object {
+    x=1090
     y=110
     width=300
     height=30
@@ -442,107 +475,118 @@ display {
     
     composite {
     object {
-    x=940
+    x=1090
     y=160
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=IP,DOF=L,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=IP,SENSOR_STAGE=IP,DOF=L,SENSOR_DOF=L,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ITMY_IP,MOTOR=L"
     }
     
     composite {
     object {
-    x=940
+    x=1090
     y=185
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=IP,DOF=T,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=IP,SENSOR_STAGE=IP,DOF=T,SENSOR_DOF=T,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ITMY_IP,MOTOR=T"
     }
     
     composite {
     object {
-    x=940
+    x=1090
     y=210
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=IP,DOF=Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=IP,SENSOR_STAGE=IP,DOF=Y,SENSOR_DOF=Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ITMY_IP,MOTOR=Y"
     }
     
     composite {
     object {
-    x=940
+    x=1090
     y=235
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=F0,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=IP,SENSOR_STAGE=BF,DOF=F0Y,SENSOR_DOF=Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ITMY_IP,MOTOR=F0Y"
     }
     
     composite {
     object {
-    x=940
+    x=1090
     y=260
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=F1,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=F0,SENSOR_STAGE=F0,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ITMY_GAS,MOTOR=0"
     }
     
     composite {
     object {
-    x=940
+    x=1090
     y=285
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=F2,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=F1,SENSOR_STAGE=F1,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ITMY_GAS,MOTOR=1"
     }
     
     composite {
     object {
-    x=940
+    x=1090
     y=310
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=F3,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=F2,SENSOR_STAGE=F2,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ITMY_GAS,MOTOR=2"
     }
     
     composite {
     object {
-    x=940
+    x=1090
     y=335
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=BF,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=F3,SENSOR_STAGE=F3,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ITMY_GAS,MOTOR=3"
     }
     
     composite {
     object {
-    x=940
+    x=1090
     y=360
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,DAMP=DAMP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=BF,SENSOR_STAGE=BF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ITMY_GAS,MOTOR=4"
+    }
+    
+    composite {
+    object {
+    x=1090
+    y=385
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),STEPPERID=ITMY"
     }
     
     composite {
     object {
     x=10
-    y=410
+    y=430
     width=300
     height=30
     }
@@ -553,84 +597,95 @@ display {
     composite {
     object {
     x=10
-    y=460
+    y=480
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=IP,DOF=L,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=IP,SENSOR_STAGE=IP,DOF=L,SENSOR_DOF=L,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=BS_IP,MOTOR=L"
     }
     
     composite {
     object {
     x=10
-    y=485
+    y=505
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=IP,DOF=T,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=IP,SENSOR_STAGE=IP,DOF=T,SENSOR_DOF=T,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=BS_IP,MOTOR=T"
     }
     
     composite {
     object {
     x=10
-    y=510
+    y=530
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=IP,DOF=Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=IP,SENSOR_STAGE=IP,DOF=Y,SENSOR_DOF=Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=BS_IP,MOTOR=Y"
     }
     
     composite {
     object {
     x=10
-    y=535
+    y=555
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=F0,DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=IP,SENSOR_STAGE=TM,DOF=F0Y,SENSOR_DOF=Y,DAMP=DAMP,BIO=BIO,STEPNAME=STEP_IP,STEPID=BS_IP,MOTOR=F0Y"
     }
     
     composite {
     object {
     x=10
-    y=560
+    y=580
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=F1,DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=F0,SENSOR_STAGE=F0,DOF=GAS,SENSOR_DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS,STEPID=BS_GAS,MOTOR=3"
     }
     
     composite {
     object {
     x=10
-    y=585
+    y=605
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=BF,DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=F1,SENSOR_STAGE=F1,DOF=GAS,SENSOR_DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS,STEPID=BS_GAS,MOTOR=1"
     }
     
     composite {
     object {
     x=10
-    y=610
+    y=630
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,DAMP=DCCTRL"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=BF,SENSOR_STAGE=BF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS,STEPID=BS_GAS,MOTOR=0"
     }
     
     composite {
     object {
-    x=320
-    y=410
+    x=10
+    y=655
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),STEPPERID=BS"
+    }
+    
+    composite {
+    object {
+    x=370
+    y=430
     width=300
     height=30
     }
@@ -640,85 +695,96 @@ display {
     
     composite {
     object {
-    x=320
-    y=460
+    x=370
+    y=480
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=IP,DOF=L,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=IP,SENSOR_STAGE=IP,DOF=L,SENSOR_DOF=L,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SRM_IP,MOTOR=L"
     }
     
     composite {
     object {
-    x=320
-    y=485
+    x=370
+    y=505
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=IP,DOF=T,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=IP,SENSOR_STAGE=IP,DOF=T,SENSOR_DOF=T,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SRM_IP,MOTOR=T"
     }
     
     composite {
     object {
-    x=320
-    y=510
+    x=370
+    y=530
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=IP,DOF=Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=IP,SENSOR_STAGE=IP,DOF=Y,SENSOR_DOF=Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SRM_IP,MOTOR=Y"
     }
     
     composite {
     object {
-    x=320
-    y=535
+    x=370
+    y=555
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=F0,DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=IP,SENSOR_STAGE=TM,DOF=F0Y,SENSOR_DOF=Y,DAMP=DAMP,BIO=BIO,STEPNAME=STEP_IP,STEPID=SRM_IP,MOTOR=F0Y"
     }
     
     composite {
     object {
-    x=320
-    y=560
+    x=370
+    y=580
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=F1,DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=F0,SENSOR_STAGE=F0,DOF=GAS,SENSOR_DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS,STEPID=SRM_GAS,MOTOR=3"
     }
     
     composite {
     object {
-    x=320
-    y=585
+    x=370
+    y=605
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=BF,DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=F1,SENSOR_STAGE=F1,DOF=GAS,SENSOR_DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS,STEPID=SRM_GAS,MOTOR=1"
     }
     
     composite {
     object {
-    x=320
-    y=610
+    x=370
+    y=630
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,DAMP=DCCTRL"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=BF,SENSOR_STAGE=BF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS,STEPID=SRM_GAS,MOTOR=0"
     }
     
     composite {
     object {
-    x=630
-    y=410
+    x=370
+    y=655
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),STEPPERID=SRM"
+    }
+    
+    composite {
+    object {
+    x=730
+    y=430
     width=300
     height=30
     }
@@ -728,85 +794,96 @@ display {
     
     composite {
     object {
-    x=630
-    y=460
+    x=730
+    y=480
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=IP,DOF=L,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=IP,SENSOR_STAGE=IP,DOF=L,SENSOR_DOF=L,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SR2_IP,MOTOR=L"
     }
     
     composite {
     object {
-    x=630
-    y=485
+    x=730
+    y=505
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=IP,DOF=T,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=IP,SENSOR_STAGE=IP,DOF=T,SENSOR_DOF=T,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SR2_IP,MOTOR=T"
     }
     
     composite {
     object {
-    x=630
-    y=510
+    x=730
+    y=530
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=IP,DOF=Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=IP,SENSOR_STAGE=IP,DOF=Y,SENSOR_DOF=Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SR2_IP,MOTOR=Y"
     }
     
     composite {
     object {
-    x=630
-    y=535
+    x=730
+    y=555
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=F0,DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=IP,SENSOR_STAGE=TM,DOF=F0Y,SENSOR_DOF=Y,DAMP=DAMP,BIO=BIO,STEPNAME=STEP_IP,STEPID=SR2_IP,MOTOR=F0Y"
     }
     
     composite {
     object {
-    x=630
-    y=560
+    x=730
+    y=580
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=F1,DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=F0,SENSOR_STAGE=F0,DOF=GAS,SENSOR_DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS,STEPID=SR2_GAS,MOTOR=2"
     }
     
     composite {
     object {
-    x=630
-    y=585
+    x=730
+    y=605
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=BF,DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=F1,SENSOR_STAGE=F1,DOF=GAS,SENSOR_DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS,STEPID=SR2_GAS,MOTOR=1"
     }
     
     composite {
     object {
-    x=630
-    y=610
+    x=730
+    y=630
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,DAMP=DCCTRL"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=BF,SENSOR_STAGE=BF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS,STEPID=SR2_GAS,MOTOR=0"
     }
     
     composite {
     object {
-    x=940
-    y=410
+    x=730
+    y=655
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),STEPPERID=SR2"
+    }
+    
+    composite {
+    object {
+    x=1090
+    y=430
     width=300
     height=30
     }
@@ -816,85 +893,96 @@ display {
     
     composite {
     object {
-    x=940
-    y=460
+    x=1090
+    y=480
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=IP,DOF=L,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=IP,SENSOR_STAGE=IP,DOF=L,SENSOR_DOF=L,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SR3_IP,MOTOR=L"
     }
     
     composite {
     object {
-    x=940
-    y=485
+    x=1090
+    y=505
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=IP,DOF=T,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=IP,SENSOR_STAGE=IP,DOF=T,SENSOR_DOF=T,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SR3_IP,MOTOR=T"
     }
     
     composite {
     object {
-    x=940
-    y=510
+    x=1090
+    y=530
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=IP,DOF=Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=IP,SENSOR_STAGE=IP,DOF=Y,SENSOR_DOF=Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SR3_IP,MOTOR=Y"
     }
     
     composite {
     object {
-    x=940
-    y=535
+    x=1090
+    y=555
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=F0,DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=IP,SENSOR_STAGE=TM,DOF=F0Y,SENSOR_DOF=Y,DAMP=DAMP,BIO=BIO,STEPNAME=STEP_IP,STEPID=SR3_IP,MOTOR=F0Y"
     }
     
     composite {
     object {
-    x=940
-    y=560
+    x=1090
+    y=580
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=F1,DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=F0,SENSOR_STAGE=F0,DOF=GAS,SENSOR_DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS,STEPID=SR3_GAS,MOTOR=2"
     }
     
     composite {
     object {
-    x=940
-    y=585
+    x=1090
+    y=605
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=BF,DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=F1,SENSOR_STAGE=F1,DOF=GAS,SENSOR_DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS,STEPID=SR3_GAS,MOTOR=1"
     }
     
     composite {
     object {
-    x=940
-    y=610
+    x=1090
+    y=630
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,DAMP=DCCTRL"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=BF,SENSOR_STAGE=BF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_GAS,STEPID=SR3_GAS,MOTOR=0"
+    }
+    
+    composite {
+    object {
+    x=1090
+    y=655
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),STEPPERID=SR3"
     }
     
     composite {
     object {
     x=10
-    y=710
+    y=750
     width=300
     height=30
     }
@@ -905,40 +993,40 @@ display {
     composite {
     object {
     x=10
-    y=760
+    y=800
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PRM,STAGE=SF,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PRM,STAGE=SF,SENSOR_STAGE=SF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=PR0_GAS,MOTOR=3"
     }
     
     composite {
     object {
     x=10
-    y=785
+    y=825
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PRM,STAGE=BF,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PRM,STAGE=BF,SENSOR_STAGE=BF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=PR0_GAS,MOTOR=2"
     }
     
     composite {
     object {
     x=10
-    y=810
+    y=850
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PRM,DAMP=DAMP"
+    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),STEPPERID=PR0"
     }
     
     composite {
     object {
-    x=320
-    y=710
+    x=370
+    y=750
     width=300
     height=30
     }
@@ -948,41 +1036,41 @@ display {
     
     composite {
     object {
-    x=320
-    y=760
+    x=370
+    y=800
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR2,STAGE=SF,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR2,STAGE=SF,SENSOR_STAGE=SF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=PR2_GAS,MOTOR=2"
     }
     
     composite {
     object {
-    x=320
-    y=785
+    x=370
+    y=825
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR2,STAGE=BF,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR2,STAGE=BF,SENSOR_STAGE=BF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=PR2_GAS,MOTOR=1"
     }
     
     composite {
     object {
-    x=320
-    y=810
+    x=370
+    y=850
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR2,DAMP=DAMP"
+    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),STEPPERID=PR2"
     }
     
     composite {
     object {
-    x=630
-    y=710
+    x=730
+    y=750
     width=300
     height=30
     }
@@ -992,34 +1080,34 @@ display {
     
     composite {
     object {
-    x=630
-    y=760
+    x=730
+    y=800
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR3,STAGE=SF,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR3,STAGE=SF,SENSOR_STAGE=SF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=PR0_GAS,MOTOR=1"
     }
     
     composite {
     object {
-    x=630
-    y=785
+    x=730
+    y=825
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR3,STAGE=BF,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS"
+    "composite file"="./OFFLOAD_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR3,STAGE=BF,SENSOR_STAGE=BF,DOF=GAS,SENSOR_DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=PR0_GAS,MOTOR=0"
     }
     
     composite {
     object {
-    x=630
-    y=810
+    x=730
+    y=850
     width=300
     height=30
     }
     "composite name"=""
-    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=PR3,DAMP=DAMP"
+    "composite file"="./FOOT_MINI.adl;IFO=$(IFO),ifo=$(ifo),STEPPERID=PR0"
     }
     

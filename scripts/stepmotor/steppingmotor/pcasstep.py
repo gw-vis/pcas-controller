@@ -66,6 +66,21 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
+    '0_LRDISTANCE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '0_LRDISTANCECHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '0_POSITIONCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
     '0_FLUCTUATION': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -147,6 +162,21 @@ pvdb ={
         'value': 0,
     },
     '1_LIMITCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '1_LRDISTANCE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '1_LRDISTANCECHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '1_POSITIONCHANGE': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
@@ -236,6 +266,21 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
+    '2_LRDISTANCE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '2_LRDISTANCECHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '2_POSITIONCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
     '2_FLUCTUATION': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -317,6 +362,21 @@ pvdb ={
         'value': 0,
     },
     '3_LIMITCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '3_LRDISTANCE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '3_LRDISTANCECHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '3_POSITIONCHANGE': {
         'desc': "move pico motor forward",
         'prec': 0,
         'value': 0,
@@ -406,6 +466,21 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
+    '4_LRDISTANCE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '4_LRDISTANCECHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '4_POSITIONCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
     '4_FLUCTUATION': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -491,6 +566,21 @@ pvdb ={
         'prec': 0,
         'value': 0,
     },
+    '5_LRDISTANCE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '5_LRDISTANCECHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
+    '5_POSITIONCHANGE': {
+        'desc': "move pico motor forward",
+        'prec': 0,
+        'value': 0,
+    },
     '5_FLUCTUATION': {
         'desc': "move pico motor forward",
         'prec': 0,
@@ -552,6 +642,9 @@ class PcasDriver(pcaspy.Driver):
         self.driver.setTargetSpeed(10, 5)
         self.driver.setAcceleration(10,5)
 
+        self.logfile = '/kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/'+self.prefix+'.log'
+        self.intfile = '/kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/int'+self.prefix+'.log'
+
         # setup limit and position from TMCM6100 mempry.
         for motorAddr in range(6):
             limitMax = self.driver.getUserVariables(self.calcUserValiable(motorAddr,userVariableMap.limitMax))
@@ -563,6 +656,7 @@ class PcasDriver(pcaspy.Driver):
             self.driver.stop(motorAddr)
             self.driver.setActualPosition(pos, motorAddr)
             lrDistance = self.driver.getUserVariables(self.calcUserValiable(motorAddr,userVariableMap.lrDistance))
+            self.setParam(str(motorAddr)+"_LRDISTANCE",lrDistance)
             if lrDistance == 0:
                 self.driver.setRightLimitSwitchEnable(False, motorAddr)
                 self.driver.setLeftLimitSwitchEnable(False,  motorAddr)
@@ -570,9 +664,10 @@ class PcasDriver(pcaspy.Driver):
                 self.driver.setRightLimitSwitchEnable(True, motorAddr)
                 self.driver.setLeftLimitSwitchEnable(True,  motorAddr)
 
-        self.logfile = '/kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/'+self.prefix+'.log'
-        self.intfile = '/kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/int'+self.prefix+'.log'
-        
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' initialize actual position:'+str(pos)+' limit : '+str(limitMax)+' , '+str(limitMin)+' Distance: '+str(lrDistance)+'\n')
+
         self.updatePVs()
 
     def read(self, channel):
@@ -624,17 +719,29 @@ class PcasDriver(pcaspy.Driver):
         if name == "ACC":
             acc = self.getParam(direction+"_ACC")
             self.driver.setAcceleration(acc, motorAddr)
-            
+
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' acc as '+str(acc)+'\n')
+
         if name == "VEL":
             vel = self.getParam(direction+"_VEL")
             self.driver.setTargetSpeed(vel, motorAddr)
 
-        if name == "STOP":
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' vel as '+str(vel)+'\n')
+
+        if (name == "STOP") and (value == 1.0):
             self.driver.stop(motorAddr)
 ## added 2019/08/06 ##
             pos =  self.driver.getActualPosition(motorAddr)
             self.setParam(direction+"_POSITION",pos)
 ####
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                 f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' position stoped as '+str(pos)+'\n')
+
             self.driver.setUserVariables(self.calcUserValiable(motorAddr,userVariableMap.actualPos),pos)
             self.driver.storeUserVariables(self.calcUserValiable(motorAddr,userVariableMap.actualPos))
 
@@ -670,6 +777,44 @@ class PcasDriver(pcaspy.Driver):
             self.driver.storeUserVariables(self.calcUserValiable(motorAddr,userVariableMap.limitMax))
             print("[End]Store TMCM6110 EEPROM")
 
+        if (name == "LRDISTANCECHANGE") and (value == 1.0):
+            lrDistance = self.getParam(str(motorAddr)+"_LRDISTANCE")
+            if lrDistance == 0:
+                self.driver.setRightLimitSwitchEnable(False, motorAddr)
+                self.driver.setLeftLimitSwitchEnable(False,  motorAddr)
+            else:
+                self.driver.setRightLimitSwitchEnable(True, motorAddr)
+                self.driver.setLeftLimitSwitchEnable(True,  motorAddr)
+            oldlrDistance = self.driver.getUserVariables(self.calcUserValiable(motorAddr,userVariableMap.lrDistance))
+
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' lrdistance change to '+str(lrDistance)+' from '+str(oldlrDistance)+'\n')            
+
+            # limitMin and limitMax position.
+            self.driver.setUserVariables(self.calcUserValiable(motorAddr,userVariableMap.lrDistance),lrDistance)
+            # Store all paranator to EEPROM.
+            print("[Start]Store TMCM6110 EEPROM")
+            self.driver.storeUserVariables(self.calcUserValiable(motorAddr,userVariableMap.lrDistance))
+            print("[End]Store TMCM6110 EEPROM")
+
+        if (name == "POSITIONCHANGE") and (value == 1.0):
+            pos = self.getParam(direction+"_POSITION")
+            self.driver.stop(motorAddr)
+            self.driver.setActualPosition(pos, motorAddr)
+            oldpos = self.driver.getUserVariables(self.calcUserValiable(motorAddr,userVariableMap.actualPos))
+
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' Position change to '+str(pos)+' from '+str(oldpos)+'\n')            
+
+            # limitMin and limitMax position.
+            self.driver.setUserVariables(self.calcUserValiable(motorAddr,userVariableMap.actualPos),pos)
+            # Store all paranator to EEPROM.
+            print("[Start]Store TMCM6110 EEPROM")
+            self.driver.storeUserVariables(self.calcUserValiable(motorAddr,userVariableMap.actualPos))
+            print("[End]Store TMCM6110 EEPROM")
+
         self.updatePVs()
             
         return True
@@ -684,7 +829,7 @@ class PcasDriver(pcaspy.Driver):
         self.driver.setTargetPosition(pos+count, motorAddr)
         d = datetime.now()
         with open(self.logfile,'a') as f:
-            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' moved to '+str(pos+count)+'\n')            
+            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' moved to '+str(pos+count)+' from '+str(pos)+'\n')            
 
         # Actual position.
         self.driver.setUserVariables(self.calcUserValiable(motorAddr,userVariableMap.actualPos),pos+count)

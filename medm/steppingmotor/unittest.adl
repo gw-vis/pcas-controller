@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=6171
-		y=183
+		x=5233
+		y=203
 		width=400
 		height=346
 	}
@@ -171,6 +171,11 @@ display {
 		name="../OFFLOAD/OFFLOAD_OVERVIEW.adl"
 		args="IFO=K1,ifo=k1"
 	}
+	display[1] {
+		label="HEAD"
+		name="../OFFLOAD/HEAD_MINI.adl"
+		args="IFO=K1,ifo=k1,SYSTEM=TEST"
+	}
 	clr=14
 	bclr=4
 	label="OVERVIEW"
@@ -183,11 +188,47 @@ display {
 		height=25
 	}
 	command[0] {
-		label="k1script"
+		label="GAS start"
 		name="xterm "
-		args="-e "ssh controls@k1script /users/ikeda/Git/pcas-controller/scripts/stepmotor/step_start.py TEST_GAS""
+		args="-e ssh controls@k1script 'source /kagra/apps/etc/client-user-env.sh && /users/ikeda/Git/pcas-controller/scripts/stepmotor/step_start.py TEST_GAS' &"
+	}
+	command[1] {
+		label="GAS stop"
+		name="xterm"
+		args="-e ssh controls@k1script 'source /kagra/apps/etc/client-user-env.sh && /users/ikeda/Git/pcas-controller/scripts/stepmotor/step_start.py TEST_GAS -kill'"
+	}
+	command[2] {
+		label="IP start"
+		name="xterm "
+		args="-e ssh controls@k1script 'source /kagra/apps/etc/client-user-env.sh && /users/ikeda/Git/pcas-controller/scripts/stepmotor/step_start.py TESTSR_IP' &"
+	}
+	command[3] {
+		label="IP stop"
+		name="xterm"
+		args="-e ssh controls@k1script 'source /kagra/apps/etc/client-user-env.sh && /users/ikeda/Git/pcas-controller/scripts/stepmotor/step_start.py TESTSR_IP -kill'"
 	}
 	clr=14
 	bclr=4
 	label="k1script"
+}
+"related display" {
+	object {
+		x=228
+		y=167
+		width=78
+		height=31
+	}
+	display[0] {
+		label="OFFLOAD_OVERVIEW"
+		name="./OVERVIEW/STEPPER_OVERVIEW.adl"
+		args="IFO=K1,ifo=k1"
+	}
+	display[1] {
+		label="HEAD"
+		name="../OFFLOAD/HEAD_MINI.adl"
+		args="IFO=K1,ifo=k1,SYSTEM=TEST"
+	}
+	clr=14
+	bclr=4
+	label="OVERVIEW"
 }
