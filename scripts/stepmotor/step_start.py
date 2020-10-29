@@ -59,9 +59,9 @@ def main():
     #print "Exterminate !!!!!"
     #exit()
 
-#    os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor')
-    print(os.path.dirname(os.path.abspath(__file__)))
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor')
+#    print(os.path.dirname(os.path.abspath(__file__)))
+#    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     print('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]))
 #    os.system('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]) )
     command = 'python -m steppingmotor K1:STEPPER-%s_ %s' % (agvs[1],driverDict[agvs[1]])
