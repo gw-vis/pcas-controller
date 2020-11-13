@@ -61,7 +61,7 @@ class Trinamic_control6110():
             self.port.settimeout(self.timeout)
             self.connected = 'TCP'
             self.portName = [ipadr, port]
-        except Exception, e:
+        except Exception as e:
             print('Could not connect to TCP', e)
             
     def close(self):

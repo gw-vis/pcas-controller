@@ -11,8 +11,8 @@ For more details, please refer KAGRA wiki (DGS/MotorControl/StepperMotor).
 """
 
 import numpy as np
-import conf
-import userVariableMap
+import steppingmotor.conf
+import steppingmotor.userVariableMap
 from datetime import datetime
 
 class IPMove:
@@ -199,7 +199,7 @@ class IPMove:
         number = motorAddr + offset * 6
         # EEPROM to #56.
         if number > 55:
-            print "[Error] Over maximum number in EEPROM.", number
+            print("[Error] Over maximum number in EEPROM.", number)
         return motorAddr + offset * 6
 
     def calcMoveRange(self,max,min,pos,count):

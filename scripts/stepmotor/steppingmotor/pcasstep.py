@@ -1,12 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import pcaspy
-import conf
+import steppingmotor.conf
 import logging
 from datetime import datetime
 import time
-import userVariableMap
+import steppingmotor.userVariableMap
 
 ##################################################
 

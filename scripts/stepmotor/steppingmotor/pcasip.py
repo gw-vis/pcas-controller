@@ -1,13 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import pcaspy
-import conf
+import steppingmotor.conf
 import logging
-import funcIP
+import steppingmotor.funcIP
 from datetime import datetime
 import time
-import userVariableMap
+import steppingmotor.userVariableMap
 
 ##################################################
 pvdb ={

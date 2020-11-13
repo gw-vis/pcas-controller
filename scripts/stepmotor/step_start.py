@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #! coding:utf-8
 """
  modified in Feb 3 2018.
@@ -42,6 +42,7 @@ def main():
     agvs = sys.argv
     argc = len(agvs)
 
+#    print(sys.version_info)
     killProcess = False
     if(argc == 3 and agvs[2]=='-kill'):
         killProcess = True
@@ -62,9 +63,9 @@ def main():
     os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor')
 #    print(os.path.dirname(os.path.abspath(__file__)))
 #    os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    print('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]))
+    print('python3 -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]))
 #    os.system('python -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]) )
-    command = 'python -m steppingmotor K1:STEPPER-%s_ %s' % (agvs[1],driverDict[agvs[1]])
+    command = 'python3 -m steppingmotor K1:STEPPER-%s_ %s' % (agvs[1],driverDict[agvs[1]])
 
     pid = process_check(command)
     if pid != 0 and killProcess == True:

@@ -1,7 +1,8 @@
-import pcasstep
-import pcasip
-from Trinamic_control6110 import *
+import steppingmotor.pcasstep
+import steppingmotor.pcasip
+from steppingmotor.Trinamic_control6110 import *
 import sys
+import importlib
 
 try :
     prefix = sys.argv[1]
@@ -9,8 +10,9 @@ try :
 except IndexError:
     sys.exit("need argv like this; python -m K1:STEPPER-PR2_GAS_ 10.68.150.40")
 
-reload(pcasstep)
-reload(pcasip)
+#print(sys.version_info)
+importlib.reload(steppingmotor.pcasstep)
+importlib.reload(steppingmotor.pcasip)
 driver = Trinamic_control6110()
 driver.connectTCP(driverIP, 4001)
 driver.reconnect()
