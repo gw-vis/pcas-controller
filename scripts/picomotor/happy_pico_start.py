@@ -1,11 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #! coding:utf-8
 """
  modified in Oct 3 2017.
  K. miyo
 """
 
+#import sys,commands,os
 import sys,commands,os
+import subprocess
 
 driverDict = {
     "MCE"      :"10.68.150.22",
@@ -34,7 +36,7 @@ driverDict = {
     "SR3_BF"   :"10.68.150.27",
     "SRM_IM"   :"10.68.150.32",
     "SRM_BF"   :"10.68.150.23",
-    "TEST"   :"10.68.150.22",    
+#    "TEST"   :"10.68.150.22",    
     "POP_POM"   :"10.68.150.31",
     "POS_POM"   :"10.68.150.34",
     "PCAL_EX1"   :"10.68.150.35",
@@ -46,37 +48,71 @@ driverDict = {
     "OSTM"   :"10.68.150.73",
     "AS_WFS"   :"10.68.150.74",
     "REFL_WFS" :"10.68.150.75",
-    "TEST" :"10.68.150.44",
+#    "TEST" :"10.68.150.44",
+    "TEST" :"10.68.150.28",
 }
 
 def print_driverList():
-    print "| --- Driver List ---"
+    print("| --- Driver List ---")
     for item in driverDict.items():
-        print "| {0:10s} : {1:14s} |".format(item[0],item[1])
+        print("| {0:10s} : {1:14s} |".format(item[0],item[1]))
         
 def main():
     agvs = sys.argv
     argc = len(agvs)
-    if (argc != 2):
-        print '! pico_start (DRIVER_NAME)'
+
+#    print(sys.version_info)
+    killProcess = False
+    if(argc == 3 and agvs[2]=='-kill'):
+        killProcess = True
+
+    if (argc != 2) and (killProcess == False):
+        print('! pico_start (DRIVER_NAME)')
         print_driverList()        
         quit()
     if agvs[1] not in driverDict:
-        print '! please check DRIVER_NAME %s' % agvs[1]
+        print('! please check DRIVER_NAME %s' % agvs[1])
         print_driverList()
         quit()
 
-    #print "Exterminate !!!!!"
+    #print("Exterminate !!!!!")
     #exit()
     #os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/picomotor')
     os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/picomotor')
-    print 'python -m picomotor K1:PICO-%s_ %s &' % (agvs[1],driverDict[agvs[1]])
-    os.system('python -m picomotor K1:PICO-%s_ %s &' % (agvs[1],driverDict[agvs[1]]) )
+    print('python3 -m picomotor K1:PICO-%s_ %s &' % (agvs[1],driverDict[agvs[1]]))
+#    print(os.path.dirname(os.path.abspath(__file__)))
+#    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+#    os.system('python3 -m picomotor K1:PICO-%s_ %s &' % (agvs[1],driverDict[agvs[1]]) )
+    command = 'python3 -m picomotor K1:PICO-%s_ %s &' % (agvs[1],driverDict[agvs[1]])
+
+    pid = process_check(command)
+    if pid != 0 and killProcess == True:
+        process_kill(pid)
+
+    if pid == 0 and killProcess == False:
+        subprocess.Popen(command.split())
+
+def process_check(cmdline):
+    cmd = ['ps xo pid,args']
+    proc = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
+
+    for line in proc.stdout:
+        strline=str(line.decode(encoding='utf-8'))
+        pid = strline[:5]
+        args= strline[6:-1]
+        if args == cmdline:
+            return int(pid)
+    return 0
+
+def process_kill(pid):
+    cmd = ['kill '+str(pid)]
+    print(cmd)
+    proc = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
 
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt as e:
-        print e
-        print 'Detect keyboard interrupt. Bye!'
+        print(e)
+        print('Detect keyboard interrupt. Bye!')
         exit()    

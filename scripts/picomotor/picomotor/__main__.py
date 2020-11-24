@@ -1,4 +1,4 @@
-import pcaspico
+from . import pcaspico
 import newfocus8742
 import sys
 import time
@@ -9,7 +9,7 @@ import os
 #print BASE_DIR
 #logging.config.fileConfig(os.path.join(BASE_DIR, 'utils', 'logger.conf')) 
 
-from __init__ import get_module_logger
+from .__init__ import get_module_logger
 logger = get_module_logger(__name__)
 
 try :
@@ -22,7 +22,7 @@ try :
 except IndexError:
     sys.exit("python -m K1:PICO-MCI_IM_ 10.68.10.230.")
         
-print prefix,driverIP
+print(prefix,driverIP)
 picoserver = pcaspico.PcasServer(prefix,newfocus8742.driver(driverIP))
 
 try:
@@ -30,8 +30,8 @@ try:
     picoserver.run()
 except KeyboardInterrupt:
     mydriver.close()
-    print e
-    print 'Detect keyboard interrupt. Bye!'
+    #print(e)
+    print('Detect keyboard interrupt. Bye!')
     #logger.info("KeyboardInterrupt")
     #logger.info("Bye")
     exit()
@@ -42,7 +42,7 @@ try:
     picoserver.run()
 except KeyboardInterrupt as e:
     mydriver.close()
-    print e
-    print 'Detect keyboard interrupt. Bye!'
+    print(e)
+    print('Detect keyboard interrupt. Bye!')
     exit()
 '''

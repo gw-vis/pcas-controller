@@ -6,7 +6,7 @@ import socket
 import time
 import logging
 import logging.config
-from __init__ import get_module_logger
+from .__init__ import get_module_logger
 logger = get_module_logger(__name__)
 
 errorMessage = \
@@ -69,14 +69,14 @@ class controller(object):
             self.netsock.settimeout(1.0)
         except socket.error as e:
             logger.info(e)
-            print e
-            print 'Could not connect to {0}:{1}. '\
-                'Please check network configuration.'.format(self.ipaddr,self.port)
-            print 'exit..'
+            print(e)
+            print('Could not connect to {0}:{1}. '\
+                'Please check network configuration.'.format(self.ipaddr,self.port))
+            print('exit..')
             exit()
         except Exception as e:
             logger.info(e)
-            print e
+            print(e)
             exit()
         
     def __enter__(self):
@@ -107,8 +107,8 @@ class controller(object):
             self.connect()
         except Exception as e:
             logger.info(e)
-            print type(e)
-            print dir(e)
+            print(type(e))
+            print(dir(e))
             logger.info("Exit. Bye")
             exit()
 

@@ -4,7 +4,7 @@ import os
 import pcaspy
 import logging
 import time
-import config
+from . import config
 from datetime import datetime
 from datetime import timedelta
 #import pyttsx
@@ -24,7 +24,7 @@ ON = 1.0
 import logging
 import logging.config
 
-from __init__ import get_module_logger
+from .__init__ import get_module_logger
 logger = get_module_logger(__name__)
 
 class PcasDriver(pcaspy.Driver):
@@ -111,10 +111,10 @@ class PcasServer(pcaspy.SimpleServer):
             #print diff,dt,diff>dt
             if diff>dt: # 12sec
                 self.driver.close()
-                print "=================================="
-                print '60 minutes passed. Bye!'
-                print "I'll be back.."
-                print """
+                print("==================================")
+                print('60 minutes passed. Bye!')
+                print("I'll be back..")
+                print("""
                 　　　　　　　　　　　 /j^i
                 　　　　　　　　　　 ./　 ;!
                 　　　　　　　　　　/　 /_＿,,..
@@ -125,8 +125,8 @@ class PcasServer(pcaspy.SimpleServer):
                 　　　　　／　　　　　　＿,..-'"
                 　　　／　　　　　　／
                 ～～～～～～～～～～～～～～～～
-                """
-                print "=================================="
+                """)
+                print("==================================")
                 #engine = pyttsx.init()
                 #engine.setProperty('rate', 100)
                 #engine.say('Bye')
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     import time
     #import subprocess
     #pl = subprocess.Popen('ps -ef | grep python',shell=True,stdout=subprocess.PIPE).communicate()[0]
-    #print pl
+    #print(pl)
     #exit()
     prefix   = 'K1:PICO-TEST_'
     driverIP = '10.68.150.44'
@@ -152,6 +152,6 @@ if __name__ == '__main__':
         picoserver.run()
     except KeyboardInterrupt as e:
         mydriver.close()
-        print e
-        print 'Detect keyboard interrupt. Bye!'
+        print(e)
+        print('Detect keyboard interrupt. Bye!')
         exit()
