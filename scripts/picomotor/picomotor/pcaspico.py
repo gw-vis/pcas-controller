@@ -4,6 +4,7 @@ import os
 import pcaspy
 import logging
 import time
+#import config
 from . import config
 from datetime import datetime
 from datetime import timedelta
@@ -24,6 +25,7 @@ ON = 1.0
 import logging
 import logging.config
 
+#from __init__ import get_module_logger
 from .__init__ import get_module_logger
 logger = get_module_logger(__name__)
 
@@ -53,7 +55,7 @@ class PcasDriver(pcaspy.Driver):
         if "FWD" in channel and value == ON:
             MOTORNUMBER, OPTION = channel.split("_")
             step = self.getParam(MOTORNUMBER+"_STEP")
-            self.updatePVs()
+            #self.updatePVs()
             self.driver.move_step(driverAddr,int(MOTORNUMBER),step)
         if "COMMAND" in channel:
             command = value

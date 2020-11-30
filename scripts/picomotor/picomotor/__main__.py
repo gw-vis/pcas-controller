@@ -1,5 +1,7 @@
+#import pcaspico
 from . import pcaspico
-import newfocus8742
+#import newfocus8742
+from . import newfocus8742
 import sys
 import time
 import logging
@@ -9,6 +11,7 @@ import os
 #print BASE_DIR
 #logging.config.fileConfig(os.path.join(BASE_DIR, 'utils', 'logger.conf')) 
 
+#from __init__ import get_module_logger
 from .__init__ import get_module_logger
 logger = get_module_logger(__name__)
 

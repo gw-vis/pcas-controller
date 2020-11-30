@@ -1,4 +1,4 @@
-#
+#!/usr/bin/env python3
 #!coding:utf-8
 
 import socket
@@ -6,7 +6,12 @@ import socket
 import time
 import logging
 import logging.config
-from .__init__ import get_module_logger
+
+if __name__ == "__main__":    
+    from __init__ import get_module_logger
+else:
+#    from __init__ import get_module_logger
+    from .__init__ import get_module_logger
 logger = get_module_logger(__name__)
 
 errorMessage = \
@@ -66,7 +71,9 @@ class controller(object):
             self.netsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.netsock.connect(netAddr)
             self.netsock.setblocking(1)
-            self.netsock.settimeout(1.0)
+            # It can take a few seconds. 
+            # self.netsock.settimeout(1.0)
+            self.netsock.settimeout(10.0)
         except socket.error as e:
             logger.info(e)
             print(e)
@@ -82,15 +89,31 @@ class controller(object):
     def __enter__(self):
         #self.connect()
         return self
-    
+
     def read(self):
-        time.sleep(0.1)
         try:
-            data =  self.netsock.recv(self.BUFFER_SIZE)
-            data = data.replace('\xff\xfb\x01\xff\xfb\x03','')
-            data = data.replace('\r\n','')
-            text = ([chr(ord(i)) for i in data])
-            data = int(''.join(text))
+#            data =  self.netsock.recv(self.BUFFER_SIZE)
+#            data = data.replace(b'\xff\xfb\x01\xff\xfb\x03',b'')
+#            data = data.replace(b'\r\n',b'')
+#            data = str(data, encoding='utf-8')
+#            text = ([chr(ord(i)) for i in data])
+#            data = int(''.join(text))
+#            self.reply_message = data
+
+            # Load up the terminator.
+            Terminater = False
+            datas = bytes(b'')
+            while Terminater == False:
+                data =  self.netsock.recv(self.BUFFER_SIZE)
+                datas = datas + data
+                if datas.endswith(b'\r\n'):
+                    print(datas)
+                    datas = datas.replace(b'\r\n',b'')
+                    Terminater = True
+
+            datas = datas.replace(b'\xff\xfb\x01\xff\xfb\x03',b'')
+            # The format of the paramaters varies depending on the command.
+            data = int(datas)
             self.reply_message = data
         except Exception as e:
             logger.warning(e)
@@ -100,7 +123,8 @@ class controller(object):
     def send(self, sendString):
         logger.info('Send "{1}" to {0}'.format(self.ipaddr,sendString))
         try:
-            self.netsock.send(sendString+'\n')
+#            self.netsock.send(sendString+'\n')
+            self.netsock.send(bytes(sendString+'\n', encoding = "utf-8"))
         except socket.error as e:
             logger.info(e)
             logger.info("Reconnecting..")
@@ -186,7 +210,7 @@ class driver(controller):
         super(driver,self).__exit__(type, value, traceback)
         
 if __name__ == "__main__":    
-    with driver("10.68.150.22") as k1pico:
+    with driver("10.68.150.28") as k1pico:
         k1pico.ask_position(1,1)
         k1pico.check_reply_message()
         k1pico.ask_driver_error()

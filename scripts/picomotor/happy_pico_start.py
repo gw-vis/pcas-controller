@@ -6,7 +6,7 @@
 """
 
 #import sys,commands,os
-import sys,commands,os
+import sys,os
 import subprocess
 
 driverDict = {

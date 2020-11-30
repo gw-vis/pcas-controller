@@ -49,7 +49,7 @@ dic = {\
            'type':'string',
        },    
        _STATUS: {
-            'prec': 3,
+           'prec': 3,
            'value': 0,
        },
        _COMMAND: {
