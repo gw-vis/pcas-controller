@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=4331
-		y=359
+		x=2617
+		y=398
 		width=745
 		height=61
 	}
@@ -165,7 +165,7 @@ text {
 }
 text {
 	object {
-		x=279
+		x=281
 		y=24
 		width=50
 		height=15
@@ -189,7 +189,7 @@ text {
 }
 text {
 	object {
-		x=338
+		x=341
 		y=24
 		width=50
 		height=15
@@ -239,11 +239,35 @@ text {
 	object {
 		x=263
 		y=41
-		width=50
+		width=20
 		height=15
 	}
 	"basic attribute" {
 		clr=0
 	}
 	textix="LR"
+}
+text {
+	object {
+		x=260
+		y=17
+		width=30
+		height=15
+	}
+	"basic attribute" {
+		clr=0
+	}
+	textix="Yaw"
+}
+text {
+	object {
+		x=263
+		y=29
+		width=20
+		height=15
+	}
+	"basic attribute" {
+		clr=0
+	}
+	textix="-+"
 }

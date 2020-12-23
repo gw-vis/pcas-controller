@@ -1,12 +1,12 @@
 
 file {
-	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/OVERVIEW/OVERVIEW_MINI.adl"
+	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/OVERVIEW/OVERVIEW_MINI.adl"
 	version=030109
 }
 display {
 	object {
-		x=4332
-		y=409
+		x=899
+		y=137
 		width=600
 		height=49
 	}
@@ -133,18 +133,6 @@ display {
 	}
 	limits {
 	}
-}
-text {
-	object {
-		x=11
-		y=19
-		width=40
-		height=15
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="$(STAGE)_$(DOF)"
 }
 "choice button" {
 	object {
@@ -373,4 +361,20 @@ rectangle {
 	label="S"
 	press_msg="1"
 	release_msg="0"
+}
+"related display" {
+	object {
+		x=8
+		y=17
+		width=42
+		height=18
+	}
+	display[0] {
+		label="dev"
+		name="CUST_STEP_dev.adl"
+		args="IFO=$(IFO),SYSTEM=$(SYSTEM),BIO=$(BIO),STAGE=$(STAGE),STEPID=$(STEPID),STEPNAME=$(STEPNAME),DOF=$(DOF),MOTOR=$(MOTOR)"
+	}
+	clr=0
+	bclr=11
+	label="$(LABEL)"
 }

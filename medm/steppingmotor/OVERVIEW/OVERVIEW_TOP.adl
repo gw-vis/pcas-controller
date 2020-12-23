@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=4494
-		y=59
+		x=5584
+		y=276
 		width=1047
 		height=210
 	}
@@ -240,4 +240,20 @@ text {
 		clr=0
 	}
 	textix="PRM & PR3 (provisional)"
+}
+"shell command" {
+	object {
+		x=559
+		y=147
+		width=220
+		height=20
+	}
+	command[0] {
+		label="Sign of the Script"
+		name="firefox"
+		args="http://gwwiki.icrr.u-tokyo.ac.jp/JGWwiki/KAGRA/Subgroups/DGS/Projects/StepperMotor &"
+	}
+	clr=0
+	bclr=17
+	label="Sign of the script"
 }

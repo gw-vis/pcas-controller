@@ -124,7 +124,7 @@ channel_dict = {
     'SR2_F1_GAS': 1,
     'SR2_BF_GAS': 0,
 
-    'SR3_F0_GAS': 2,
+    'SR3_F0_GAS': 3,    # 2->3 Klog#15541
     'SR3_F1_GAS': 1,
     'SR3_BF_GAS': 0,
 
@@ -132,7 +132,7 @@ channel_dict = {
     'SRM_F1_GAS': 1,
     'SRM_BF_GAS': 0,
 
-    'PR2_BF_GAS': 1, 
+    'PR2_BF_GAS': 0, 
     'PR2_SF_GAS': 2,
     
     'PR3_BF_GAS': 0,    # STEPPER PR0
@@ -166,7 +166,7 @@ def top(x,y):
     return txt,width,height
 
 
-def mini(x,y,system,stage,dof,damp,bio,stepname,stepid,motor,mode='ERR'):
+def mini(x,y,system,stage,dof,damp,bio,stepname,stepid,motor,label,mode='ERR'):
     width = 480
     height = 25
     txt = '''
@@ -178,9 +178,9 @@ def mini(x,y,system,stage,dof,damp,bio,stepname,stepid,motor,mode='ERR'):
     height=30
     }}
     "composite name"=""
-    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},STAGE={stage},DOF={dof},DAMP={damp},BIO={bio},STEPNAME={stepname},STEPID={stepid},MOTOR={motor}"
+    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM={system},STAGE={stage},DOF={dof},DAMP={damp},BIO={bio},STEPNAME={stepname},STEPID={stepid},MOTOR={motor},LABEL={label}"
     }}
-    '''.format(common=common,x=x,y=y,system=system,stage=stage,dof=dof,damp=damp,bio=bio,stepname=stepname,stepid=stepid,motor=motor)
+    '''.format(common=common,x=x,y=y,system=system,stage=stage,dof=dof,damp=damp,bio=bio,stepname=stepname,stepid=stepid,label=label,motor=motor)
     return txt,width,height
 
 def head(x,y,system,mtype):
@@ -267,6 +267,20 @@ def motor_is(system,stage,dof):
     else:
         return channel_dict[system+'_'+stage+'_'+dof]
 
+def label_is(stage,dof):
+    if stage == 'IP':
+        if dof == 'F0Y':
+            return dof
+        if dof == 'A':
+            return stage + '_H1'
+        if dof == 'B':
+            return stage + '_H2'
+        if dof == 'C':
+            return stage + '_H3'
+
+    return stage + '_' + dof
+            
+    
 if __name__=='__main__':
     systems = ['ETMX', 'ITMX', 'ETMY', 'ITMY', 'BS', 'SRM', 'SR2', 'SR3', 'PRM', 'PR2', 'PR3']
     #systems = ['TEST', 'TESTSR'] # TEST
@@ -344,7 +358,9 @@ if __name__=='__main__':
                     stepname = stepname_is(dof)
                     stepid = stepid_is(system,stage)
                     motor = motor_is(system,stage,dof)
-                    txt,w1,h1 = mini(width,height+_h,system,stage,dof,damp,bio,stepname,stepid,motor,mode=mode)
+                    label = label_is(stage, dof)
+                    
+                    txt,w1,h1 = mini(width,height+_h,system,stage,dof,damp,bio,stepname,stepid,motor,label,mode=mode)
                     _h += h1
                     contents += txt
             txt,w2,h2 = foot(width,height+_h,stepperid)
