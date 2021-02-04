@@ -151,7 +151,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=IP,DOF=F0Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ETMX_IP,MOTOR=F0Y,LABEL=F0Y"
+    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMX,STAGE=IP,DOF=F0Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ETMX_IP,MOTOR=F0Y,LABEL=F0_Y"
     }
     
     composite {
@@ -272,7 +272,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=IP,DOF=F0Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ITMX_IP,MOTOR=F0Y,LABEL=F0Y"
+    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=IP,DOF=F0Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ITMX_IP,MOTOR=F0Y,LABEL=F0_Y"
     }
     
     composite {
@@ -393,7 +393,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=IP,DOF=F0Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ETMY_IP,MOTOR=F0Y,LABEL=F0Y"
+    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ETMY,STAGE=IP,DOF=F0Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ETMY_IP,MOTOR=F0Y,LABEL=F0_Y"
     }
     
     composite {
@@ -514,7 +514,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=IP,DOF=F0Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ITMY_IP,MOTOR=F0Y,LABEL=F0Y"
+    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMY,STAGE=IP,DOF=F0Y,DAMP=DAMP,BIO=BO,STEPNAME=STEP_IP,STEPID=ITMY_IP,MOTOR=F0Y,LABEL=F0_Y"
     }
     
     composite {
@@ -635,7 +635,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=IP,DOF=F0Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=BS_IP,MOTOR=F0Y,LABEL=F0Y"
+    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=BS,STAGE=IP,DOF=F0Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=BS_IP,MOTOR=F0Y,LABEL=F0_Y"
     }
     
     composite {
@@ -734,7 +734,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=IP,DOF=F0Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SRM_IP,MOTOR=F0Y,LABEL=F0Y"
+    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SRM,STAGE=IP,DOF=F0Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SRM_IP,MOTOR=F0Y,LABEL=F0_Y"
     }
     
     composite {
@@ -833,7 +833,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=IP,DOF=F0Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SR2_IP,MOTOR=F0Y,LABEL=F0Y"
+    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR2,STAGE=IP,DOF=F0Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SR2_IP,MOTOR=F0Y,LABEL=F0_Y"
     }
     
     composite {
@@ -932,7 +932,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=IP,DOF=F0Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SR3_IP,MOTOR=F0Y,LABEL=F0Y"
+    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=SR3,STAGE=IP,DOF=F0Y,DAMP=DCCTRL,BIO=BIO,STEPNAME=STEP_IP,STEPID=SR3_IP,MOTOR=F0Y,LABEL=F0_Y"
     }
     
     composite {

@@ -270,7 +270,7 @@ def motor_is(system,stage,dof):
 def label_is(stage,dof):
     if stage == 'IP':
         if dof == 'F0Y':
-            return dof
+            return 'F0_Y'
         if dof == 'A':
             return stage + '_H1'
         if dof == 'B':
