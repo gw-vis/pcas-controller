@@ -1,12 +1,12 @@
 
 file {
-	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/OVERVIEW/OVERVIEW_MINI.adl"
+	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/OVERVIEW/OVERVIEW_MINI.adl"
 	version=030109
 }
 display {
 	object {
-		x=899
-		y=137
+		x=5003
+		y=412
 		width=600
 		height=49
 	}
@@ -134,6 +134,18 @@ display {
 	limits {
 	}
 }
+text {
+	object {
+		x=11
+		y=19
+		width=40
+		height=15
+	}
+	"basic attribute" {
+		clr=0
+	}
+	textix="$(STAGE)_$(DOF)"
+}
 "choice button" {
 	object {
 		x=225
@@ -158,12 +170,12 @@ display {
 	command[0] {
 		label="Start"
 		name="xterm"
-		args="-e ssh controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && step_start $(STEPID)' &"
+		args="-e ssh controls@k1script 'source /kagra/apps/etc/client-user-env.sh && step_start $(STEPID)' &"
 	}
 	command[1] {
 		label="Stop"
 		name="xterm"
-		args="-e ssh controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && step_start $(STEPID) -kill'"
+		args="-e ssh controls@k1script 'source /kagra/apps/etc/client-user-env.sh && step_start $(STEPID) -kill'"
 	}
 	clr=14
 	bclr=4
@@ -376,5 +388,5 @@ rectangle {
 	}
 	clr=0
 	bclr=11
-	label="$(LABEL)"
+	label="$(STAGE)_$(DOF)"
 }
