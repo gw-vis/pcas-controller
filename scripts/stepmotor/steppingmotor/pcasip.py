@@ -2,401 +2,178 @@
 
 import os
 import pcaspy
-import steppingmotor.conf
+from . import conf
 import logging
-import steppingmotor.funcIP
+from . import funcIP
 from datetime import datetime
 import time
-import steppingmotor.userVariableMap
+from . import userVariableMap
 
 ##################################################
-pvdb ={
-    'L_STEP': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'T_STEP': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'Y_STEP': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'F0Y_STEP': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'ACC': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 10,
-    },
-    'VEL': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 10,
-    },
-    'STOP': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'A_STOP': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'B_STOP': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'C_STOP': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'F0Y_STOP': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'A_POSITION': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_POSITION': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_POSITION': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_POSITION': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'A_RSWITCH': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_RSWITCH': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_RSWITCH': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_RSWITCH': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'A_LSWITCH': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_LSWITCH': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_LSWITCH': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_LSWITCH': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'A_LIMITPOSMAX': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_LIMITPOSMAX': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_LIMITPOSMAX': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_LIMITPOSMAX': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'A_LIMITPOSMIN': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_LIMITPOSMIN': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_LIMITPOSMIN': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_LIMITPOSMIN': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'A_LIMITCHANGE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_LIMITCHANGE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_LIMITCHANGE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_LIMITCHANGE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'L_FLUCTUATION': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'T_FLUCTUATION': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'Y_FLUCTUATION': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_FLUCTUATION': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'A_FLUCTUATION': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_FLUCTUATION': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_FLUCTUATION': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'L_FWD': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'T_FWD': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'Y_FWD': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_FWD': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'A_FWD': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_FWD': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_FWD': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'L_REV': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'T_REV': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'Y_REV': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_REV': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'A_REV': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_REV': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_REV': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'A_LRDISTANCE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_LRDISTANCE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_LRDISTANCE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_LRDISTANCE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'A_LRDISTANCECHANGE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_LRDISTANCECHANGE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_LRDISTANCECHANGE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_LRDISTANCECHANGE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'A_POSITIONCHANGE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_POSITIONCHANGE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_POSITIONCHANGE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_POSITIONCHANGE': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'A_INIT': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'B_INIT': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'C_INIT': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'F0Y_INIT': {
-        'desc': "move pico motor forward",
-        'prec': 0,
-        'value': 0,
-    },
-    'UPDATE': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'A_UPDATE': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'B_UPDATE': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'C_UPDATE': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
-    },
-    'F0Y_UPDATE': {
-        'desc': "move pico motor forward",
-        'prec': 4,
-        'value': 0,
+# dof axix L, T,　Y, F0Y
+def pvdb_dof(i):
+    _STEP = '{0}_STEP'.format(i)
+    
+    pvdb = {
+        _STEP: {
+            'desc': "move pico motor forward",
+            'prec': 4,
+            'value': 0,
+        },
     }
-}
+    return pvdb
+
+pvdb = pvdb_dof('L')
+pvdb.update(pvdb_dof('T'))
+pvdb.update(pvdb_dof('Y'))
+pvdb.update(pvdb_dof('F0Y'))
+
+# common dof L, T, Y, F0Y, A, B, C
+def pvdb_common(i):
+    _FLUCTUATION = '{0}_FLUCTUATION'.format(i)
+    _FWD = '{0}_FWD'.format(i)
+    _REV = '{0}_REV'.format(i)
+    
+    pvdb = {
+        _FLUCTUATION: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+        _FWD: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+        _REV: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+    }
+    return pvdb
+
+pvdb.update(pvdb_common('L'))
+pvdb.update(pvdb_common('T'))
+pvdb.update(pvdb_common('Y'))
+pvdb.update(pvdb_common('F0Y'))
+pvdb.update(pvdb_common('A'))
+pvdb.update(pvdb_common('B'))
+pvdb.update(pvdb_common('C'))
+pvdb.update(pvdb_common('F0Y'))
+
+# motor only A, B, C, F0Y
+def pvdb_motor(i):
+    _STOP = '{0}_STOP'.format(i)
+    _POSITION = '{0}_POSITION'.format(i)
+    _RSWITCH = '{0}_RSWITCH'.format(i)
+    _LSWITCH = '{0}_LSWITCH'.format(i)
+    _LIMITPOSMAX = '{0}_LIMITPOSMAX'.format(i)
+    _LIMITPOSMIN = '{0}_LIMITPOSMIN'.format(i)
+    _LIMITCHANGE = '{0}_LIMITCHANGE'.format(i)
+    _LRDISTANCE = '{0}_LRDISTANCE'.format(i)
+    _LRDISTANCECHANGE = '{0}_LRDISTANCECHANGE'.format(i)
+    _POSITIONCHANGE = '{0}_POSITIONCHANGE'.format(i)
+    _INIT = '{0}_INIT'.format(i)
+    _UPDATE = '{0}_UPDATE'.format(i)
+    
+    pvdb = {
+        _STOP: {
+            'desc': "move pico motor forward",
+            'prec': 4,
+            'value': 0,
+        },
+        _POSITION: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+        _RSWITCH: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+        _LSWITCH: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+        _LIMITPOSMAX: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+        _LIMITPOSMIN: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+        _LIMITCHANGE: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+        _LRDISTANCE: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+        _LRDISTANCECHANGE: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+        _POSITIONCHANGE: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+        _INIT: {
+            'desc': "move pico motor forward",
+            'prec': 0,
+            'value': 0,
+        },
+        _UPDATE: {
+            'desc': "move pico motor forward",
+            'prec': 4,
+            'value': 0,
+        },
+    }
+    return pvdb
+
+pvdb.update(pvdb_motor('A'))
+pvdb.update(pvdb_motor('B'))
+pvdb.update(pvdb_motor('C'))
+pvdb.update(pvdb_motor('F0Y'))
+
+_ACC = 'ACC'
+_VEL = 'VEL'
+_STOP = 'STOP'
+_UPDATE = 'UPDATE'
+
+dic = {\
+        _ACC: {
+            'desc': "move pico motor forward",
+            'prec': 4,
+            'value': 10,
+        },
+        _VEL: {
+            'desc': "move pico motor forward",
+            'prec': 4,
+            'value': 10,
+        },
+        _STOP: {
+            'desc': "move pico motor forward",
+            'prec': 4,
+            'value': 0,
+        },
+        _UPDATE: {
+            'desc': "move pico motor forward",
+            'prec': 4,
+            'value': 0,
+        },
+    }
+pvdb.update(dic)
 
 motor_dict = {
     'A':   'motorA',

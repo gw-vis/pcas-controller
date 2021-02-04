@@ -11,8 +11,8 @@ For more details, please refer KAGRA wiki (DGS/MotorControl/StepperMotor).
 """
 
 import numpy as np
-import steppingmotor.conf
-import steppingmotor.userVariableMap
+from . import conf
+from . import userVariableMap
 from datetime import datetime
 
 class IPMove:

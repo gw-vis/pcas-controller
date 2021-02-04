@@ -322,7 +322,7 @@ class PcasDriver(pcaspy.Driver):
                 f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' limit change to '+str(limitMin)+' , '+str(limitMax)+' from '+str(oldlimitMin)+' , '+str(oldlimitMax)+'\n')            
 
             # limitMin and limitMax position.
-            self.driver.setUserVariables(self.calcUserValiable(motorAddr,userVariableMap.limitMin),limitMin)
+            self.driver.setUserVariables(self.calcUserValiable(motorAddr,userVariableMap.limitMin),qlimitMin)
             self.driver.setUserVariables(self.calcUserValiable(motorAddr,userVariableMap.limitMax),limitMax)
             # Store all paranator to EEPROM.
             print("[Start]Store TMCM6110 EEPROM")

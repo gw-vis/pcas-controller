@@ -29,15 +29,18 @@ channel = {
                 },
         "SR2_GAS":{
                 "config"  : 'SR2',
-                "axisDirection" : [ -1, -1, 1, 1, 1, 1 ]  # 0:BF:Negative, 1:F1:Negative, 2:F0:Positive. by KLog#15272
+#                "axisDirection" : [ -1, -1, 1, 1, 1, 1 ]  # 0:BF:Negative, 1:F1:Negative, 2:F0:Positive. by KLog#15272
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
                 },
         "SR3_GAS":{
                 "config"  : 'SR3',
-                "axisDirection" : [ -1, 1, 1, 1, 1, 1 ]   # 0:BF:Negative, 1:F1:Fishing rod not functional, 2:F0:Positive. by KLog#15272
+#                "axisDirection" : [ -1, 1, 1, 1, 1, 1 ]   # 0:BF:Negative, 1:F1:Fishing rod not functional, 2:F0:Positive. by KLog#15272
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
                 },
         "SRM_GAS":{
                 "config"  : 'SRM',
-                "axisDirection" : [ -1, -1, 1, -1, 1, 1 ] # 0:BF:Negative, 1:F1:Negative, 3:F0:Negative. by KLog#15272
+#                "axisDirection" : [ -1, -1, 1, -1, 1, 1 ] # 0:BF:Negative, 1:F1:Negative, 3:F0:Negative. by KLog#15272
+                "axisDirection" : [ 1, 1, 1, 1, 1, 1 ]
                 },
         "BS_IP":{
                 "config"  : 'BS',
@@ -98,7 +101,7 @@ channel = {
                 "motorA"  : 0,
                 "motorB"  : 1,
                 "motorC"  : 2,
-                "motorY"  : 4,
+                "motorY"  : 5,          # 4 -> 5
                 "signA"    : 1,
                 "signB"    : 1,
                 "signC"    : 1,
