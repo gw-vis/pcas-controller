@@ -731,7 +731,7 @@ class Trinamic_control6110():
     def setAcceleration(self, acceleration, motor=0):
         cmd = 'SAP'       # Get axis parameter
         type = 5          # Max acceleration
-        value = acceleration         # don't care
+        value = int(acceleration)         # don't care
         self.sendCommand(cmd, type, motor, value)
         data = self.receiveData()
         if data.status != 100:
