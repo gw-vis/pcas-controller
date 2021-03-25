@@ -8,6 +8,7 @@ from . import funcIP
 from datetime import datetime
 import time
 from . import userVariableMap
+from epics import caget, caput, cainfo
 
 ##################################################
 # dof axix L, T,　Y, F0Y
@@ -214,7 +215,7 @@ class PcasDriver(pcaspy.Driver):
         self.logfile = '/kagra/Dropbox/Subsystems/VIS/Scripts/StepMotor/LogFiles/'+self.prefix+'.log'
 
         self.updatePVs()
-        self.ipmove = funcIP.IPMove(driver,self.part,self.logfile)
+        self.ipmove = funcIP.IPMove(driver,self.prefix,self.part,self.logfile)
 
         # setup limit and position from TMCM6100 mempry.
         motorAddrA  = self.conf.channel[self.part]["motorA"]
@@ -236,6 +237,9 @@ class PcasDriver(pcaspy.Driver):
         self.setParam(dof+"_POSITION",pos)
         self.driver.stop(motorAddr)
         self.driver.setActualPosition(pos, motorAddr)
+        caput(self.prefix+dof+"_ACTUAL_POSITION",pos)
+        caput(self.prefix+dof+"_TARGET_POSITION",pos)
+
         lrDistance = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.lrDistance))
         self.setParam(dof+"_LRDISTANCE",lrDistance)
         if lrDistance == 0:
@@ -245,9 +249,17 @@ class PcasDriver(pcaspy.Driver):
             self.driver.setRightLimitSwitchEnable(True, motorAddr)
             self.driver.setLeftLimitSwitchEnable(True,  motorAddr)
 
+        rswitch_value = self.driver.getRightLimitSwitch(motorAddr)
+        self.setParam(dof+"_RSWITCH",rswitch_value)
+        caput(self.prefix+dof+"_ACTUAL_RSWITCH",rswitch_value)
+
+        lswitch_value = self.driver.getLeftLimitSwitch(motorAddr)
+        self.setParam(dof+"_LSWITCH",lswitch_value)
+        caput(self.prefix+dof+"_ACTUAL_LSWITCH",lswitch_value)
+
         d = datetime.now()
         with open(self.logfile,'a') as f:
-            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' initialize actual position '+str(pos)+' limit '+str(limitMax)+' , '+str(limitMin)+' Distance '+str(lrDistance)+'\n')
+            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motor'+str(motorAddr)+' initialize actual position '+str(pos)+' limit '+str(limitMax)+' , '+str(limitMin)+' Distance '+str(lrDistance)+' lswitch:'+str(lswitch_value)+' rswitch:'+str(rswitch_value)+'\n')
 
     def read(self, channel):
         value = self.getParam(channel)
@@ -265,6 +277,7 @@ class PcasDriver(pcaspy.Driver):
             self.setParam(channel,value)
             self.updatePVs()
             print('%s => %d' % (channel, value))
+            caput(self.prefix+direction+"_ACTUAL_RSWITCH",value)
 
         elif name == "LSWITCH":
             motorAddr  = self.conf.channel[self.part][motor_dict[direction]]
@@ -272,6 +285,7 @@ class PcasDriver(pcaspy.Driver):
             self.setParam(channel,value)
             self.updatePVs()
             print('%s => %d' % (channel, value))
+            caput(self.prefix+direction+"_ACTUAL_LSWITCH",value)
 
         return value
 
@@ -314,27 +328,59 @@ class PcasDriver(pcaspy.Driver):
                 # Maybe after the power off. Read to EEPROM.
                 posY = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddrY,userVariableMap.actualPos))
             self.setParam("F0Y_POSITION",posY)
+
+            caput(self.prefix+"A_ACTUAL_POSITION",posA)
+            caput(self.prefix+"B_ACTUAL_POSITION",posB)
+            caput(self.prefix+"C_ACTUAL_POSITION",posC)
+            caput(self.prefix+"F0Y_ACTUAL_POSITION",posY)
         
             d = datetime.now()
             with open(self.logfile,'a') as f:
                 f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' position updated as motorA:'+str(posA)+' motorB:'+str(posB)+' motorC:'+str(posC)+' F0Y:'+str(posY)+'\n')
 
-            value = self.driver.getRightLimitSwitch(motorAddrA)
-            self.setParam("A_RSWITCH",value)
-            value = self.driver.getRightLimitSwitch(motorAddrB)
-            self.setParam("B_RSWITCH",value)
-            value = self.driver.getRightLimitSwitch(motorAddrC)
-            self.setParam("C_RSWITCH",value)
-            value = self.driver.getRightLimitSwitch(motorAddrY)
-            self.setParam("F0Y_RSWITCH",value)
-            value = self.driver.getLeftLimitSwitch(motorAddrA)
-            self.setParam("A_LSWITCH",value)
-            value = self.driver.getLeftLimitSwitch(motorAddrB)
-            self.setParam("B_LSWITCH",value)
-            value = self.driver.getLeftLimitSwitch(motorAddrC)
-            self.setParam("C_LSWITCH",value)
-            value = self.driver.getLeftLimitSwitch(motorAddrY)
-            self.setParam("F0Y_LSWITCH",value)
+            rswitch_value = self.driver.getRightLimitSwitch(motorAddrA)
+            self.setParam("A_RSWITCH",rswitch_value)
+            caput(self.prefix+"A_ACTUAL_RSWITCH",rswitch_value)
+
+            lswitch_value = self.driver.getLeftLimitSwitch(motorAddrA)
+            self.setParam("A_LSWITCH",lswitch_value)
+            caput(self.prefix+"A_ACTUAL_LSWITCH",lswitch_value)
+
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motorA: lswitch:'+str(lswitch_value)+' rswitch:'+str(rswitch_value)+'\n')
+
+            rswitch_value = self.driver.getRightLimitSwitch(motorAddrB)
+            self.setParam("B_RSWITCH",rswitch_value)
+            caput(self.prefix+"B_ACTUAL_RSWITCH",rswitch_value)
+
+            lswitch_value = self.driver.getLeftLimitSwitch(motorAddrB)
+            self.setParam("B_LSWITCH",lswitch_value)
+            caput(self.prefix+"B_ACTUAL_LSWITCH",lswitch_value)
+
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motorB: lswitch:'+str(lswitch_value)+' rswitch:'+str(rswitch_value)+'\n')
+
+            rswitch_value = self.driver.getRightLimitSwitch(motorAddrC)
+            self.setParam("C_RSWITCH",rswitch_value)
+            caput(self.prefix+"C_ACTUAL_RSWITCH",rswitch_value)
+
+            lswitch_value = self.driver.getLeftLimitSwitch(motorAddrC)
+            self.setParam("C_LSWITCH",lswitch_value)
+            caput(self.prefix+"C_ACTUAL_LSWITCH",lswitch_value)
+
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motorC: lswitch:'+str(lswitch_value)+' rswitch:'+str(rswitch_value)+'\n')
+
+            rswitch_value = self.driver.getRightLimitSwitch(motorAddrY)
+            self.setParam("F0Y_RSWITCH",rswitch_value)
+            caput(self.prefix+"F0Y_ACTUAL_RSWITCH",rswitch_value)
+
+            lswitch_value = self.driver.getLeftLimitSwitch(motorAddrY)
+            self.setParam("F0Y_LSWITCH",lswitch_value)
+            caput(self.prefix+"F0Y_ACTUAL_LSWITCH",lswitch_value)
+
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' motorF0Y: lswitch:'+str(lswitch_value)+' rswitch:'+str(rswitch_value)+'\n')
 
         if name == "ACC":
             acc = self.getParam("ACC")
@@ -384,6 +430,11 @@ class PcasDriver(pcaspy.Driver):
             self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddrY,userVariableMap.actualPos),posY)
             self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddrY,userVariableMap.actualPos))
 
+            caput(self.prefix+"A_ACTUAL_POSITION",posA)
+            caput(self.prefix+"B_ACTUAL_POSITION",posB)
+            caput(self.prefix+"C_ACTUAL_POSITION",posC)
+            caput(self.prefix+"F0Y_ACTUAL_POSITION",posY)
+        
             d = datetime.now()
             with open(self.logfile,'a') as f:
                 f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' position stoped as motorA:'+str(posA)+' motorB:'+str(posB)+' motorC:'+str(posC)+' F0Y:'+str(posY)+'\n')
@@ -442,6 +493,7 @@ class PcasDriver(pcaspy.Driver):
             count = self.ipmove.calcMoveRange(max,min,pos,axisDirection*count)
 
             self.driver.setTargetPosition(pos+count, motorAddr)
+            caput(self.refix+direction+"_ACTUAL_POSITION",posA)
 
             self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.actualPos),pos+count)
             self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.actualPos))
@@ -498,6 +550,8 @@ class PcasDriver(pcaspy.Driver):
         self.driver.stop(motorAddr)
         self.driver.setActualPosition(pos, motorAddr)
         oldpos = self.driver.getUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.actualPos))
+        caput(self.prefix+direction+"_ACTUAL_POSITION",pos)
+        caput(self.prefix+direction+"_TARGET_POSITION",pos)
 
         d = datetime.now()
         with open(self.logfile,'a') as f:

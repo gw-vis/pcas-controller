@@ -210,7 +210,7 @@ channel = {
                 "axisDirectionB"  : 1,
                 "axisDirectionC"  : 1
                 },
-        "TESTSR_IP":{
+        "TEST_IP":{
                 "config"  : 'SR',
                 "motorA"  : 0,
                 "motorB"  : 1,

@@ -30,7 +30,7 @@ driverDict = {
     "SRM_IP"    :"10.68.150.58",
     # for Testing.
     "TEST_GAS"  :"10.68.150.63",
-    "TESTSR_IP" :"10.68.150.63"
+    "TEST_IP"   :"10.68.150.63"
 }
 
 def print_driverList():
@@ -70,6 +70,7 @@ def main():
         quit()
 
     os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor')
+#    os.chdir('/users/ikeda/Git/pcas-controller/scripts/stepmotor')
 #    print(os.path.dirname(os.path.abspath(__file__)))
 #    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     print('python3 -m steppingmotor K1:STEPPER-%s_ %s &' % (agvs[1],driverDict[agvs[1]]))

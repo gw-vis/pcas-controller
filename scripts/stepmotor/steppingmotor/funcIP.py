@@ -14,6 +14,7 @@ import numpy as np
 from . import conf
 from . import userVariableMap
 from datetime import datetime
+from epics import caget, caput, cainfo
 
 class IPMove:
     minA = 0
@@ -23,8 +24,8 @@ class IPMove:
     minC = 0
     maxC = 0
 
-    def __init__(self, driver, part, logfile):
-        #self.prefix = prefix
+    def __init__(self, driver, prefix, part, logfile):
+        self.prefix = prefix
         self.part = part
         self.driver = driver
         self.logfile = logfile
@@ -78,18 +79,21 @@ class IPMove:
             self.driver.setTargetPosition(posA+countA,motorA)
             self.driver.setUserVariables(self.calcUserValiable(motorA,userVariableMap.actualPos),posA+countA)
             self.driver.storeUserVariables(self.calcUserValiable(motorA,userVariableMap.actualPos))
+            caput(self.prefix+"A_TARGET_POSITION",posA+countA)
 
         if countB != 0:
             countB = self.calcMoveRange(self.maxB,self.minB,posB,countB)
             self.driver.setTargetPosition(posB+countB,motorB)
             self.driver.setUserVariables(self.calcUserValiable(motorB,userVariableMap.actualPos),posB+countB)
             self.driver.storeUserVariables(self.calcUserValiable(motorB,userVariableMap.actualPos))
+            caput(self.prefix+"B_TARGET_POSITION",posB+countB)
 
         if countC != 0:
             countC = self.calcMoveRange(self.maxC,self.minC,posC,countC)
             self.driver.setTargetPosition(posC+countC,motorC)
             self.driver.setUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos),posC+countC)
             self.driver.storeUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos))
+            caput(self.prefix+"C_TARGET_POSITION",posC+countC)
 
         d = datetime.now()
         with open(self.logfile,'a') as f:
@@ -136,18 +140,21 @@ class IPMove:
             self.driver.setTargetPosition(posA+countA,motorA)
             self.driver.setUserVariables(self.calcUserValiable(motorA,userVariableMap.actualPos),posA+countA)
             self.driver.storeUserVariables(self.calcUserValiable(motorA,userVariableMap.actualPos))
+            caput(self.prefix+"A_TARGET_POSITION",posA+countA)
 
         if countB != 0:
             countB = self.calcMoveRange(self.maxB,self.minB,posB,countB)
             self.driver.setTargetPosition(posB+countB,motorB)
             self.driver.setUserVariables(self.calcUserValiable(motorB,userVariableMap.actualPos),posB+countB)
             self.driver.storeUserVariables(self.calcUserValiable(motorB,userVariableMap.actualPos))
+            caput(self.prefix+"B_TARGET_POSITION",posB+countB)
 
         if countC != 0:
             countC = self.calcMoveRange(self.maxC,self.minC,posC,countC)
             self.driver.setTargetPosition(posC+countC,motorC)
             self.driver.setUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos),posC+countC)
             self.driver.storeUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos))
+            caput(self.prefix+"C_TARGET_POSITION",posC+countC)
 
         d = datetime.now()
         with open(self.logfile,'a') as f:
@@ -177,18 +184,21 @@ class IPMove:
             self.driver.setTargetPosition(posA+countA,motorA)
             self.driver.setUserVariables(self.calcUserValiable(motorA,userVariableMap.actualPos),posA+countA)
             self.driver.storeUserVariables(self.calcUserValiable(motorA,userVariableMap.actualPos))
+            caput(self.prefix+"A_TARGET_POSITION",posA+countA)
 
         if countB != 0:
             countB = self.calcMoveRange(self.maxB,self.minB,posB,countB)
             self.driver.setTargetPosition(posB+countB,motorB)
             self.driver.setUserVariables(self.calcUserValiable(motorB,userVariableMap.actualPos),posB+countB)
             self.driver.storeUserVariables(self.calcUserValiable(motorB,userVariableMap.actualPos))
+            caput(self.prefix+"B_TARGET_POSITION",posB+countB)
 
         if countC != 0:
             countC = self.calcMoveRange(self.maxC,self.minC,posC,countC)
             self.driver.setTargetPosition(posC+countC,motorC)
             self.driver.setUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos),posC+countC)
             self.driver.storeUserVariables(self.calcUserValiable(motorC,userVariableMap.actualPos))
+            caput(self.prefix+"C_TARGET_POSITION",posC+countC)
 
         d = datetime.now()
         with open(self.logfile,'a') as f:
