@@ -107,7 +107,7 @@ display {
 	display[2] {
 		label="0;TEST_IP_SR"
 		name="CUST_IP_SR.adl"
-		args="IFO=K1,ifo=K1,STEPID=TESTSR_IP,DOF=0"
+		args="IFO=K1,ifo=K1,STEPID=TEST_IP,DOF=0"
 	}
 	display[3] {
 		label="0;TEST_IP_BS"

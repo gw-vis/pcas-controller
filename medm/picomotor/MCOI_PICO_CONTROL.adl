@@ -761,3 +761,19 @@ text {
 	bclr=4
 	label="Script"
 }
+"shell command" {
+	object {
+		x=518
+		y=13
+		width=62
+		height=23
+	}
+	command[0] {
+		label="PICO POSITION"
+		name="/opt/rtcds/userapps/release/vis/common/medm/OFFLOAD/yamlwrapper_ndscope.sh"
+		args="/opt/rtcds/userapps/release/cds/common/medm/picomotor/pico_pos.yml OPTICS=$(PICOID) &"
+	}
+	clr=14
+	bclr=5
+	label="ndscope"
+}

@@ -9,6 +9,7 @@ from . import config
 from datetime import datetime
 from datetime import timedelta
 #import pyttsx
+from epics import caget, caput, cainfo
 
 pvdb = config.pvdb
 ##################################################
@@ -30,12 +31,55 @@ from .__init__ import get_module_logger
 logger = get_module_logger(__name__)
 start = 0
 
+target_position = {
+    '1': 0,
+    '2': 0,
+    '3': 0,
+    '4': 0
+}
+
 class PcasDriver(pcaspy.Driver):
     def __init__(self, driver, prefix):
         super(PcasDriver, self).__init__()
         self.driver = driver
         self.prefix = prefix
-        
+
+        self.logfile = '/kagra/Dropbox/Subsystems/VIS/Scripts/PicoMotor/LogFiles/'+self.prefix+'.log'
+  
+        driverAddr = 1
+        MOTORNUMBER = str(1)
+        self.driver.ask_position(driverAddr,MOTORNUMBER)
+        pos1 = self.driver.check_reply_message()
+        self.setParam(MOTORNUMBER+"_POSITION", pos1)
+        caput(self.prefix+MOTORNUMBER+"_ACTUAL_POSITION",pos1)
+        caput(self.prefix+MOTORNUMBER+"_TARGET_POSITION",pos1)
+        target_position[MOTORNUMBER]=pos1
+        MOTORNUMBER = str(2)
+        self.driver.ask_position(driverAddr,MOTORNUMBER)
+        pos2 = self.driver.check_reply_message()
+        self.setParam(MOTORNUMBER+"_POSITION", pos2)            
+        caput(self.prefix+MOTORNUMBER+"_ACTUAL_POSITION",pos2)
+        caput(self.prefix+MOTORNUMBER+"_TARGET_POSITION",pos2)
+        target_position[MOTORNUMBER]=pos2
+        MOTORNUMBER = str(3)
+        self.driver.ask_position(driverAddr,MOTORNUMBER)
+        pos3 = self.driver.check_reply_message()
+        self.setParam(MOTORNUMBER+"_POSITION", pos3)            
+        caput(self.prefix+MOTORNUMBER+"_ACTUAL_POSITION",pos3)
+        caput(self.prefix+MOTORNUMBER+"_TARGET_POSITION",pos3)
+        target_position[MOTORNUMBER]=pos3
+        MOTORNUMBER = str(4)
+        self.driver.ask_position(driverAddr,MOTORNUMBER)
+        pos4 = self.driver.check_reply_message()
+        self.setParam(MOTORNUMBER+"_POSITION", pos4)            
+        caput(self.prefix+MOTORNUMBER+"_ACTUAL_POSITION",pos4)
+        caput(self.prefix+MOTORNUMBER+"_TARGET_POSITION",pos4)
+        target_position[MOTORNUMBER]=pos4
+
+        d = datetime.now()
+        with open(self.logfile,'a') as f:
+            f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' initialize actual pos1: '+str(pos1)+' pos2: '+str(pos2)+' pos3: '+str(pos3)+' pos4: '+str(pos4)+'\n')
+
     def read(self, channel):
         value = self.getParam(channel)    
         return value    
@@ -55,6 +99,13 @@ class PcasDriver(pcaspy.Driver):
             #self.updatePVs()            
             self.driver.move_step(driverAddr,int(MOTORNUMBER),-1*step)
             start = datetime.now()
+            target_position[MOTORNUMBER] = target_position[MOTORNUMBER] + -1*step
+            caput(self.prefix+MOTORNUMBER+"_TARGET_POSITION",target_position[MOTORNUMBER])
+
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' REV: '+str(-1*step)+' moee to: '+str(target_position[MOTORNUMBER])+'\n')
+
 
         if "FWD" in channel and value == ON:
             MOTORNUMBER, OPTION = channel.split("_")
@@ -62,6 +113,12 @@ class PcasDriver(pcaspy.Driver):
             #self.updatePVs()
             self.driver.move_step(driverAddr,int(MOTORNUMBER),step)
             start = datetime.now()
+            target_position[MOTORNUMBER] = target_position[MOTORNUMBER] + step
+            caput(self.prefix+MOTORNUMBER+"_TARGET_POSITION",target_position[MOTORNUMBER])
+
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' FWD:'+str(-1*step)+' move to: '+str(target_position[MOTORNUMBER])+'\n')
 
         if "COMMAND" in channel:
             command = value
@@ -73,20 +130,28 @@ class PcasDriver(pcaspy.Driver):
             #time.sleep(1)
             MOTORNUMBER = str(1)
             self.driver.ask_position(driverAddr,MOTORNUMBER)
-            posi = self.driver.check_reply_message()
-            self.setParam(MOTORNUMBER+"_POSITION", posi)
+            pos1 = self.driver.check_reply_message()
+            self.setParam(MOTORNUMBER+"_POSITION", pos1)
+            caput(self.prefix+MOTORNUMBER+"_ACTUAL_POSITION",pos1)
             MOTORNUMBER = str(2)
             self.driver.ask_position(driverAddr,MOTORNUMBER)
-            posi = self.driver.check_reply_message()
-            self.setParam(MOTORNUMBER+"_POSITION", posi)            
+            pos2 = self.driver.check_reply_message()
+            self.setParam(MOTORNUMBER+"_POSITION", pos2)            
+            caput(self.prefix+MOTORNUMBER+"_ACTUAL_POSITION",pos2)
             MOTORNUMBER = str(3)
             self.driver.ask_position(driverAddr,MOTORNUMBER)
-            posi = self.driver.check_reply_message()
-            self.setParam(MOTORNUMBER+"_POSITION", posi)            
+            pos3 = self.driver.check_reply_message()
+            self.setParam(MOTORNUMBER+"_POSITION", pos3)            
+            caput(self.prefix+MOTORNUMBER+"_ACTUAL_POSITION",pos3)
             MOTORNUMBER = str(4)
             self.driver.ask_position(driverAddr,MOTORNUMBER)
-            posi = self.driver.check_reply_message()
-            self.setParam(MOTORNUMBER+"_POSITION", posi)            
+            pos4 = self.driver.check_reply_message()
+            self.setParam(MOTORNUMBER+"_POSITION", pos4)            
+            caput(self.prefix+MOTORNUMBER+"_ACTUAL_POSITION",pos4)
+
+            d = datetime.now()
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' status actual pos1: '+str(pos1)+' pos2: '+str(pos2)+' pos3: '+str(pos3)+' pos4: '+str(pos4)+'\n')
             #
             self.driver.ask_driver_error()
             error = self.driver.check_reply_message()
@@ -95,7 +160,10 @@ class PcasDriver(pcaspy.Driver):
             self.setParam("ERRORMESSAGE", errormessage)
             #self.setParam("ERRORMESSAGE", 'hoge')
             start = datetime.now()
-            
+
+            with open(self.logfile,'a') as f:
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' status error: '+str(error)+' errormessage: '+errormessage+'\n')
+             
         self.updatePVs()
         return True
     
@@ -121,6 +189,9 @@ class PcasServer(pcaspy.SimpleServer):
             diff = now- start
             #print diff,dt,diff>dt
             if diff>dt: # 12sec
+                d = datetime.now()
+                with open(self.logfile,'a') as f:
+                    f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' Script Time out:'+str(diff)+'\n')
                 self.driver.close()
                 print("==================================")
                 print('60 minutes passed. Bye!')
