@@ -5,7 +5,7 @@ file {
 }
 display {
 	object {
-		x=2466
+		x=620
 		y=557
 		width=683
 		height=202
@@ -739,4 +739,25 @@ text {
 	}
 	textix="Newfocus 8742 for MCF"
 	align="horiz. centered"
+}
+"shell command" {
+	object {
+		x=581
+		y=13
+		width=80
+		height=23
+	}
+	command[0] {
+		label="Start"
+		name="xterm"
+		args="-e ssh controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && happy_pico_start $(PICOID)' &"
+	}
+	command[1] {
+		label="Stop"
+		name="xterm"
+		args="-e ssh controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && happy_pico_start $(PICOID) -kill'"
+	}
+	clr=14
+	bclr=4
+	label="Script"
 }
