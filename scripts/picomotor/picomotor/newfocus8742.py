@@ -6,6 +6,7 @@ import socket
 import time
 import logging
 import logging.config
+import sys
 
 if __name__ == "__main__":    
     from __init__ import get_module_logger
@@ -111,7 +112,9 @@ class controller(object):
                     datas = datas.replace(b'\r\n',b'')
                     Terminater = True
 
-            datas = datas.replace(b'\xff\xfb\x01\xff\xfb\x03',b'')
+            datas = datas.replace(b'\xff\xfb\x01',b'')
+            datas = datas.replace(b'\xff\xfb\x03',b'')
+            datas = datas.replace(b'\xff\xfd\x03',b'')
             # The format of the paramaters varies depending on the command.
             data = int(datas)
             self.reply_message = data
@@ -123,8 +126,10 @@ class controller(object):
     def send(self, sendString):
         logger.info('Send "{1}" to {0}'.format(self.ipaddr,sendString))
         try:
-#            self.netsock.send(sendString+'\n')
-            self.netsock.send(bytes(sendString+'\n', encoding = "utf-8"))
+            if sys.version_info.major >= 3:
+                self.netsock.send(bytes(sendString+'\n', encoding = "utf-8"))
+            else:
+                self.netsock.send(sendString+'\n')
         except socket.error as e:
             logger.info(e)
             logger.info("Reconnecting..")

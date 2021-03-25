@@ -79,11 +79,24 @@ def main():
     #exit()
     #os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/picomotor')
     os.chdir('/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/picomotor')
-    print('python3 -m picomotor K1:PICO-%s_ %s &' % (agvs[1],driverDict[agvs[1]]))
+#    os.chdir('/users/ikeda/Git/pcas-controller/scripts/picomotor')
+
+    if 'k1script1' in os.uname()[1]:
+        print('k1script1 is Python3')
+        command = 'python3 -m picomotor K1:PICO-%s_ %s &' % (agvs[1],driverDict[agvs[1]])
+    elif 'k1script' in os.uname()[1]:
+        print('k1script is Python2')
+        command = 'python -m picomotor K1:PICO-%s_ %s &' % (agvs[1],driverDict[agvs[1]])
+    else:
+        print('Please run it from k1script1')
+        print('$> ssh k1script1')
+        print('$> happy_pico_start (DRIVER_NAME)')
+        quit()
+
 #    print(os.path.dirname(os.path.abspath(__file__)))
 #    os.chdir(os.path.dirname(os.path.abspath(__file__)))
 #    os.system('python3 -m picomotor K1:PICO-%s_ %s &' % (agvs[1],driverDict[agvs[1]]) )
-    command = 'python3 -m picomotor K1:PICO-%s_ %s &' % (agvs[1],driverDict[agvs[1]])
+    print(command)
 
     pid = process_check(command)
     if pid != 0 and killProcess == True:

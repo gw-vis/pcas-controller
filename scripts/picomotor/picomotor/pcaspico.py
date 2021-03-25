@@ -28,6 +28,7 @@ import logging.config
 #from __init__ import get_module_logger
 from .__init__ import get_module_logger
 logger = get_module_logger(__name__)
+start = 0
 
 class PcasDriver(pcaspy.Driver):
     def __init__(self, driver, prefix):
@@ -40,6 +41,7 @@ class PcasDriver(pcaspy.Driver):
         return value    
     
     def write(self, channel, value):
+        global start
         """
         This function is called every "CAPUT (EPICS-CHANNEL) (VALUE)" command.
         epics_channel : the channlel excluded PREFIX from EPICS-CHANNEL
@@ -52,11 +54,15 @@ class PcasDriver(pcaspy.Driver):
             step = self.getParam(MOTORNUMBER+"_STEP")
             #self.updatePVs()            
             self.driver.move_step(driverAddr,int(MOTORNUMBER),-1*step)
+            start = datetime.now()
+
         if "FWD" in channel and value == ON:
             MOTORNUMBER, OPTION = channel.split("_")
             step = self.getParam(MOTORNUMBER+"_STEP")
             #self.updatePVs()
             self.driver.move_step(driverAddr,int(MOTORNUMBER),step)
+            start = datetime.now()
+
         if "COMMAND" in channel:
             command = value
             #print command
@@ -88,6 +94,7 @@ class PcasDriver(pcaspy.Driver):
             errormessage = self.driver.check_error_message()
             self.setParam("ERRORMESSAGE", errormessage)
             #self.setParam("ERRORMESSAGE", 'hoge')
+            start = datetime.now()
             
         self.updatePVs()
         return True
@@ -102,6 +109,8 @@ class PcasServer(pcaspy.SimpleServer):
         driver_ = PcasDriver(driver,prefix)
         
     def run(self):
+        global start
+
         logger.info("Start server.")        
         i = 0
         start = datetime.now()
