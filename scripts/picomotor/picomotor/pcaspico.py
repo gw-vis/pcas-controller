@@ -104,7 +104,7 @@ class PcasDriver(pcaspy.Driver):
 
             d = datetime.now()
             with open(self.logfile,'a') as f:
-                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' REV: '+str(-1*step)+' moee to: '+str(target_position[MOTORNUMBER])+'\n')
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' channel: '+str(channel)+' REV: '+str(-1*step)+' move to: '+str(target_position[MOTORNUMBER])+'\n')
 
 
         if "FWD" in channel and value == ON:
@@ -118,7 +118,7 @@ class PcasDriver(pcaspy.Driver):
 
             d = datetime.now()
             with open(self.logfile,'a') as f:
-                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' FWD:'+str(-1*step)+' move to: '+str(target_position[MOTORNUMBER])+'\n')
+                f.write(d.strftime('%Y-%m-%d %H:%M:%S')+' channel: '+str(channel)+' FWD:'+str(-1*step)+' move to: '+str(target_position[MOTORNUMBER])+'\n')
 
         if "COMMAND" in channel:
             command = value
