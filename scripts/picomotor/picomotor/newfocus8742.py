@@ -153,8 +153,16 @@ class driver(controller):
     def __init__(self,ipaddr):
         super(driver,self).__init__(ipaddr)
         self.ipaddr = ipaddr
-        self.set_acc(1,1,500)
-        self.set_vel(1,1,500)                
+#        self.set_acc(1,1,500)
+#        self.set_vel(1,1,500)                
+        self.set_acc(1,1,1000)
+        self.set_vel(1,1,1000)                
+        self.set_acc(1,2,1000)
+        self.set_vel(1,2,1000)                
+        self.set_acc(1,3,1000)
+        self.set_vel(1,3,1000)                
+        self.set_acc(1,4,1000)
+        self.set_vel(1,4,1000)              
         
     def __enter__(self):
         super(driver,self).__enter__()
