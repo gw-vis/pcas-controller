@@ -23,7 +23,7 @@ def pvdb_dof(i):
         },
         _STEP: {
             'prec': 5,
-            'value': 34,
+            'value': 1,
         },    
         _SPEED: {
             'prec': 4,

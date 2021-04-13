@@ -7,6 +7,7 @@ import time
 import logging
 import logging.config
 import sys
+import subprocess
 
 if __name__ == "__main__":    
     from __init__ import get_module_logger
@@ -80,7 +81,9 @@ class controller(object):
             print(e)
             print('Could not connect to {0}:{1}. '\
                 'Please check network configuration.'.format(self.ipaddr,self.port))
-            print('exit..')
+            #command = 'medm -x -macro \"ADC=%s,PORT=%s\" /opt/rtcds/userapps/release/cds/common/medm/picomotor/PICO_CONNECT_ERROR.adl' % (self.ipaddr,self.port)
+            #print(command)
+            #subprocess.Popen(command.split())
             exit()
         except Exception as e:
             logger.info(e)
