@@ -316,7 +316,7 @@ display {
     height=30
     }
     "composite name"=""
-    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=F3,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ITMX_GAS,MOTOR=5,LABEL=F3_GAS"
+    "composite file"="./OVERVIEW_MINI.adl;IFO=$(IFO),ifo=$(ifo),SYSTEM=ITMX,STAGE=F3,DOF=GAS,DAMP=DAMP,BIO=BO,STEPNAME=STEP_GAS,STEPID=ITMX_GAS,MOTOR=3,LABEL=F3_GAS"
     }
     
     composite {
