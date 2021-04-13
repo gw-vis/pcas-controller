@@ -81,9 +81,15 @@ class controller(object):
             print(e)
             print('Could not connect to {0}:{1}. '\
                 'Please check network configuration.'.format(self.ipaddr,self.port))
-            #command = 'medm -x -macro \"ADC=%s,PORT=%s\" /opt/rtcds/userapps/release/cds/common/medm/picomotor/PICO_CONNECT_ERROR.adl' % (self.ipaddr,self.port)
-            #print(command)
-            #subprocess.Popen(command.split())
+            command = [
+             'zenity'
+             ,'--error'
+             ,'--width=500'
+             ,'--title=Picomotor Connect ERROR'
+             ,'--text=%s:%s is not reachable.\r\rPlease turn OFF and ON the power switch to reboot the picomotor driver. If NOT recover, please contact Ikeda or VIS-team.' % (self.ipaddr,self.port)
+            ]
+            print(command)
+            subprocess.Popen(command)
             exit()
         except Exception as e:
             logger.info(e)

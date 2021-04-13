@@ -750,7 +750,7 @@ text {
 	command[0] {
 		label="Start"
 		name="xterm"
-		args="-e ssh controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && happy_pico_start $(PICOID)' &"
+		args="-e ssh -Y controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && happy_pico_start $(PICOID)' &"
 	}
 	command[1] {
 		label="Stop"
