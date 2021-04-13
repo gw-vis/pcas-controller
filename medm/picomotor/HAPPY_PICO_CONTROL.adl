@@ -777,3 +777,24 @@ text {
 	bclr=5
 	label="ndscope"
 }
+"shell command" {
+	object {
+		x=454
+		y=13
+		width=62
+		height=23
+	}
+	command[0] {
+		label="old Pico Log"
+		name="emacs"
+		args="/opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/picomotor/pico.log &"
+	}
+	command[1] {
+		label="Pico Log"
+		name="emacs"
+		args="/kagra/Dropbox/Subsystems/VIS/Scripts/PicoMotor/LogFiles/$(IFO):PICO-$(PICOID)_.log &"
+	}
+	clr=14
+	bclr=5
+	label="Log"
+}

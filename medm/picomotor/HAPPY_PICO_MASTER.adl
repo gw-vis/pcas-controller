@@ -1,12 +1,11 @@
-
 file {
 	name="/opt/rtcds/userapps/release/cds/common/medm/picomotor/HAPPY_PICO_MASTER.adl"
 	version=030109
 }
 display {
 	object {
-		x=229
-		y=65
+		x=206
+		y=408
 		width=1087
 		height=545
 	}
@@ -152,7 +151,7 @@ text {
 	}
 	clr=14
 	bclr=0
-	label="MCO"
+	label="MCF"
 }
 "related display" {
 	object {
@@ -187,8 +186,8 @@ text {
 }
 "related display" {
 	object {
-		x=339
-		y=393
+		x=337
+		y=409
 		width=150
 		height=30
 	}
@@ -263,7 +262,7 @@ text {
 	display[0] {
 		label="1"
 		name="HAPPY_PICO_CONTROL.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=MCE,CH1=1,CH2=2,CH3=3,CH4=4"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=MCE,CH1=PIT,CH2=YAW,CH3=3,CH4=4"
 	}
 	clr=14
 	bclr=0
@@ -631,8 +630,8 @@ text {
 }
 "related display" {
 	object {
-		x=339
-		y=351
+		x=337
+		y=374
 		width=150
 		height=30
 	}
@@ -664,7 +663,7 @@ text {
 "related display" {
 	object {
 		x=339
-		y=228
+		y=232
 		width=150
 		height=30
 	}
@@ -680,7 +679,7 @@ text {
 "related display" {
 	object {
 		x=339
-		y=268
+		y=266
 		width=150
 		height=30
 	}
@@ -760,7 +759,7 @@ text {
 "related display" {
 	object {
 		x=337
-		y=449
+		y=444
 		width=150
 		height=30
 	}
@@ -775,8 +774,8 @@ text {
 }
 "related display" {
 	object {
-		x=336
-		y=491
+		x=337
+		y=480
 		width=150
 		height=30
 	}
@@ -834,7 +833,7 @@ text {
 	"basic attribute" {
 		clr=24
 	}
-	textix="+0.5  -0.05"
+	textix="+3.0  +0.2"
 }
 text {
 	object {
@@ -906,7 +905,7 @@ text {
 	"basic attribute" {
 		clr=24
 	}
-	textix="+1    -0.05"
+	textix="-0.1  -0.05"
 }
 rectangle {
 	object {
@@ -1330,4 +1329,36 @@ text {
 		clr=44
 	}
 	textix="after one hour of inactivity."
+}
+"related display" {
+	object {
+		x=339
+		y=300
+		width=150
+		height=30
+	}
+	display[0] {
+		label="PCal EX picomotor"
+		name="HAPPY_PICO_CONTROL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=PCAL_EX2,CH1=Lower(PITCH),CH2=Lower(YAW),CH3=Upper(PITCH),CH4=Upper(YAW)"
+	}
+	clr=14
+	bclr=55
+	label="PCAL_EX2"
+}
+"related display" {
+	object {
+		x=339
+		y=334
+		width=150
+		height=30
+	}
+	display[0] {
+		label="BF Moving Mass A"
+		name="HAPPY_PICO_CONTROL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=PCAL_EY2,CH1=1,CH2=2,CH3=3,CH4=4"
+	}
+	clr=14
+	bclr=55
+	label="PCAL_EY2"
 }
