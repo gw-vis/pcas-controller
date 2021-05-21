@@ -493,7 +493,7 @@ class PcasDriver(pcaspy.Driver):
             count = self.ipmove.calcMoveRange(max,min,pos,axisDirection*count)
 
             self.driver.setTargetPosition(pos+count, motorAddr)
-            caput(self.refix+direction+"_ACTUAL_POSITION",posA)
+            caput(self.prefix+direction+"_TARGET_POSITION",pos+count)
 
             self.driver.setUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.actualPos),pos+count)
             self.driver.storeUserVariables(self.ipmove.calcUserValiable(motorAddr,userVariableMap.actualPos))
