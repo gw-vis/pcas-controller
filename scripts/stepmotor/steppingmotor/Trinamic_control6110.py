@@ -983,8 +983,9 @@ class Trinamic_control6110():
 
 if __name__ == '__main__':
     tc = Trinamic_control6110()
-#    tc.connectTCP('130.235.95.232', 4001)
-    tc.connectTCP('10.68.150.63', 4001)
+    #    tc.connectTCP('130.235.95.232', 4001)
+    #    tc.connectTCP('10.68.150.63', 4001)
+    tc.connectTCP('10.68.150.48', 4001)
 
     for i in range(64):
         print("[",i,"]:",tc.getUserVariables(i))

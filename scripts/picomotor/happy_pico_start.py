@@ -49,7 +49,7 @@ driverDict = {
     "AS_WFS"   :"10.68.150.74",
     "REFL_WFS" :"10.68.150.75",
 #    "TEST" :"10.68.150.44",
-    "TEST" :"10.68.150.28",
+    "TEST" :"10.68.160.28",
 }
 
 def print_driverList():
