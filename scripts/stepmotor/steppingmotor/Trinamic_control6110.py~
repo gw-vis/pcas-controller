@@ -75,6 +75,7 @@ class Trinamic_control6110():
             command = self.commandDict[cmd]
         except KeyError:
             return 'Wrong command'
+        #print( adr, command, type, motor, value)
         tmp = struct.pack('BBBBi', adr, command, type, motor, value)
         checksum = sum(struct.unpack('BBBBBBBB', tmp)) % 256
         TxBuffer = struct.pack('>BBBBiB', adr, command, type, motor, value, checksum)
@@ -363,7 +364,7 @@ class Trinamic_control6110():
         cmd = 'SAP'       # Get axis parameter
         type = 1          # Actual position
         value = pos       # position
-        self.sendCommand(cmd, type, motor, value)
+        self.sendCommand(cmd, type, motor, int(value))
         data = self.receiveData()
         if data.status != 100:
             if self.errorDict.has_key(data.status):
@@ -730,7 +731,7 @@ class Trinamic_control6110():
     def setAcceleration(self, acceleration, motor=0):
         cmd = 'SAP'       # Get axis parameter
         type = 5          # Max acceleration
-        value = acceleration         # don't care
+        value = int(acceleration)         # don't care
         self.sendCommand(cmd, type, motor, value)
         data = self.receiveData()
         if data.status != 100:
@@ -919,7 +920,7 @@ class Trinamic_control6110():
     def setUserVariables(self, type, value):
         cmd = 'SGP'         # Set Global Parameter
         motor = 2           # Bank 2
-        self.sendCommand(cmd, type, motor, value)
+        self.sendCommand(cmd, type, motor, int(value))
         data = self.receiveData()
         if data.status != 100:
             if self.errorDict.has_key(data.status):
