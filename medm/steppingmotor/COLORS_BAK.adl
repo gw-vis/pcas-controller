@@ -1,0 +1,135 @@
+
+file {
+	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/COLORS.adl"
+	version=030107
+}
+display {
+	object {
+		x=461
+		y=586
+		width=574
+		height=380
+	}
+	clr=14
+	bclr=14
+	cmap=""
+	gridSpacing=5
+	gridOn=0
+	snapToGrid=0
+}
+"color map" {
+	ncolors=65
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		effbfb,
+		e0f8f7,
+		cef6f5,
+		a9f5f2,
+		81f7f3,
+		58faf4,
+		2ef2f7,
+		00ffff,
+		01dfd7,
+		04b4ae,
+		088a85,
+		0b615e,
+		0b3b39,
+		0a2a29,
+		071918,
+		fbf8ef,
+		f7f2e0,
+		f5ecce,
+		f3e2a9,
+		f5da81,
+		f7d358,
+		facc2e,
+		ffbf00,
+		dba901,
+		b18904,
+		886a08,
+		5f4c0b,
+		3a2f0b,
+		29220a,
+		181407,
+		fbefef,
+		f8e0e0,
+		f6cece,
+		f5a9a9,
+		f78181,
+		fa5858,
+		fe2e2e,
+		ff0000,
+		df0101,
+		b40404,
+		8a0808,
+		610b0b,
+		3b0b0b,
+		2a0a0a,
+		190707,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
+	}
+}
+text {
+	object {
+		x=7
+		y=10
+		width=173
+		height=24
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="STEPPING MOTOR CONTROLS"
+}
+"related display" {
+	object {
+		x=20
+		y=42
+		width=150
+		height=30
+	}
+	display[0] {
+		label="0:BF"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=0"
+	}
+	display[1] {
+		label="1:SF"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=1"
+	}
+	display[2] {
+		label="2:"
+		name="CUST_STEP.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=PR2_GAS,DOF=2"
+	}
+	display[3] {
+		label="3:"
+		name="CUST_STEP.adl"
+	}
+	display[4] {
+		label="4:"
+		name="CUST_STEP.adl"
+	}
+	clr=19
+	bclr=13
+	label="PR2_GAS"
+}

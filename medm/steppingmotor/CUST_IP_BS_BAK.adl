@@ -1,6 +1,6 @@
 
 file {
-	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/CUST_IP_SR.adl"
+	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/CUST_IP_BS.adl"
 	version=030107
 }
 display {
@@ -97,7 +97,7 @@ text {
 	"basic attribute" {
 		clr=19
 	}
-	textix="$(STEPID)"
+	textix="BS_IP"
 }
 "text update" {
 	object {
@@ -107,7 +107,7 @@ text {
 		height=20
 	}
 	monitor {
-		chan="$(IFO):STEPPER-$(STEPID)_A_POSITION"
+		chan="$(IFO):STEPPER-BS_IP_A_POSITION"
 		clr=19
 		bclr=13
 	}
@@ -178,7 +178,7 @@ polyline {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_UPDATE"
+		chan="$(IFO):STEPPER-BS_IP_$(DOF)_UPDATE"
 		clr=38
 		bclr=14
 	}
@@ -194,7 +194,7 @@ polyline {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_ACC"
+		chan="$(IFO):STEPPER-BS_IP_$(DOF)_ACC"
 		clr=19
 		bclr=14
 	}
@@ -209,7 +209,7 @@ polyline {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_VEL"
+		chan="$(IFO):STEPPER-BS_IP_$(DOF)_VEL"
 		clr=19
 		bclr=14
 	}
@@ -252,7 +252,7 @@ text {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_L_STEP"
+		chan="$(IFO):STEPPER-BS_IP_L_STEP"
 		clr=19
 		bclr=14
 	}
@@ -279,7 +279,7 @@ text {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_STOP"
+		chan="$(IFO):STEPPER-BS_IP_$(DOF)_STOP"
 		clr=50
 		bclr=14
 	}
@@ -308,7 +308,7 @@ text {
 		height=20
 	}
 	monitor {
-		chan="$(IFO):STEPPER-$(STEPID)_B_POSITION"
+		chan="$(IFO):STEPPER-BS_IP_B_POSITION"
 		clr=19
 		bclr=13
 	}
@@ -337,7 +337,7 @@ text {
 		height=20
 	}
 	monitor {
-		chan="$(IFO):STEPPER-$(STEPID)_C_POSITION"
+		chan="$(IFO):STEPPER-BS_IP_C_POSITION"
 		clr=19
 		bclr=13
 	}
@@ -365,7 +365,7 @@ text {
 		height=20
 	}
 	monitor {
-		chan="$(IFO):STEPPER-$(STEPID)_F0Y_POSITION"
+		chan="$(IFO):STEPPER-BS_IP_F0Y_POSITION"
 		clr=19
 		bclr=13
 	}
@@ -393,7 +393,7 @@ text {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_T_STEP"
+		chan="$(IFO):STEPPER-BS_IP_T_STEP"
 		clr=19
 		bclr=14
 	}
@@ -420,7 +420,7 @@ text {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_Y_STEP"
+		chan="$(IFO):STEPPER-BS_IP_Y_STEP"
 		clr=19
 		bclr=14
 	}
@@ -447,7 +447,7 @@ text {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_F0Y_STEP"
+		chan="$(IFO):STEPPER-BS_IP_F0Y_STEP"
 		clr=19
 		bclr=14
 	}
@@ -462,5 +462,5 @@ image {
 		height=240
 	}
 	type="gif"
-	"image name"="IP_Type-SRmedm.gif"
+	"image name"="IP_Type-BSmedm.gif"
 }

@@ -1,14 +1,14 @@
 
 file {
-	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/CUST_STEP.adl"
-	version=030109
+	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/CUST_STEP.adl"
+	version=030107
 }
 display {
 	object {
-		x=4402
-		y=272
-		width=334
-		height=186
+		x=518
+		y=43
+		width=197
+		height=192
 	}
 	clr=13
 	bclr=13
@@ -89,57 +89,6 @@ display {
 }
 text {
 	object {
-		x=196
-		y=24
-		width=60
-		height=16
-	}
-	"basic attribute" {
-		clr=19
-	}
-	textix="MIN"
-	align="horiz. centered"
-}
-rectangle {
-	object {
-		x=174
-		y=42
-		width=8
-		height=16
-	}
-	"basic attribute" {
-		clr=60
-	}
-}
-rectangle {
-	object {
-		x=184
-		y=42
-		width=8
-		height=16
-	}
-	"basic attribute" {
-		clr=60
-	}
-}
-rectangle {
-	object {
-		x=184
-		y=42
-		width=8
-		height=16
-	}
-	"basic attribute" {
-		clr=54
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		calc="A"
-		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_RSWITCH"
-	}
-}
-text {
-	object {
 		x=5
 		y=6
 		width=127
@@ -152,8 +101,8 @@ text {
 }
 "text update" {
 	object {
-		x=69
-		y=40
+		x=75
+		y=36
 		width=100
 		height=20
 	}
@@ -168,8 +117,8 @@ text {
 }
 text {
 	object {
-		x=11
-		y=42
+		x=17
+		y=38
 		width=58
 		height=20
 	}
@@ -182,7 +131,7 @@ text {
 text {
 	object {
 		x=22
-		y=65
+		y=64
 		width=58
 		height=20
 	}
@@ -195,7 +144,7 @@ text {
 text {
 	object {
 		x=107
-		y=66
+		y=65
 		width=58
 		height=20
 	}
@@ -224,7 +173,7 @@ polyline {
 "message button" {
 	object {
 		x=10
-		y=108
+		y=107
 		width=60
 		height=20
 	}
@@ -240,7 +189,7 @@ polyline {
 "text entry" {
 	object {
 		x=11
-		y=80
+		y=79
 		width=75
 		height=20
 	}
@@ -255,7 +204,7 @@ polyline {
 "text entry" {
 	object {
 		x=97
-		y=80
+		y=79
 		width=75
 		height=20
 	}
@@ -270,7 +219,7 @@ polyline {
 polyline {
 	object {
 		x=-1
-		y=146
+		y=145
 		width=119
 		height=1
 	}
@@ -279,14 +228,14 @@ polyline {
 		width=1
 	}
 	points {
-		(117,146)
-		(-1,146)
+		(117,145)
+		(-1,145)
 	}
 }
 text {
 	object {
 		x=-3
-		y=159
+		y=157
 		width=58
 		height=20
 	}
@@ -299,7 +248,7 @@ text {
 "text entry" {
 	object {
 		x=42
-		y=155
+		y=154
 		width=75
 		height=20
 	}
@@ -314,7 +263,7 @@ text {
 text {
 	object {
 		x=75
-		y=112
+		y=111
 		width=95
 		height=16
 	}
@@ -326,7 +275,7 @@ text {
 "message button" {
 	object {
 		x=122
-		y=155
+		y=154
 		width=50
 		height=20
 	}
@@ -338,124 +287,4 @@ text {
 	label="STOP"
 	press_msg="1"
 	release_msg="0"
-}
-rectangle {
-	object {
-		x=174
-		y=42
-		width=8
-		height=16
-	}
-	"basic attribute" {
-		clr=54
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		calc="A"
-		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_LSWITCH"
-	}
-}
-text {
-	object {
-		x=171
-		y=24
-		width=16
-		height=18
-	}
-	"basic attribute" {
-		clr=19
-	}
-	textix="L"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=183
-		y=24
-		width=8
-		height=16
-	}
-	"basic attribute" {
-		clr=19
-	}
-	textix="R"
-}
-text {
-	object {
-		x=260
-		y=24
-		width=60
-		height=16
-	}
-	"basic attribute" {
-		clr=19
-	}
-	textix="MAX"
-	align="horiz. centered"
-}
-"text update" {
-	object {
-		x=194
-		y=40
-		width=60
-		height=20
-	}
-	monitor {
-		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_LIMITPOSMIN"
-		clr=19
-		bclr=14
-	}
-	align="horiz. centered"
-	limits {
-	}
-}
-"text update" {
-	object {
-		x=260
-		y=40
-		width=60
-		height=20
-	}
-	monitor {
-		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_LIMITPOSMAX"
-		clr=19
-		bclr=14
-	}
-	align="horiz. centered"
-	limits {
-	}
-}
-text {
-	object {
-		x=173
-		y=9
-		width=160
-		height=19
-	}
-	"basic attribute" {
-		clr=34
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		calc="(A=0&B=0)"
-		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_LIMITPOSMAX"
-		chanB="$(IFO):STEPPER-$(STEPID)_$(DOF)_LIMITPOSMIN"
-	}
-	textix="Limit Switch NOT installed."
-}
-"related display" {
-	object {
-		x=187
-		y=59
-		width=140
-		height=20
-	}
-	display[0] {
-		label="Change Limit Position"
-		name="./CUST_LIMITCHANGE.adl"
-		args="IFO=$(IFO),STEPID=$(STEPID),DOF=$(DOF)"
-	}
-	clr=50
-	bclr=14
-	label="Change Limit Pos."
 }

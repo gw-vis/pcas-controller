@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=628
-		y=366
+		x=21
+		y=227
 		width=664
 		height=348
 	}
@@ -576,17 +576,17 @@ display {
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=1"
 	}
 	display[2] {
-		label="2:F0"
+		label="2:(NOT USED)"
 		name="CUST_STEP.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=2"
 	}
 	display[3] {
-		label="3:"
+		label="3:F0"
 		name="CUST_STEP.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=3"
 	}
 	display[4] {
-		label="4: Doesn't work"
+		label="4:"
 		name="CUST_STEP.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),STEPID=SRM_GAS,DOF=4"
 	}

@@ -1,17 +1,17 @@
 
 file {
-	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/CUST_IP_SR.adl"
+	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/CUST_IP.adl"
 	version=030107
 }
 display {
 	object {
 		x=417
 		y=212
-		width=392
-		height=323
+		width=493
+		height=291
 	}
 	clr=13
-	bclr=14
+	bclr=13
 	cmap=""
 	gridSpacing=5
 	gridOn=0
@@ -101,7 +101,7 @@ text {
 }
 "text update" {
 	object {
-		x=93
+		x=83
 		y=36
 		width=100
 		height=20
@@ -109,7 +109,7 @@ text {
 	monitor {
 		chan="$(IFO):STEPPER-$(STEPID)_A_POSITION"
 		clr=19
-		bclr=13
+		bclr=14
 	}
 	align="horiz. centered"
 	limits {
@@ -178,7 +178,7 @@ polyline {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_UPDATE"
+		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_UPDATE"
 		clr=38
 		bclr=14
 	}
@@ -194,7 +194,7 @@ polyline {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_ACC"
+		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_ACC"
 		clr=19
 		bclr=14
 	}
@@ -209,7 +209,7 @@ polyline {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_VEL"
+		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_VEL"
 		clr=19
 		bclr=14
 	}
@@ -234,25 +234,26 @@ polyline {
 }
 text {
 	object {
-		x=14
-		y=221
+		x=-1
+		y=244
 		width=58
 		height=20
 	}
 	"basic attribute" {
 		clr=19
 	}
-	textix="STEP L"
+	textix="STEP"
+	align="horiz. centered"
 }
 "text entry" {
 	object {
-		x=65
-		y=218
+		x=44
+		y=241
 		width=75
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_L_STEP"
+		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_STEP"
 		clr=19
 		bclr=14
 	}
@@ -273,13 +274,13 @@ text {
 }
 "message button" {
 	object {
-		x=152
-		y=291
+		x=124
+		y=241
 		width=50
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_STOP"
+		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_STOP"
 		clr=50
 		bclr=14
 	}
@@ -302,7 +303,7 @@ text {
 }
 "text update" {
 	object {
-		x=93
+		x=83
 		y=62
 		width=100
 		height=20
@@ -310,7 +311,7 @@ text {
 	monitor {
 		chan="$(IFO):STEPPER-$(STEPID)_B_POSITION"
 		clr=19
-		bclr=13
+		bclr=14
 	}
 	align="horiz. centered"
 	limits {
@@ -331,7 +332,7 @@ text {
 }
 "text update" {
 	object {
-		x=93
+		x=83
 		y=87
 		width=100
 		height=20
@@ -339,7 +340,7 @@ text {
 	monitor {
 		chan="$(IFO):STEPPER-$(STEPID)_C_POSITION"
 		clr=19
-		bclr=13
+		bclr=14
 	}
 	align="horiz. centered"
 	limits {
@@ -347,7 +348,7 @@ text {
 }
 text {
 	object {
-		x=16
+		x=17
 		y=114
 		width=58
 		height=20
@@ -356,10 +357,11 @@ text {
 		clr=19
 	}
 	textix="POSITION F0Y"
+	align="horiz. centered"
 }
 "text update" {
 	object {
-		x=93
+		x=83
 		y=112
 		width=100
 		height=20
@@ -367,100 +369,9 @@ text {
 	monitor {
 		chan="$(IFO):STEPPER-$(STEPID)_F0Y_POSITION"
 		clr=19
-		bclr=13
+		bclr=14
 	}
 	align="horiz. centered"
 	limits {
 	}
-}
-text {
-	object {
-		x=14
-		y=245
-		width=58
-		height=20
-	}
-	"basic attribute" {
-		clr=19
-	}
-	textix="STEP T"
-}
-"text entry" {
-	object {
-		x=65
-		y=242
-		width=75
-		height=20
-	}
-	control {
-		chan="$(IFO):STEPPER-$(STEPID)_T_STEP"
-		clr=19
-		bclr=14
-	}
-	limits {
-	}
-}
-text {
-	object {
-		x=14
-		y=270
-		width=58
-		height=20
-	}
-	"basic attribute" {
-		clr=19
-	}
-	textix="STEP Y"
-}
-"text entry" {
-	object {
-		x=65
-		y=267
-		width=75
-		height=20
-	}
-	control {
-		chan="$(IFO):STEPPER-$(STEPID)_Y_STEP"
-		clr=19
-		bclr=14
-	}
-	limits {
-	}
-}
-text {
-	object {
-		x=14
-		y=295
-		width=58
-		height=20
-	}
-	"basic attribute" {
-		clr=19
-	}
-	textix="STEP F0Y"
-}
-"text entry" {
-	object {
-		x=65
-		y=292
-		width=75
-		height=20
-	}
-	control {
-		chan="$(IFO):STEPPER-$(STEPID)_F0Y_STEP"
-		clr=19
-		bclr=14
-	}
-	limits {
-	}
-}
-image {
-	object {
-		x=200
-		y=47
-		width=185
-		height=240
-	}
-	type="gif"
-	"image name"="IP_Type-SRmedm.gif"
 }

@@ -178,7 +178,7 @@ polyline {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_UPDATE"
+		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_UPDATE"
 		clr=38
 		bclr=14
 	}
@@ -194,7 +194,7 @@ polyline {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_ACC"
+		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_ACC"
 		clr=19
 		bclr=14
 	}
@@ -209,7 +209,7 @@ polyline {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_VEL"
+		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_VEL"
 		clr=19
 		bclr=14
 	}
@@ -279,7 +279,7 @@ text {
 		height=20
 	}
 	control {
-		chan="$(IFO):STEPPER-$(STEPID)_STOP"
+		chan="$(IFO):STEPPER-$(STEPID)_$(DOF)_STOP"
 		clr=50
 		bclr=14
 	}
