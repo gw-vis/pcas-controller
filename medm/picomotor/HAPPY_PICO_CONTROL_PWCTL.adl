@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=3986
-		y=219
+		x=471
+		y=638
 		width=683
 		height=202
 	}
@@ -819,6 +819,11 @@ text {
 		label="Turn Off"
 		name="xterm"
 		args="-e ssh -Y controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/picomotor/pico_power_control.py $(PICOID) OFF' &"
+	}
+	command[2] {
+		label="Reboot"
+		name="xterm"
+		args="-e ssh -Y controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/picomotor/pico_power_control.py $(PICOID) REBOOT' &"
 	}
 	clr=14
 	bclr=5

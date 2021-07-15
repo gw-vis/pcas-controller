@@ -5,7 +5,7 @@ file {
 }
 display {
 	object {
-		x=4606
+		x=206
 		y=408
 		width=1087
 		height=545
@@ -147,7 +147,7 @@ text {
 	}
 	display[0] {
 		label="1"
-		name="MCOI_PICO_CONTROL.adl"
+		name="MCOI_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=MCO,CH1=1,CH2=2,CH3=3,CH4=4"
 	}
 	clr=14
@@ -358,7 +358,7 @@ text {
 	}
 	display[0] {
 		label="1"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=PR3_IM,CH1=PITCH,CH2=ROLL,CH3=YAW,CH4=4"
 	}
 	clr=14
@@ -374,7 +374,7 @@ text {
 	}
 	display[0] {
 		label="1"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=PR3_BF,CH1=1,CH2=2,CH3=3,CH4=4"
 	}
 	clr=14
@@ -390,7 +390,7 @@ text {
 	}
 	display[0] {
 		label="1"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=PR2_IM,CH1=1,CH2=2,CH3=3,CH4=4"
 	}
 	clr=14
@@ -406,7 +406,7 @@ text {
 	}
 	display[0] {
 		label="1"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=PR2_BF,CH1=1,CH2=2,CH3=3,CH4=4"
 	}
 	clr=14
@@ -590,7 +590,7 @@ text {
 	}
 	display[0] {
 		label="SR2 IM"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=SR2_IM,CH1=PITCH,CH2=ROLL,CH3=YAW,CH4=4"
 	}
 	clr=14
@@ -606,7 +606,7 @@ text {
 	}
 	display[0] {
 		label="SR2 BF"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=SR2_BF,CH1=1,CH2=2,CH3=3,CH4=4"
 	}
 	clr=14
@@ -622,7 +622,7 @@ text {
 	}
 	display[0] {
 		label="1"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=TEST"
 	}
 	clr=14
@@ -702,7 +702,7 @@ text {
 	}
 	display[0] {
 		label="SR3 BF"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=SR3_BF,CH1=1,CH2=2,CH3=3,CH4=4"
 	}
 	clr=14
@@ -718,7 +718,7 @@ text {
 	}
 	display[0] {
 		label="SR3 IM"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=SR3_IM,CH1=PITCH,CH2=ROLL,CH3=YAW,CH4=4"
 	}
 	clr=14
@@ -734,7 +734,7 @@ text {
 	}
 	display[0] {
 		label="SR3 IM"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=SRM_IM,CH1=PITCH,CH2=ROLL,CH3=YAW,CH4=4"
 	}
 	clr=14
@@ -750,7 +750,7 @@ text {
 	}
 	display[0] {
 		label="SR3 IM"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=SRM_BF,CH1=1,CH2=2,CH3=3,CH4=4"
 	}
 	clr=14
@@ -766,7 +766,7 @@ text {
 	}
 	display[0] {
 		label="ITMX"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=ITMX,CH1=1,CH2=2,CH3=BF_Yaw,CH4=4"
 	}
 	clr=1
@@ -834,7 +834,7 @@ text {
 	"basic attribute" {
 		clr=24
 	}
-	textix="+0.5  -0.05"
+	textix="+3.0  +0.2"
 }
 text {
 	object {
@@ -906,7 +906,7 @@ text {
 	"basic attribute" {
 		clr=24
 	}
-	textix="+1    -0.05"
+	textix="-0.1  -0.05"
 }
 rectangle {
 	object {
@@ -1124,7 +1124,7 @@ text {
 	}
 	display[0] {
 		label="1"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=OMMT1,CH1=PITCH,CH2=YAW,CH3=X,CH4=Y"
 	}
 	clr=14
@@ -1140,7 +1140,7 @@ text {
 	}
 	display[0] {
 		label="1"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=OMMT2,CH1=PITCH,CH2=YAW,CH3=X,CH4=Y"
 	}
 	clr=14
@@ -1156,7 +1156,7 @@ text {
 	}
 	display[0] {
 		label="1"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=OSTM,CH1=PITCH,CH2=YAW,CH3=X,CH4=Y"
 	}
 	clr=14

@@ -1,12 +1,12 @@
 
 file {
-	name="/opt/rtcds/userapps/release/cds/common/medm/picomotor/HAPPY_PICO_CONTROL_PWCTL.adl"
-	version=030109
+	name="/opt/rtcds/userapps/release/cds/common/medm/picomotor/MCOI_PICO_CONTROL.adl"
+	version=030107
 }
 display {
 	object {
-		x=471
-		y=638
+		x=620
+		y=557
 		width=683
 		height=202
 	}
@@ -108,7 +108,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="$(PICOID) $(CH1)"
+	textix="MCO PIT"
 	align="horiz. centered"
 }
 "message button" {
@@ -292,7 +292,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="$(PICOID) $(CH2)"
+	textix="MCO YAW"
 	align="horiz. centered"
 }
 "message button" {
@@ -444,7 +444,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="$(PICOID) $(CH3)"
+	textix="MCI PIT"
 	align="horiz. centered"
 }
 "message button" {
@@ -596,7 +596,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="$(PICOID) $(CH4)"
+	textix="MCI YAW"
 	align="horiz. centered"
 }
 "message button" {
@@ -737,7 +737,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="Newfocus 8742 for $(PICOID)"
+	textix="Newfocus 8742 for MCF"
 	align="horiz. centered"
 }
 "shell command" {
@@ -794,11 +794,6 @@ text {
 		name="emacs"
 		args="/kagra/Dropbox/Subsystems/VIS/Scripts/PicoMotor/LogFiles/$(IFO):PICO-$(PICOID)_.log &"
 	}
-	command[2] {
-		label="Pico Power Control Log"
-		name="emacs"
-		args="/kagra/Dropbox/Subsystems/VIS/Scripts/PicoMotorPowerController/LogFiles/$(PICOID).log &"
-	}
 	clr=14
 	bclr=5
 	label="Log"
@@ -828,20 +823,4 @@ text {
 	clr=14
 	bclr=5
 	label="Power"
-}
-"shell command" {
-	object {
-		x=275
-		y=13
-		width=62
-		height=23
-	}
-	command[0] {
-		label="Reboot"
-		name="xterm"
-		args="-e ssh -Y controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/picomotor/pico_power_control.py $(PICOID) REBOOT' &"
-	}
-	clr=14
-	bclr=5
-	label="Power2"
 }

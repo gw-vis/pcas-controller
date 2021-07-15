@@ -19,11 +19,11 @@ from datetime import timedelta
 
 driverDict = {
     # Same happy_pico_start.py list.
+    #"MCO"      :{"IPADDR":"10.68.160.101", "OUTLET":1}, # MCF
     #"STM1"     :{"IPADDR":"10.68.160.90", "OUTLET":1}, 
     #"STM2"     :{"IPADDR":"10.68.160.90", "OUTLET":1}, 
     #"POM1"     :{"IPADDR":"10.68.160.90", "OUTLET":1}, 
     "MCF"      :{"IPADDR":"10.68.160.101", "OUTLET":1},  
-    "MCO"      :{"IPADDR":"10.68.160.101", "OUTLET":1},  # MCO = MCF
     "MCE"      :{"IPADDR":"10.68.160.102", "OUTLET":1},  
     "IMMT1"    :{"IPADDR":"10.68.160.103", "OUTLET":1}, 
     "IMMT2"    :{"IPADDR":"10.68.160.104", "OUTLET":1}, 
@@ -41,12 +41,12 @@ driverDict = {
     "SR2_BF"   :{"IPADDR":"10.68.160.110", "OUTLET":2}, 
     "SRM_IM"   :{"IPADDR":"10.68.160.111", "OUTLET":1}, 
     "SRM_BF"   :{"IPADDR":"10.68.160.111", "OUTLET":2}, 
-    "ETMX"     :{"IPADDR":"10.68.150.112", "OUTLET":1}, 
+    "ETMX"     :{"IPADDR":"10.68.160.112", "OUTLET":1}, 
     "ETMY"     :{"IPADDR":"10.68.160.113", "OUTLET":1}, 
-    "ITMX"     :{"IPADDR":"10.68.150.114", "OUTLET":1}, 
-    "ITMY"     :{"IPADDR":"10.68.150.115", "OUTLET":1}, 
-    "OMMT2"    :{"IPADDR":"10.68.160.116", "OUTLET":1}, 
-    "OMMT1"    :{"IPADDR":"10.68.160.117", "OUTLET":2}, 
+    "ITMX"     :{"IPADDR":"10.68.160.114", "OUTLET":1}, 
+    "ITMY"     :{"IPADDR":"10.68.160.115", "OUTLET":1}, 
+    "OMMT1"    :{"IPADDR":"10.68.160.116", "OUTLET":1}, 
+    "OMMT2"    :{"IPADDR":"10.68.160.116", "OUTLET":2}, 
     "OSTM"     :{"IPADDR":"10.68.160.117", "OUTLET":1}, 
     "PCAL_EX1" :{"IPADDR":"10.68.160.118", "OUTLET":1}, 
     "PCAL_EX2" :{"IPADDR":"10.68.160.118", "OUTLET":2}, 
@@ -54,8 +54,7 @@ driverDict = {
     "PCAL_EY2" :{"IPADDR":"10.68.160.119", "OUTLET":2}, 
     "POP"      :{"IPADDR":"10.68.160.120", "OUTLET":1}, 
     "POS"      :{"IPADDR":"10.68.160.121", "OUTLET":1}, 
-#    "TEST"     :{"IPADDR":"10.68.150.90", "OUTLET":1}, 
-    "TEST"     :{"IPADDR":"10.68.150.114", "OUTLET":2}, 
+    "TEST"     :{"IPADDR":"10.68.150.90", "OUTLET":1}, 
     "TEST2"     :{"IPADDR":"10.68.150.90", "OUTLET":2}, 
     "TEST3"     :{"IPADDR":"10.68.160.109", "OUTLET":1}, 
     #"AS_WFS"   :{"IPADDR":"Use SmartPlag", "OUTLET":1}, 

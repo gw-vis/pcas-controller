@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=471
-		y=638
+		x=1154
+		y=629
 		width=683
 		height=202
 	}
@@ -823,7 +823,7 @@ text {
 	command[2] {
 		label="Reboot"
 		name="xterm"
-		args="-e ssh -Y controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/picomotor/pico_power_control.py $(PICOID) REBOOT' &"
+		args="-e ssh -Y controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/picomotor/pico_power_control_TES.py $(PICOID) REBOOT' &"
 	}
 	clr=14
 	bclr=5
@@ -837,9 +837,19 @@ text {
 		height=23
 	}
 	command[0] {
+		label="Turn On"
+		name="xterm"
+		args="-e ssh -Y controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/picomotor/pico_power_control.py $(PICOID) ON' &"
+	}
+	command[1] {
+		label="Turn Off"
+		name="xterm"
+		args="-e ssh -Y controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/picomotor/pico_power_control.py $(PICOID) OFF' &"
+	}
+	command[2] {
 		label="Reboot"
 		name="xterm"
-		args="-e ssh -Y controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/picomotor/pico_power_control.py $(PICOID) REBOOT' &"
+		args="-e ssh -Y controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/picomotor/pico_power_control_TES.py $(PICOID) REBOOT' &"
 	}
 	clr=14
 	bclr=5

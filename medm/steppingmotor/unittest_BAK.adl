@@ -97,7 +97,7 @@ display {
 	display[0] {
 		label="0:TEST_GAS"
 		name="./OVERVIEW/CUST_STEP_dev.adl"
-		args="IFO=K1,ifo=K1,STEPID=TEST_GAS,MOTOR=1"
+		args="IFO=K1,ifo=K1,STEPID=TEST_GAS,MOTOR=0"
 	}
 	display[1] {
 		label="0'TEST_IP_TM"
