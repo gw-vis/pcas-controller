@@ -1,0 +1,752 @@
+
+file {
+	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/OVERVIEW/CUST_STEP_dev.adl"
+	version=030109
+}
+display {
+	object {
+		x=3983
+		y=297
+		width=358
+		height=406
+	}
+	clr=13
+	bclr=13
+	cmap=""
+	gridSpacing=5
+	gridOn=0
+	snapToGrid=0
+}
+"color map" {
+	ncolors=65
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		effbfb,
+		e0f8f7,
+		cef6f5,
+		a9f5f2,
+		81f7f3,
+		58faf4,
+		2ef2f7,
+		00ffff,
+		01dfd7,
+		04b4ae,
+		088a85,
+		0b615e,
+		0b3b39,
+		0a2a29,
+		071918,
+		fbf8ef,
+		f7f2e0,
+		f5ecce,
+		f3e2a9,
+		f5da81,
+		f7d358,
+		facc2e,
+		ffbf00,
+		dba901,
+		b18904,
+		886a08,
+		5f4c0b,
+		3a2f0b,
+		29220a,
+		181407,
+		fbefef,
+		f8e0e0,
+		f6cece,
+		f5a9a9,
+		f78181,
+		fa5858,
+		fe2e2e,
+		ff0000,
+		df0101,
+		b40404,
+		8a0808,
+		610b0b,
+		3b0b0b,
+		2a0a0a,
+		190707,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
+	}
+}
+text {
+	object {
+		x=22
+		y=96
+		width=59
+		height=19
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="SW Limit Min"
+	align="horiz. centered"
+}
+rectangle {
+	object {
+		x=201
+		y=145
+		width=8
+		height=16
+	}
+	"basic attribute" {
+		clr=60
+	}
+}
+rectangle {
+	object {
+		x=201
+		y=145
+		width=8
+		height=16
+	}
+	"basic attribute" {
+		clr=60
+	}
+}
+rectangle {
+	object {
+		x=201
+		y=145
+		width=8
+		height=16
+	}
+	"basic attribute" {
+		clr=54
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		calc="A"
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_RSWITCH"
+	}
+}
+text {
+	object {
+		x=5
+		y=6
+		width=127
+		height=15
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="$(STAGE) $(DOF)"
+}
+text {
+	object {
+		x=2
+		y=328
+		width=59
+		height=19
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="POSITION"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=31
+		y=170
+		width=59
+		height=19
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="ACC(DEF:500)"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=31
+		y=196
+		width=59
+		height=19
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="VEL(DEF:500)"
+	align="horiz. centered"
+}
+polyline {
+	object {
+		x=-1
+		y=22
+		width=119
+		height=1
+	}
+	"basic attribute" {
+		clr=25
+		width=1
+	}
+	points {
+		(117,22)
+		(-1,22)
+	}
+}
+"message button" {
+	object {
+		x=263
+		y=283
+		width=60
+		height=20
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_UPDATE"
+		clr=38
+		bclr=14
+	}
+	label="UPDATE"
+	press_msg="1"
+	release_msg="0"
+}
+"text entry" {
+	object {
+		x=118
+		y=169
+		width=60
+		height=20
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_ACC"
+		clr=19
+		bclr=14
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=118
+		y=194
+		width=60
+		height=20
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_VEL"
+		clr=19
+		bclr=14
+	}
+	limits {
+	}
+}
+polyline {
+	object {
+		x=6
+		y=275
+		width=298
+		height=1
+	}
+	"basic attribute" {
+		clr=25
+		width=1
+	}
+	points {
+		(303,275)
+		(6,275)
+	}
+}
+text {
+	object {
+		x=177
+		y=306
+		width=58
+		height=20
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="steps[steps]"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=153
+		y=282
+		width=95
+		height=16
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="to update position"
+}
+"message button" {
+	object {
+		x=265
+		y=314
+		width=60
+		height=20
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_STOP"
+		clr=50
+		bclr=14
+	}
+	label="STOP"
+	press_msg="1"
+	release_msg="0"
+}
+rectangle {
+	object {
+		x=228
+		y=145
+		width=8
+		height=16
+	}
+	"basic attribute" {
+		clr=54
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		calc="A"
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_LSWITCH"
+	}
+}
+text {
+	object {
+		x=215
+		y=146
+		width=8
+		height=18
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="L"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=186
+		y=146
+		width=8
+		height=16
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="R"
+}
+text {
+	object {
+		x=21
+		y=120
+		width=59
+		height=19
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="SW Limit Max"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=173
+		y=9
+		width=160
+		height=19
+	}
+	"basic attribute" {
+		clr=34
+	}
+	"dynamic attribute" {
+		vis="if zero"
+		calc="(A=0&B=0)"
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_LIMITPOSMAX"
+		chanB="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_LIMITPOSMIN"
+	}
+	textix="Limit Switch NOT installed."
+}
+text {
+	object {
+		x=31
+		y=220
+		width=59
+		height=19
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="LOAD Value"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=31
+		y=244
+		width=59
+		height=19
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="Resolution"
+	align="horiz. centered"
+}
+"text entry" {
+	object {
+		x=118
+		y=244
+		width=60
+		height=20
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_RESOLUTION"
+		clr=19
+		bclr=14
+	}
+	limits {
+	}
+}
+"message button" {
+	object {
+		x=183
+		y=245
+		width=46
+		height=19
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_RESOLUTION"
+		clr=20
+		bclr=13
+	}
+	label="1:FULL"
+	press_msg="1"
+}
+"message button" {
+	object {
+		x=236
+		y=245
+		width=46
+		height=19
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_RESOLUTION"
+		clr=20
+		bclr=13
+	}
+	label="2:HALF"
+	press_msg="2"
+}
+"message button" {
+	object {
+		x=288
+		y=245
+		width=56
+		height=19
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_RESOLUTION"
+		clr=20
+		bclr=13
+	}
+	label="256:ustep"
+	press_msg="256"
+}
+"text entry" {
+	object {
+		x=118
+		y=94
+		width=60
+		height=20
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_LIMITPOSMIN"
+		clr=20
+		bclr=14
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=118
+		y=119
+		width=60
+		height=20
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_LIMITPOSMAX"
+		clr=20
+		bclr=14
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=118
+		y=144
+		width=60
+		height=20
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_LRDISTANCE"
+		clr=20
+		bclr=14
+	}
+	limits {
+	}
+}
+"message button" {
+	object {
+		x=247
+		y=94
+		width=100
+		height=18
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_LIMITCHANGE"
+		clr=14
+		bclr=32
+	}
+	label="Write EEPROM SW"
+	press_msg="1"
+	release_msg="0"
+}
+"message button" {
+	object {
+		x=247
+		y=145
+		width=100
+		height=18
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_LRDISTANCECHANGE"
+		clr=14
+		bclr=32
+	}
+	label="Write EEPROM HW "
+	press_msg="1"
+	release_msg="0"
+}
+"message button" {
+	object {
+		x=62
+		y=328
+		width=20
+		height=18
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_REV"
+		clr=14
+		bclr=4
+	}
+	label="<"
+	press_msg="1"
+	release_msg="0"
+}
+"message button" {
+	object {
+		x=147
+		y=328
+		width=20
+		height=18
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_FWD"
+		clr=14
+		bclr=4
+	}
+	label=">"
+	press_msg="1"
+	release_msg="0"
+}
+"text entry" {
+	object {
+		x=173
+		y=327
+		width=50
+		height=20
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_FLUCTUATION"
+		clr=20
+		bclr=14
+	}
+	limits {
+	}
+}
+"choice button" {
+	object {
+		x=118
+		y=43
+		width=60
+		height=20
+	}
+	control {
+		chan="K1:VIS-$(SYSTEM)_$(BIO)_ENCODE_$(STEPNAME)_SW"
+		clr=14
+		bclr=4
+	}
+	stacking="column"
+}
+"shell command" {
+	object {
+		x=118
+		y=68
+		width=60
+		height=18
+	}
+	command[0] {
+		label="Start"
+		name="xterm"
+		args="-e ssh controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && step_start $(STEPID)' &"
+	}
+	command[1] {
+		label="Stop"
+		name="xterm"
+		args="-e ssh controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && step_start $(STEPID) -kill'"
+	}
+	command[2] {
+		label="Start[Rescue]"
+		name="xterm"
+		args="-e ssh controls@10.68.10.104 'source /kagra/apps/etc/client-user-env_deb10.sh && /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor_p3/step_start.py $(STEPID)' &"
+	}
+	command[3] {
+		label="Stop[Rescue]"
+		name="xterm"
+		args="-e ssh controls@10.68.10.104 'source /kagra/apps/etc/client-user-env_deb10.sh && /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor_p3/step_start.py $(STEPID) -kill'"
+	}
+	clr=14
+	bclr=4
+	label="STEP_START"
+}
+"message button" {
+	object {
+		x=247
+		y=354
+		width=100
+		height=18
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_POSITIONCHANGE"
+		clr=14
+		bclr=32
+	}
+	label="Write EEPROM Pos"
+	press_msg="1"
+	release_msg="0"
+}
+"text entry" {
+	object {
+		x=84
+		y=327
+		width=60
+		height=20
+	}
+	control {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_POSITION"
+		clr=20
+		bclr=14
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=29
+		y=144
+		width=59
+		height=19
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="HW LimitSwitch"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=22
+		y=45
+		width=59
+		height=19
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="Power"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=22
+		y=69
+		width=59
+		height=19
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="Script"
+	align="horiz. centered"
+}
+"text update" {
+	object {
+		x=118
+		y=220
+		width=60
+		height=20
+	}
+	monitor {
+		chan="$(IFO):STEPPER-$(STEPID)_$(MOTOR)_LOAD"
+		clr=19
+		bclr=14
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+text {
+	object {
+		x=85
+		y=309
+		width=58
+		height=20
+	}
+	"basic attribute" {
+		clr=19
+	}
+	textix="Pos[steps]"
+	align="horiz. centered"
+}
+"shell command" {
+	object {
+		x=250
+		y=383
+		width=97
+		height=17
+	}
+	command[0] {
+		label="ImpuctMoving"
+		name="xterm"
+		args="-e 'source /kagra/apps/etc/client-user-env_deb10.sh && /opt/rtcds/userapps/release/cds/common/scripts/epics-motor-control/stepmotor_p3/rescue/stepper_rescue.py $(STEPID)_$(MOTOR)'"
+	}
+	clr=36
+	bclr=54
+	label="Rescue"
+}

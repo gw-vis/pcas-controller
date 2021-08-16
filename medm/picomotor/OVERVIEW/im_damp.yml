@@ -1,0 +1,21 @@
+black-on-white: false
+font-size: 10
+plots:
+- channels:
+    K1:PICO-$(OPTICS)_IM_$(CH)_TARGET_POSITION: {color: '#1f77b4', offset: 0, scale: 1, unit: null,
+      width: 1}
+  col: 0
+  colspan: 1
+  row: 0
+  rowspan: 1
+  yrange: auto
+- channels:
+    K1:VIS-$(OPTICS)_IM_DAMP_$(DOF)_INMON: {color: '#ff7f0e', offset: 0, scale: 1, unit: null,
+      width: 1}
+  col: 0
+  colspan: 1
+  row: 1
+  rowspan: 1
+  yrange: auto
+time-window: [-1377.4843618869781, 0.0]
+window-title: K1:PICO-$(OPTICS)_IM_$(CH)_TARGET_POSITION K1:VIS-$(OPTIC)_IM_DAMP_$(DOF)_INMON

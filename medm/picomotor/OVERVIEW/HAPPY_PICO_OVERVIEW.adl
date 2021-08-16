@@ -1,0 +1,1416 @@
+
+file {
+	name="/opt/rtcds/userapps/release/cds/common/medm/picomotor/OVERVIEW/HAPPY_PICO_OVERVIEW_BAK.adl"
+	version=030109
+}
+display {
+	object {
+		x=2570
+		y=108
+		width=1000
+		height=700
+	}
+	clr=14
+	bclr=11
+	cmap=""
+	gridSpacing=5
+	gridOn=0
+	snapToGrid=0
+}
+"color map" {
+	ncolors=65
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		00d800,
+		1ebb00,
+		339900,
+		2d7f00,
+		216c00,
+		fd0000,
+		de1309,
+		be190b,
+		a01207,
+		820400,
+		5893ff,
+		597ee1,
+		4b6ec7,
+		3a5eab,
+		27548d,
+		fbf34a,
+		f9da3c,
+		eeb62b,
+		e19015,
+		cd6100,
+		ffb0ff,
+		d67fe2,
+		ae4ebc,
+		8b1a96,
+		610a75,
+		a4aaff,
+		8793e2,
+		6a73c1,
+		4d52a4,
+		343386,
+		c7bb6d,
+		b79d5c,
+		a47e3c,
+		7d5627,
+		58340f,
+		99ffff,
+		73dfff,
+		4ea5f9,
+		2a63e4,
+		0a00b8,
+		ebf1b5,
+		d4db9d,
+		bbc187,
+		a6a462,
+		8b8239,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
+	}
+}
+rectangle {
+	object {
+		x=490
+		y=366
+		width=220
+		height=70
+	}
+	"basic attribute" {
+		clr=57
+	}
+}
+rectangle {
+	object {
+		x=2
+		y=471
+		width=200
+		height=200
+	}
+	"basic attribute" {
+		clr=57
+	}
+}
+rectangle {
+	object {
+		x=2
+		y=366
+		width=115
+		height=100
+	}
+	"basic attribute" {
+		clr=57
+	}
+}
+text {
+	object {
+		x=497
+		y=369
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="All IM chans"
+}
+text {
+	object {
+		x=515
+		y=385
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="1: PITCH"
+}
+text {
+	object {
+		x=515
+		y=401
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="2: ROLL"
+}
+text {
+	object {
+		x=516
+		y=417
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="3: YAW"
+}
+text {
+	object {
+		x=6
+		y=369
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="IMMTs1&2 chans"
+}
+text {
+	object {
+		x=10
+		y=385
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="1: PITCH"
+}
+text {
+	object {
+		x=10
+		y=399
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="2: YAW"
+}
+text {
+	object {
+		x=11
+		y=429
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="4: Y"
+}
+text {
+	object {
+		x=10
+		y=414
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="3: X(optical axis)"
+}
+rectangle {
+	object {
+		x=369
+		y=445
+		width=150
+		height=240
+	}
+	"basic attribute" {
+		clr=57
+	}
+}
+text {
+	object {
+		x=387
+		y=447
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="PICO EFFICIENCIES"
+}
+text {
+	object {
+		x=395
+		y=460
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="UNIT: urad / STEP"
+}
+text {
+	object {
+		x=372
+		y=501
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="ETMX"
+}
+text {
+	object {
+		x=413
+		y=502
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  -0.198"
+}
+text {
+	object {
+		x=417
+		y=480
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="A    B   YAW"
+}
+text {
+	object {
+		x=15
+		y=474
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="PICO EFFICIENCIES"
+}
+text {
+	object {
+		x=9
+		y=524
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="MCO"
+}
+text {
+	object {
+		x=52
+		y=524
+		width=100
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="+3.0   +0.2"
+}
+text {
+	object {
+		x=27
+		y=490
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="UNIT: urad / STEP"
+}
+text {
+	object {
+		x=53
+		y=508
+		width=100
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="PITCH  YAW"
+}
+text {
+	object {
+		x=9
+		y=543
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="MCI"
+}
+text {
+	object {
+		x=52
+		y=543
+		width=100
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="+1.0   -0.05"
+}
+text {
+	object {
+		x=9
+		y=562
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="MCE"
+}
+text {
+	object {
+		x=53
+		y=562
+		width=100
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="-0.1   -0.05"
+}
+text {
+	object {
+		x=9
+		y=581
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="IMMT1"
+}
+text {
+	object {
+		x=53
+		y=581
+		width=100
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="+0.5   -0.05"
+}
+text {
+	object {
+		x=9
+		y=600
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="IMMT2"
+}
+text {
+	object {
+		x=53
+		y=600
+		width=100
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="-0.5   -0.05"
+}
+text {
+	object {
+		x=605
+		y=370
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="All BF chans"
+}
+text {
+	object {
+		x=622
+		y=388
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="1: PITCH(L)"
+}
+text {
+	object {
+		x=622
+		y=404
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="2: ROLL(T)"
+}
+rectangle {
+	object {
+		x=370
+		y=366
+		width=115
+		height=70
+	}
+	"basic attribute" {
+		clr=57
+	}
+}
+text {
+	object {
+		x=375
+		y=369
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="All TypeA chans"
+}
+text {
+	object {
+		x=376
+		y=385
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="1: Mooving mass A"
+}
+text {
+	object {
+		x=376
+		y=401
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="2: Mooving mass B"
+}
+text {
+	object {
+		x=376
+		y=417
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="3: BF YAW"
+}
+rectangle {
+	object {
+		x=526
+		y=445
+		width=180
+		height=240
+	}
+	"basic attribute" {
+		clr=57
+	}
+}
+text {
+	object {
+		x=544
+		y=448
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="PICO EFFICIENCIES"
+}
+text {
+	object {
+		x=552
+		y=461
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="UNIT: urad / STEP"
+}
+text {
+	object {
+		x=530
+		y=655
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="PRM_BF"
+}
+text {
+	object {
+		x=530
+		y=638
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="PRM_IM"
+}
+text {
+	object {
+		x=529
+		y=589
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="PR2_BF"
+}
+text {
+	object {
+		x=529
+		y=604
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="PR3_IM"
+}
+text {
+	object {
+		x=578
+		y=604
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="+0.05   0.04  -0.5"
+}
+text {
+	object {
+		x=529
+		y=573
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="PR2_IM"
+}
+text {
+	object {
+		x=529
+		y=620
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="PR3_BF"
+}
+text {
+	object {
+		x=578
+		y=574
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="+0.05  ---  ---"
+}
+text {
+	object {
+		x=581
+		y=655
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="+     -"
+}
+text {
+	object {
+		x=578
+		y=638
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="+0.03  +0.03  -0.22"
+}
+text {
+	object {
+		x=581
+		y=475
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="PITCH  ROLL YAW"
+}
+text {
+	object {
+		x=372
+		y=516
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="ETMY"
+}
+text {
+	object {
+		x=413
+		y=517
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  ---"
+}
+text {
+	object {
+		x=372
+		y=532
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="ITMX"
+}
+text {
+	object {
+		x=413
+		y=533
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  -0.2"
+}
+text {
+	object {
+		x=372
+		y=546
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="ITMY"
+}
+text {
+	object {
+		x=413
+		y=547
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  ---"
+}
+text {
+	object {
+		x=371
+		y=605
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="BS_IM"
+}
+text {
+	object {
+		x=371
+		y=622
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="BS_BF"
+}
+text {
+	object {
+		x=371
+		y=639
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="SR2_IM"
+}
+text {
+	object {
+		x=371
+		y=656
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="SR2_BF"
+}
+text {
+	object {
+		x=529
+		y=495
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="SR3_IM"
+}
+text {
+	object {
+		x=529
+		y=511
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="SR3_BF"
+}
+text {
+	object {
+		x=529
+		y=527
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="SRM_IM"
+}
+text {
+	object {
+		x=529
+		y=544
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="SRM_BF"
+}
+text {
+	object {
+		x=408
+		y=585
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="PITCH  ROLL YAW"
+}
+text {
+	object {
+		x=415
+		y=604
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  ---"
+}
+text {
+	object {
+		x=415
+		y=619
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  ---"
+}
+text {
+	object {
+		x=415
+		y=638
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  ---"
+}
+text {
+	object {
+		x=415
+		y=657
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  ---"
+}
+text {
+	object {
+		x=579
+		y=493
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  ---"
+}
+text {
+	object {
+		x=579
+		y=508
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  ---"
+}
+text {
+	object {
+		x=580
+		y=525
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  ---"
+}
+text {
+	object {
+		x=580
+		y=541
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  ---"
+}
+text {
+	object {
+		x=578
+		y=589
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  ---"
+}
+text {
+	object {
+		x=579
+		y=620
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---  ---  ---"
+}
+
+    composite {
+    object {
+    x=0
+    y=0
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./OVERVIEW_TOP.adl"
+    }
+    
+    composite {
+    object {
+    x=10
+    y=120
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=MCO,PICOID_LABEL=MCF,CH1=MCO:PIT,CH2=MCO:YAW,CH3=MCI:PIT,CH4=MCI:YAW,PWCTL=PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=10
+    y=150
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=MCE,PICOID_LABEL=MCE,CH1=MCE:PIT,CH2=MCE:YAW,CH3=MCE:3,CH4=MCE:4,PWCTL=NO_PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=10
+    y=180
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=MCI,PICOID_LABEL=STMs,CH1=MCI:1,CH2=MCI:2,CH3=MCI:3,CH4=MCI:4,PWCTL=NO_PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=10
+    y=210
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=IMMT1,PICOID_LABEL=IMMT1,CH1=IMMT1:PITCH,CH2=IMMT1:YAW,CH3=IMMT1:X,CH4=IMMT1:Y,PWCTL=NO_PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=10
+    y=240
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=IMMT2,PICOID_LABEL=IMMT2,CH1=IMMT2:PITCH,CH2=IMMT2:YAW,CH3=IMMT2:X,CH4=IMMT2:Y,PWCTL=NO_PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=130
+    y=120
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=POP_POM,PICOID_LABEL=POP_POM,CH1=POP_POM:AIR_P,CH2=POP_POM:AIR_Y,CH3=POP_POM:VAC_P,CH4=POP_POM:VAC_Y,PWCTL=NO_PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=130
+    y=150
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=POP_POM,PICOID_LABEL=POS_POM,CH1=POS_POM:AIR_P,CH2=POS_POM:AIR_Y,CH3=POS_POM:VAC_P,CH4=POS_POM:VAC_Y,PWCTL=NO_PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=130
+    y=180
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=REFL_WFS,PICOID_LABEL=REFL_WFS,CH1=REFL_WFS:1,CH2=REFL_WFS:2,CH3=REFL_WFS:3,CH4=REFL_WFS:4,PWCTL=NO_PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=130
+    y=210
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=AS_WFS,PICOID_LABEL=AS_WFS,CH1=AS_WFS:1,CH2=AS_WFS:2,CH3=AS_WFS:3,CH4=AS_WFS:4,PWCTL=NO_PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=250
+    y=120
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=OMMT1,PICOID_LABEL=OMMT1,CH1=OMMT1:PITCH,CH2=OMMT1:YAW,CH3=OMMT1:X,CH4=OMMT1:Y,PWCTL=PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=250
+    y=150
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=OMMT2,PICOID_LABEL=OMMT2,CH1=OMMT2:PITCH,CH2=OMMT2:YAW,CH3=OMMT2:X,CH4=OMMT2:Y,PWCTL=PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=250
+    y=180
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=OSTM,PICOID_LABEL=OSTM,CH1=OSTM:PITCH,CH2=OSTM:YAW,CH3=OSTM:X,CH4=OSTM:Y,PWCTL=PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=370
+    y=120
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=ETMX,PICOID_LABEL=ETMX,CH1=ETMX:1,CH2=ETMX:2,CH3=ETMX:BF_Yaw,CH4=ETMX:None,PWCTL=PWCTL,OPTICS=ETMX,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=370
+    y=150
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=ETMY,PICOID_LABEL=ETMY,CH1=ETMY:1,CH2=ETMY:2,CH3=ETMY:BF_Yaw,CH4=ETMY:None,PWCTL=PWCTL,OPTICS=ETMY,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=370
+    y=180
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=ITMX,PICOID_LABEL=ITMX,CH1=ITMX:1,CH2=ITMX:2,CH3=ITMX:BF_Yaw,CH4=ITMX:None,PWCTL=PWCTL,OPTICS=ITMX,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=370
+    y=210
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=ITMY,PICOID_LABEL=ITMY,CH1=ITMX:1,CH2=ITMX:2,CH3=ITMX:BF_Yaw,CH4=ITMX:None,PWCTL=PWCTL,OPTICS=ITMY,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=490
+    y=120
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=BS_IM,PICOID_LABEL=BS_IM,CH1=BS_IM:PITCH,CH2=BS_IM:ROLL,CH3=BS_IM:YAW,CH4=BS_IM:None,PWCTL=PWCTL,OPTICS=BS,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp_all.yml,CH1_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH2_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH3_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH4_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,DOF1=P,DOF2=R,DOF3=Y,DOF4=None,SENSOR_LABEL=IM_DAMP,NDSCOPE=ALL_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=490
+    y=150
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=BS_BF,PICOID_LABEL=BS_BF,CH1=BS_BF:PITCH,CH2=BS_BF:ROLL,CH3=BS_BF:None,CH4=BS_BF:None,PWCTL=PWCTL,OPTICS=BS,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=490
+    y=180
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=SR2_IM,PICOID_LABEL=SR2_IM,CH1=SR2_IM:PITCH,CH2=SR2_IM:ROLL,CH3=SR2_IM:YAW,CH4=SR2_IM:4,PWCTL=PWCTL,OPTICS=SR2,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp_all.yml,CH1_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH2_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH3_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH4_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,DOF1=P,DOF2=R,DOF3=Y,DOF4=None,SENSOR_LABEL=IM_DAMP,NDSCOPE=ALL_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=490
+    y=210
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=SR2_BF,PICOID_LABEL=SR2_BF,CH1=SR2_BF:PITCH(L),CH2=SR2_BF:ROLL(T),CH3=SR2_BF:None,CH4=SR2_BF:None,PWCTL=PWCTL,OPTICS=SR2,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=490
+    y=240
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=SR3_IM,PICOID_LABEL=SR3_IM,CH1=SR3_IM:PITCH,CH2=SR3_IM:ROLL,CH3=SR3_IM:YAW,CH4=SR3_IM:4,PWCTL=PWCTL,OPTICS=SR3,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp_all.yml,CH1_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH2_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH3_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH4_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,DOF1=P,DOF2=R,DOF3=Y,DOF4=None,SENSOR_LABEL=IM_DAMP,NDSCOPE=ALL_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=490
+    y=270
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=SR3_BF,PICOID_LABEL=SR3_BF,CH1=SR3_BF:PITCH(L),CH2=SR3_BF:ROLL(T),CH3=SR3_BF:None,CH4=SR3_BF:None,PWCTL=PWCTL,OPTICS=SR3,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=490
+    y=300
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=SRM_IM,PICOID_LABEL=SRM_IM,CH1=SRM_IM:PITCH,CH2=SRM_IM:ROLL,CH3=SRM_IM:YAW,CH4=SRM_IM:4,PWCTL=PWCTL,OPTICS=SRM,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp_all.yml,CH1_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH2_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH3_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH4_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,DOF1=P,DOF2=R,DOF3=Y,DOF4=None,SENSOR_LABEL=IM_DAMP,NDSCOPE=ALL_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=490
+    y=330
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=SRM_BF,PICOID_LABEL=SRM_BF,CH1=SRM_BF:PITCH(L),CH2=SRM_BF:ROLL(T),CH3=SRM_BF:None,CH4=SRM_BF:None,PWCTL=PWCTL,OPTICS=SRM,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=610
+    y=120
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=PR2_IM,PICOID_LABEL=PR2_IM,CH1=PR2_IM:PITCH,CH2=PR2_IM:ROLL,CH3=PR2_IM:YAW,CH4=PR2_IM:4,PWCTL=PWCTL,OPTICS=PR2,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp_all.yml,CH1_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH2_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH3_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH4_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,DOF1=P,DOF2=R,DOF3=Y,DOF4=None,SENSOR_LABEL=IM_DAMP,NDSCOPE=ALL_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=610
+    y=150
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=PR2_BF,PICOID_LABEL=PR2_BF,CH1=PR2_BF:PITCH(L),CH2=PR2_BF:ROLL(T),CH3=PR2_BF:None,CH4=PR2_BF:None,PWCTL=PWCTL,OPTICS=PR2,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=610
+    y=180
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=PR3_IM,PICOID_LABEL=PR3_IM,CH1=PR3_IM:PITCH,CH2=PR3_IM:ROLL,CH3=PR3_IM:YAW,CH4=PR3_IM:None,PWCTL=PWCTL,OPTICS=PR3,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp_all.yml,CH1_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH2_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH3_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH4_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,DOF1=P,DOF2=R,DOF3=Y,DOF4=None,SENSOR_LABEL=IM_DAMP,NDSCOPE=ALL_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=610
+    y=210
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=PR3_BF,PICOID_LABEL=PR3_BF,CH1=PR3_BF:PITCH(L),CH2=PR3_BF:ROLL(T),CH3=PR3_BF:None,CH4=PR3_BF:None,PWCTL=PWCTL,OPTICS=PR3,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=610
+    y=240
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=PRM_IM,PICOID_LABEL=PRM_IM,CH1=PRM_IM:PITCH,CH2=PRM_IM:ROLL,CH3=PRM_IM:YAW,CH4=PRM_IM:None,PWCTL=PWCTL,OPTICS=PRM,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp_all.yml,CH1_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH2_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH3_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,CH4_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/im_damp.yml,DOF1=P,DOF2=R,DOF3=Y,DOF4=None,SENSOR_LABEL=IM_DAMP,NDSCOPE=ALL_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=610
+    y=270
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=PRM_BF,PICOID_LABEL=PRM_BF,CH1=PRM_BF:PITCH(L),CH2=PRM_BF:ROLL(T),CH3=PRM_BF:None,CH4=PRM_BF:None,PWCTL=PWCTL,OPTICS=PRM,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=730
+    y=120
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=PCAL_EX1,PICOID_LABEL=PCAL_EX1,CH1=PCAL_EX1:Lower(PITCH),CH2=PCAL_EY1:Lower(YAW),CH3=PCAL_EX1:Upper(PITCH),CH4=PCAL_EX1:Upper(YAW),PWCTL=PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=730
+    y=150
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=PCAL_EX2,PICOID_LABEL=PCAL_EX2,CH1=PCAL_EX2:Lower(PITCH),CH2=PCAL_EX2:Lower(YAW),CH3=PCAL_EX2:Upper(PITCH),CH4=PCAL_EX2:Upper(YAW),PWCTL=PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=730
+    y=180
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=PCAL_EY1,PICOID_LABEL=PCAL_EY1,CH1=PCAL_EY1:1,CH2=PCAL_EX1:2,CH3=PCAL_EY1:3,CH4=PCAL_EY1:4,PWCTL=PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=730
+    y=210
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=PCAL_EY2,PICOID_LABEL=PCAL_EY2,CH1=PCAL_EY2:1,CH2=PCAL_EY2:2,CH3=PCAL_EY2:3,CH4=PCAL_EY2:4,PWCTL=PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    
+    composite {
+    object {
+    x=850
+    y=120
+    width=300
+    height=30
+    }
+    "composite name"=""
+    "composite file"="./HAPPY_PICO_MINI.adl;IFO=$(IFO),PICOID=TEST,PICOID_LABEL=TEST,CH1=TEST:1,CH2=TEST:2,CH3=TEST:3,CH4=TEST:4,PWCTL=NO_PWCTL,OPTICS=None,PICO_POS_YAML=/opt/rtcds/userapps/trunk/cds/common/medm/picomotor/OVERVIEW/pico_pos.yml,SENSOR_YAML=None,CH1_YAML=None,CH2_YAML=None,CH3_YAML=None,CH4_YAML=None,DOF1=None,DOF2=None,DOF3=None,DOF4=None,SENSOR_LABEL=None,NDSCOPE=SIMPLE_NDSCOPE"
+    }
+    

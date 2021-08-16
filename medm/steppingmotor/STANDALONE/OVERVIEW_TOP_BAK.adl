@@ -1,12 +1,12 @@
 
 file {
-	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/OVERVIEW/OVERVIEW_TOP.adl"
+	name="/users/ikeda/Git/pcas-controller/medm/steppingmotor/OVERVIEW/OVERVIEW_TOP.adl"
 	version=030109
 }
 display {
 	object {
-		x=5120
-		y=237
+		x=5584
+		y=276
 		width=1047
 		height=210
 	}
@@ -256,20 +256,4 @@ text {
 	clr=0
 	bclr=17
 	label="Sign of the script"
-}
-"related display" {
-	object {
-		x=926
-		y=94
-		width=86
-		height=20
-	}
-	display[0] {
-		label="STANDALONE"
-		name="../STANDALONE/STANDALONE_STEPPER_OVERVIEW.adl"
-		args="IFO=$(IFO),STAGE=TEST"
-	}
-	clr=14
-	bclr=4
-	label="STANDALONE"
 }

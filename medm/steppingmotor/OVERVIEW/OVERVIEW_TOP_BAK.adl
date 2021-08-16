@@ -266,7 +266,7 @@ text {
 	}
 	display[0] {
 		label="STANDALONE"
-		name="../STANDALONE/STANDALONE_STEPPER_OVERVIEW.adl"
+		name="../STANDALONE/STANDALONE_STEOOER_OVERVIEW.adl"
 		args="IFO=$(IFO),STAGE=TEST"
 	}
 	clr=14

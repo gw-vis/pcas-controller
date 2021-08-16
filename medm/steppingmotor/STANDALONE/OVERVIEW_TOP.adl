@@ -1,12 +1,12 @@
 
 file {
-	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/OVERVIEW/OVERVIEW_TOP.adl"
+	name="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/STANDALONE/OVERVIEW_TOP.adl"
 	version=030109
 }
 display {
 	object {
-		x=5120
-		y=237
+		x=5584
+		y=276
 		width=1047
 		height=210
 	}
@@ -160,89 +160,6 @@ text {
 }
 "shell command" {
 	object {
-		x=565
-		y=85
-		width=90
-		height=20
-	}
-	command[0] {
-		label="Type-A IP"
-		name="ndscope"
-		args="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/OVERVIEW/typea_ip.yml &"
-	}
-	command[1] {
-		label="Type-B IP"
-		name="ndscope"
-		args="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/OVERVIEW/typeb_ip.yml &"
-	}
-	command[2] {
-		label="Type-A GAS"
-		name="ndscope"
-		args="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/OVERVIEW/typea_gas.yml &"
-	}
-	command[3] {
-		label="Type-B GAS"
-		name="ndscope"
-		args="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/OVERVIEW/typeb_gas.yml &"
-	}
-	command[4] {
-		label="Type-Bp GAS"
-		name="ndscope"
-		args="/opt/rtcds/userapps/release/cds/common/medm/steppingmotor/OVERVIEW/typebp_gas.yml &"
-	}
-	clr=14
-	bclr=5
-	label="ndscope"
-}
-"choice button" {
-	object {
-		x=712
-		y=107
-		width=40
-		height=13
-	}
-	control {
-		chan="K1:VIS-PR0_BO_ENCODE_STEP_GAS_SW"
-		clr=14
-		bclr=4
-	}
-	stacking="column"
-}
-"shell command" {
-	object {
-		x=752
-		y=107
-		width=50
-		height=16
-	}
-	command[0] {
-		label="Start"
-		name="xterm"
-		args="-e ssh controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && step_start PR0_GAS' &"
-	}
-	command[1] {
-		label="Stop"
-		name="xterm"
-		args="-e ssh controls@k1script1 'source /kagra/apps/etc/client-user-env_deb10.sh && step_start PR0_GAS -kill'"
-	}
-	clr=14
-	bclr=4
-	label="script"
-}
-text {
-	object {
-		x=712
-		y=86
-		width=92
-		height=16
-	}
-	"basic attribute" {
-		clr=0
-	}
-	textix="PRM & PR3 (provisional)"
-}
-"shell command" {
-	object {
 		x=559
 		y=147
 		width=220
@@ -256,20 +173,4 @@ text {
 	clr=0
 	bclr=17
 	label="Sign of the script"
-}
-"related display" {
-	object {
-		x=926
-		y=94
-		width=86
-		height=20
-	}
-	display[0] {
-		label="STANDALONE"
-		name="../STANDALONE/STANDALONE_STEPPER_OVERVIEW.adl"
-		args="IFO=$(IFO),STAGE=TEST"
-	}
-	clr=14
-	bclr=4
-	label="STANDALONE"
 }

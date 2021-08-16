@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=206
-		y=408
+		x=3933
+		y=192
 		width=1087
 		height=545
 	}
@@ -194,7 +194,7 @@ text {
 	}
 	display[0] {
 		label="ETMY"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=ETMY,CH1=1,CH2=2,CH3=BF_Yaw,CH4=4"
 	}
 	clr=0
@@ -288,23 +288,7 @@ text {
 "related display" {
 	object {
 		x=8
-		y=240
-		width=150
-		height=30
-	}
-	display[0] {
-		label="1"
-		name="HAPPY_PICO_CONTROL.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=BS_IM,CH1=1,CH2=2,CH3=3,CH4=4"
-	}
-	clr=14
-	bclr=55
-	label="BS"
-}
-"related display" {
-	object {
-		x=8
-		y=283
+		y=239
 		width=150
 		height=30
 	}
@@ -326,8 +310,8 @@ text {
 	}
 	display[0] {
 		label="PRM IM"
-		name="HAPPY_PICO_CONTROL.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=PRM_IM,CH1=1,CH2=2,CH3=3,CH4=4"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=PRM_IM,CH1=PITCH,CH2=ROLL,CH3=YAW,CH4=4"
 	}
 	clr=14
 	bclr=15
@@ -342,7 +326,7 @@ text {
 	}
 	display[0] {
 		label="PRM BF"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=PRM_BF,CH1=1,CH2=2,CH3=3,CH4=4"
 	}
 	clr=14
@@ -391,7 +375,7 @@ text {
 	display[0] {
 		label="1"
 		name="HAPPY_PICO_CONTROL_PWCTL.adl"
-		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=PR2_IM,CH1=1,CH2=2,CH3=3,CH4=4"
+		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=PR2_IM,CH1=PITCH,CH2=ROLL,CH3=YAW,CH4=4"
 	}
 	clr=14
 	bclr=15
@@ -422,7 +406,7 @@ text {
 	}
 	display[0] {
 		label="1"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=BS_BF,CH1=PITCH,CH2=ROLL,CH3=3,CH4=4"
 	}
 	clr=14
@@ -438,7 +422,7 @@ text {
 	}
 	display[0] {
 		label="1"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=BS_IM,CH1=PITCH,CH2=ROLL,CH3=YAW,CH4=4"
 	}
 	clr=14
@@ -638,7 +622,7 @@ text {
 	}
 	display[0] {
 		label="ETMX"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=ETMX,CH1=1,CH2=2,CH3=BF_Yaw,CH4=4"
 	}
 	clr=1
@@ -782,7 +766,7 @@ text {
 	}
 	display[0] {
 		label="ITMY"
-		name="HAPPY_PICO_CONTROL.adl"
+		name="HAPPY_PICO_CONTROL_PWCTL.adl"
 		args="USERAPPS=$(USERAPPS),SITE=$(SITE),site=$(site),IFO=$(IFO),ifo=$(ifo),PICOID=ITMY,CH1=1,CH2=2,CH3=BF_Yaw,CH4=4"
 	}
 	clr=1
@@ -793,7 +777,7 @@ rectangle {
 	object {
 		x=801
 		y=24
-		width=130
+		width=230
 		height=300
 	}
 	"basic attribute" {
@@ -828,13 +812,13 @@ text {
 	object {
 		x=850
 		y=74
-		width=71
+		width=150
 		height=16
 	}
 	"basic attribute" {
 		clr=24
 	}
-	textix="+3.0  +0.2"
+	textix="+3.0   +0.2"
 }
 text {
 	object {
@@ -852,7 +836,7 @@ text {
 	object {
 		x=851
 		y=58
-		width=71
+		width=150
 		height=16
 	}
 	"basic attribute" {
@@ -876,13 +860,13 @@ text {
 	object {
 		x=850
 		y=93
-		width=71
+		width=150
 		height=16
 	}
 	"basic attribute" {
 		clr=24
 	}
-	textix="+1    -0.05"
+	textix="+1.0   -0.05"
 }
 text {
 	object {
@@ -900,13 +884,13 @@ text {
 	object {
 		x=851
 		y=112
-		width=71
+		width=150
 		height=16
 	}
 	"basic attribute" {
 		clr=24
 	}
-	textix="-0.1  -0.05"
+	textix="-0.1   -0.05"
 }
 rectangle {
 	object {
@@ -971,13 +955,13 @@ text {
 	object {
 		x=851
 		y=131
-		width=71
+		width=150
 		height=16
 	}
 	"basic attribute" {
 		clr=24
 	}
-	textix="+0.5  -0.05"
+	textix="+0.5   -0.05"
 }
 text {
 	object {
@@ -995,18 +979,18 @@ text {
 	object {
 		x=851
 		y=150
-		width=71
+		width=150
 		height=16
 	}
 	"basic attribute" {
 		clr=24
 	}
-	textix="-0.5  -0.05"
+	textix="-0.5   -0.05"
 }
 text {
 	object {
 		x=809
-		y=171
+		y=187
 		width=71
 		height=16
 	}
@@ -1018,7 +1002,7 @@ text {
 text {
 	object {
 		x=809
-		y=188
+		y=204
 		width=71
 		height=16
 	}
@@ -1030,7 +1014,7 @@ text {
 text {
 	object {
 		x=809
-		y=206
+		y=222
 		width=71
 		height=16
 	}
@@ -1042,7 +1026,7 @@ text {
 text {
 	object {
 		x=809
-		y=258
+		y=274
 		width=71
 		height=16
 	}
@@ -1054,19 +1038,19 @@ text {
 text {
 	object {
 		x=850
-		y=258
-		width=71
+		y=274
+		width=150
 		height=16
 	}
 	"basic attribute" {
 		clr=24
 	}
-	textix="+0.05 -0.5"
+	textix="+0.05   0.04  -0.5"
 }
 text {
 	object {
 		x=809
-		y=223
+		y=239
 		width=71
 		height=16
 	}
@@ -1078,7 +1062,7 @@ text {
 text {
 	object {
 		x=809
-		y=241
+		y=257
 		width=71
 		height=16
 	}
@@ -1090,14 +1074,14 @@ text {
 text {
 	object {
 		x=853
-		y=223
-		width=71
+		y=239
+		width=150
 		height=16
 	}
 	"basic attribute" {
 		clr=24
 	}
-	textix="+     -"
+	textix="+0.05  ---  ---"
 }
 "related display" {
 	object {
@@ -1362,4 +1346,88 @@ text {
 	clr=14
 	bclr=55
 	label="PCAL_EY2"
+}
+text {
+	object {
+		x=850
+		y=254
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="+     -"
+}
+text {
+	object {
+		x=809
+		y=291
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="ETMX"
+}
+text {
+	object {
+		x=850
+		y=292
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---    ---    -0.198"
+}
+text {
+	object {
+		x=853
+		y=205
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="+0.03  +0.03  -0.22"
+}
+text {
+	object {
+		x=854
+		y=171
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="PITCH  ROLL YAW"
+}
+text {
+	object {
+		x=810
+		y=307
+		width=71
+		height=16
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="ITMX"
+}
+text {
+	object {
+		x=851
+		y=308
+		width=150
+		height=16
+	}
+	"basic attribute" {
+		clr=24
+	}
+	textix="---    ---    -0.2"
 }

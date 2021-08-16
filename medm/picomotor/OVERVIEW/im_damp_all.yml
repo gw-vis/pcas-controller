@@ -1,0 +1,54 @@
+black-on-white: false
+font-size: 10
+plots:
+- channels:
+    K1:VIS-$(OPTICS)_IM_DAMP_R_INMON: {color: '#1f77b4', offset: 0, scale: 1, unit: null,
+      width: 1}
+  col: 0
+  colspan: 1
+  row: 0
+  rowspan: 1
+  yrange: auto
+- channels:
+    K1:VIS-$(OPTICS)_IM_DAMP_T_INMON: {color: '#ff7f0e', offset: 0, scale: 1, unit: null,
+      width: 1}
+  col: 1
+  colspan: 1
+  row: 0
+  rowspan: 1
+  yrange: auto
+- channels:
+    K1:VIS-$(OPTICS)_IM_DAMP_V_INMON: {color: '#2ca02c', offset: 0, scale: 1, unit: null,
+      width: 1}
+  col: 0
+  colspan: 1
+  row: 1
+  rowspan: 1
+  yrange: auto
+- channels:
+    K1:VIS-$(OPTICS)_IM_DAMP_R_INMON: {color: '#d62728', offset: 0, scale: 1, unit: null,
+      width: 1}
+  col: 1
+  colspan: 1
+  row: 1
+  rowspan: 1
+  yrange: auto
+- channels:
+    K1:VIS-$(OPTICS)_IM_DAMP_P_INMON: {color: '#9467bd', offset: 0, scale: 1, unit: null,
+      width: 1}
+  col: 0
+  colspan: 1
+  row: 2
+  rowspan: 1
+  yrange: auto
+- channels:
+    K1:VIS-$(OPTICS)_IM_DAMP_Y_INMON: {color: '#8c564b', offset: 0, scale: 1, unit: null,
+      width: 1}
+  col: 1
+  colspan: 1
+  row: 2
+  rowspan: 1
+  yrange: auto
+time-window: [-2.0, 0.0]
+window-title: K1:VIS-$(OPTICS)_IM_DAMP_R_INMON K1:VIS-$(OPTICS)_IM_DAMP_T_INMON K1:VIS-$(OPTICS)_IM_DAMP_V_INMON
+  K1:VIS-$(OPTICS)_IM_DAMP_R_INMON K1:VIS-$(OPTICS)_IM_DAMP_P_INMON K1:VIS-$(OPTICS)_IM_DAMP_Y_INMON
